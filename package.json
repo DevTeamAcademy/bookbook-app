@@ -2,28 +2,41 @@
   "name": "bookbook-app",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "analyze": "source-map-explorer build/static/js/main.*",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
   "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.2"
   },
-  "scripts": {
-    "analyze": "source-map-explorer build/static/js/main.*",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@storybook/addon-actions": "4.1.4",
+    "@storybook/addon-links": "^4.1.4",
+    "@storybook/addon-storyshots": "^4.1.4",
+    "@storybook/addons": "4.1.4",
+    "@storybook/react": "4.1.4",
+    "babel-loader": "^8.0.4",
+    "eslint-plugin-compat": "^2.6.3",
+    "react-chromatic": "^0.8.4",
+    "react-test-renderer": "^16.7.0",
+    "require-context.macro": "^1.0.4",
+    "source-map-explorer": "^1.6.0"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "plugins": [
+      "compat"
+    ]
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -35,7 +48,12 @@
       "git add"
     ]
   },
-  "devDependencies": {
-    "source-map-explorer": "^1.6.0"
+  "browserslist": {
+    "development": [
+      "last 2 versions"
+    ],
+    "production": [
+      "last 4 versions"
+    ]
   }
 }
