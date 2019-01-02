@@ -11,7 +11,6 @@ export const TextComponent = (props: Object) => {
     return (
       <Text {...props} new='tst' title={title}>
         {children}
-        {(true && 'hello') || 'real'}
       </Text>
     );
   }
