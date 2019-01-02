@@ -11,8 +11,8 @@ export const TextComponent = (props: Object) => {
     return (
       <Text
         {...props}
-        title={title}
-      >
+        new="tst"
+        title={title}>
         {children}
       </Text>
     );
