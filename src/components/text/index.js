@@ -9,9 +9,7 @@ export const TextComponent = (props: Object) => {
   const { title, children } = props;
   if (H.isNotNil(title)) {
     return (
-      <Text
-        {...props}
-        new="tst" title={title}>
+      <Text {...props} new="tst" title={title}>
         {children}
       </Text>
     );
