@@ -2,7 +2,7 @@ import React from "react";
 // global
 import * as H from "../../helpers";
 // components text
-import { Text } from "./ui";
+import { Text } from './ui';
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const TextComponent = (props: Object) => {
