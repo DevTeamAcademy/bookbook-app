@@ -32,7 +32,6 @@
     "babel-loader": "^8.0.4",
     "eslint-plugin-compat": "^2.6.3",
     "prettier": "^1.15.3",
-    "pretty-quick": "^1.8.0",
     "react-chromatic": "^0.8.4",
     "react-test-renderer": "^16.7.0",
     "require-context.macro": "^1.0.4",
@@ -47,12 +46,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
+      "prettier --tab-width <120> --single-quote --jsx-single-quote --trailing-comma <all> --write",
       "git add"
     ]
   },
