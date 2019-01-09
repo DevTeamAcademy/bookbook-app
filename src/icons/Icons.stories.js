@@ -5,7 +5,7 @@ import { withKnobs, text, color, number } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import JSXAddon from 'storybook-addon-jsx';
 // icons
-import { List, Quote, Notify, Library } from './';
+import { List, Quote, Notify, Search, Library } from './';
 import { IconWrapper } from './ui';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -16,6 +16,7 @@ const iconsMap = {
   List,
   Quote,
   Notify,
+  Search,
   Library,
 };
 
@@ -30,6 +31,7 @@ const IconsList = () => (
     List: <List />
     Quote: <Quote />
     Library: <Library />
+    Search: <Search />
   </Fragment>
 );
 
@@ -49,7 +51,9 @@ storiesOf('Icon Details', module)
   .addWithJSX('Quote -> default', () => <Quote />)
   .addWithJSX('Quote -> with props', () => renderIconWithProps('Quote'))
   .addWithJSX('Library -> default', () => <Library />)
-  .addWithJSX('Library -> with props', () => renderIconWithProps('Library'));
+  .addWithJSX('Library -> with props', () => renderIconWithProps('Library'))
+  .addWithJSX('Search -> default', () => <Search />)
+  .addWithJSX('Search -> with props', () => renderIconWithProps('Search'));
 
 // This will lead to { onClick: action('clicked'), ... }
 const iconWrapperEvents = actions({ onClick: 'clicked' });

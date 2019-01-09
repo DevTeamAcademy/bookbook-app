@@ -4038,7 +4038,7 @@ exports[`Storyshots TaskList withPinnedTasks 1`] = `
 </div>
 `;
 
-exports[`Storyshots TextComponent TextComponent -> default 1`] = `
+exports[`Storyshots TextEllipsed TextEllipsed -> default 1`] = `
 <div>
   <div
     style={
@@ -4159,7 +4159,7 @@ exports[`Storyshots TextComponent TextComponent -> default 1`] = `
               }
             }
           >
-            TextComponent
+            TextEllipsed
           </h1>
           <h2
             style={
@@ -4171,7 +4171,7 @@ exports[`Storyshots TextComponent TextComponent -> default 1`] = `
               }
             }
           >
-            TextComponent -&gt; default
+            TextEllipsed -&gt; default
           </h2>
         </div>
         
@@ -4290,7 +4290,7 @@ exports[`Storyshots TextComponent TextComponent -> default 1`] = `
                       }
                     >
                       &lt;
-                      TextComponent
+                      TextEllipsed
                     </span>
                     <span />
                     <span
@@ -4337,7 +4337,7 @@ exports[`Storyshots TextComponent TextComponent -> default 1`] = `
                       }
                     >
                       &lt;/
-                      TextComponent
+                      TextEllipsed
                       &gt;
                     </span>
                   </div>
@@ -4409,7 +4409,7 @@ exports[`Storyshots TextComponent TextComponent -> default 1`] = `
               }
             >
               "
-              TextComponent
+              TextEllipsed
               " Component
             </h2>
             <small>
@@ -4423,7 +4423,7 @@ exports[`Storyshots TextComponent TextComponent -> default 1`] = `
 </div>
 `;
 
-exports[`Storyshots TextComponent TextComponent -> with props 1`] = `
+exports[`Storyshots TextEllipsed TextEllipsed -> with props 1`] = `
 <div>
   <div
     style={
@@ -4549,7 +4549,7 @@ exports[`Storyshots TextComponent TextComponent -> with props 1`] = `
               }
             }
           >
-            TextComponent
+            TextEllipsed
           </h1>
           <h2
             style={
@@ -4561,7 +4561,7 @@ exports[`Storyshots TextComponent TextComponent -> with props 1`] = `
               }
             }
           >
-            TextComponent -&gt; with props
+            TextEllipsed -&gt; with props
           </h2>
         </div>
         
@@ -4680,7 +4680,7 @@ exports[`Storyshots TextComponent TextComponent -> with props 1`] = `
                       }
                     >
                       &lt;
-                      TextComponent
+                      TextEllipsed
                     </span>
                     <span>
                       <span>
@@ -4889,7 +4889,7 @@ exports[`Storyshots TextComponent TextComponent -> with props 1`] = `
                       }
                     >
                       &lt;/
-                      TextComponent
+                      TextEllipsed
                       &gt;
                     </span>
                   </div>
@@ -4961,7 +4961,7 @@ exports[`Storyshots TextComponent TextComponent -> with props 1`] = `
               }
             >
               "
-              TextComponent
+              TextEllipsed
               " Component
             </h2>
             <small>

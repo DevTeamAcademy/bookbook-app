@@ -67,3 +67,15 @@ export const List = ({ color, width, height }) => (
 );
 List.propTypes = iconPropTypes;
 List.defaultProps = defaultIconProps;
+
+export const Search = ({ color, width, height }) => (
+  <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 30 30'>
+    <path
+      fill={color}
+      fillRule='evenodd'
+      d='M1.694 11.847c0-2.309.785-4.437 2.09-6.145 1.66-2.172 4.167-3.664 7.028-3.956a10.118 10.118 0 0 1 5.463.977c3.386 1.647 5.73 5.113 5.73 9.125 0 5.6-4.556 10.158-10.155 10.158-2.79 0-5.32-1.13-7.156-2.96-.007-.006-.015-.01-.022-.02l-.03-.031a10.131 10.131 0 0 1-2.948-7.148zM30 27.607l-8.668-8.67a11.776 11.776 0 0 0 2.37-7.088C23.702 5.304 18.395 0 11.85 0 7.82 0 4.268 2.015 2.127 5.088A11.78 11.78 0 0 0 0 11.847c0 6.548 5.308 11.852 11.848 11.852 2.663 0 5.112-.887 7.088-2.37L27.608 30 30 27.608z'
+    />
+  </svg>
+);
+Search.propTypes = iconPropTypes;
+Search.defaultProps = defaultIconProps;

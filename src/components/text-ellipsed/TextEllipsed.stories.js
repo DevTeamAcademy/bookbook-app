@@ -5,30 +5,25 @@ import { withKnobs, text, color, number, boolean } from '@storybook/addon-knobs/
 import { withInfo } from '@storybook/addon-info';
 import JSXAddon from 'storybook-addon-jsx';
 // icons
-import { TextComponent } from './';
+import TextEllipsed from './';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // NOTE: set to use 'addWithJSX' instead of 'add'
 setAddon(JSXAddon);
 
-storiesOf('TextComponent', module)
+storiesOf('TextEllipsed', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .addDecorator(withInfo)
   .addDecorator(withKnobs)
-  .addWithJSX('TextComponent -> default', () => (
-    <TextComponent>
-      Some text here
-    </TextComponent>
-  ))
-  .addWithJSX('TextComponent -> with props', () => (
-    <TextComponent
-      display={text('display', 'inline-block')}
-      width={text('width', '100px')}
-      height={number('height', 25)}
-      color={color('color', 'blue')}
+  .addWithJSX('TextEllipsed -> default', () => <TextEllipsed>Some text here</TextEllipsed>)
+  .addWithJSX('TextEllipsed -> with props', () => (
+    <TextEllipsed
       title='An ellipsed text here'
+      color={color('color', 'blue')}
+      display={text('display', 'block')}
+      maxWidth={text('maxWidth', '100px')}
       withEllipsis={boolean('withEllipsis', true)}
     >
       An ellipsed text here
-    </TextComponent>
-  ))
+    </TextEllipsed>
+  ));

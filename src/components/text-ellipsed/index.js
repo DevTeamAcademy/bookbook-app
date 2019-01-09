@@ -5,11 +5,11 @@ import * as H from '../../helpers';
 import { Text } from './ui';
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const TextComponent = (props: Object) => {
+export const TextEllipsed = (props: Object) => {
   const { title, children } = props;
   if (H.isNotNil(title)) {
     return (
-      <Text {...props} new='tst' title={title}>
+      <Text {...props} title={title}>
         {children}
       </Text>
     );
@@ -17,4 +17,4 @@ export const TextComponent = (props: Object) => {
   return <Text {...props}>{children}</Text>;
 };
 
-export default TextComponent;
+export default TextEllipsed;
