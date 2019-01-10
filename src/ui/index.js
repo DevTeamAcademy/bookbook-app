@@ -1,42 +1,28 @@
 import { or } from 'ramda';
 import styled from 'styled-components';
 import {
-  top,
-  left,
-  flex,
-  size,
-  ratio,
   color,
   space,
   width,
-  right,
   height,
-  bottom,
   border,
   zIndex,
   opacity,
   display,
   position,
   fontSize,
-  flexWrap,
-  maxWidth,
-  minWidth,
-  maxHeight,
-  minHeight,
   boxShadow,
-  borderTop,
   alignItems,
-  borderLeft,
   borderColor,
-  borderRight,
-  borderBottom,
   borderRadius,
-  flexDirection,
-  justifyContent } from 'styled-system';
+  justifyContent,
+} from 'styled-system';
 // helpers
 import * as H from '../helpers';
 // //////////////////////////////////////////////////////////////////////////////
-export { Text } from './Text.js';
+export { Box } from './box';
+export { Flex } from './flex';
+export { Text } from './text';
 // //////////////////////////////////////////////////////////////////////////////
 
 export const createMinWithMediaQuery = n => `
@@ -45,65 +31,6 @@ export const createMinWithMediaQuery = n => `
 
 export const createMaxWithMediaQuery = n => `
   @media screen and (max-width: ${n}px)
-`;
-
-export const Box = styled.div`
-  ${top}
-  ${left}
-  ${flex}
-  ${size}
-  ${ratio}
-  ${color}
-  ${space}
-  ${width}
-  ${right}
-  ${height}
-  ${bottom}
-  ${border}
-  ${zIndex}
-  ${opacity}
-  ${display}
-  ${fontSize}
-  ${position}
-  ${maxWidth}
-  ${minWidth}
-  ${maxHeight}
-  ${minHeight}
-  ${boxShadow}
-  ${borderTop}
-  ${borderLeft}
-  ${borderRight}
-  ${borderColor}
-  ${borderBottom}
-  ${borderRadius}
-`;
-
-export const Flex = styled.div`
-  ${top}
-  ${left}
-  ${color}
-  ${space}
-  ${width}
-  ${right}
-  ${height}
-  ${bottom}
-  ${border}
-  ${zIndex}
-  ${opacity}
-  ${fontSize}
-  ${flexWrap}
-  ${position}
-  ${boxShadow}
-  ${borderTop}
-  ${borderLeft}
-  ${alignItems}
-  ${borderRight}
-  ${borderColor}
-  ${borderBottom}
-  ${borderRadius}
-  ${flexDirection}
-  ${justifyContent}
-  display: ${({ inline }) => H.ifElse(inline, 'inline-flex', 'flex')};
 `;
 
 export const Button = styled.button`
@@ -121,14 +48,7 @@ export const Button = styled.button`
   cursor: ${({ cursor }) => or(cursor, 'initial')};
 `;
 
-export const Input = styled.input`
-  ${space}
-  ${width}
-  ${border}
-  ${height}
-`;
-
-export const LinkButton = styled.a`
+export const Link = styled.a`
   ${color}
   ${space}
   ${width}
@@ -148,7 +68,7 @@ export const LinkButton = styled.a`
 `;
 
 /* NOTE: don't remove 'position' from start for work animation */
-export const LinkButtonAnimated = styled(LinkButton)`
+export const LinkAnimated = styled(Link)`
   position: relative;
   &::before {
     top: 0;
@@ -158,17 +78,11 @@ export const LinkButtonAnimated = styled(LinkButton)`
     height: 100%;
     position: absolute;
     transition: width 0.2s;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
   }
   &:hover {
     &::before {
       width: 100%;
     }
   }
-`;
-
-export const Image = styled.img`
-  ${space}
-  ${width}
-  ${height}
 `;

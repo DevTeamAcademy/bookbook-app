@@ -4,19 +4,24 @@ import { withKnobs, text, color } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import JSXAddon from 'storybook-addon-jsx';
 // ui
-import { Text } from './';
+import { Box } from './';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // NOTE: set to use 'addWithJSX' instead of 'add'
 setAddon(JSXAddon);
 
-storiesOf('Text', module)
+storiesOf('Box', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .addDecorator(withInfo)
   .addDecorator(withKnobs)
-  .addWithJSX('Text -> default', () => <Text>Text here</Text>)
-  .addWithJSX('Text -> with some props', () => (
-    <Text color={color('color', 'red')} fontWeight={text('fontWeight', '700')}>
-      Text here
-    </Text>
+  .addWithJSX('Box -> default', () => <Box>Box children here</Box>)
+  .addWithJSX('Box -> with some props', () => (
+    <Box
+      bg={color('bg', 'red')}
+      color={color('color', 'white')}
+      border={text('border', '1px solid')}
+      borderColor={color('borderColor', 'black')}
+    >
+      Box children here
+    </Box>
   ));

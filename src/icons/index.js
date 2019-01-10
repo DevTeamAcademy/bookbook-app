@@ -18,6 +18,24 @@ const defaultIconProps = {
   color: 'red',
 };
 
+export const Menu = ({ color, width, height }) => (
+  <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 30 30'>
+    <g fill={color} fillRule='evenodd'>
+      <circle cx='3.5' cy='26.5' r='3.5' />
+      <circle cx='14.5' cy='26.5' r='3.5' />
+      <circle cx='26.5' cy='26.5' r='3.5' />
+      <circle cx='3.5' cy='14.5' r='3.5' />
+      <circle cx='14.5' cy='14.5' r='3.5' />
+      <circle cx='26.5' cy='14.5' r='3.5' />
+      <circle cx='3.5' cy='3.5' r='3.5' />
+      <circle cx='14.5' cy='3.5' r='3.5' />
+      <circle cx='26.5' cy='3.5' r='3.5' />
+    </g>
+  </svg>
+);
+Menu.propTypes = iconPropTypes;
+Menu.defaultProps = defaultIconProps;
+
 export const Notify = ({ color, width, height }) => (
   <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 28 30'>
     <path

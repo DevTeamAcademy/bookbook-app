@@ -1,16 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import posed from 'react-pose';
+import { or } from 'ramda';
 import styled from 'styled-components';
-import {
-  color,
-  space,
-  width,
-  height,
-  border,
-  display,
-  opacity,
-  boxShadow } from 'styled-system';
+import { color, space, width, height, border, display, opacity, boxShadow } from 'styled-system';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TODO: check types from styled-system
@@ -37,7 +30,7 @@ export const IconWrapper = styled.div`
   ${display}
   ${opacity}
   ${boxShadow}
-  cursor: ${({ cursor }) => cursor || 'initial'}
+  cursor: ${({ cursor }) => or(cursor, 'initial')}
   &:hover {
     opacity: 1;
   }
@@ -70,14 +63,15 @@ IconWrapper.defaultProps = defaultIconWrapperProps;
 //   font-weight: 700;
 //   position: absolute;
 //   opacity: ${({ active }) => ifElse(active, 1, 0)};
-//   color: ${themeGet('colors.mainOrange', 'white')}; 
+//   color: ${themeGet('colors.mainOrange', 'white')};
 // }
 // `)({
 // opened: { opacity: 1 },
 // closed: { opacity: 0 },
 // });
 
-{/* <HeadSectionSecondTextWrapper
+{
+  /* <HeadSectionSecondTextWrapper
 mb={80}
 opacity={0}
 pose='visible'
@@ -88,4 +82,5 @@ fontSize={[18, 24, 32]}
 color={themeGet('colors.mainOrange', 'white')(props)}
 >
 {H.getLocaleItem(['mainPage', 'mainSectionSecondText'], props.locale)}
-</HeadSectionSecondTextWrapper> */}
+</HeadSectionSecondTextWrapper> */
+}

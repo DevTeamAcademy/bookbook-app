@@ -4,19 +4,24 @@ import { withKnobs, text, color } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import JSXAddon from 'storybook-addon-jsx';
 // ui
-import { Text } from './';
+import { Flex } from './';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // NOTE: set to use 'addWithJSX' instead of 'add'
 setAddon(JSXAddon);
 
-storiesOf('Text', module)
+storiesOf('Flex', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .addDecorator(withInfo)
   .addDecorator(withKnobs)
-  .addWithJSX('Text -> default', () => <Text>Text here</Text>)
-  .addWithJSX('Text -> with some props', () => (
-    <Text color={color('color', 'red')} fontWeight={text('fontWeight', '700')}>
-      Text here
-    </Text>
+  .addWithJSX('Flex -> default', () => <Flex>Flex children here</Flex>)
+  .addWithJSX('Flex -> with some props', () => (
+    <Flex
+      bg={color('bg', 'red')}
+      color={color('color', 'white')}
+      border={text('border', '1px solid')}
+      borderColor={color('borderColor', 'black')}
+    >
+      Flex children here
+    </Flex>
   ));

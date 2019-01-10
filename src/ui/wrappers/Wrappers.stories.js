@@ -1,23 +1,24 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { setAddon, storiesOf } from '@storybook/react';
+import { withKnobs, text } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import JSXAddon from 'storybook-addon-jsx';
 // ui
-import { Box, Flex, Text } from './';
+import { Box } from '../';
+import { AbsoluteWrapper } from './';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // NOTE: set to use 'addWithJSX' instead of 'add'
 setAddon(JSXAddon);
 
-const UIList = () => (
-  <Fragment>
-    Box: <Box>Box children here</Box>
-    Flex: <Flex>Flex children here</Flex>
-    Text: <Text>Some text here</Text>
-  </Fragment>
-);
-
-storiesOf('Full UI List', module)
+storiesOf('Wrappers', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
+  .addDecorator(withKnobs)
   .addDecorator(withInfo)
-  .add('List', () => <UIList />);
+  .addWithJSX('AbsoluteWrapper', () => (
+    <Box position='relative'>
+      <AbsoluteWrapper top={text('top', '0')} left={text('left', '50%')}>
+        Absolute content here
+      </AbsoluteWrapper>
+    </Box>
+  ));

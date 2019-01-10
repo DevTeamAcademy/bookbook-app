@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { setAddon, storiesOf } from '@storybook/react';
-import { actions } from '@storybook/addon-actions';
 import { withKnobs, text, color, number, boolean } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import JSXAddon from 'storybook-addon-jsx';

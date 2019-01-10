@@ -5,7 +5,7 @@ import { withKnobs, text, color, number } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import JSXAddon from 'storybook-addon-jsx';
 // icons
-import { List, Quote, Notify, Search, Library } from './';
+import { Menu, List, Quote, Notify, Search, Library } from './';
 import { IconWrapper } from './ui';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -13,6 +13,7 @@ import { IconWrapper } from './ui';
 setAddon(JSXAddon);
 
 const iconsMap = {
+  Menu,
   List,
   Quote,
   Notify,
@@ -27,6 +28,7 @@ const renderIconWithProps = iconName => {
 
 const IconsList = () => (
   <Fragment>
+    Menu: <Menu />
     Notify: <Notify />
     List: <List />
     Quote: <Quote />
@@ -44,6 +46,8 @@ storiesOf('Icon Details', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .addDecorator(withInfo)
   .addDecorator(withKnobs)
+  .addWithJSX('Menu -> default', () => <Menu />)
+  .addWithJSX('Menu -> with props', () => renderIconWithProps('Menu'))
   .addWithJSX('Notify -> default', () => <Notify />)
   .addWithJSX('Notify -> with props', () => renderIconWithProps('Notify'))
   .addWithJSX('List -> default', () => <List />)
