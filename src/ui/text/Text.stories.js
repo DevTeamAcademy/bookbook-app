@@ -10,7 +10,7 @@ import { Text } from './';
 // NOTE: set to use 'addWithJSX' instead of 'add'
 setAddon(JSXAddon);
 
-storiesOf('Text', module)
+storiesOf('UI Text', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .addDecorator(withInfo)
   .addDecorator(withKnobs)

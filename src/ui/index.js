@@ -17,8 +17,6 @@ import {
   borderRadius,
   justifyContent,
 } from 'styled-system';
-// helpers
-import * as H from '../helpers';
 // //////////////////////////////////////////////////////////////////////////////
 export { Box } from './box';
 export { Flex } from './flex';

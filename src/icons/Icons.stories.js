@@ -4,6 +4,8 @@ import { actions } from '@storybook/addon-actions';
 import { withKnobs, text, color, number } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import JSXAddon from 'storybook-addon-jsx';
+// ui
+import { Text, Flex } from '../ui';
 // icons
 import { Menu, List, Quote, Notify, Search, Library } from './';
 import { IconWrapper } from './ui';
@@ -27,14 +29,26 @@ const renderIconWithProps = iconName => {
 };
 
 const IconsList = () => (
-  <Fragment>
-    Menu: <Menu />
-    Notify: <Notify />
-    List: <List />
-    Quote: <Quote />
-    Library: <Library />
-    Search: <Search />
-  </Fragment>
+  <Flex flexDirection='column'>
+    <Text p={10}>
+      Menu: <Menu />
+    </Text>
+    <Text p={10}>
+      Notify: <Notify />
+    </Text>
+    <Text p={10}>
+      List: <List />
+    </Text>
+    <Text p={10}>
+      Quote: <Quote />
+    </Text>
+    <Text p={10}>
+      Library: <Library />
+    </Text>
+    <Text p={10}>
+      Search: <Search />
+    </Text>
+  </Flex>
 );
 
 storiesOf('Full Icons List', module)

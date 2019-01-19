@@ -1,57 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import R from 'ramda';
-import styled from 'styled-components';
-import {
-  color,
-  space,
-  width,
-  border,
-  display,
-  fontSize,
-  maxWidth,
-  minWidth,
-  maxHeight,
-  minHeight,
-  textAlign,
-  boxShadow,
-  fontWeight,
-  borderLeft,
-  borderColor,
-  borderRight,
-  borderBottom,
-  borderRadius,
-} from 'styled-system';
-// global
+// helpers
 import * as H from '../../helpers';
 // icons
-import { List, Quote, Notify, Search, Library, IconWrapper } from '../../icons';
+import { Menu, List, Quote, Notify, Search, Library, IconWrapper } from '../../icons';
 // ui
 import { Flex } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const Nav = styled.nav``;
+export const getNavItems = props => [
+  {
+    icon: Menu,
+    label: 'Meню',
+    active: true,
+  },
+  {
+    icon: List,
+    label: 'Список',
+  },
+  {
+    icon: Library,
+    label: 'Бібліотека',
+  },
+  {
+    icon: Quote,
+    label: 'Цитати',
+  },
+  {
+    icon: Notify,
+    label: 'Сповіщення',
+  },
+  {
+    icon: Search,
+    label: 'Пошук',
+  },
+];
 
-export const NavItem = () => (
-  <Flex width={35} height={35} bg='#363135' alignItems='center' justifyContent='center'>
-    <IconWrapper>
-      <List color='#e6dda6' />
-    </IconWrapper>
-  </Flex>
-);
-
-export const NavItemInactive = () => (
-  <Flex width={35} height={35} bg='#615d60' alignItems='center' justifyContent='center'>
-    <IconWrapper>
-      <Library color='#ffffff' />
+export const NavItem = props => (
+  <Flex
+    width={37}
+    height={35}
+    bg={H.ifElse(props.item.active, '#615d60', '#363135')}
+    alignItems='center'
+    justifyContent='center'
+  >
+    <IconWrapper opacity='0.9'>
+      <props.item.icon color={H.ifElse(props.item.active, '#e6dda6', '#ffffff')} />
     </IconWrapper>
   </Flex>
 );
 
 export const HeaderNav = props => (
   <Flex>
-    <NavItem onClick={() => props.handleClickNavItem()} />
-    <NavItemInactive onClick={() => props.handleClickNavItem()} />
+    {getNavItems(props).map(item => (
+      <NavItem item={item} onClick={props.handleClickNavItem} />
+    ))}
   </Flex>
 );
 

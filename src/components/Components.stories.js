@@ -2,28 +2,28 @@ import React, { Fragment } from 'react';
 import { setAddon, storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import JSXAddon from 'storybook-addon-jsx';
+// components
+import { HeaderNav, TextEllipsed } from './';
 // ui
-import { Box, Flex, Text } from './';
+import { Box, Flex, Text } from '../ui';
+
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // NOTE: set to use 'addWithJSX' instead of 'add'
 setAddon(JSXAddon);
 
-const UIList = () => (
+const ComponentsList = () => (
   <Flex flexDirection='column'>
     <Box m={10}>
-      Box: <Box>Box children here</Box>
+      HeaderNav: <HeaderNav />
     </Box>
     <Box m={10}>
-      Flex: <Flex>Flex children here</Flex>
-    </Box>
-    <Box m={10}>
-      Text: <Text>Some text here</Text>
+      TextEllipsed: <TextEllipsed>Some text here</TextEllipsed>
     </Box>
   </Flex>
 );
 
-storiesOf('Full UI List', module)
+storiesOf('Full Components List', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .addDecorator(withInfo)
-  .add('List', () => <UIList />);
+  .add('List', () => <ComponentsList />);

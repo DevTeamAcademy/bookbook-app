@@ -10,7 +10,7 @@ import { Flex } from './';
 // NOTE: set to use 'addWithJSX' instead of 'add'
 setAddon(JSXAddon);
 
-storiesOf('Flex', module)
+storiesOf('UI Flex', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .addDecorator(withInfo)
   .addDecorator(withKnobs)

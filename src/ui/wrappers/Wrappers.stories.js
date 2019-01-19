@@ -11,7 +11,7 @@ import { AbsoluteWrapper } from './';
 // NOTE: set to use 'addWithJSX' instead of 'add'
 setAddon(JSXAddon);
 
-storiesOf('Wrappers', module)
+storiesOf('UI Wrappers', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .addDecorator(withKnobs)
   .addDecorator(withInfo)

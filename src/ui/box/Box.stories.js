@@ -10,7 +10,7 @@ import { Box } from './';
 // NOTE: set to use 'addWithJSX' instead of 'add'
 setAddon(JSXAddon);
 
-storiesOf('Box', module)
+storiesOf('UI Box', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .addDecorator(withInfo)
   .addDecorator(withKnobs)
