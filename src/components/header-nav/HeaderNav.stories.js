@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, color, number, boolean } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import JSXAddon from 'storybook-addon-jsx';
-// icons
+// components
 import HeaderNav from './';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
