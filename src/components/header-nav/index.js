@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// constants
+import * as C from '../../constants';
 // helpers
 import * as H from '../../helpers';
 // icons
@@ -36,12 +38,13 @@ export const getNavItems = props => [
   },
 ];
 
-export const NavItem = props => (
+export const HeaderNavItem = props => (
   <Flex
     width={37}
     height={35}
     alignItems='center'
     justifyContent='center'
+    data-testid={C.TEST_ID_HEADER_NAV_ITEM}
     bg={H.ifElse(props.item.active, '#615d60', '#363135')}
   >
     <IconWrapper opacity={0.9}>
@@ -51,9 +54,9 @@ export const NavItem = props => (
 );
 
 export const HeaderNav = props => (
-  <Flex>
+  <Flex data-testid={C.TEST_ID_HEADER_NAV}>
     {getNavItems(props).map((item, index) => (
-      <NavItem item={item} key={index} onClick={props.handleClickNavItem} />
+      <HeaderNavItem item={item} key={index} onClick={props.handleClickNavItem} />
     ))}
   </Flex>
 );

@@ -26,9 +26,11 @@ exports[`Storyshots Full Components List List 1`] = `
           HeaderNav: 
           <div
             className="sc-htpNat fOMmZv"
+            data-testid="HeaderNav"
           >
             <div
               className="sc-htpNat lgkvIn"
+              data-testid="HeaderNavItem"
               height={35}
               width={37}
             >
@@ -99,6 +101,7 @@ exports[`Storyshots Full Components List List 1`] = `
             </div>
             <div
               className="sc-htpNat cmDMjF"
+              data-testid="HeaderNavItem"
               height={35}
               width={37}
             >
@@ -131,6 +134,7 @@ exports[`Storyshots Full Components List List 1`] = `
             </div>
             <div
               className="sc-htpNat cmDMjF"
+              data-testid="HeaderNavItem"
               height={35}
               width={37}
             >
@@ -163,6 +167,7 @@ exports[`Storyshots Full Components List List 1`] = `
             </div>
             <div
               className="sc-htpNat cmDMjF"
+              data-testid="HeaderNavItem"
               height={35}
               width={37}
             >
@@ -191,6 +196,7 @@ exports[`Storyshots Full Components List List 1`] = `
             </div>
             <div
               className="sc-htpNat cmDMjF"
+              data-testid="HeaderNavItem"
               height={35}
               width={37}
             >
@@ -216,6 +222,7 @@ exports[`Storyshots Full Components List List 1`] = `
             </div>
             <div
               className="sc-htpNat cmDMjF"
+              data-testid="HeaderNavItem"
               height={35}
               width={37}
             >
@@ -1476,9 +1483,11 @@ exports[`Storyshots HeaderNav HeaderNav -> default 1`] = `
     >
       <div
         className="sc-htpNat fOMmZv"
+        data-testid="HeaderNav"
       >
         <div
           className="sc-htpNat lgkvIn"
+          data-testid="HeaderNavItem"
           height={35}
           width={37}
         >
@@ -1549,6 +1558,7 @@ exports[`Storyshots HeaderNav HeaderNav -> default 1`] = `
         </div>
         <div
           className="sc-htpNat cmDMjF"
+          data-testid="HeaderNavItem"
           height={35}
           width={37}
         >
@@ -1581,6 +1591,7 @@ exports[`Storyshots HeaderNav HeaderNav -> default 1`] = `
         </div>
         <div
           className="sc-htpNat cmDMjF"
+          data-testid="HeaderNavItem"
           height={35}
           width={37}
         >
@@ -1613,6 +1624,7 @@ exports[`Storyshots HeaderNav HeaderNav -> default 1`] = `
         </div>
         <div
           className="sc-htpNat cmDMjF"
+          data-testid="HeaderNavItem"
           height={35}
           width={37}
         >
@@ -1641,6 +1653,7 @@ exports[`Storyshots HeaderNav HeaderNav -> default 1`] = `
         </div>
         <div
           className="sc-htpNat cmDMjF"
+          data-testid="HeaderNavItem"
           height={35}
           width={37}
         >
@@ -1666,6 +1679,7 @@ exports[`Storyshots HeaderNav HeaderNav -> default 1`] = `
         </div>
         <div
           className="sc-htpNat cmDMjF"
+          data-testid="HeaderNavItem"
           height={35}
           width={37}
         >

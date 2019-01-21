@@ -29,9 +29,9 @@ it('TextEllipsed should render children element', () => {
   );
   const ancestor = queryByTestId(textEllipsedId);
   const descendant = queryByTestId(textEllipsedChildrenId);
-  const nonExistantElement = queryByTestId('does-not-exist');
+  const nonExistentElement = queryByTestId('does-not-exist');
   expect(getByTestId(textEllipsedId)).toBeInTheDocument();
   expect(ancestor).toContainElement(descendant);
   expect(descendant).not.toContainElement(ancestor);
-  expect(ancestor).not.toContainElement(nonExistantElement);
+  expect(ancestor).not.toContainElement(nonExistentElement);
 });
