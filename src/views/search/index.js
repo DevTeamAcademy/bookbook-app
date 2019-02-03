@@ -10,18 +10,13 @@ import { getLocaleItem } from '../../helpers';
 import { Flex } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const HomeList = props => {
-  const { locale, changeLocale } = useContext(LocaleContext);
-  return (
-    <Flex data-testid={C.TEST_ID_HOME_LIST}>
-      <p onClick={() => changeLocale('EN')}>changeLocale</p>
-      <p>{getLocaleItem('home', locale, 'Home')}</p>
-    </Flex>
-  );
+export const Search = props => {
+  const { locale } = useContext(LocaleContext);
+  return <Flex data-testid={C.TEST_ID_SEARCH}>search page here</Flex>;
 };
 
-export default HomeList;
+export default Search;
 
-HomeList.propTypes = {};
+Search.propTypes = {};
 
-HomeList.displayName = 'HomeList';
+Search.displayName = 'Search';
