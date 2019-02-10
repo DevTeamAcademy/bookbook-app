@@ -44,6 +44,7 @@ export const HeaderNavItem = props => (
     height={35}
     alignItems='center'
     justifyContent='center'
+    onClick={props.handleClickNavItem}
     data-testid={C.TEST_ID_HEADER_NAV_ITEM}
     bg={H.ifElse(props.item.active, '#615d60', '#363135')}
   >
@@ -56,7 +57,7 @@ export const HeaderNavItem = props => (
 export const HeaderNav = props => (
   <Flex data-testid={C.TEST_ID_HEADER_NAV}>
     {getNavItems(props).map((item, index) => (
-      <HeaderNavItem item={item} key={index} onClick={props.handleClickNavItem} />
+      <HeaderNavItem item={item} key={index} handleClickNavItem={props.handleClickNavItem} />
     ))}
   </Flex>
 );

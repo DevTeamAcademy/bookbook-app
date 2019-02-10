@@ -17,10 +17,14 @@ import {
   position,
   maxWidth,
   minWidth,
+  fontSize,
+  textAlign,
   maxHeight,
   minHeight,
   boxShadow,
   borderTop,
+  fontWeight,
+  lineHeight,
   borderLeft,
   borderColor,
   borderRight,
@@ -44,13 +48,17 @@ export const Box = styled.div`
   ${border}
   ${opacity}
   ${display}
+  ${fontSize}
   ${position}
   ${maxWidth}
   ${minWidth}
+  ${textAlign}
   ${maxHeight}
   ${minHeight}
   ${boxShadow}
   ${borderTop}
+  ${fontWeight}
+  ${lineHeight}
   ${borderLeft}
   ${borderRight}
   ${borderColor}

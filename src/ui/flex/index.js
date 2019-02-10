@@ -9,6 +9,7 @@ import {
   height,
   border,
   opacity,
+  overflow,
   position,
   flexWrap,
   maxWidth,
@@ -17,6 +18,7 @@ import {
   minHeight,
   boxShadow,
   borderTop,
+  background,
   alignItems,
   borderLeft,
   borderColor,
@@ -39,6 +41,7 @@ export const Flex = styled.div`
   ${height}
   ${border}
   ${opacity}
+  ${overflow}
   ${flexWrap}
   ${position}
   ${maxWidth}
@@ -47,6 +50,7 @@ export const Flex = styled.div`
   ${minHeight}
   ${boxShadow}
   ${borderTop}
+  ${background}
   ${borderLeft}
   ${alignItems}
   ${borderColor}
@@ -67,6 +71,7 @@ Flex.propTypes = {
   ...height.propTypes,
   ...border.propTypes,
   ...opacity.propTypes,
+  ...overflow.propTypes,
   ...flexWrap.propTypes,
   ...position.propTypes,
   ...maxWidth.propTypes,
@@ -75,6 +80,7 @@ Flex.propTypes = {
   ...minHeight.propTypes,
   ...boxShadow.propTypes,
   ...borderTop.propTypes,
+  ...background.propTypes,
   ...borderLeft.propTypes,
   ...alignItems.propTypes,
   ...borderColor.propTypes,
