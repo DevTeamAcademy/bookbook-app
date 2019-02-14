@@ -5,18 +5,17 @@ import * as C from '../../constants';
 // contexts
 import { LocaleContext } from '../../contexts/locale';
 // helpers
-import { getLocaleItem } from '../../helpers';
+import { getLocale } from '../../helpers';
 // ui
 import { Flex } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const Search = props => {
-  const { locale } = useContext(LocaleContext);
-  return <Flex data-testid={C.TEST_ID_SEARCH}>search page here</Flex>;
+export const HomePage = props => {
+  return <Flex data-testid={C.TEST_ID_HOME_PAGE}>home page here</Flex>;
 };
 
-export default Search;
+export default HomePage;
 
-Search.propTypes = {};
+HomePage.propTypes = {};
 
-Search.displayName = 'Search';
+HomePage.displayName = 'HomePages';

@@ -1,32 +1,45 @@
-import React, { useState, Suspense } from 'react';
-import { not } from 'ramda';
+import { withTheme } from 'styled-components';
+import React, { Suspense, useContext } from 'react';
 // components
 import HeaderNav from '../components/header-nav';
+// contexts
+import { LocaleContext } from '../contexts/locale';
+// global-state
+import { dispatch, useGlobalState } from '../global-state';
+import { GLOBAL_TOGGLE_SIDEBAR } from '../global-state/action-types';
+// hooks
+import { useWindowSize } from '../hooks';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TODO: with test and full ui and bar nav
 
-function LoadingFallback({ error, pastDelay }) {
+const LoadingFallback = ({ error }) => {
   if (error) {
     // our ErrorBoundary will catch this
     throw error;
   }
   return <p>Page Loading...</p>;
-}
+};
 
-function Layout({ children, location }) {
-  const [activeMenu, setActiveMenu] = useState(false);
-  function handleToggleMenu() {
-    alert('hi');
-    return setActiveMenu(not(activeMenu));
-  }
+const toggleSidebarOpened = () => dispatch({ type: GLOBAL_TOGGLE_SIDEBAR });
+
+const Layout = ({ theme, children, location }) => {
+  const { locale } = useContext(LocaleContext);
+  const size = useWindowSize();
+  const [isSidebarOpened] = useGlobalState('isSidebarOpened');
   return (
     <>
-      <div onClick={handleToggleMenu}>click</div>
-      <HeaderNav location={location} activeMenu={activeMenu} handleToggleMenu={handleToggleMenu} />
+      <HeaderNav
+        size={size}
+        theme={theme}
+        locale={locale}
+        location={location}
+        activeMenu={isSidebarOpened}
+        handleToggleMenu={toggleSidebarOpened}
+      />
       <Suspense fallback={LoadingFallback}>{children}</Suspense>
     </>
   );
-}
+};
 
-export default Layout;
+export default withTheme(Layout);

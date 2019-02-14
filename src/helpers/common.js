@@ -1,4 +1,5 @@
 import { pathOr } from 'ramda';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const getLocaleItem = (localeKey, locale, defaultValue = '...') => pathOr(defaultValue, [localeKey], locale);
+export const getLocale = (localePath, defaultValue = 'no locale', locale = {}) =>
+  pathOr(defaultValue, localePath, locale);

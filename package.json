@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "history": "^4.7.2",
-    "react": "16.7.0-alpha.2",
-    "react-dom": "16.7.0-alpha.2",
+    "immer": "^2.0.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
     "react-error-boundary": "^1.2.3",
+    "react-hooks-global-state": "^0.6.0",
     "react-pose": "^4.0.4",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.3",

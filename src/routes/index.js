@@ -1,27 +1,38 @@
-import React, { lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 // constants
-import { ROUTE_SEARCH, ROUTE_HOME_LIST } from '../constants';
+import * as C from '../constants';
 // routes
 import Layout from './Layout';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// TODO: with test and all views
-
-const HomeList = lazy(() => import(/* webpackChunkName: 'HomeList' */ '../views/home'));
-const Search = lazy(() => import(/* webpackChunkName: 'Search' */ '../views/search'));
+const HomePage = lazy(() => import(/* webpackChunkName: 'HomePage' */ '../pages/home'));
+const SignInPage = lazy(() => import(/* webpackChunkName: 'SignInPage' */ '../pages/signin'));
+const SignUpPage = lazy(() => import(/* webpackChunkName: 'SignUpPage' */ '../pages/signup'));
+const SearchPage = lazy(() => import(/* webpackChunkName: 'SearchPage' */ '../pages/search'));
+const QuotesPage = lazy(() => import(/* webpackChunkName: 'QuotesPage' */ '../pages/quotes'));
+const LibraryPage = lazy(() => import(/* webpackChunkName: 'LibraryPage' */ '../pages/library'));
+const ProfilePage = lazy(() => import(/* webpackChunkName: 'ProfilePage' */ '../pages/profile'));
+const NotificationsPage = lazy(() => import(/* webpackChunkName: 'NotificationsPage' */ '../pages/notifications'));
 
 export default () => (
-  <Switch>
-    {/* Auth pages here */}
-    <Layout>
-      <Switch>
-        <Route path={ROUTE_HOME_LIST} exact component={HomeList} />
-        <Route path={ROUTE_SEARCH} exact component={Search} />
-        <RedirectTo redirect={ROUTE_HOME_LIST} />
-      </Switch>
-    </Layout>
-  </Switch>
+  <Suspense fallback={null}>
+    <Switch>
+      <Route path={C.ROUTE_SIGNIN_PAGE} exact component={SignInPage} />
+      <Route path={C.ROUTE_SIGNUP_PAGE} exact component={SignUpPage} />
+      <Layout>
+        <Switch>
+          <Route path={C.ROUTE_HOME_PAGE} exact component={HomePage} />
+          <Route path={C.ROUTE_LIBRARY_PAGE} exact component={LibraryPage} />
+          <Route path={C.ROUTE_QUOTES_PAGE} exact component={QuotesPage} />
+          <Route path={C.ROUTE_NOTIFICATIONS_PAGE} exact component={NotificationsPage} />
+          <Route path={C.ROUTE_SEARCH_PAGE} exact component={SearchPage} />
+          <Route path={C.ROUTE_PROFILE_PAGE} exact component={ProfilePage} />
+          <RedirectTo redirect={C.ROUTE_HOME_PAGE} />
+        </Switch>
+      </Layout>
+    </Switch>
+  </Suspense>
 );
 
 const RedirectTo = props => <Redirect to={props.redirect} />;
