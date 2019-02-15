@@ -1,16 +1,15 @@
 // helpers
-import { getLocaleItem } from '../';
+import { getLocale } from '../';
 //  /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const localeMock = {
   home: 'Home',
 };
 
-// TODO: check tests
-
 it('getLocaleItem should return value from locale', () => {
-  expect(getLocaleItem('home', null)).toEqual('...');
-  expect(getLocaleItem('ho', localeMock)).toEqual('...');
-  expect(getLocaleItem('home', null, 'Home Default')).toEqual('Home Default');
-  expect(getLocaleItem('home', localeMock, 'Home Default')).toEqual('Home');
+  expect(getLocale(['home'])).toEqual('...');
+  expect(getLocale(['ho'], 'ho', localeMock)).toEqual('ho');
+  expect(getLocale(['home'], 'Home Default', null)).toEqual('Home Default');
+  expect(getLocale(['home'], 'Home Default', {})).toEqual('Home Default');
+  expect(getLocale(['home'], 'Home Default', localeMock)).toEqual('Home');
 });

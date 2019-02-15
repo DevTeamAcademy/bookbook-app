@@ -53,8 +53,8 @@ export const HeaderNavItem = props => (
     alignItems='center'
     justifyContent='center'
     onClick={props.handleClickNavItem}
-    flexDirection={['column', 'row', 'row']}
     data-testid={C.TEST_ID_HEADER_NAV_ITEM}
+    flexDirection={['column', 'row', 'row']}
     bg={H.ifElse(props.active, themeGet('colors.lightGrey', 'grey')(props), themeGet('colors.darkGrey', 'grey')(props))}
   >
     <IconWrapper opacity={0.9}>
@@ -74,7 +74,7 @@ export const HeaderNavItem = props => (
 
 export const setItemActiveStatus = (location, item) => equals(location.pathname, item.route);
 
-const HeaderNav = props => (
+export const HeaderNav = props => (
   <Flex data-testid={C.TEST_ID_HEADER_NAV}>
     <Box width='16.66%'>
       <HeaderNavItem
@@ -86,8 +86,8 @@ const HeaderNav = props => (
       />
     </Box>
     {navItems.map((item, index) => (
-      <Box width='16.66%'>
-        <Link key={index} to={item.route}>
+      <Box width='16.66%' key={index}>
+        <Link to={item.route}>
           <HeaderNavItem
             item={item}
             theme={props.theme}
@@ -104,6 +104,9 @@ const HeaderNav = props => (
 export default HeaderNav;
 
 HeaderNav.propTypes = {
+  theme: PropTypes.object,
+  locale: PropTypes.object,
+  location: PropTypes.object,
   handleToggleMenu: PropTypes.func.isRequired,
   handleClickNavItem: PropTypes.func.isRequired,
 };

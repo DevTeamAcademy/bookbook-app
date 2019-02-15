@@ -11,7 +11,7 @@ import Routes from './routes';
 // theme
 import theme from './theme';
 // ui
-import GlobalStyles from './ui/globalStyles';
+import GlobalStyles from './ui/global-styles';
 //  /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const ErrorFallback = ({ error }) => {

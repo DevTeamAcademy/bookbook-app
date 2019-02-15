@@ -14,9 +14,9 @@ setAddon(JSXAddon);
 
 const ComponentsList = () => (
   <Flex flexDirection='column'>
-    <Box m={10}>
+    {/* <Box m={10}>
       HeaderNav: <HeaderNav />
-    </Box>
+    </Box> */}
     <Box m={10}>
       TextEllipsed: <TextEllipsed>Some text here</TextEllipsed>
     </Box>
