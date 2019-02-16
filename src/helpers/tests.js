@@ -1,13 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { withRouter } from 'react-router';
+import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import { Link, Route, Router, Switch } from 'react-router-dom';
-import { render, fireEvent, cleanup } from 'react-testing-library';
-// root
-import App from './App';
-// constants
-import * as C from './constants';
+import { render } from 'react-testing-library';
 //  /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // that relies on the router being in context
@@ -20,11 +14,3 @@ export function renderWithRouter(ui, { route = '/', history = createMemoryHistor
     history,
   };
 }
-
-it('renders without crashing', () => {
-  expect(true).toEqual(true);
-  // const { container } = renderWithRouter(<App />);
-  // const div = document.createElement('div');
-  // ReactDOM.render(container, div);
-  // ReactDOM.unmountComponentAtNode(div);
-});

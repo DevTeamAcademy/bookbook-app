@@ -25,3 +25,5 @@ yarn-error.log*
 # own
 # .storybook
 .vscode
+
+/src/__snapshots__

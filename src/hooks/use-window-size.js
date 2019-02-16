@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import * as H from '../helpers';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
+// TODO: write test
+
 export const useWindowSize = props => {
   const isClient = typeof window === 'object';
   const getSize = () => ({

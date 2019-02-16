@@ -1,18 +1,18 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { fireEvent } from 'react-testing-library';
-// root
-import { renderWithRouter } from '../../App.test.js';
 // components
 import HeaderNav from './';
 // constants
 import * as C from '../../constants';
+// helpers
+import * as H from '../../helpers';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const HeaderWithRouter = withRouter(HeaderNav);
 
 it('HeaderNav should render', () => {
-  const { getByTestId } = renderWithRouter(
+  const { getByTestId } = H.renderWithRouter(
     <HeaderWithRouter handleToggleMenu={jest.fn()} handleClickNavItem={jest.fn()} />,
     { route: C.ROUTE_HOME_PAGE },
   );
@@ -20,7 +20,7 @@ it('HeaderNav should render', () => {
 });
 
 it('HeaderNav should render nav items', () => {
-  const { queryAllByTestId } = renderWithRouter(
+  const { queryAllByTestId } = H.renderWithRouter(
     <HeaderWithRouter handleToggleMenu={jest.fn()} handleClickNavItem={jest.fn()} />,
     { route: C.ROUTE_HOME_PAGE },
   );
@@ -29,7 +29,7 @@ it('HeaderNav should render nav items', () => {
 
 it('HeaderNav should handle click nav item', () => {
   const mockHandleClickNavItem = jest.fn();
-  const { getByTestId } = renderWithRouter(
+  const { getByTestId } = H.renderWithRouter(
     <HeaderWithRouter handleToggleMenu={mockHandleClickNavItem} handleClickNavItem={mockHandleClickNavItem} />,
     { route: C.ROUTE_HOME_PAGE },
   );

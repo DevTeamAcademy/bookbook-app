@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { withTheme } from 'styled-components';
 import React, { Suspense, useContext } from 'react';
 // components
@@ -23,7 +24,7 @@ const LoadingFallback = ({ error }) => {
 
 const toggleSidebarOpened = () => dispatch({ type: GLOBAL_TOGGLE_SIDEBAR });
 
-const Layout = ({ theme, children, location }) => {
+export const Layout = ({ theme, children, location }) => {
   const { locale } = useContext(LocaleContext);
   const size = useWindowSize();
   const [isSidebarOpened] = useGlobalState('isSidebarOpened');
@@ -43,3 +44,11 @@ const Layout = ({ theme, children, location }) => {
 };
 
 export default withTheme(Layout);
+
+Layout.propTypes = {
+  theme: PropTypes.object,
+  location: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+};
+
+Layout.displayName = 'Layout';
