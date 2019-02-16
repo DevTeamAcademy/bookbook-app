@@ -12,8 +12,7 @@ import { GLOBAL_TOGGLE_SIDEBAR } from '../global-state/action-types';
 import { useWindowSize } from '../hooks';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// TODO: with test and full ui and bar nav
-
+// TODO: with full ui
 const LoadingFallback = ({ error }) => {
   if (error) {
     // our ErrorBoundary will catch this

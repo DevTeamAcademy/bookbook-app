@@ -19,7 +19,7 @@ export const IconWrapper = styled.div`
   }
 `;
 
-Text.propTypes = {
+IconWrapper.propTypes = {
   ...color.propTypes,
   ...space.propTypes,
   ...width.propTypes,
@@ -37,4 +37,4 @@ IconWrapper.defaultProps = {
   display: 'inline-block',
 };
 
-Text.displayName = 'Text';
+IconWrapper.displayName = 'Text';
