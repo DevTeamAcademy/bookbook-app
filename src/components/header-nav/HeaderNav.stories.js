@@ -1,18 +1,17 @@
 import React, { Fragment } from 'react';
-import { setAddon, storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, text, color, number, boolean } from '@storybook/addon-knobs/react';
-import { withInfo } from '@storybook/addon-info';
+import { withRouter } from 'react-router';
 import JSXAddon from 'storybook-addon-jsx';
-// components
-import HeaderNav from './';
+import { withInfo } from '@storybook/addon-info';
+import { action } from '@storybook/addon-actions';
+import { setAddon, storiesOf } from '@storybook/react';
+import { withKnobs, text, color, number, boolean } from '@storybook/addon-knobs/react';
+// constants
+import * as C from '../../constants';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// NOTE: set to use 'addWithJSX' instead of 'add'
-setAddon(JSXAddon);
+const location = { pathname: C.ROUTE_HOME_PAGE };
 
 storiesOf('HeaderNav', module)
-  .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
+  .addDecorator(story => <div>{story()}</div>)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
-  .addWithJSX('HeaderNav -> default', () => <HeaderNav handleClickNavItem={action('handleClickNavItem')} />);
+  .addDecorator(withKnobs);
