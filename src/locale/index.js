@@ -1,5 +1,5 @@
 // constants
-import { LOCALE_NAME_EN, LOCALE_NAME_UA, LOCALE_NAME_RU, LOCALE_NAME_PL } from '../constants';
+import * as C from '../constants';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const UA = {
@@ -8,24 +8,24 @@ const UA = {
   copyright: '2018 © Всі права захищено',
   languages: [
     {
-      localeName: LOCALE_NAME_EN,
+      localeName: C.LOCALE_NAME_EN,
       value: 'English',
     },
     {
-      localeName: LOCALE_NAME_UA,
+      localeName: C.LOCALE_NAME_UA,
       value: 'Українська',
     },
     {
-      localeName: LOCALE_NAME_RU,
+      localeName: C.LOCALE_NAME_RU,
       value: 'Русский',
     },
     {
-      localeName: LOCALE_NAME_PL,
+      localeName: C.LOCALE_NAME_PL,
       value: 'Polski',
     },
   ],
   headerNavLabels: {
-    menu: 'Meню',
+    menu: 'Меню',
     list: 'Домашня',
     library: 'Бібліотека',
     quotes: 'Цитати',
@@ -40,19 +40,19 @@ const EN = {
   copyright: '2018 © All rights reserved',
   languages: [
     {
-      localeName: LOCALE_NAME_EN,
+      localeName: C.LOCALE_NAME_EN,
       value: 'English',
     },
     {
-      localeName: LOCALE_NAME_UA,
+      localeName: C.LOCALE_NAME_UA,
       value: 'Українська',
     },
     {
-      localeName: LOCALE_NAME_RU,
+      localeName: C.LOCALE_NAME_RU,
       value: 'Русский',
     },
     {
-      localeName: LOCALE_NAME_PL,
+      localeName: C.LOCALE_NAME_PL,
       value: 'Polski',
     },
   ],
@@ -72,19 +72,19 @@ const RU = {
   copyright: '2018 © All rights reserved',
   languages: [
     {
-      localeName: LOCALE_NAME_EN,
+      localeName: C.LOCALE_NAME_EN,
       value: 'English',
     },
     {
-      localeName: LOCALE_NAME_UA,
+      localeName: C.LOCALE_NAME_UA,
       value: 'Українська',
     },
     {
-      localeName: LOCALE_NAME_RU,
+      localeName: C.LOCALE_NAME_RU,
       value: 'Русский',
     },
     {
-      localeName: LOCALE_NAME_PL,
+      localeName: C.LOCALE_NAME_PL,
       value: 'Polski',
     },
   ],
@@ -104,19 +104,19 @@ const PL = {
   copyright: '2018 © All rights reserved',
   languages: [
     {
-      localeName: LOCALE_NAME_EN,
+      localeName: C.LOCALE_NAME_EN,
       value: 'English',
     },
     {
-      localeName: LOCALE_NAME_UA,
+      localeName: C.LOCALE_NAME_UA,
       value: 'Українська',
     },
     {
-      localeName: LOCALE_NAME_RU,
+      localeName: C.LOCALE_NAME_RU,
       value: 'Русский',
     },
     {
-      localeName: LOCALE_NAME_PL,
+      localeName: C.LOCALE_NAME_PL,
       value: 'Polski',
     },
   ],
@@ -131,10 +131,10 @@ const PL = {
 };
 
 const locales = {
-  [LOCALE_NAME_UA]: UA,
-  [LOCALE_NAME_EN]: EN,
-  [LOCALE_NAME_RU]: RU,
-  [LOCALE_NAME_PL]: PL,
+  [C.LOCALE_NAME_UA]: UA,
+  [C.LOCALE_NAME_EN]: EN,
+  [C.LOCALE_NAME_RU]: RU,
+  [C.LOCALE_NAME_PL]: PL,
 };
 
 export default locales;

@@ -1,5 +1,6 @@
-import requireContext from 'require-context.macro';
 import { configure } from '@storybook/react';
+import requireContext from 'require-context.macro';
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // 1. You'll need to import the chromatic addon:
 import 'storybook-chromatic';
