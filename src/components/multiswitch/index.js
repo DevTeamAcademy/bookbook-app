@@ -60,14 +60,14 @@ RadioBackground.propTypes = {
 export const Radio = styled.input`
   ${display}
   &:checked ~ ${Label} {
-    ${color}
+    color: ${({ checkedColor }) => checkedColor};
   }
   &:checked ~ ${RadioBackground} {
     opacity: 1;
-    height: 12px;
     width: 100%;
     border-radius: 1px;
     transform: translate(0, 0);
+    height: ${({ height }) => height};
   }
 `;
 
@@ -80,20 +80,21 @@ Radio.propTypes = {
 
 const RadioOption = props => (
   <RadioWrapper
-    height='12px'
-    fontSize='7px'
-    lineHeight='12px'
-    fontWeight='bold'
     textAlign='center'
     position='relative'
+    height={props.settings.height}
     width={props.radioOption.width}
+    fontSize={props.settings.fontSize}
+    lineHeight={props.settings.height}
+    fontWeight={props.settings.fontWeight}
   >
     <Radio
       type='radio'
       display='none'
-      color='#363135'
       name='switcher'
       id={props.index}
+      height={props.settings.height}
+      checkedColor={props.settings.checkedColor}
       defaultChecked={R.equals(props.selectedOptionIndex, props.index)}
     />
     <RadioBackground
@@ -101,17 +102,16 @@ const RadioOption = props => (
       left='0'
       width='0'
       height='0'
-      borderRadius='6px'
       position='absolute'
-      background='#e6dda6'
+      background={props.settings.checkedBg}
       forTransform={props.radioOption.width}
+      borderRadius={props.settings.borderRadius}
     />
     <Label
-      height='12px'
-      color='#eeeeee'
       display='block'
       position='relative'
       htmlFor={props.index}
+      height={props.settings.height}
       width={props.radioOption.width}
     >
       {props.radioOption.name}
@@ -119,38 +119,80 @@ const RadioOption = props => (
   </RadioWrapper>
 );
 
-const optionPropType = PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]));
+const optionPropType = PropTypes.shape({
+  value: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  width: PropTypes.number.isRequired,
+});
 
 RadioOption.propTypes = {
   index: PropTypes.number,
   radioOption: optionPropType,
   selectedOptionIndex: PropTypes.number,
+  settings: PropTypes.shape({
+    color: PropTypes.string.isRequired,
+    height: PropTypes.string.isRequired,
+    fontSize: PropTypes.string.isRequired,
+    checkedBg: PropTypes.string.isRequired,
+    fontWeight: PropTypes.string.isRequired,
+    background: PropTypes.string.isRequired,
+    checkedColor: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired,
+  }),
 };
 
-const MultiswitchComponent = props => (
-  <MultiswitchWrapper
-    mr={props.mr}
-    height='12px'
-    display='flex'
-    fontSize='11px'
-    color='#eeeeee'
-    overflow='hidden'
-    borderRadius='6px'
-    position='relative'
-    width='max-content'
-    alignItems='center'
-    background='#615d60'
-    data-testid={C.TEST_ID_MULTISWITCH}
-  >
-    {props.options.map((radioOption, index) => (
-      <RadioOption {...props} key={index} index={index} radioOption={radioOption} />
-    ))}
-  </MultiswitchWrapper>
-);
+const makeWrapperSettings = settings => ({
+  height: R.or(settings.height, '7px'),
+  color: R.or(settings.color, '#eeeeee'),
+  fontSize: R.or(settings.fontSize, '11px'),
+  fontWeight: R.or(settings.fontWeight, 'bold'),
+  checkedBg: R.or(settings.checkedBg, '#e6dda6'),
+  borderRadius: R.or(settings.borderRadius, '6px'),
+  background: R.or(settings.background, '#615d60'),
+  checkedColor: R.or(settings.checkedColor, '#363135'),
+});
+
+const MultiswitchComponent = props => {
+  const settings = makeWrapperSettings(props.settings);
+  return (
+    <MultiswitchWrapper
+      display='flex'
+      overflow='hidden'
+      position='relative'
+      width='max-content'
+      alignItems='center'
+      color={settings.color}
+      height={settings.height}
+      background={settings.background}
+      data-testid={C.TEST_ID_MULTISWITCH}
+      borderRadius={settings.borderRadius}
+    >
+      {props.options.map((radioOption, index) => (
+        <RadioOption
+          key={index}
+          index={index}
+          settings={settings}
+          radioOption={radioOption}
+          selectedOptionIndex={props.selectedOptionIndex}
+        />
+      ))}
+    </MultiswitchWrapper>
+  );
+};
 
 MultiswitchComponent.propTypes = {
   selectedOptionIndex: PropTypes.number,
-  options: PropTypes.arrayOf(optionPropType),
+  options: PropTypes.arrayOf(optionPropType).isRequired,
+  settings: PropTypes.shape({
+    color: PropTypes.string,
+    height: PropTypes.string,
+    fontSize: PropTypes.string,
+    checkedBg: PropTypes.string,
+    fontWeight: PropTypes.string,
+    background: PropTypes.string,
+    checkedColor: PropTypes.string,
+    borderRadius: PropTypes.string,
+  }),
 };
 
 MultiswitchComponent.displayName = 'Multiswitch';

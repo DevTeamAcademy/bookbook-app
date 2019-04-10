@@ -24,8 +24,14 @@ const multiswitchOptions = [
   },
 ];
 
+const multiswitchSettings = {
+  height: '20px',
+};
+
 storiesOf('Multiswitch', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .addDecorator(withInfo)
   .addDecorator(withKnobs)
-  .addWithJSX('Multiswitch -> default', () => <Multiswitch selectedOptionIndex={0} options={multiswitchOptions} />);
+  .addWithJSX('Multiswitch -> default', () => (
+    <Multiswitch settings={multiswitchSettings} selectedOptionIndex={0} options={multiswitchOptions} />
+  ));
