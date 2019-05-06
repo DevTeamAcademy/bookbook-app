@@ -1,7 +1,7 @@
-import React, { useState, createContext } from 'react';
 import { prop } from 'ramda';
+import React, { useState, createContext } from 'react';
 // constants
-import * as GC from '../constants';
+import * as C from '../constants';
 import * as H from '../helpers';
 // locale
 import locales from '../locale';
@@ -11,7 +11,7 @@ const getLocaleName = () =>
   H.ifElse(
     H.isNotNilAndNotEmpty(H.getItemFromLocalStorage('localeName')),
     H.getItemFromLocalStorage('localeName'),
-    GC.LOCALE_NAME_UA,
+    C.LOCALE_NAME_UA,
   );
 
 export const LocaleContext = createContext();
