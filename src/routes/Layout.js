@@ -37,7 +37,7 @@ export const Layout = ({ theme, children, location }) => {
         activeMenu={isSidebarOpened}
         handleToggleMenu={toggleSidebarOpened}
       />
-      <Suspense fallback={LoadingFallback}>{children}</Suspense>
+      <Suspense fallback={<LoadingFallback />}>{children}</Suspense>
     </>
   );
 };

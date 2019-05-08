@@ -2,6 +2,7 @@ import { prop } from 'ramda';
 import React, { useState, createContext } from 'react';
 // constants
 import * as C from '../constants';
+// helpers
 import * as H from '../helpers';
 // locale
 import locales from '../locale';
@@ -21,12 +22,10 @@ export const LocaleProvider = props => {
     const localeName = getLocaleName();
     return prop(localeName, locales);
   });
-
   const changeLocale = localeName => {
     H.setItemToLocalStorage('localeName', localeName);
-    setLocale(locales[localeName]);
+    setLocale(prop(localeName, locales));
   };
-
   return (
     <LocaleContext.Provider
       value={{

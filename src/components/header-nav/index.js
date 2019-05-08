@@ -108,7 +108,6 @@ HeaderNav.propTypes = {
   locale: PropTypes.object,
   location: PropTypes.object,
   handleToggleMenu: PropTypes.func.isRequired,
-  handleClickNavItem: PropTypes.func.isRequired,
 };
 
 HeaderNav.displayName = 'HeaderNav';
