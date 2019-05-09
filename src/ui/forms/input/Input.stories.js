@@ -3,25 +3,26 @@ import JSXAddon from 'storybook-addon-jsx';
 import { withInfo } from '@storybook/addon-info';
 import { setAddon, storiesOf } from '@storybook/react';
 import { withKnobs, text, color } from '@storybook/addon-knobs/react';
+// theme
+import theme from '../../../theme';
 // ui
-import { Box } from './';
+import { Input } from './';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // NOTE: set to use 'addWithJSX' instead of 'add'
 setAddon(JSXAddon);
 
-storiesOf('UI Box', module)
+storiesOf('UI Forms Input', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .addDecorator(withInfo)
   .addDecorator(withKnobs)
-  .addWithJSX('Box -> default', () => <Box>Box children here</Box>)
-  .addWithJSX('Box -> with some props', () => (
-    <Box
-      bg={color('bg', 'red')}
+  .addWithJSX('Input -> default', () => <Input />)
+  .addWithJSX('Input -> with some props', () => (
+    <Input
+      bg={color('bg', 'grey')}
       color={color('color', 'white')}
       border={text('border', '1px solid')}
       borderColor={color('borderColor', 'black')}
-    >
-      Box children here
-    </Box>
+      focusBoxShadow={theme.form.input.focusBoxShadow}
+    />
   ));

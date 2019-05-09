@@ -1,8 +1,8 @@
 import React from 'react';
+import JSXAddon from 'storybook-addon-jsx';
+import { withInfo } from '@storybook/addon-info';
 import { setAddon, storiesOf } from '@storybook/react';
 import { withKnobs, text, color } from '@storybook/addon-knobs/react';
-import { withInfo } from '@storybook/addon-info';
-import JSXAddon from 'storybook-addon-jsx';
 // ui
 import { Flex } from './';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////

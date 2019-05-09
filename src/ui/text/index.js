@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import { or } from 'ramda';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
   color,
@@ -11,7 +11,8 @@ import {
   textAlign,
   lineHeight,
   fontWeight,
-  letterSpacing } from 'styled-system';
+  letterSpacing,
+} from 'styled-system';
 // //////////////////////////////////////////////////////////////////////////////
 
 export const Text = styled.span`

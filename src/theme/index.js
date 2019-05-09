@@ -1,6 +1,11 @@
 // TODO: add all default styles props here (colors, shadows, borders, font sizes etc.)
 
 export default {
+  form: {
+    input: {
+      focusBoxShadow: '0 0 5px 0 rgba(206, 40, 40, 0.5)',
+    },
+  },
   colors: {
     white: '#FFFFFF',
     black: '#000000',
