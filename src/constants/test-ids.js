@@ -1,0 +1,11 @@
+export const TEST_ID_HOME_PAGE = 'HomePage';
+export const TEST_ID_HEADER_NAV = 'HeaderNav';
+export const TEST_ID_SEARCH_PAGE = 'SearchPage';
+export const TEST_ID_QUOTES_PAGE = 'QuotesPage';
+export const TEST_ID_SIGNUP_PAGE = 'SignUpPage';
+export const TEST_ID_SIGNIN_PAGE = 'SignInPage';
+export const TEST_ID_MULTISWITCH = 'Multiswitch';
+export const TEST_ID_PROFILE_PAGE = 'ProfilePage';
+export const TEST_ID_LIBRARY_PAGE = 'LibraryPage';
+export const TEST_ID_HEADER_NAV_ITEM = 'HeaderNavItem';
+export const TEST_ID_NOTIFICATIONS_PAGE = 'NotificationsPage';

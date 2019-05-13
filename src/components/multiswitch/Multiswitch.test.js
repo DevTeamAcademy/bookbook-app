@@ -38,7 +38,7 @@ it('Multiswitch should change values after click on radio', () => {
   expect(childNodes[1].firstChild.checked).toEqual(true);
 });
 
-it('Multiswitch should nas no children', () => {
+it('Multiswitch should has no children if without options', () => {
   const { container } = render(<Multiswitch options={[]} selectedOptionIndex={0} />);
   expect(container.childNodes.length).toEqual(1);
   expect(container.firstChild.childNodes.length).toEqual(0);

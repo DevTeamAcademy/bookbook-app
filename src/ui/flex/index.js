@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
   size,
-  ratio,
   color,
   space,
   width,
@@ -34,7 +33,6 @@ import * as H from '../../helpers';
 
 export const Flex = styled.div`
   ${size}
-  ${ratio}
   ${color}
   ${space}
   ${width}
@@ -64,7 +62,6 @@ export const Flex = styled.div`
 
 Flex.propTypes = {
   ...size.propTypes,
-  ...ratio.propTypes,
   ...color.propTypes,
   ...space.propTypes,
   ...width.propTypes,

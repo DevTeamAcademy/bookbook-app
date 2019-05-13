@@ -4,7 +4,6 @@ import {
   left,
   flex,
   size,
-  ratio,
   color,
   space,
   width,
@@ -38,7 +37,6 @@ export const Box = styled.div`
   ${left}
   ${flex}
   ${size}
-  ${ratio}
   ${color}
   ${space}
   ${width}
@@ -70,7 +68,6 @@ Box.propTypes = {
   ...top.propTypes,
   ...left.propTypes,
   ...size.propTypes,
-  ...ratio.propTypes,
   ...color.propTypes,
   ...space.propTypes,
   ...width.propTypes,
