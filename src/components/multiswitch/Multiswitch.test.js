@@ -1,5 +1,4 @@
 import React from 'react';
-import * as R from 'ramda';
 import { render, fireEvent } from 'react-testing-library';
 // components
 import Multiswitch from './';

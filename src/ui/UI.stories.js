@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import JSXAddon from 'storybook-addon-jsx';
 import { withInfo } from '@storybook/addon-info';
 import { setAddon, storiesOf } from '@storybook/react';

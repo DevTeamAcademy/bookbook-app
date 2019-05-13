@@ -1,9 +1,8 @@
-import React, { Fragment } from 'react';
-import { setAddon, storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, text, color, number, boolean } from '@storybook/addon-knobs/react';
-import { withInfo } from '@storybook/addon-info';
+import React from 'react';
 import JSXAddon from 'storybook-addon-jsx';
+import { withInfo } from '@storybook/addon-info';
+import { setAddon, storiesOf } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs/react';
 // components
 import Multiswitch from './';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -20,7 +19,7 @@ const multiswitchOptions = [
   {
     width: 50,
     name: 'Bookers',
-    value: 'drivers',
+    value: 'bookers',
   },
 ];
 

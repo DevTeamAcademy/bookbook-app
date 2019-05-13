@@ -2,13 +2,15 @@ import React from 'react';
 import * as R from 'ramda';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { top, left, color, width, height, display, position, background, borderRadius } from 'styled-system';
+import { color, width, height, display, position } from 'styled-system';
 // constants
 import * as C from '../../constants';
 // ui
-import { Flex, Box } from '../../ui';
+import { Flex, Box, PositionedBox } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
+// TODO: with theme
+// TODO: remove after adding global styles
 export const MultiswitchWrapper = styled(Flex)`
   box-sizing: border-box;
 `;
@@ -34,26 +36,12 @@ Label.propTypes = {
   ...position.propTypes,
 };
 
-export const RadioBackground = styled.div`
-  ${top}
-  ${left}
-  ${width}
-  ${height}
-  ${position}
-  ${background}
-  ${borderRadius}
-  transition: 0.5s all, 0.5s border-radius .2s;
-  transform: translate(${({ forTransform }) => `${forTransform / 2}px`}, 6px);
+export const RadioBackground = styled(PositionedBox)`
+  transition: 0.5s all, 0.5s border-radius 0.2s;
+  transform: translate(${({ forTransform }) => `${R.divide(forTransform, 2)}px`}, 6px);
 `;
 
 RadioBackground.propTypes = {
-  ...top.propTypes,
-  ...left.propTypes,
-  ...width.propTypes,
-  ...height.propTypes,
-  ...position.propTypes,
-  ...background.propTypes,
-  ...borderRadius.propTypes,
   forTransform: PropTypes.number,
 };
 
@@ -79,7 +67,8 @@ Radio.propTypes = {
 };
 
 const RadioOption = props => (
-  <RadioWrapper
+  <Box
+    cursor='pointer'
     textAlign='center'
     position='relative'
     height={props.settings.height}
@@ -103,7 +92,7 @@ const RadioOption = props => (
       width='0'
       height='0'
       position='absolute'
-      background={props.settings.checkedBg}
+      bg={props.settings.checkedBg}
       forTransform={props.radioOption.width}
       borderRadius={props.settings.borderRadius}
     />
@@ -116,7 +105,7 @@ const RadioOption = props => (
     >
       {props.radioOption.name}
     </Label>
-  </RadioWrapper>
+  </Box>
 );
 
 const optionPropType = PropTypes.shape({
@@ -130,25 +119,25 @@ RadioOption.propTypes = {
   radioOption: optionPropType,
   selectedOptionIndex: PropTypes.number,
   settings: PropTypes.shape({
+    bg: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     height: PropTypes.string.isRequired,
     fontSize: PropTypes.string.isRequired,
     checkedBg: PropTypes.string.isRequired,
     fontWeight: PropTypes.string.isRequired,
-    background: PropTypes.string.isRequired,
     checkedColor: PropTypes.string.isRequired,
     borderRadius: PropTypes.string.isRequired,
   }),
 };
 
 const makeWrapperSettings = settings => ({
+  bg: R.or(settings.bg, '#615d60'),
   height: R.or(settings.height, '7px'),
   color: R.or(settings.color, '#eeeeee'),
   fontSize: R.or(settings.fontSize, '11px'),
   fontWeight: R.or(settings.fontWeight, 'bold'),
   checkedBg: R.or(settings.checkedBg, '#e6dda6'),
   borderRadius: R.or(settings.borderRadius, '6px'),
-  background: R.or(settings.background, '#615d60'),
   checkedColor: R.or(settings.checkedColor, '#363135'),
 });
 
@@ -157,13 +146,13 @@ const MultiswitchComponent = props => {
   return (
     <MultiswitchWrapper
       display='flex'
+      bg={settings.bg}
       overflow='hidden'
       position='relative'
       width='max-content'
       alignItems='center'
       color={settings.color}
       height={settings.height}
-      background={settings.background}
       data-testid={C.TEST_ID_MULTISWITCH}
       borderRadius={settings.borderRadius}
     >

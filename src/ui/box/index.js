@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
   top,
@@ -62,6 +63,7 @@ export const Box = styled.div`
   ${borderColor}
   ${borderBottom}
   ${borderRadius}
+  cursor: ${({ cursor }) => cursor}};
 `;
 
 Box.propTypes = {
@@ -89,6 +91,25 @@ Box.propTypes = {
   ...borderRight.propTypes,
   ...borderBottom.propTypes,
   ...borderRadius.propTypes,
+  cursor: PropTypes.string,
 };
 
 Box.displayName = 'Box';
+
+export const PositionedBox = styled(Box)`
+  ${top}
+  ${left}
+  ${right}
+  ${bottom}
+  ${position}
+`;
+
+Box.propTypes = {
+  ...top.propTypes,
+  ...left.propTypes,
+  ...right.propTypes,
+  ...bottom.propTypes,
+  ...position.propTypes,
+};
+
+PositionedBox.displayName = 'PositionedBox';

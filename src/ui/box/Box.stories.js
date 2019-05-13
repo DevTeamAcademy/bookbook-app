@@ -4,7 +4,7 @@ import { withKnobs, text, color } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import JSXAddon from 'storybook-addon-jsx';
 // ui
-import { Box } from './';
+import { Box, PositionedBox } from './';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // NOTE: set to use 'addWithJSX' instead of 'add'
@@ -24,4 +24,23 @@ storiesOf('UI Box', module)
     >
       Box children here
     </Box>
+  ));
+
+storiesOf('UI PositionedBox', module)
+  .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs)
+  .addWithJSX('PositionedBox -> with some props', () => (
+    <PositionedBox
+      width='200px'
+      height='50px'
+      position='relative'
+      bg={color('bg', 'lightgray')}
+      border={text('border', '1px solid')}
+      borderColor={color('borderColor', 'black')}
+    >
+      <PositionedBox top='0' right='0' color='black' bg='lightblue' position='absolute'>
+        PositionedBox
+      </PositionedBox>
+    </PositionedBox>
   ));
