@@ -22,6 +22,7 @@ export { Box } from './box';
 export { Flex } from './flex';
 export { Text } from './text';
 export { Input } from './forms/input';
+export { Label } from './forms/label';
 // //////////////////////////////////////////////////////////////////////////////
 
 export const createMinWithMediaQuery = n => `

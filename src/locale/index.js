@@ -32,6 +32,12 @@ const UA = {
     notify: 'Сповіщення',
     search: 'Пошук',
   },
+  labels: {
+    firstName: "Ім'я",
+    lastName: 'Прізвище',
+    email: 'Пошта',
+    password: 'Пароль',
+  },
 };
 
 const EN = {
@@ -63,6 +69,12 @@ const EN = {
     quotes: 'Quotes',
     notify: 'Notify',
     search: 'Search',
+  },
+  labels: {
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    email: 'Email',
+    password: 'Password',
   },
 };
 
@@ -96,6 +108,12 @@ const RU = {
     notify: 'Notify',
     search: 'Search',
   },
+  labels: {
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    email: 'Email',
+    password: 'Password',
+  },
 };
 
 const PL = {
@@ -127,6 +145,12 @@ const PL = {
     quotes: 'Quotes',
     notify: 'Notify',
     search: 'Search',
+  },
+  labels: {
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    email: 'Email',
+    password: 'Password',
   },
 };
 

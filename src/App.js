@@ -14,6 +14,11 @@ import theme from './theme';
 import GlobalStyles from './ui/global-styles';
 //  /////////////////////////////////////////////////////////////////////////////////////////////////
 
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo-hooks';
+
+const client = new ApolloClient();
+
 const ErrorFallback = ({ error }) => {
   return (
     <>
@@ -26,14 +31,16 @@ const ErrorFallback = ({ error }) => {
 const App = () => (
   <StrictMode>
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <GlobalStyles />
-      <GlobalStateProvider>
-        <ThemeProvider theme={theme}>
-          <LocaleProvider>
-            <Routes />
-          </LocaleProvider>
-        </ThemeProvider>
-      </GlobalStateProvider>
+      <ApolloProvider client={client}>
+        <GlobalStyles />
+        <GlobalStateProvider>
+          <ThemeProvider theme={theme}>
+            <LocaleProvider>
+              <Routes />
+            </LocaleProvider>
+          </ThemeProvider>
+        </GlobalStateProvider>
+      </ApolloProvider>
     </ErrorBoundary>
   </StrictMode>
 );

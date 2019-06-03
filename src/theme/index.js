@@ -2,6 +2,9 @@
 
 export default {
   form: {
+    label: {
+      color: 'red',
+    },
     input: {
       focusBoxShadow: '0 0 5px 0 rgba(206, 40, 40, 0.5)',
     },
