@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { withTheme } from 'styled-components';
+import useFetch, { useGet, usePost, usePatch, usePut, useDelete } from 'use-http';
 // components
 import { FormFields } from '../../components';
 // constants
@@ -83,16 +84,18 @@ function SignUpForm(props) {
 }
 
 export const SignUpPage = props => {
-  // use hooks to send data here
+  const [data, loading, error, post] = usePost({
+    url: 'https://localhost:4000',
+  });
   return (
     <Flex data-testid={C.TEST_ID_SIGNUP_PAGE}>
       <Formik
         onSubmit={(values, { setSubmitting }) => {
-          debugger;
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+          post(values);
+          // setTimeout(() => {
+          //   alert(JSON.stringify(values, null, 2));
+          //   setSubmitting(false);
+          // }, 400);
         }}
         render={props => <SignUpForm {...props} />}
       />
