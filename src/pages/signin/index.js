@@ -14,6 +14,8 @@ import { useRequest } from '../../hooks';
 import { Flex } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
+import useFetch, { useGet, usePost, usePatch, usePut, useDelete } from 'use-http';
+
 // REFACTOR: add more reuse logic with signup
 
 const commonInputStyles = {
@@ -31,14 +33,26 @@ export const signInFormSettings = {
     {
       input: {
         ...commonInputStyles,
-        type: 'email',
+        type: 'text',
         required: true,
-        name: C.USER.EMAIL,
+        // name: C.USER.LOGIN,
+        name: 'username',
       },
       label: {
-        locale: ['labels', 'email'],
+        locale: ['labels', 'login'],
       },
     },
+    // {
+    //   input: {
+    //     ...commonInputStyles,
+    //     type: 'email',
+    //     required: true,
+    //     name: C.USER.EMAIL,
+    //   },
+    //   label: {
+    //     locale: ['labels', 'email'],
+    //   },
+    // },
     {
       input: {
         ...commonInputStyles,
@@ -64,14 +78,37 @@ function SignInForm(props) {
   );
 }
 
+// const auth = {
+//   username: 'frontend',
+//   password: 'secret',
+// };
+
+const authOptions = {
+  headers: {
+    Authorization: `Basic ${btoa('frontend:secret')}`,
+  },
+};
+
 export const SignInPage = props => {
   // use hooks to send data here
-  const [data, loading, error, request] = useRequest();
+  const [data, loading, error, request] = useRequest(authOptions);
+  // const [data, loading, error, get] = useGet({
+  //   baseUrl: 'http://localhost:8080/user',
+  // });
   return (
     <Flex data-testid={C.TEST_ID_SIGNIN_PAGE}>
       <Formik
         onSubmit={(values, { setSubmitting }) => {
-          request.post('/signin', values);
+          const { username, password } = values;
+          debugger;
+          const body = new FormData(values);
+          body.append('username', username);
+          body.append('password', password);
+          body.append('grant_type', 'password');
+          request.post(C.ENDP_SIGNIN, body);
+          // const queryParams = `?login=${encodeURI(values.login)}&password=${encodeURI(values.password)}`
+          // request.get(C.ENDP_SIGNIN, queryParams);
+          // get(queryParams);
           // setTimeout(() => {
           //   alert(JSON.stringify(values, null, 2));
           //   setSubmitting(false);

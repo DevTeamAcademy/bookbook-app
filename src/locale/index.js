@@ -36,6 +36,7 @@ const UA = {
     firstName: "Ім'я",
     lastName: 'Прізвище',
     email: 'Пошта',
+    login: 'Логін',
     password: 'Пароль',
   },
 };
@@ -75,6 +76,7 @@ const EN = {
     lastName: 'Last Name',
     email: 'Email',
     password: 'Password',
+    login: 'Login',
   },
 };
 
@@ -113,6 +115,7 @@ const RU = {
     lastName: 'Last Name',
     email: 'Email',
     password: 'Password',
+    login: 'Login',
   },
 };
 
@@ -151,6 +154,7 @@ const PL = {
     lastName: 'Last Name',
     email: 'Email',
     password: 'Password',
+    login: 'Login',
   },
 };
 

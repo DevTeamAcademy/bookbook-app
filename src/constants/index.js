@@ -3,4 +3,5 @@ export * from './routes';
 export * from './fields';
 export * from './locales';
 export * from './test-ids';
+export * from './endpoints';
 //  /////////////////////////////////////////////////////////////////////////////////////////////////

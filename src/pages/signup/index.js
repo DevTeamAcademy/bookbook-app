@@ -9,6 +9,8 @@ import { FormFields } from '../../components';
 import * as C from '../../constants';
 // contexts
 import { LocaleContext } from '../../contexts/locale';
+// hooks
+import { useRequest } from '../../hooks';
 // ui
 import { Flex } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -28,23 +30,12 @@ export const signUpFormSettings = {
     {
       input: {
         ...commonInputStyles,
-        type: 'text',
+        type: 'login',
         required: true,
-        name: C.USER.FIRST_NAME,
+        name: C.USER.LOGIN,
       },
       label: {
-        locale: ['labels', 'firstName'],
-      },
-    },
-    {
-      input: {
-        ...commonInputStyles,
-        type: 'text',
-        required: true,
-        name: C.USER.LAST_NAME,
-      },
-      label: {
-        locale: ['labels', 'lastName'],
+        locale: ['labels', 'login'],
       },
     },
     {
@@ -84,14 +75,16 @@ function SignUpForm(props) {
 }
 
 export const SignUpPage = props => {
-  const [data, loading, error, post] = usePost({
-    url: 'https://localhost:4000',
-  });
+  const [data, loading, error, request] = useRequest();
+  // const [data, loading, error, post] = usePost({
+  //   url: 'http://localhost:8080/user/signUp',
+  // });
   return (
     <Flex data-testid={C.TEST_ID_SIGNUP_PAGE}>
       <Formik
         onSubmit={(values, { setSubmitting }) => {
-          post(values);
+          // post(values);
+          request.post(C.ENDP_SIGNUP, values);
           // setTimeout(() => {
           //   alert(JSON.stringify(values, null, 2));
           //   setSubmitting(false);
