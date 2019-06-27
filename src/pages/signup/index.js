@@ -76,19 +76,11 @@ function SignUpForm(props) {
 
 export const SignUpPage = props => {
   const [data, loading, error, request] = useRequest();
-  // const [data, loading, error, post] = usePost({
-  //   url: 'http://localhost:8080/user/signUp',
-  // });
   return (
     <Flex data-testid={C.TEST_ID_SIGNUP_PAGE}>
       <Formik
         onSubmit={(values, { setSubmitting }) => {
-          // post(values);
           request.post(C.ENDP_SIGNUP, values);
-          // setTimeout(() => {
-          //   alert(JSON.stringify(values, null, 2));
-          //   setSubmitting(false);
-          // }, 400);
         }}
         render={props => <SignUpForm {...props} />}
       />
