@@ -11,16 +11,11 @@ import * as C from '../../constants';
 import { LocaleContext } from '../../contexts/locale';
 // hooks
 import { useRequest } from '../../hooks';
+// theme
+import Theme from '../../theme';
 // ui
 import { Flex } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
-
-const commonInputStyles = {
-  width: '140px',
-  height: '20px',
-  bg: '#fff8f0',
-  borderRadius: '1px',
-};
 
 export const signUpFormSettings = {
   wrapperStyles: {
@@ -29,7 +24,7 @@ export const signUpFormSettings = {
   fields: [
     {
       input: {
-        ...commonInputStyles,
+        ...Theme.form.input.authPages,
         type: 'login',
         required: true,
         name: C.USER.LOGIN,
@@ -40,7 +35,7 @@ export const signUpFormSettings = {
     },
     {
       input: {
-        ...commonInputStyles,
+        ...Theme.form.input.authPages,
         type: 'email',
         required: true,
         name: C.USER.EMAIL,
@@ -51,7 +46,7 @@ export const signUpFormSettings = {
     },
     {
       input: {
-        ...commonInputStyles,
+        ...Theme.form.input.authPages,
         type: 'password',
         required: true,
         name: C.USER.PASSWORD,

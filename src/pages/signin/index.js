@@ -7,10 +7,11 @@ import { FormFields } from '../../components';
 // constants
 import * as C from '../../constants';
 // global-state
-import { dispatch, useGlobalState } from '../../global-state';
-import { GLOBAL_SET_CURRENT_USER } from '../../global-state/action-types';
+import { setCurrentUser } from '../../global-state/dispatchers';
 // contexts
 import { LocaleContext } from '../../contexts/locale';
+// theme
+import Theme from '../../theme';
 // hooks
 import { useRequest } from '../../hooks';
 // ui
@@ -19,13 +20,6 @@ import { Flex } from '../../ui';
 
 // REFACTOR: add more reuse logic with signup
 
-const commonInputStyles = {
-  width: '140px',
-  height: '20px',
-  bg: '#fff8f0',
-  borderRadius: '1px',
-};
-
 export const signInFormSettings = {
   wrapperStyles: {
     flexDirection: 'column',
@@ -33,7 +27,7 @@ export const signInFormSettings = {
   fields: [
     {
       input: {
-        ...commonInputStyles,
+        ...Theme.form.input.authPages,
         type: 'text',
         required: true,
         name: C.USER.USERNAME,
@@ -44,7 +38,7 @@ export const signInFormSettings = {
     },
     {
       input: {
-        ...commonInputStyles,
+        ...Theme.form.input.authPages,
         type: 'password',
         required: true,
         name: C.USER.PASSWORD,
@@ -67,28 +61,8 @@ function SignInForm(props) {
   );
 }
 
-const authOptions = {
-  headers: {
-    Authorization: `Basic ${btoa('frontend:secret')}`,
-  },
-};
-
-const setCurrentUser = user => dispatch({ type: GLOBAL_SET_CURRENT_USER, payload: user });
-
-const signinUser = async (data, request, body) => {
-  const res = await request.post(C.ENDP_SIGNIN, body);
-  debugger;
-  // const queryParams = `?login=${encodeURI(values.login)}&password=${encodeURI(values.password)}`
-  // request.get(C.ENDP_SIGNIN, queryParams);
-  // get(queryParams);
-  // setTimeout(() => {
-  //   alert(JSON.stringify(values, null, 2));
-  //   setSubmitting(false);
-  // }, 400);
-};
-
 export const SignInPage = props => {
-  const [data, loading, error, request] = useRequest(authOptions);
+  const [data, loading, error, request] = useRequest(C.AUTH_OPTIONS);
   if (data) {
     setCurrentUser(data);
   }
@@ -101,15 +75,7 @@ export const SignInPage = props => {
           body.append('username', username);
           body.append('password', password);
           body.append('grant_type', 'password');
-          // signinUser(data, request, body);
           request.post(C.ENDP_SIGNIN, body);
-          // const queryParams = `?login=${encodeURI(values.login)}&password=${encodeURI(values.password)}`
-          // request.get(C.ENDP_SIGNIN, queryParams);
-          // get(queryParams);
-          // setTimeout(() => {
-          //   alert(JSON.stringify(values, null, 2));
-          //   setSubmitting(false);
-          // }, 400);
         }}
         render={props => <SignInForm {...props} />}
       />
