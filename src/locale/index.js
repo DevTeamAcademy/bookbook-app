@@ -3,9 +3,9 @@ import * as C from '../constants';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const UA = {
-  termsAndConditions: 'умови використання',
-  privacyPolicy: 'політика приватності',
-  copyright: '2018 © Всі права захищено',
+  termsAndConditions: 'Умови використання',
+  privacyPolicy: 'Політика приватності',
+  copyright: '2019 © Всі права захищено',
   languages: [
     {
       localeName: C.LOCALE_NAME_EN,
@@ -39,12 +39,15 @@ const UA = {
     login: 'Логін',
     password: 'Пароль',
   },
+  actions: {
+    register: 'Зареєструватись',
+  },
 };
 
 const EN = {
-  termsAndConditions: 'terms and conditions',
-  privacyPolicy: 'privacy policy',
-  copyright: '2018 © All rights reserved',
+  termsAndConditions: 'Terms and conditions',
+  privacyPolicy: 'Privacy policy',
+  copyright: '2019 © All rights reserved',
   languages: [
     {
       localeName: C.LOCALE_NAME_EN,
@@ -77,13 +80,16 @@ const EN = {
     email: 'Email',
     password: 'Password',
     login: 'Login',
+  },
+  actions: {
+    register: 'Submit',
   },
 };
 
 const RU = {
-  termsAndConditions: 'terms and conditions',
-  privacyPolicy: 'privacy policy',
-  copyright: '2018 © All rights reserved',
+  termsAndConditions: 'Terms and conditions',
+  privacyPolicy: 'Privacy policy',
+  copyright: '2019 © All rights reserved',
   languages: [
     {
       localeName: C.LOCALE_NAME_EN,
@@ -116,13 +122,16 @@ const RU = {
     email: 'Email',
     password: 'Password',
     login: 'Login',
+  },
+  actions: {
+    register: 'Submit',
   },
 };
 
 const PL = {
-  termsAndConditions: 'terms and conditions',
-  privacyPolicy: 'privacy policy',
-  copyright: '2018 © All rights reserved',
+  termsAndConditions: 'Terms and conditions',
+  privacyPolicy: 'Privacy policy',
+  copyright: '2019 © All rights reserved',
   languages: [
     {
       localeName: C.LOCALE_NAME_EN,
@@ -155,6 +164,9 @@ const PL = {
     email: 'Email',
     password: 'Password',
     login: 'Login',
+  },
+  actions: {
+    register: 'Submit',
   },
 };
 

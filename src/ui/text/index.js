@@ -26,7 +26,11 @@ export const Text = styled.span`
   ${lineHeight}
   ${fontWeight}
   ${letterSpacing}
-  cursor: ${({ cursor }) => or(cursor, 'initial')};
+  cursor: ${({ cursor }) => cursor};
+  text-decoration: ${({ textDecoration }) => textDecoration};
+  &:hover {
+    text-decoration: ${({ hoverTextDecoration }) => hoverTextDecoration};
+  }
 `;
 
 Text.propTypes = {
@@ -41,6 +45,8 @@ Text.propTypes = {
   ...fontWeight.propTypes,
   ...letterSpacing.propTypes,
   cursor: PropTypes.string,
+  textDecoration: PropTypes.string,
+  hoverTextDecoration: PropTypes.string,
 };
 
 Text.displayName = 'Text';

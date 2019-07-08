@@ -15,22 +15,40 @@ const colors = {
 };
 
 export default {
+  colors,
   form: {
     label: {
-      color: 'red',
+      color: 'black',
+      requiredStarColor: 'red',
     },
     input: {
       authPages: {
-        width: '140px',
-        height: '20px',
+        p: '15px',
+        mb: '20px',
         bg: '#fff8f0',
-        borderRadius: '1px',
+        width: '250px',
+        height: '40px',
+        borderRadius: '5px',
       },
       focusBoxShadow: '0 0 5px 0 rgba(206, 40, 40, 0.5)',
     },
   },
-  colors,
+  btns: {
+    authPages: {
+      bg: '#e6dda6',
+      width: '250px',
+      height: '40px',
+      cursor: 'pointer',
+      borderRadius: '50px',
+    },
+  },
   icons: {
     activeColor: '#e6dda6',
+  },
+  routeLink: {
+    p: '0px 15px',
+    color: '#2c7bda',
+    fontSize: '12px',
+    cursor: 'pointer',
   },
 };

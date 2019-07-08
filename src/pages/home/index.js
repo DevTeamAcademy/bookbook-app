@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import * as C from '../../constants';
 // contexts
 import { LocaleContext } from '../../contexts/locale';
-// helpers
-import { getLocale } from '../../helpers';
 // ui
 import { Flex } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////

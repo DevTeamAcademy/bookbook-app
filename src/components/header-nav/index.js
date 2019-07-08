@@ -67,7 +67,7 @@ export const HeaderNavItem = props => (
       />
     </IconWrapper>
     <Text color={themeGet('coors.white', 'white')(props)} ml={[0, 10, 10]} fontSize={[9, 10, 12]}>
-      {H.getLocale(props.item.label, '...', props.locale)}
+      {H.getLocale(props.item.label, props.locale)}
     </Text>
   </Flex>
 );
@@ -77,13 +77,7 @@ export const setItemActiveStatus = (location, item) => equals(location.pathname,
 export const HeaderNav = props => (
   <Flex data-testid={C.TEST_ID_HEADER_NAV}>
     <Box width='16.66%'>
-      <HeaderNavItem
-        active={false}
-        item={navItemMenu}
-        theme={props.theme}
-        locale={props.locale}
-        handleClickNavItem={props.handleToggleMenu}
-      />
+      <HeaderNavItem active={false} item={navItemMenu} theme={props.theme} locale={props.locale} />
     </Box>
     {navItems.map((item, index) => (
       <Box width='16.66%' key={index}>
@@ -92,7 +86,6 @@ export const HeaderNav = props => (
             item={item}
             theme={props.theme}
             locale={props.locale}
-            handleClickNavItem={props.handleClickNavItem}
             active={setItemActiveStatus(props.location, item)}
           />
         </Link>

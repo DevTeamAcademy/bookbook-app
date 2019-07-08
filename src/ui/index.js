@@ -23,6 +23,7 @@ export { Flex } from './flex';
 export { Text } from './text';
 export { Input } from './forms/input';
 export { Label } from './forms/label';
+export { AuthPagesWrapper } from './wrappers';
 // //////////////////////////////////////////////////////////////////////////////
 
 export const createMinWithMediaQuery = n => `
