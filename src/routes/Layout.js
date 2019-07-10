@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { withTheme } from 'styled-components';
 import React, { Suspense, useContext } from 'react';
 // components
 import HeaderNav from '../components/header-nav';
@@ -42,7 +41,7 @@ export const Layout = ({ theme, children, location }) => {
   );
 };
 
-export default withTheme(Layout);
+export default Layout;
 
 Layout.propTypes = {
   theme: PropTypes.object,

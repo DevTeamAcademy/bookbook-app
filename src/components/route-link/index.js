@@ -9,7 +9,7 @@ import * as H from '../../helpers';
 // theme
 import Theme from '../../theme';
 // ui
-import { Box, Text } from '../../ui';
+import { Text } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const RouteLink = props => (
@@ -24,4 +24,4 @@ export default RouteLink;
 
 RouteLink.propTypes = {};
 
-RouteLink.displayName = 'HeaderRouteLinkNav';
+RouteLink.displayName = 'RouteLink';

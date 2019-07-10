@@ -1,8 +1,6 @@
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
-import { withTheme } from 'styled-components';
-import useFetch, { useGet, usePost, usePatch, usePut, useDelete } from 'use-http';
 // components
 import { RouteLink, FormFields } from '../../components';
 // constants

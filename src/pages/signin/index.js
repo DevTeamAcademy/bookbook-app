@@ -1,21 +1,25 @@
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
-import { withTheme } from 'styled-components';
+import { withRouter } from 'react-router';
 // components
-import { FormFields } from '../../components';
+import { RouteLink, FormFields } from '../../components';
 // constants
 import * as C from '../../constants';
 // global-state
 import { setCurrentUser } from '../../global-state/dispatchers';
 // contexts
 import { LocaleContext } from '../../contexts/locale';
-// theme
-import Theme from '../../theme';
+// helpers
+import * as H from '../../helpers';
 // hooks
 import { useRequest } from '../../hooks';
+// images
+import { ReactComponent as LogoIcon } from '../../images/logo.svg';
+// theme
+import Theme from '../../theme';
 // ui
-import { Flex } from '../../ui';
+import { Box, Flex, Button, AuthPagesWrapper } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // REFACTOR: add more reuse logic with signup
@@ -31,9 +35,7 @@ export const signInFormSettings = {
         type: 'text',
         required: true,
         name: C.USER.USERNAME,
-      },
-      label: {
-        locale: ['labels', 'login'],
+        placeholder: ['labels', 'login'],
       },
     },
     {
@@ -42,49 +44,67 @@ export const signInFormSettings = {
         type: 'password',
         required: true,
         name: C.USER.PASSWORD,
-      },
-      label: {
-        locale: ['labels', 'password'],
+        placeholder: ['labels', 'email'],
       },
     },
   ],
 };
 
 function SignInForm(props) {
-  const { theme, handleSubmit } = props;
-  const { locale } = useContext(LocaleContext);
+  const { locale, handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <FormFields {...props} theme={theme} locale={locale} settings={signInFormSettings} />
-      <button type='submit'>Submit</button>
+      <FormFields {...props} locale={locale} settings={signInFormSettings} />
+      <Button type='submit' {...Theme.btns.authPages}>
+        {H.getLocale(['actions', 'login'], locale)}
+      </Button>
     </form>
   );
 }
 
 export const SignInPage = props => {
+  const { history } = props;
+  const { locale } = useContext(LocaleContext);
   const [data, loading, error, request] = useRequest(C.AUTH_OPTIONS);
   if (data) {
     setCurrentUser(data);
+    history.push(C.ROUTE_HOME_PAGE);
   }
   return (
-    <Flex data-testid={C.TEST_ID_SIGNIN_PAGE}>
-      <Formik
-        onSubmit={(values, { setSubmitting }) => {
-          const { username, password } = values;
-          const body = new FormData(values);
-          body.append('username', username);
-          body.append('password', password);
-          body.append('grant_type', 'password');
-          request.post(C.ENDP_SIGNIN, body);
-        }}
-        render={props => <SignInForm {...props} />}
-      />
-    </Flex>
+    <AuthPagesWrapper data-testid={C.TEST_ID_SIGNIN_PAGE}>
+      <Flex height='100%' alignItems='center' flexDirection='column' justifyContent='center'>
+        <Box mb='50px'>
+          <LogoIcon />
+        </Box>
+        <Formik
+          onSubmit={(values, { setSubmitting }) => {
+            const { username, password } = values;
+            const body = new FormData(values);
+            body.append('username', username);
+            body.append('password', password);
+            body.append('grant_type', 'password');
+            request.post(C.ENDP_SIGNIN, body);
+          }}
+          render={props => <SignInForm {...props} locale={locale} />}
+        />
+        <Box mt='50px'>
+          <RouteLink
+            linkTo='/signup'
+            styles={{ fontSize: '14px' }}
+            text={H.getLocale(['actions', 'register'], locale)}
+          />
+        </Box>
+      </Flex>
+    </AuthPagesWrapper>
   );
 };
 
-export default withTheme(SignInPage);
+export default withRouter(SignInPage);
 
-SignInPage.propTypes = {};
+SignInPage.propTypes = {
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+};
 
 SignInPage.displayName = 'SignInPage';

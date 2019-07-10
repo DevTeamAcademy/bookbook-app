@@ -41,6 +41,7 @@ const UA = {
   },
   actions: {
     register: 'Зареєструватись',
+    login: 'Увійти',
   },
 };
 
@@ -83,6 +84,7 @@ const EN = {
   },
   actions: {
     register: 'Submit',
+    login: 'Login',
   },
 };
 
@@ -125,6 +127,7 @@ const RU = {
   },
   actions: {
     register: 'Submit',
+    login: 'Login',
   },
 };
 
@@ -167,6 +170,7 @@ const PL = {
   },
   actions: {
     register: 'Submit',
+    login: 'Login',
   },
 };
 

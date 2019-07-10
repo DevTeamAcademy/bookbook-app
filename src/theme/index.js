@@ -26,9 +26,9 @@ export default {
         p: '15px',
         mb: '20px',
         bg: '#fff8f0',
-        width: '250px',
+        width: '280px',
         height: '40px',
-        borderRadius: '5px',
+        borderRadius: '2px',
       },
       focusBoxShadow: '0 0 5px 0 rgba(206, 40, 40, 0.5)',
     },
@@ -36,10 +36,10 @@ export default {
   btns: {
     authPages: {
       bg: '#e6dda6',
-      width: '250px',
-      height: '40px',
+      width: '280px',
+      height: '44px',
       cursor: 'pointer',
-      borderRadius: '50px',
+      borderRadius: '22px',
     },
   },
   icons: {
@@ -49,6 +49,7 @@ export default {
     p: '0px 15px',
     color: '#2c7bda',
     fontSize: '12px',
+    fontWeight: 600,
     cursor: 'pointer',
   },
 };

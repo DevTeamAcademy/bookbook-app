@@ -1,9 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 // constants
 import * as C from '../../constants';
-// contexts
-import { LocaleContext } from '../../contexts/locale';
 // ui
 import { Flex } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////

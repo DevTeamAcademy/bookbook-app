@@ -1,6 +1,12 @@
-import { or, and, all, isNil, equals, isEmpty, complement } from 'ramda';
+import { or, is, and, all, isNil, equals, isEmpty, complement } from 'ramda';
 //  /////////////////////////////////////////////////////////////////////////////////////////////////
 
+export const isArray = is(Array);
+export const isString = is(String);
+export const isNumber = is(Number);
+export const isObject = is(Object);
+export const isBoolean = is(Boolean);
+export const isFunction = is(Function);
 export const isTrue = equals(true);
 export const isFalse = equals(false);
 export const isNotNil = complement(isNil);

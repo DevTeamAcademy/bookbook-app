@@ -1,6 +1,6 @@
 import React from 'react';
+import { path } from 'ramda';
 import PropTypes from 'prop-types';
-import { path, pathOr } from 'ramda';
 // helpers
 import * as H from '../../helpers';
 // theme
