@@ -22,7 +22,7 @@ const LoadingFallback = ({ error }) => {
 
 const toggleSidebarOpened = () => dispatch({ type: GLOBAL_TOGGLE_SIDEBAR });
 
-export const Layout = ({ theme, children, location }) => {
+export const Layout = ({ children, location }) => {
   const { locale } = useContext(LocaleContext);
   const size = useWindowSize();
   const [isSidebarOpened] = useGlobalState('isSidebarOpened');
@@ -30,7 +30,6 @@ export const Layout = ({ theme, children, location }) => {
     <>
       <HeaderNav
         size={size}
-        theme={theme}
         locale={locale}
         location={location}
         activeMenu={isSidebarOpened}
@@ -44,7 +43,6 @@ export const Layout = ({ theme, children, location }) => {
 export default Layout;
 
 Layout.propTypes = {
-  theme: PropTypes.object,
   location: PropTypes.object,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 };

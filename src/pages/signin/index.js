@@ -102,9 +102,9 @@ export const SignInPage = props => {
 export default withRouter(SignInPage);
 
 SignInPage.propTypes = {
-  match: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
+  match: PropTypes.object,
+  history: PropTypes.object,
+  location: PropTypes.object,
 };
 
 SignInPage.displayName = 'SignInPage';

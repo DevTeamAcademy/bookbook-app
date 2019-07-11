@@ -13,22 +13,24 @@ import {
   borderColor,
   borderRadius,
 } from 'styled-system';
+// theme
+import Theme from '../../../theme';
 // //////////////////////////////////////////////////////////////////////////////
 
 // TODO: move all theme dependent staff to props
 
 export const renderBorderColor = (props: Object) => {
   if (and(props.error, props.touched)) {
-    return props.theme.form.input.errorBorderColor;
+    return Theme.form.input.errorBorderColor;
   }
-  return props.theme.form.input.borderColor;
+  return Theme.form.input.borderColor;
 };
 
 export const renderBgColor = (props: Object) => {
   if (props.disabled) {
-    return props.theme.form.input.disabledBgColor;
+    return Theme.form.input.disabledBgColor;
   }
-  return props.theme.form.input.bgColor;
+  return Theme.form.input.bgColor;
 };
 
 // props.theme.forms.input.focusBoxShadow: 0 0 5px 0 rgba(206, 40, 40, 0.5)

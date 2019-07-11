@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { setAddon, storiesOf } from '@storybook/react';
 import { withKnobs, text, color } from '@storybook/addon-knobs/react';
 // theme
-import theme from '../../../theme';
+import Theme from '../../../theme';
 // ui
 import { Input } from './';
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -23,6 +23,6 @@ storiesOf('UI Forms Input', module)
       color={color('color', 'white')}
       border={text('border', '1px solid')}
       borderColor={color('borderColor', 'black')}
-      focusBoxShadow={theme.form.input.focusBoxShadow}
+      focusBoxShadow={Theme.form.input.focusBoxShadow}
     />
   ));

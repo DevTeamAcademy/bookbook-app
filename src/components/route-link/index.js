@@ -22,6 +22,10 @@ export const RouteLink = props => (
 
 export default RouteLink;
 
-RouteLink.propTypes = {};
+RouteLink.propTypes = {
+  styles: PropTypes.object,
+  text: PropTypes.string.isRequired,
+  linkTo: PropTypes.string.isRequired,
+};
 
 RouteLink.displayName = 'RouteLink';

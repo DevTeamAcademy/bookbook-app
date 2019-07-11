@@ -40,7 +40,6 @@ export default FormFields;
 
 // TODO: add all props
 FormFields.propTypes = {
-  theme: PropTypes.object,
   locale: PropTypes.object,
   fields: PropTypes.object,
 };
