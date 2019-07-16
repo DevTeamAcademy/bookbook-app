@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { or } from 'ramda';
 import styled from 'styled-components';
 import {
   color,
@@ -11,7 +10,8 @@ import {
   textAlign,
   lineHeight,
   fontWeight,
-  letterSpacing } from 'styled-system';
+  letterSpacing,
+} from 'styled-system';
 // //////////////////////////////////////////////////////////////////////////////
 
 export const Text = styled.span`
@@ -25,7 +25,11 @@ export const Text = styled.span`
   ${lineHeight}
   ${fontWeight}
   ${letterSpacing}
-  cursor: ${({ cursor }) => or(cursor, 'initial')};
+  cursor: ${({ cursor }) => cursor};
+  text-decoration: ${({ textDecoration }) => textDecoration};
+  &:hover {
+    text-decoration: ${({ hoverTextDecoration }) => hoverTextDecoration};
+  }
 `;
 
 Text.propTypes = {
@@ -40,6 +44,8 @@ Text.propTypes = {
   ...fontWeight.propTypes,
   ...letterSpacing.propTypes,
   cursor: PropTypes.string,
+  textDecoration: PropTypes.string,
+  hoverTextDecoration: PropTypes.string,
 };
 
 Text.displayName = 'Text';

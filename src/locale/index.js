@@ -3,9 +3,9 @@ import * as C from '../constants';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const UA = {
-  termsAndConditions: 'умови використання',
-  privacyPolicy: 'політика приватності',
-  copyright: '2018 © Всі права захищено',
+  termsAndConditions: 'Умови використання',
+  privacyPolicy: 'Політика приватності',
+  copyright: '2019 © Всі права захищено',
   languages: [
     {
       localeName: C.LOCALE_NAME_EN,
@@ -32,12 +32,23 @@ const UA = {
     notify: 'Сповіщення',
     search: 'Пошук',
   },
+  labels: {
+    firstName: "Ім'я",
+    lastName: 'Прізвище',
+    email: 'Пошта',
+    login: 'Логін',
+    password: 'Пароль',
+  },
+  actions: {
+    register: 'Зареєструватись',
+    login: 'Увійти',
+  },
 };
 
 const EN = {
-  termsAndConditions: 'terms and conditions',
-  privacyPolicy: 'privacy policy',
-  copyright: '2018 © All rights reserved',
+  termsAndConditions: 'Terms and conditions',
+  privacyPolicy: 'Privacy policy',
+  copyright: '2019 © All rights reserved',
   languages: [
     {
       localeName: C.LOCALE_NAME_EN,
@@ -63,13 +74,24 @@ const EN = {
     quotes: 'Quotes',
     notify: 'Notify',
     search: 'Search',
+  },
+  labels: {
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    email: 'Email',
+    password: 'Password',
+    login: 'Login',
+  },
+  actions: {
+    register: 'Submit',
+    login: 'Login',
   },
 };
 
 const RU = {
-  termsAndConditions: 'terms and conditions',
-  privacyPolicy: 'privacy policy',
-  copyright: '2018 © All rights reserved',
+  termsAndConditions: 'Terms and conditions',
+  privacyPolicy: 'Privacy policy',
+  copyright: '2019 © All rights reserved',
   languages: [
     {
       localeName: C.LOCALE_NAME_EN,
@@ -96,12 +118,23 @@ const RU = {
     notify: 'Notify',
     search: 'Search',
   },
+  labels: {
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    email: 'Email',
+    password: 'Password',
+    login: 'Login',
+  },
+  actions: {
+    register: 'Submit',
+    login: 'Login',
+  },
 };
 
 const PL = {
-  termsAndConditions: 'terms and conditions',
-  privacyPolicy: 'privacy policy',
-  copyright: '2018 © All rights reserved',
+  termsAndConditions: 'Terms and conditions',
+  privacyPolicy: 'Privacy policy',
+  copyright: '2019 © All rights reserved',
   languages: [
     {
       localeName: C.LOCALE_NAME_EN,
@@ -127,6 +160,17 @@ const PL = {
     quotes: 'Quotes',
     notify: 'Notify',
     search: 'Search',
+  },
+  labels: {
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    email: 'Email',
+    password: 'Password',
+    login: 'Login',
+  },
+  actions: {
+    register: 'Submit',
+    login: 'Login',
   },
 };
 
