@@ -1,5 +1,5 @@
+import R from 'ramda';
 import React from 'react';
-import { path } from 'ramda';
 import PropTypes from 'prop-types';
 // helpers
 import * as H from '../../helpers';
@@ -24,11 +24,12 @@ export const FormFields = props => (
             </Label>
           </Flex>
         )}
+        <div />
         <FieldComponent
           {...item.input}
           onBlur={props.handleBlur}
           onChange={props.handleChange}
-          value={path([item.fieldName, 'values'], props)}
+          value={R.path([item.fieldName, 'values'], props)}
           placeholder={H.getLocale(item.input.placeholder, props.locale)}
         />
       </Box>
@@ -38,10 +39,11 @@ export const FormFields = props => (
 
 export default FormFields;
 
-// TODO: add all props
 FormFields.propTypes = {
-  locale: PropTypes.object,
-  fields: PropTypes.object,
+  locale: PropTypes.object.isRequired,
+  handleBlur: PropTypes.func.isRequired,
+  settings: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 FormFields.displayName = 'FormFields';

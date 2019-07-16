@@ -1,4 +1,4 @@
-import { or } from 'ramda';
+import R from 'ramda';
 //  /////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const getItemFromLocalStorage = itemName => localStorage.getItem(itemName);
@@ -17,4 +17,4 @@ export const setRefreshTokenToSession = (token: string) =>
   sessionStorage.setItem('refreshToken', JSON.stringify(token)); // eslint-disable-line
 export const removeRefreshTokenFromSession = () => sessionStorage.removeItem('refreshToken'); // eslint-disable-line
 
-export const getToken = () => or(getAuthToken(), getAuthTokenFromSession());
+export const getToken = () => R.or(getAuthToken(), getAuthTokenFromSession());

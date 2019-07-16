@@ -1,4 +1,4 @@
-import { assoc } from 'ramda';
+import R from 'ramda';
 import React, { lazy, Suspense, useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 // constants
@@ -32,7 +32,7 @@ export default () => {
     request.post(C.ENDP_SESSION, body);
   }, []);
   if (data) {
-    setCurrentUser(assoc('access_token', token, data));
+    setCurrentUser(R.assoc('access_token', token, data));
   }
   return (
     <Suspense fallback={null}>

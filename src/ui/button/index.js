@@ -1,4 +1,3 @@
-import { or } from 'ramda';
 import styled from 'styled-components';
 import {
   color,
@@ -27,5 +26,5 @@ export const Button = styled.button`
   ${boxShadow}
   ${borderColor}
   ${borderRadius}
-  cursor: ${({ cursor }) => or(cursor, 'initial')};
+  cursor: ${({ cursor }) => cursor};
 `;

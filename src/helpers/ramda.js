@@ -1,18 +1,18 @@
-import { or, is, and, all, isNil, equals, isEmpty, complement } from 'ramda';
+import R from 'ramda';
 //  /////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const isArray = is(Array);
-export const isString = is(String);
-export const isNumber = is(Number);
-export const isObject = is(Object);
-export const isBoolean = is(Boolean);
-export const isFunction = is(Function);
-export const isTrue = equals(true);
-export const isFalse = equals(false);
-export const isNotNil = complement(isNil);
-export const notEquals = complement(equals);
-export const isNotEmpty = complement(isEmpty);
-export const isAllTrue = (...args) => all(isTrue, args);
-export const isAllFalse = (...args) => all(isFalse, args);
-export const isNilOrEmpty = value => or(isNil(value), isEmpty(value));
-export const isNotNilAndNotEmpty = value => and(isNotNil(value), isNotEmpty(value));
+export const isArray = R.is(Array);
+export const isString = R.is(String);
+export const isNumber = R.is(Number);
+export const isObject = R.is(Object);
+export const isBoolean = R.is(Boolean);
+export const isFunction = R.is(Function);
+export const isTrue = R.equals(true);
+export const isFalse = R.equals(false);
+export const isNotNil = R.complement(R.isNil);
+export const notEquals = R.complement(R.equals);
+export const isNotEmpty = R.complement(R.isEmpty);
+export const isAllTrue = (...args) => R.all(isTrue, args);
+export const isAllFalse = (...args) => R.all(isFalse, args);
+export const isNilOrEmpty = value => R.or(R.isNil(value), R.isEmpty(value));
+export const isNotNilAndNotEmpty = value => R.and(isNotNil(value), isNotEmpty(value));

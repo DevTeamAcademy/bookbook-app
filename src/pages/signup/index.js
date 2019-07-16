@@ -19,7 +19,7 @@ import Theme from '../../theme';
 import { Box, Flex, Text, Button, AuthPagesWrapper } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const signUpFormSettings = {
+const signUpFormSettings = {
   wrapperStyles: {
     flexDirection: 'column',
   },
@@ -54,7 +54,7 @@ export const signUpFormSettings = {
   ],
 };
 
-function SignUpForm(props) {
+const SignUpForm = props => {
   const { locale, handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
@@ -64,13 +64,14 @@ function SignUpForm(props) {
       </Button>
     </form>
   );
-}
+};
 
+// TODO: with correct redirection terms and policy
 export const SignUpPage = props => {
   const { locale } = useContext(LocaleContext);
   const [data, loading, error, request] = useRequest();
   return (
-    <AuthPagesWrapper data-testid={C.TEST_ID_SIGNUP_PAGE}>
+    <AuthPagesWrapper>
       <Flex height='100%' alignItems='center' flexDirection='column' justifyContent='center'>
         <Box mb='50px'>
           <LogoIcon />
@@ -97,6 +98,10 @@ export const SignUpPage = props => {
 
 export default SignUpPage;
 
-SignUpPage.propTypes = {};
+SignUpPage.propTypes = {
+  match: PropTypes.object,
+  history: PropTypes.object,
+  location: PropTypes.object,
+};
 
 SignUpPage.displayName = 'SignUpPage';

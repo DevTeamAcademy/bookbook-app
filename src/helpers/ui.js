@@ -1,7 +1,6 @@
-import { is } from 'ramda';
+import R from 'ramda';
 // helpers
 import { ifElse } from './logic';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-// TODO: add test
-export const spreadUiProps = (styles: Object) => ifElse(is(Object, styles), styles, {});
+export const spreadUiProps = (styles: Object) => ifElse(R.is(Object, styles), styles, {});

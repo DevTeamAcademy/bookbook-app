@@ -17,8 +17,6 @@ import {
 import Theme from '../../../theme';
 // //////////////////////////////////////////////////////////////////////////////
 
-// TODO: move all theme dependent staff to props
-
 export const renderBorderColor = (props: Object) => {
   if (and(props.error, props.touched)) {
     return Theme.form.input.errorBorderColor;
@@ -32,8 +30,6 @@ export const renderBgColor = (props: Object) => {
   }
   return Theme.form.input.bgColor;
 };
-
-// props.theme.forms.input.focusBoxShadow: 0 0 5px 0 rgba(206, 40, 40, 0.5)
 
 export const Input = styled.input`
   ${color}
@@ -49,7 +45,7 @@ export const Input = styled.input`
   outline: none;
   cursor: ${({ cursor }) => or(cursor, 'text')};
   &:focus {
-    box-shadow: ${({ focusBoxShadow }) => or(focusBoxShadow, '0 0 5px 0 rgba(206, 40, 40, 0.5)')};
+    box-shadow: ${({ focusBoxShadow }) => or(focusBoxShadow, Theme.form.input.focusBoxShadow)};
   }
 `;
 

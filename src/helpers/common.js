@@ -1,4 +1,4 @@
-import { and, pathOr } from 'ramda';
+import R from 'ramda';
 import titleCase from 'voca/title_case';
 import upperCase from 'voca/upper_case';
 import lowerCase from 'voca/lower_case';
@@ -13,11 +13,11 @@ export const getLocale = (localePath: string, locale = {}, options) => {
     upperCase,
     lowerCase,
   };
-  const text = pathOr(' ', localePath, locale);
+  const text = R.pathOr(' ', localePath, locale);
   if (isObject(options)) {
     const { caseAction } = options;
     const caseActionFn = caseActionMap[caseAction];
-    if (and(caseAction, isFunction(caseActionFn))) return caseActionFn(text);
+    if (R.and(caseAction, isFunction(caseActionFn))) return caseActionFn(text);
   }
   return text;
 };

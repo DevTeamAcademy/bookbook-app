@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import R from 'ramda';
 import styled from 'styled-components';
 import {
   color,
@@ -45,12 +44,11 @@ export const Text = styled.div`
   ${borderRight}
   ${borderBottom}
   ${borderRadius}
-
-  cursor: ${({ cursor }: Object) => R.or(cursor, 'initial')};
-  overflow: ${({ overflow }: Object) => R.or(overflow, 'hidden')};
-  word-break: ${({ wordBreak }: Object) => R.or(wordBreak, 'unset')};
-  white-space: ${({ whiteSpace }: Object) => R.or(whiteSpace, 'nowrap')};
-  text-transform: ${({ textTransform }: Object) => R.or(textTransform, 'unset')};
+  cursor: ${({ cursor }: Object) => cursor};
+  overflow: ${({ overflow }: Object) => overflow};
+  word-break: ${({ wordBreak }: Object) => wordBreak};
+  white-space: ${({ whiteSpace }: Object) => whiteSpace};
+  text-transform: ${({ textTransform }: Object) => textTransform};
   text-overflow: ${({ withEllipsis }: Object) => H.ifElse(H.isTrue(withEllipsis), 'ellipsis', 'clip')};
 `;
 
@@ -80,8 +78,8 @@ TextEllipsed.propTypes = {
   ...maxHeight.propTypes,
   ...minHeight.propTypes,
   ...textAlign.propTypes,
-  ...fontWeight.propTypes,
   ...boxShadow.propTypes,
+  ...fontWeight.propTypes,
   ...borderLeft.propTypes,
   ...borderColor.propTypes,
   ...borderRight.propTypes,

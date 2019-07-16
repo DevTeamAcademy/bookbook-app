@@ -22,9 +22,7 @@ import Theme from '../../theme';
 import { Box, Flex, Button, AuthPagesWrapper } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-// REFACTOR: add more reuse logic with signup
-
-export const signInFormSettings = {
+const signInFormSettings = {
   wrapperStyles: {
     flexDirection: 'column',
   },
@@ -50,7 +48,7 @@ export const signInFormSettings = {
   ],
 };
 
-function SignInForm(props) {
+const SignInForm = props => {
   const { locale, handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
@@ -60,7 +58,7 @@ function SignInForm(props) {
       </Button>
     </form>
   );
-}
+};
 
 export const SignInPage = props => {
   const { history } = props;
@@ -71,7 +69,7 @@ export const SignInPage = props => {
     history.push(C.ROUTE_HOME_PAGE);
   }
   return (
-    <AuthPagesWrapper data-testid={C.TEST_ID_SIGNIN_PAGE}>
+    <AuthPagesWrapper>
       <Flex height='100%' alignItems='center' flexDirection='column' justifyContent='center'>
         <Box mb='50px'>
           <LogoIcon />
@@ -89,7 +87,7 @@ export const SignInPage = props => {
         />
         <Box mt='50px'>
           <RouteLink
-            linkTo='/signup'
+            linkTo={C.ROUTE_SIGNUP_PAGE}
             styles={{ fontSize: '14px' }}
             text={H.getLocale(['actions', 'register'], locale)}
           />

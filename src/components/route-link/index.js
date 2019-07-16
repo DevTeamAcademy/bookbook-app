@@ -1,5 +1,5 @@
+import R from 'ramda';
 import React from 'react';
-import { or } from 'ramda';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // constants
@@ -13,7 +13,7 @@ import { Text } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const RouteLink = props => (
-  <Link to={or(props.linkTo, C.ROUTE_HOME_PAGE)}>
+  <Link to={R.or(props.linkTo, C.ROUTE_HOME_PAGE)}>
     <Text hoverTextDecoration='underline' {...Theme.routeLink} {...H.spreadUiProps(props.styles)}>
       {props.text}
     </Text>
