@@ -1,5 +1,5 @@
-import { dispatch } from './';
-import { GLOBAL_TOGGLE_SIDEBAR, GLOBAL_SET_CURRENT_USER } from './action-types';
+import { dispatch } from '../global-state';
+import { GLOBAL_TOGGLE_SIDEBAR, GLOBAL_SET_CURRENT_USER } from '../global-state/action-types';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const toggleSidebarOpened = () => dispatch({ type: GLOBAL_TOGGLE_SIDEBAR });
