@@ -27,7 +27,12 @@ export const Layout = ({ children, location }) => {
   const [isSidebarOpened] = useGlobalState('isSidebarOpened');
   return (
     <>
-      <SidebarMenu locale={locale} location={location} sidebarOpened={isSidebarOpened} />
+      <SidebarMenu
+        locale={locale}
+        location={location}
+        sidebarOpened={isSidebarOpened}
+        handleToggleSidebar={toggleSidebarOpened}
+      />
       <HeaderNav
         size={size}
         locale={locale}

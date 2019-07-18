@@ -32,6 +32,15 @@ const UA = {
     notify: 'Сповіщення',
     search: 'Пошук',
   },
+  sidebarMenuLabels: {
+    profile: 'Мій Профіль',
+    share: 'Поділитись',
+    help: 'Допомога',
+    about: 'Про Додаток',
+    language: 'Мова',
+    settings: 'Налаштування',
+    logout: 'Вийти',
+  },
   labels: {
     firstName: "Ім'я",
     lastName: 'Прізвище',
@@ -74,6 +83,15 @@ const EN = {
     quotes: 'Quotes',
     notify: 'Notify',
     search: 'Search',
+  },
+  sidebarMenuLabels: {
+    profile: 'Profile',
+    share: 'Share',
+    help: 'Help',
+    about: 'About',
+    language: 'Language',
+    settings: 'Settings',
+    logout: 'Logout',
   },
   labels: {
     firstName: 'First Name',
@@ -118,6 +136,15 @@ const RU = {
     notify: 'Notify',
     search: 'Search',
   },
+  sidebarMenuLabels: {
+    profile: 'Profile',
+    share: 'Share',
+    help: 'Help',
+    about: 'About',
+    language: 'Language',
+    settings: 'Settings',
+    logout: 'Logout',
+  },
   labels: {
     firstName: 'First Name',
     lastName: 'Last Name',
@@ -160,6 +187,15 @@ const PL = {
     quotes: 'Quotes',
     notify: 'Notify',
     search: 'Search',
+  },
+  sidebarMenuLabels: {
+    profile: 'Profile',
+    share: 'Share',
+    help: 'Help',
+    about: 'About',
+    language: 'Language',
+    settings: 'Settings',
+    logout: 'Logout',
   },
   labels: {
     firstName: 'First Name',

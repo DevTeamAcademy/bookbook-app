@@ -8,7 +8,7 @@ import * as C from '../../constants';
 // helpers
 import * as H from '../../helpers';
 // icons
-import { Menu, List, Quote, Notify, Search, Library, IconWrapper } from '../../icons';
+import { Help, About, Share, Logout, Profile, Language, Settings, IconWrapper } from '../../icons';
 // theme
 import Theme from '../../theme';
 // ui
@@ -22,36 +22,40 @@ export const Wrapper = styled.div`
   top: ${({ sidebarOpened }) => H.ifElse(sidebarOpened, '40px', '-540px')};
 `;
 
-const navItemMenu = {
-  icon: Menu,
-  label: ['headerNavLabels', 'menu'],
-};
-
-// TODO: with proper routes
 const navItems = [
   {
-    icon: List,
-    label: ['headerNavLabels', 'list'],
-    route: C.ROUTE_HOME_PAGE,
+    icon: Profile,
+    label: ['sidebarMenuLabels', 'profile'],
+    route: C.ROUTE_PROFILE_PAGE,
   },
   {
-    icon: Library,
-    label: ['headerNavLabels', 'library'],
-    route: C.ROUTE_HOME_PAGE,
+    icon: Share,
+    label: ['sidebarMenuLabels', 'share'],
+    route: C.ROUTE_SHARE_PAGE,
   },
   {
-    icon: Quote,
-    label: ['headerNavLabels', 'quotes'],
-    route: C.ROUTE_HOME_PAGE,
+    icon: Help,
+    label: ['sidebarMenuLabels', 'help'],
+    route: C.ROUTE_HELP_PAGE,
   },
   {
-    icon: Notify,
-    label: ['headerNavLabels', 'notify'],
-    route: C.ROUTE_HOME_PAGE,
+    icon: About,
+    label: ['sidebarMenuLabels', 'about'],
+    route: C.ROUTE_ABOUT_PAGE,
   },
   {
-    icon: Search,
-    label: ['headerNavLabels', 'search'],
+    icon: Language,
+    label: ['sidebarMenuLabels', 'language'],
+    route: C.ROUTE_LANGUAGE_PAGE,
+  },
+  {
+    icon: Settings,
+    label: ['sidebarMenuLabels', 'settings'],
+    route: C.ROUTE_SETTINGS_PAGE,
+  },
+  {
+    icon: Logout,
+    label: ['sidebarMenuLabels', 'logout'],
     route: C.ROUTE_HOME_PAGE,
   },
 ];
@@ -80,7 +84,7 @@ export const SidebarMenu = props => (
   <Wrapper sidebarOpened={props.sidebarOpened}>
     <Flex flexDirection='column'>
       {navItems.map((item, index) => (
-        <Link to={item.route} key={index}>
+        <Link to={item.route} key={index} onClick={props.handleToggleSidebar}>
           <SidebarMenuItem item={item} locale={props.locale} active={setItemActiveStatus(props.location, item)} />
         </Link>
       ))}
@@ -94,6 +98,7 @@ SidebarMenu.propTypes = {
   locale: PropTypes.object,
   location: PropTypes.object,
   sidebarOpened: PropTypes.bool.isRequired,
+  handleToggleSidebar: PropTypes.func.isRequired,
 };
 
 SidebarMenu.displayName = 'SidebarMenu';
