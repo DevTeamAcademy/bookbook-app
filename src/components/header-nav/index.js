@@ -53,7 +53,6 @@ const HeaderNavItem = props => (
     width={props.width}
     alignItems='center'
     justifyContent='center'
-    onClick={props.handleClickNavItem}
     flexDirection={['column', 'row', 'row']}
     bg={H.ifElse(props.active, Theme.colors.lightGrey, Theme.colors.darkGrey)}
   >
@@ -70,8 +69,8 @@ const setItemActiveStatus = (location, item) => R.equals(location.pathname, item
 
 export const HeaderNav = props => (
   <Flex>
-    <Box width='16.66%'>
-      <HeaderNavItem active={false} item={navItemMenu} locale={props.locale} />
+    <Box width='16.66%' onClick={props.handleToggleSidebar}>
+      <HeaderNavItem item={navItemMenu} locale={props.locale} active={props.sidebarOpened} />
     </Box>
     {navItems.map((item, index) => (
       <Box width='16.66%' key={index}>
@@ -86,9 +85,10 @@ export const HeaderNav = props => (
 export default HeaderNav;
 
 HeaderNav.propTypes = {
-  locale: PropTypes.object,
-  location: PropTypes.object,
-  handleToggleMenu: PropTypes.func.isRequired,
+  locale: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  sidebarOpened: PropTypes.bool.isRequired,
+  handleToggleSidebar: PropTypes.func.isRequired,
 };
 
 HeaderNav.displayName = 'HeaderNav';

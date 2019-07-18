@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Suspense, useContext } from 'react';
 // components
 import HeaderNav from '../components/header-nav';
+import SidebarMenu from '../components/sidebar-menu';
 // contexts
 import { LocaleContext } from '../contexts/locale';
 // global-state
@@ -26,12 +27,18 @@ export const Layout = ({ children, location }) => {
   const [isSidebarOpened] = useGlobalState('isSidebarOpened');
   return (
     <>
+      <SidebarMenu
+        locale={locale}
+        location={location}
+        sidebarOpened={isSidebarOpened}
+        handleToggleSidebar={toggleSidebarOpened}
+      />
       <HeaderNav
         size={size}
         locale={locale}
         location={location}
-        activeMenu={isSidebarOpened}
-        handleToggleMenu={toggleSidebarOpened}
+        sidebarOpened={isSidebarOpened}
+        handleToggleSidebar={toggleSidebarOpened}
       />
       <Suspense fallback={<LoadingFallback />}>{children}</Suspense>
     </>
