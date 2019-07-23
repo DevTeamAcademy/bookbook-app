@@ -36,6 +36,7 @@ export default () => {
     body.append('token', token);
     request.post(C.ENDP_SESSION, body);
   }, []);
+  // TODO: check data
   if (data) {
     setCurrentUser(R.assoc('access_token', token, data));
   }

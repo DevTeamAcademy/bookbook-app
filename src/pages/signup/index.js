@@ -5,6 +5,8 @@ import React, { useContext } from 'react';
 import { RouteLink, FormFields } from '../../components';
 // constants
 import * as C from '../../constants';
+// global-state
+import { setCurrentUser } from '../../global-state/dispatchers';
 // contexts
 import { LocaleContext } from '../../contexts/locale';
 // helpers
@@ -68,8 +70,18 @@ const SignUpForm = props => {
 
 // TODO: with correct redirection terms and policy
 export const SignUpPage = props => {
+  const { history } = props;
   const { locale } = useContext(LocaleContext);
-  const [data, loading, error, request] = useRequest();
+  const request = useRequest(C.AUTH_OPTIONS);
+  async function sendSignupData(body) {
+    const data = await request.post(C.ENDP_SIGNUP, body);
+    // TODO: check 200 with validate errors or without user response
+    if (H.hasNotResponseErrors(data)) {
+      setCurrentUser(data);
+      H.showToast('success', 'Success Register!');
+      history.push(C.ROUTE_HOME_PAGE);
+    }
+  }
   return (
     <AuthPagesWrapper>
       <Flex height='100%' alignItems='center' flexDirection='column' justifyContent='center'>
@@ -77,9 +89,7 @@ export const SignUpPage = props => {
           <LogoIcon />
         </Box>
         <Formik
-          onSubmit={(values, { setSubmitting }) => {
-            request.post(C.ENDP_SIGNUP, values);
-          }}
+          onSubmit={(values, { setSubmitting }) => sendSignupData(values)}
           render={props => <SignUpForm {...props} locale={locale} />}
         />
         <Box mt='50px'>

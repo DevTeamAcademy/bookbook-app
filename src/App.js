@@ -1,6 +1,7 @@
 import React, { StrictMode } from 'react';
 import { withRouter } from 'react-router-dom';
 import ErrorBoundary from 'react-error-boundary';
+import { ToastsContainer, ToastsStore } from 'react-toasts';
 // contexts
 import { LocaleProvider } from './contexts/locale';
 // global-state
@@ -30,6 +31,7 @@ const App = () => (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <ApolloProvider client={client}>
         <GlobalStyles />
+        <ToastsContainer store={ToastsStore} />
         <GlobalStateProvider>
           <LocaleProvider>
             <Routes />

@@ -7,7 +7,7 @@ import * as C from '../../constants';
 // helpers
 import * as H from '../../helpers';
 // icons
-import { Menu, List, Quote, Notify, Search, Library, IconWrapper } from '../../icons';
+import * as I from '../../icons';
 // theme
 import Theme from '../../theme';
 // ui
@@ -15,33 +15,33 @@ import { Box, Flex, Text } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const navItemMenu = {
-  icon: Menu,
+  icon: I.Menu,
   label: ['headerNavLabels', 'menu'],
 };
 
 const navItems = [
   {
-    icon: List,
+    icon: I.List,
     label: ['headerNavLabels', 'list'],
     route: C.ROUTE_HOME_PAGE,
   },
   {
-    icon: Library,
+    icon: I.Library,
     label: ['headerNavLabels', 'library'],
     route: C.ROUTE_LIBRARY_PAGE,
   },
   {
-    icon: Quote,
+    icon: I.Quote,
     label: ['headerNavLabels', 'quotes'],
     route: C.ROUTE_QUOTES_PAGE,
   },
   {
-    icon: Notify,
+    icon: I.Notify,
     label: ['headerNavLabels', 'notify'],
     route: C.ROUTE_NOTIFICATIONS_PAGE,
   },
   {
-    icon: Search,
+    icon: I.Search,
     label: ['headerNavLabels', 'search'],
     route: C.ROUTE_SEARCH_PAGE,
   },
@@ -56,9 +56,9 @@ const HeaderNavItem = props => (
     flexDirection={['column', 'row', 'row']}
     bg={H.ifElse(props.active, Theme.colors.lightGrey, Theme.colors.darkGrey)}
   >
-    <IconWrapper opacity={0.9}>
+    <I.IconWrapper opacity={0.9}>
       <props.item.icon color={H.ifElse(props.active, Theme.icons.activeColor, Theme.colors.white)} />
-    </IconWrapper>
+    </I.IconWrapper>
     <Text color={Theme.colors.white} ml={[0, 10, 10]} fontSize={[9, 10, 12]}>
       {H.getLocale(props.item.label, props.locale)}
     </Text>

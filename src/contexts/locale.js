@@ -17,13 +17,16 @@ const getLocaleName = () =>
 
 export const LocaleContext = createContext();
 
+// TODO: check all logic and change locale helper
 export const LocaleProvider = props => {
   const [locale, setLocale] = useState(() => {
     const localeName = getLocaleName();
+    window.locale = R.prop(localeName, locales);
     return R.prop(localeName, locales);
   });
   const changeLocale = localeName => {
     H.setItemToLocalStorage('localeName', localeName);
+    window.locale = R.prop(localeName, locales);
     setLocale(R.prop(localeName, locales));
   };
   return (

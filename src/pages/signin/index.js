@@ -63,10 +63,14 @@ const SignInForm = props => {
 export const SignInPage = props => {
   const { history } = props;
   const { locale } = useContext(LocaleContext);
-  const [data, loading, error, request] = useRequest(C.AUTH_OPTIONS);
-  if (data) {
-    setCurrentUser(data);
-    history.push(C.ROUTE_HOME_PAGE);
+  const request = useRequest(C.AUTH_OPTIONS);
+  async function sendLoginData(body) {
+    const data = await request.post(C.ENDP_SIGNIN, body);
+    if (H.hasNotResponseErrors(data)) {
+      setCurrentUser(data);
+      H.showToast('success', 'Success Login!');
+      history.push(C.ROUTE_HOME_PAGE);
+    }
   }
   return (
     <AuthPagesWrapper>
@@ -81,7 +85,7 @@ export const SignInPage = props => {
             body.append('username', username);
             body.append('password', password);
             body.append('grant_type', 'password');
-            request.post(C.ENDP_SIGNIN, body);
+            sendLoginData(body);
           }}
           render={props => <SignInForm {...props} locale={locale} />}
         />
