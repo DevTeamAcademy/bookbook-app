@@ -7,7 +7,7 @@ import * as C from '../../constants';
 // helpers
 import * as H from '../../helpers';
 // icons
-import { Menu, List, Quote, Notify, Search, Library, IconWrapper } from '../../icons';
+import * as I from '../../icons';
 // theme
 import Theme from '../../theme';
 // ui
@@ -15,35 +15,35 @@ import { Box, Flex, Text } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const navItemMenu = {
-  icon: Menu,
-  label: ['headerNavLabels', 'menu'],
+  icon: I.Menu,
+  label: 'headerNavLabels.menu',
 };
 
 const navItems = [
   {
-    icon: List,
-    label: ['headerNavLabels', 'list'],
+    icon: I.List,
     route: C.ROUTE_HOME_PAGE,
+    label: 'headerNavLabels.list',
   },
   {
-    icon: Library,
-    label: ['headerNavLabels', 'library'],
+    icon: I.Library,
     route: C.ROUTE_LIBRARY_PAGE,
+    label: 'headerNavLabels.library',
   },
   {
-    icon: Quote,
-    label: ['headerNavLabels', 'quotes'],
+    icon: I.Quote,
     route: C.ROUTE_QUOTES_PAGE,
+    label: 'headerNavLabels.quotes',
   },
   {
-    icon: Notify,
-    label: ['headerNavLabels', 'notify'],
+    icon: I.Notify,
     route: C.ROUTE_NOTIFICATIONS_PAGE,
+    label: 'headerNavLabels.notify',
   },
   {
-    icon: Search,
-    label: ['headerNavLabels', 'search'],
+    icon: I.Search,
     route: C.ROUTE_SEARCH_PAGE,
+    label: 'headerNavLabels.search',
   },
 ];
 
@@ -56,9 +56,9 @@ const HeaderNavItem = props => (
     flexDirection={['column', 'row', 'row']}
     bg={H.ifElse(props.active, Theme.colors.lightGrey, Theme.colors.darkGrey)}
   >
-    <IconWrapper opacity={0.9}>
+    <I.IconWrapper opacity={0.9}>
       <props.item.icon color={H.ifElse(props.active, Theme.icons.activeColor, Theme.colors.white)} />
-    </IconWrapper>
+    </I.IconWrapper>
     <Text color={Theme.colors.white} ml={[0, 10, 10]} fontSize={[9, 10, 12]}>
       {H.getLocale(props.item.label, props.locale)}
     </Text>
