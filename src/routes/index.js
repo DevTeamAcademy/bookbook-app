@@ -28,17 +28,20 @@ const SettingsPage = lazy(() => import(/* webpackChunkName: 'SettingsPage' */ '.
 const NotificationsPage = lazy(() => import(/* webpackChunkName: 'NotificationsPage' */ '../pages/notifications'));
 
 export default () => {
-  const [data, loading, error, request] = useRequest(C.AUTH_OPTIONS);
   const token = H.getToken();
+  const request = useRequest(C.AUTH_OPTIONS);
+  async function sendSessionData(body) {
+    const data = await request.post(C.ENDP_SESSION, body);
+    if (H.hasNotResponseErrors(data)) {
+      setCurrentUser(R.assoc('access_token', token, data));
+    }
+  }
   useEffect(() => {
     if (H.isNilOrEmpty(token)) return;
     const body = new FormData();
     body.append('token', token);
-    request.post(C.ENDP_SESSION, body);
+    sendSessionData(body);
   }, []);
-  if (data) {
-    setCurrentUser(R.assoc('access_token', token, data));
-  }
   return (
     <Suspense fallback={null}>
       <Switch>

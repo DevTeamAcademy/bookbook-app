@@ -52,6 +52,10 @@ const UA = {
     register: 'Зареєструватись',
     login: 'Увійти',
   },
+  messages: {
+    successLogin: 'Успішний Вхід!',
+    successRegister: 'Успішна Реєстрація!',
+  },
 };
 
 const EN = {
@@ -103,6 +107,10 @@ const EN = {
   actions: {
     register: 'Submit',
     login: 'Login',
+  },
+  messages: {
+    successLogin: 'Success Login!',
+    successRegister: 'Success Register!',
   },
 };
 
@@ -156,6 +164,10 @@ const RU = {
     register: 'Submit',
     login: 'Login',
   },
+  messages: {
+    successLogin: 'Success Login!',
+    successRegister: 'Success Register!',
+  },
 };
 
 const PL = {
@@ -207,6 +219,10 @@ const PL = {
   actions: {
     register: 'Submit',
     login: 'Login',
+  },
+  messages: {
+    successLogin: 'Success Login!',
+    successRegister: 'Success Register!',
   },
 };
 

@@ -8,7 +8,7 @@ import * as C from '../../constants';
 // helpers
 import * as H from '../../helpers';
 // icons
-import { Help, About, Share, Logout, Profile, Language, Settings, IconWrapper } from '../../icons';
+import * as I from '../../icons';
 // theme
 import Theme from '../../theme';
 // ui
@@ -24,39 +24,39 @@ export const Wrapper = styled.div`
 
 const navItems = [
   {
-    icon: Profile,
-    label: ['sidebarMenuLabels', 'profile'],
+    icon: I.Profile,
     route: C.ROUTE_PROFILE_PAGE,
+    label: 'sidebarMenuLabels.profile',
   },
   {
-    icon: Share,
-    label: ['sidebarMenuLabels', 'share'],
+    icon: I.Share,
     route: C.ROUTE_SHARE_PAGE,
+    label: 'sidebarMenuLabels.share',
   },
   {
-    icon: Help,
-    label: ['sidebarMenuLabels', 'help'],
+    icon: I.Help,
     route: C.ROUTE_HELP_PAGE,
+    label: 'sidebarMenuLabels.help',
   },
   {
-    icon: About,
-    label: ['sidebarMenuLabels', 'about'],
+    icon: I.About,
     route: C.ROUTE_ABOUT_PAGE,
+    label: 'sidebarMenuLabels.about',
   },
   {
-    icon: Language,
-    label: ['sidebarMenuLabels', 'language'],
+    icon: I.Language,
     route: C.ROUTE_LANGUAGE_PAGE,
+    label: 'sidebarMenuLabels.language',
   },
   {
-    icon: Settings,
-    label: ['sidebarMenuLabels', 'settings'],
+    icon: I.Settings,
     route: C.ROUTE_SETTINGS_PAGE,
+    label: 'sidebarMenuLabels.settings',
   },
   {
-    icon: Logout,
-    label: ['sidebarMenuLabels', 'logout'],
+    icon: I.Logout,
     route: C.ROUTE_HOME_PAGE,
+    label: 'sidebarMenuLabels.logout',
   },
 ];
 
@@ -69,9 +69,9 @@ const SidebarMenuItem = props => (
     onClick={props.handleClickNavItem}
     bg={H.ifElse(props.active, Theme.colors.lightGrey, Theme.colors.darkGrey)}
   >
-    <IconWrapper opacity={0.9}>
+    <I.IconWrapper opacity={0.9}>
       <props.item.icon color={H.ifElse(props.active, Theme.icons.activeColor, Theme.colors.white)} />
-    </IconWrapper>
+    </I.IconWrapper>
     <Text color={Theme.colors.white} ml={15} fontSize={[12, 14, 14]}>
       {H.getLocale(props.item.label, props.locale)}
     </Text>
