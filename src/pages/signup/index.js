@@ -32,7 +32,7 @@ const signUpFormSettings = {
         type: 'text',
         required: true,
         name: C.USER.LOGIN,
-        placeholder: ['labels', 'login'],
+        placeholder: 'labels.login',
       },
     },
     {
@@ -41,7 +41,7 @@ const signUpFormSettings = {
         type: 'email',
         required: true,
         name: C.USER.EMAIL,
-        placeholder: ['labels', 'email'],
+        placeholder: 'labels.email',
       },
     },
     {
@@ -50,7 +50,7 @@ const signUpFormSettings = {
         type: 'password',
         required: true,
         name: C.USER.PASSWORD,
-        placeholder: ['labels', 'password'],
+        placeholder: 'labels.password',
       },
     },
   ],
@@ -62,7 +62,7 @@ const SignUpForm = props => {
     <form onSubmit={handleSubmit}>
       <FormFields {...props} locale={locale} settings={signUpFormSettings} />
       <Button type='submit' {...Theme.btns.authPages}>
-        {H.getLocale(['actions', 'register'], locale)}
+        {H.getLocale('actions.register', locale)}
       </Button>
     </form>
   );
@@ -78,7 +78,7 @@ export const SignUpPage = props => {
     // TODO: check 200 with validate errors or without user response
     if (H.hasNotResponseErrors(data)) {
       setCurrentUser(data);
-      H.showToast('success', 'Success Register!');
+      H.showToast('success', 'messages.successRegister');
       history.push(C.ROUTE_HOME_PAGE);
     }
   }
@@ -93,12 +93,12 @@ export const SignUpPage = props => {
           render={props => <SignUpForm {...props} locale={locale} />}
         />
         <Box mt='50px'>
-          <RouteLink linkTo='/' text={H.getLocale(['termsAndConditions'], locale)} />
-          <RouteLink linkTo='/' text={H.getLocale(['privacyPolicy'], locale)} />
+          <RouteLink linkTo='/' text={H.getLocale('termsAndConditions', locale)} />
+          <RouteLink linkTo='/' text={H.getLocale('privacyPolicy', locale)} />
         </Box>
         <Box>
           <Text color='white' fontSize='10px'>
-            {H.getLocale(['copyright'], locale)}
+            {H.getLocale('copyright', locale)}
           </Text>
         </Box>
       </Flex>

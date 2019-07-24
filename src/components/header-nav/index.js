@@ -16,34 +16,34 @@ import { Box, Flex, Text } from '../../ui';
 
 const navItemMenu = {
   icon: I.Menu,
-  label: ['headerNavLabels', 'menu'],
+  label: 'headerNavLabels.menu',
 };
 
 const navItems = [
   {
     icon: I.List,
-    label: ['headerNavLabels', 'list'],
     route: C.ROUTE_HOME_PAGE,
+    label: 'headerNavLabels.list',
   },
   {
     icon: I.Library,
-    label: ['headerNavLabels', 'library'],
     route: C.ROUTE_LIBRARY_PAGE,
+    label: 'headerNavLabels.library',
   },
   {
     icon: I.Quote,
-    label: ['headerNavLabels', 'quotes'],
     route: C.ROUTE_QUOTES_PAGE,
+    label: 'headerNavLabels.quotes',
   },
   {
     icon: I.Notify,
-    label: ['headerNavLabels', 'notify'],
     route: C.ROUTE_NOTIFICATIONS_PAGE,
+    label: 'headerNavLabels.notify',
   },
   {
     icon: I.Search,
-    label: ['headerNavLabels', 'search'],
     route: C.ROUTE_SEARCH_PAGE,
+    label: 'headerNavLabels.search',
   },
 ];
 

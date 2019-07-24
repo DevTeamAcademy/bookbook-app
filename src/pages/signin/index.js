@@ -33,7 +33,7 @@ const signInFormSettings = {
         type: 'text',
         required: true,
         name: C.USER.USERNAME,
-        placeholder: ['labels', 'login'],
+        placeholder: 'labels.login',
       },
     },
     {
@@ -42,7 +42,7 @@ const signInFormSettings = {
         type: 'password',
         required: true,
         name: C.USER.PASSWORD,
-        placeholder: ['labels', 'email'],
+        placeholder: 'labels.email',
       },
     },
   ],
@@ -54,7 +54,7 @@ const SignInForm = props => {
     <form onSubmit={handleSubmit}>
       <FormFields {...props} locale={locale} settings={signInFormSettings} />
       <Button type='submit' {...Theme.btns.authPages}>
-        {H.getLocale(['actions', 'login'], locale)}
+        {H.getLocale('actions.login', locale)}
       </Button>
     </form>
   );
@@ -68,7 +68,7 @@ export const SignInPage = props => {
     const data = await request.post(C.ENDP_SIGNIN, body);
     if (H.hasNotResponseErrors(data)) {
       setCurrentUser(data);
-      H.showToast('success', 'Success Login!');
+      H.showToast('success', 'messages.successLogin');
       history.push(C.ROUTE_HOME_PAGE);
     }
   }
@@ -93,7 +93,7 @@ export const SignInPage = props => {
           <RouteLink
             linkTo={C.ROUTE_SIGNUP_PAGE}
             styles={{ fontSize: '14px' }}
-            text={H.getLocale(['actions', 'register'], locale)}
+            text={H.getLocale('actions.register', locale)}
           />
         </Box>
       </Flex>

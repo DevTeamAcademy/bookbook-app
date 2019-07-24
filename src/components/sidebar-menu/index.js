@@ -25,38 +25,38 @@ export const Wrapper = styled.div`
 const navItems = [
   {
     icon: I.Profile,
-    label: ['sidebarMenuLabels', 'profile'],
     route: C.ROUTE_PROFILE_PAGE,
+    label: 'sidebarMenuLabels.profile',
   },
   {
     icon: I.Share,
-    label: ['sidebarMenuLabels', 'share'],
     route: C.ROUTE_SHARE_PAGE,
+    label: 'sidebarMenuLabels.share',
   },
   {
     icon: I.Help,
-    label: ['sidebarMenuLabels', 'help'],
     route: C.ROUTE_HELP_PAGE,
+    label: 'sidebarMenuLabels.help',
   },
   {
     icon: I.About,
-    label: ['sidebarMenuLabels', 'about'],
     route: C.ROUTE_ABOUT_PAGE,
+    label: 'sidebarMenuLabels.about',
   },
   {
     icon: I.Language,
-    label: ['sidebarMenuLabels', 'language'],
     route: C.ROUTE_LANGUAGE_PAGE,
+    label: 'sidebarMenuLabels.language',
   },
   {
     icon: I.Settings,
-    label: ['sidebarMenuLabels', 'settings'],
     route: C.ROUTE_SETTINGS_PAGE,
+    label: 'sidebarMenuLabels.settings',
   },
   {
     icon: I.Logout,
-    label: ['sidebarMenuLabels', 'logout'],
     route: C.ROUTE_HOME_PAGE,
+    label: 'sidebarMenuLabels.logout',
   },
 ];
 
