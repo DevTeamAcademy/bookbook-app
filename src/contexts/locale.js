@@ -12,12 +12,10 @@ export const LocaleContext = createContext();
 export const LocaleProvider = props => {
   const [locale, setLocale] = useState(() => {
     const localeName = H.getLocaleName();
-    window.locale = R.prop(localeName, locales);
     return R.prop(localeName, locales);
   });
   const changeLocale = localeName => {
     H.setItemToLocalStorage('localeName', localeName);
-    window.locale = R.prop(localeName, locales);
     setLocale(R.prop(localeName, locales));
   };
   return (
