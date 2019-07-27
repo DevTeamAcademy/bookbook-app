@@ -16,6 +16,7 @@ import {
   minHeight,
   boxShadow,
   borderTop,
+  background,
   alignItems,
   borderLeft,
   borderColor,
@@ -46,6 +47,7 @@ export const Flex = styled.div`
   ${boxShadow}
   ${borderTop}
   ${borderLeft}
+  ${background}
   ${alignItems}
   ${borderColor}
   ${borderRight}
@@ -72,6 +74,7 @@ Flex.propTypes = {
   ...minHeight.propTypes,
   ...boxShadow.propTypes,
   ...borderTop.propTypes,
+  ...background.propTypes,
   ...borderLeft.propTypes,
   ...alignItems.propTypes,
   ...borderColor.propTypes,

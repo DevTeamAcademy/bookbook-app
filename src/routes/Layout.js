@@ -3,11 +3,12 @@ import React, { Suspense, useContext } from 'react';
 // components
 import HeaderNav from '../components/header-nav';
 import SidebarMenu from '../components/sidebar-menu';
+import { AddItemsList } from '../components/add-item';
 // contexts
 import { LocaleContext } from '../contexts/locale';
 // global-state
 import { useGlobalState } from '../global-state';
-import { toggleSidebarOpened } from '../global-state/dispatchers';
+import { toggleSidebarOpened, toggleAddItemsListOpened } from '../global-state/dispatchers';
 // hooks
 import { useWindowSize } from '../hooks';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +25,9 @@ const LoadingFallback = ({ error }) => {
 export const Layout = ({ children, location }) => {
   const { locale } = useContext(LocaleContext);
   const size = useWindowSize();
+  // const [isOpened, setIsOpened] = useState(false);
   const [isSidebarOpened] = useGlobalState('isSidebarOpened');
+  const [isAddListItemsOpened] = useGlobalState('isAddListItemsOpened');
   return (
     <>
       <SidebarMenu
@@ -41,6 +44,13 @@ export const Layout = ({ children, location }) => {
         handleToggleSidebar={toggleSidebarOpened}
       />
       <Suspense fallback={<LoadingFallback />}>{children}</Suspense>
+      <AddItemsList
+        size={size}
+        locale={locale}
+        location={location}
+        isAddListItemsOpened={isAddListItemsOpened}
+        toggleAddItemsListOpened={toggleAddItemsListOpened}
+      />
     </>
   );
 };

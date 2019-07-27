@@ -189,3 +189,26 @@ export const Logout = ({ color, width, height }) => (
 );
 Logout.propTypes = iconPropTypes;
 Logout.defaultProps = defaultIconProps;
+
+export const Book = ({ color, width, height }) => (
+  <svg width={width} height={height} viewBox='0 0 17 22' xmlns='http://www.w3.org/2000/svg'>
+    <path
+      fill={color}
+      fillRule='nonzero'
+      d='M1.997.6C1.436.6.896.83.517 1.23a1.859 1.859 0 0 0-.508 1.45H0v16.972c0 .964.822 1.748 1.831 1.748h14.512V.6H1.997zM.727 19.652V4.066c.303.218.68.347 1.089.347v16.292c-.602-.008-1.09-.476-1.09-1.053zm14.89 1.055H2.542V4.413h1.09v8.737c0 .236.16.437.399.5.05.013.099.02.148.02l.016-.002c.016 0 .032-.005.048-.006a.543.543 0 0 0 .255-.098c.013-.01.026-.017.038-.027a.515.515 0 0 0 .106-.12l1.532-2.437 1.531 2.437a.544.544 0 0 0 .563.238c.016-.003.032 0 .049-.005a.52.52 0 0 0 .399-.5V4.413h6.9v16.294zM8.04 3.887l-.001.003-.05.095v.014l-.036.08.036.053v8.389L6.174 9.634l-1.816 2.889V4.148l.588-1.121h3.546l-.451.86zm.9-.167l.726-1.387h-5.17L3.77 3.72H2.074c-.687 0-1.276-.478-1.34-1.089a1.165 1.165 0 0 1 .321-.936 1.3 1.3 0 0 1 .942-.402h13.62v.347H13.8c-.201 0-.364.155-.364.347 0 .191.163.346.364.346h1.816v.347h-1.453c-.201 0-.363.155-.363.347 0 .191.162.346.363.346h1.453v.347H8.94z'
+    />
+  </svg>
+);
+Book.propTypes = iconPropTypes;
+Book.defaultProps = defaultIconProps;
+
+export const Add = ({ color, width, height }) => (
+  <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 18 19'>
+    <g fill={color} fillRule='nonzero'>
+      <path d='M0 10.8h18V8.4H0z' />
+      <path d='M7.8.6v18h2.4V.6z' />
+    </g>
+  </svg>
+);
+Add.propTypes = iconPropTypes;
+Add.defaultProps = defaultIconProps;

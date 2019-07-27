@@ -24,6 +24,11 @@ const UA = {
       value: 'Polski',
     },
   ],
+  addItems: {
+    book: 'книжку',
+    quote: 'цитату',
+    library: 'бібліотеку',
+  },
   headerNavLabels: {
     menu: 'Меню',
     list: 'Домашня',
@@ -49,8 +54,9 @@ const UA = {
     password: 'Пароль',
   },
   actions: {
-    register: 'Зареєструватись',
+    add: 'додати',
     login: 'Увійти',
+    register: 'Зареєструватись',
   },
   messages: {
     successLogin: 'Успішний Вхід!',
@@ -80,6 +86,11 @@ const EN = {
       value: 'Polski',
     },
   ],
+  addItems: {
+    book: 'book',
+    quote: 'quote',
+    library: 'library',
+  },
   headerNavLabels: {
     menu: 'Menu',
     list: 'Home',
@@ -105,8 +116,9 @@ const EN = {
     login: 'Login',
   },
   actions: {
-    register: 'Submit',
+    add: 'add',
     login: 'Login',
+    register: 'Submit',
   },
   messages: {
     successLogin: 'Success Login!',
@@ -136,6 +148,11 @@ const RU = {
       value: 'Polski',
     },
   ],
+  addItems: {
+    book: 'book',
+    quote: 'quote',
+    library: 'library',
+  },
   headerNavLabels: {
     menu: 'Menu',
     list: 'Home',
@@ -161,8 +178,9 @@ const RU = {
     login: 'Login',
   },
   actions: {
-    register: 'Submit',
+    add: 'add',
     login: 'Login',
+    register: 'Submit',
   },
   messages: {
     successLogin: 'Success Login!',
@@ -192,6 +210,11 @@ const PL = {
       value: 'Polski',
     },
   ],
+  addItems: {
+    book: 'book',
+    quote: 'quote',
+    library: 'library',
+  },
   headerNavLabels: {
     menu: 'Menu',
     list: 'Home',
@@ -217,8 +240,9 @@ const PL = {
     login: 'Login',
   },
   actions: {
-    register: 'Submit',
+    add: 'add',
     login: 'Login',
+    register: 'Submit',
   },
   messages: {
     successLogin: 'Success Login!',
