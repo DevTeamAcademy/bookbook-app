@@ -73,7 +73,7 @@ const SidebarMenuItem = props => (
       <props.item.icon color={H.ifElse(props.active, Theme.icons.activeColor, Theme.colors.white)} />
     </I.IconWrapper>
     <Text color={Theme.colors.white} ml={15} fontSize={[12, 14, 14]}>
-      {H.getLocale(props.item.label, props.locale)}
+      {H.getLocale(props.item.label)}
     </Text>
   </Flex>
 );
@@ -85,7 +85,7 @@ export const SidebarMenu = props => (
     <Flex flexDirection='column'>
       {navItems.map((item, index) => (
         <Link to={item.route} key={index} onClick={props.handleToggleSidebar}>
-          <SidebarMenuItem item={item} locale={props.locale} active={setItemActiveStatus(props.location, item)} />
+          <SidebarMenuItem item={item} active={setItemActiveStatus(props.location, item)} />
         </Link>
       ))}
     </Flex>
@@ -95,7 +95,6 @@ export const SidebarMenu = props => (
 export default SidebarMenu;
 
 SidebarMenu.propTypes = {
-  locale: PropTypes.object,
   location: PropTypes.object,
   sidebarOpened: PropTypes.bool.isRequired,
   handleToggleSidebar: PropTypes.func.isRequired,

@@ -60,7 +60,7 @@ const HeaderNavItem = props => (
       <props.item.icon color={H.ifElse(props.active, Theme.icons.activeColor, Theme.colors.white)} />
     </I.IconWrapper>
     <Text color={Theme.colors.white} ml={[0, 10, 10]} fontSize={[9, 10, 12]}>
-      {H.getLocale(props.item.label, props.locale)}
+      {H.getLocale(props.item.label)}
     </Text>
   </Flex>
 );
@@ -85,7 +85,6 @@ export const HeaderNav = props => (
 export default HeaderNav;
 
 HeaderNav.propTypes = {
-  locale: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   sidebarOpened: PropTypes.bool.isRequired,
   handleToggleSidebar: PropTypes.func.isRequired,

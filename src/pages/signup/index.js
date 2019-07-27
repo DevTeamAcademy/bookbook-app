@@ -7,8 +7,6 @@ import { RouteLink, FormFields } from '../../components';
 import * as C from '../../constants';
 // global-state
 import { setCurrentUser } from '../../global-state/dispatchers';
-// contexts
-import { LocaleContext } from '../../contexts/locale';
 // helpers
 import * as H from '../../helpers';
 // hooks
@@ -57,12 +55,12 @@ const signUpFormSettings = {
 };
 
 const SignUpForm = props => {
-  const { locale, handleSubmit } = props;
+  const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <FormFields {...props} locale={locale} settings={signUpFormSettings} />
+      <FormFields {...props} settings={signUpFormSettings} />
       <Button type='submit' {...Theme.btns.authPages}>
-        {H.getLocale('actions.register', locale)}
+        {H.getLocale('actions.register')}
       </Button>
     </form>
   );
@@ -71,7 +69,6 @@ const SignUpForm = props => {
 // TODO: with correct redirection terms and policy
 export const SignUpPage = props => {
   const { history } = props;
-  const { locale } = useContext(LocaleContext);
   const request = useRequest(C.AUTH_OPTIONS);
   async function sendSignupData(body) {
     const data = await request.post(C.ENDP_SIGNUP, body);
@@ -90,15 +87,15 @@ export const SignUpPage = props => {
         </Box>
         <Formik
           onSubmit={(values, { setSubmitting }) => sendSignupData(values)}
-          render={props => <SignUpForm {...props} locale={locale} />}
+          render={props => <SignUpForm {...props} />}
         />
         <Box mt='50px'>
-          <RouteLink linkTo='/' text={H.getLocale('termsAndConditions', locale)} />
-          <RouteLink linkTo='/' text={H.getLocale('privacyPolicy', locale)} />
+          <RouteLink linkTo='/' text={H.getLocale('termsAndConditions')} />
+          <RouteLink linkTo='/' text={H.getLocale('privacyPolicy')} />
         </Box>
         <Box>
           <Text color='white' fontSize='10px'>
-            {H.getLocale('copyright', locale)}
+            {H.getLocale('copyright')}
           </Text>
         </Box>
       </Flex>

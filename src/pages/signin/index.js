@@ -8,8 +8,6 @@ import { RouteLink, FormFields } from '../../components';
 import * as C from '../../constants';
 // global-state
 import { setCurrentUser } from '../../global-state/dispatchers';
-// contexts
-import { LocaleContext } from '../../contexts/locale';
 // helpers
 import * as H from '../../helpers';
 // hooks
@@ -49,12 +47,12 @@ const signInFormSettings = {
 };
 
 const SignInForm = props => {
-  const { locale, handleSubmit } = props;
+  const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <FormFields {...props} locale={locale} settings={signInFormSettings} />
+      <FormFields {...props} settings={signInFormSettings} />
       <Button type='submit' {...Theme.btns.authPages}>
-        {H.getLocale('actions.login', locale)}
+        {H.getLocale('actions.login')}
       </Button>
     </form>
   );
@@ -62,7 +60,6 @@ const SignInForm = props => {
 
 export const SignInPage = props => {
   const { history } = props;
-  const { locale } = useContext(LocaleContext);
   const request = useRequest(C.AUTH_OPTIONS);
   async function sendLoginData(body) {
     const data = await request.post(C.ENDP_SIGNIN, body);
@@ -87,13 +84,13 @@ export const SignInPage = props => {
             body.append('grant_type', 'password');
             sendLoginData(body);
           }}
-          render={props => <SignInForm {...props} locale={locale} />}
+          render={props => <SignInForm {...props} />}
         />
         <Box mt='50px'>
           <RouteLink
             linkTo={C.ROUTE_SIGNUP_PAGE}
             styles={{ fontSize: '14px' }}
-            text={H.getLocale('actions.register', locale)}
+            text={H.getLocale('actions.register')}
           />
         </Box>
       </Flex>

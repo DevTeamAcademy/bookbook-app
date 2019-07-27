@@ -20,7 +20,7 @@ export const FormFields = props => (
         {item.label && (
           <Flex>
             <Label {...Theme.label} {...H.spreadUiProps(item.label.styles)} htmlFor={item.fieldName}>
-              {H.getLocale(item.label.locale, props.locale)}
+              {H.getLocale(item.label.locale)}
             </Label>
           </Flex>
         )}
@@ -30,7 +30,7 @@ export const FormFields = props => (
           onBlur={props.handleBlur}
           onChange={props.handleChange}
           value={R.path([item.fieldName, 'values'], props)}
-          placeholder={H.getLocale(item.input.placeholder, props.locale)}
+          placeholder={H.getLocale(item.input.placeholder)}
         />
       </Box>
     ))}
@@ -40,7 +40,6 @@ export const FormFields = props => (
 export default FormFields;
 
 FormFields.propTypes = {
-  locale: PropTypes.object.isRequired,
   handleBlur: PropTypes.func.isRequired,
   settings: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
