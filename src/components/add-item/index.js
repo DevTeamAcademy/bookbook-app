@@ -59,7 +59,7 @@ export const AddItemComponent = props => (
 
 export const AddItemsList = props => {
   return (
-    <Flex justifyContent='flex-end' height='500px' alignItems='flex-end'>
+    <Flex justifyContent='flex-end' alignItems='flex-end'>
       <Flex
         width='60px'
         height='60px'
@@ -68,6 +68,7 @@ export const AddItemsList = props => {
         position='relative'
         background='#6fa6d6'
         justifyContent='center'
+        style={{ cursor: 'pointer' }}
         onClick={() => props.toggleAddItemsListOpened(R.not(props.isAddListItemsOpened))}
       >
         <I.IconWrapper>
@@ -90,8 +91,8 @@ export const AddItemsList = props => {
 export default AddItemsList;
 
 AddItemsList.propTypes = {
-  toggleAddItemsListOpened: PropTypes.func.isRequired,
   isAddListItemsOpened: PropTypes.bool.isRequired,
+  toggleAddItemsListOpened: PropTypes.func.isRequired,
 };
 
 AddItemsList.displayName = 'AddItemsList';
