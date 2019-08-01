@@ -17,12 +17,12 @@ export const getLocaleName = () => {
     H.getItemFromLocalStorage('localeName'),
     C.LOCALE_NAME_UA,
   );
-
   if (R.contains(localeString, R.keys(locales))) {
     return localeString;
   }
   return C.LOCALE_NAME_UA;
 };
+
 // TODO: add more caseActions if needed
 export const getLocale = (localePath, options) => {
   const caseActionMap = {
