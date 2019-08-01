@@ -7,6 +7,8 @@ const colors = {
   middleGrey: '#9D8C70',
   darkGrey: '#363135',
   mainBlue: '#2c7bda',
+  inactiveGrey: '#9d9c9d', //TODO: rename properly;
+  darkBlue: '#1f2532',
 };
 
 export default {

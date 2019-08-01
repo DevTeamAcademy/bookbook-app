@@ -25,3 +25,8 @@ export const AuthPagesWrapper = styled.div`
 `;
 
 AuthPagesWrapper.displayName = 'AuthPagesWrapper';
+
+export const PageWrapper = styled.div`
+  height: 100vh;
+  background-color: #1f2532;
+`;
