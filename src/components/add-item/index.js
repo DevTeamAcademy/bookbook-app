@@ -18,6 +18,7 @@ import { Flex, PositionedBox, AnimatedPositionBox } from '../../ui';
 const getActionString = (actionName, itemName) =>
   `${H.getLocale(`actions.${actionName}`)} ${H.getLocale(`addItems.${itemName}`)}`;
 
+// TODO: add actions
 const itemList = props => [
   {
     width: 21,
@@ -62,7 +63,7 @@ export const AddItemComponent = props => (
 export const AddItemsList = props => {
   const [animationName, setAnimationName] = useState('default');
   const handleToggleAnimatedActionList = () => {
-    if (props.isActionListOpened) {
+    if (H.isTrue(props.isActionListOpened)) {
       setAnimationName('fade-out');
       setTimeout(() => props.toggleActionList(false), 600);
     } else {
