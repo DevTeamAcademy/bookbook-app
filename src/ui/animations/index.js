@@ -25,11 +25,11 @@ const fadeOut = keyframes`
 
 const defaultAnimation = keyframes`
   from {
-    opacity: 0;
+    opacity: 1;
     transform: translateX(0);
   }
   to {
-    opacity: 0;
+    opacity: 1;
     transform: translateX(0);
   }
 `;
