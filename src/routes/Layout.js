@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Suspense, useContext } from 'react';
 // components
 import HeaderNav from '../components/header-nav';
+import AddItemsList from '../components/add-item';
 import SidebarMenu from '../components/sidebar-menu';
-import { AddItemsList } from '../components/add-item';
 // contexts
 import { LocaleContext } from '../contexts/locale';
 // global-state
