@@ -55,6 +55,7 @@ export const Flex = styled.div`
   ${borderRadius}
   ${flexDirection}
   ${justifyContent}
+  cursor: ${({ cursor }) => cursor};
   display: ${({ inline }) => H.ifElse(inline, 'inline-flex', 'flex')};
 `;
 
@@ -83,6 +84,7 @@ Flex.propTypes = {
   ...borderRadius.propTypes,
   ...flexDirection.propTypes,
   ...justifyContent.propTypes,
+  cursor: PropTypes.string,
   inline: PropTypes.string,
 };
 

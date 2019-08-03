@@ -8,7 +8,7 @@ import { AddItemsList } from '../components/add-item';
 import { LocaleContext } from '../contexts/locale';
 // global-state
 import { useGlobalState } from '../global-state';
-import { toggleSidebarOpened, toggleAddItemsListOpened } from '../global-state/dispatchers';
+import { toggleActionList, toggleSidebarOpened } from '../global-state/dispatchers';
 // hooks
 import { useWindowSize } from '../hooks';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,9 +25,8 @@ const LoadingFallback = ({ error }) => {
 export const Layout = ({ children, location }) => {
   const { locale } = useContext(LocaleContext);
   const size = useWindowSize();
-  // const [isOpened, setIsOpened] = useState(false);
   const [isSidebarOpened] = useGlobalState('isSidebarOpened');
-  const [isAddListItemsOpened] = useGlobalState('isAddListItemsOpened');
+  const [isActionListOpened] = useGlobalState('isActionListOpened');
   return (
     <>
       <SidebarMenu
@@ -44,13 +43,7 @@ export const Layout = ({ children, location }) => {
         handleToggleSidebar={toggleSidebarOpened}
       />
       <Suspense fallback={<LoadingFallback />}>{children}</Suspense>
-      <AddItemsList
-        size={size}
-        locale={locale}
-        location={location}
-        isAddListItemsOpened={isAddListItemsOpened}
-        toggleAddItemsListOpened={toggleAddItemsListOpened}
-      />
+      <AddItemsList toggleActionList={toggleActionList} isActionListOpened={isActionListOpened} />
     </>
   );
 };

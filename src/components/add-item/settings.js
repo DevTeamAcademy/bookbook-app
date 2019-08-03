@@ -1,3 +1,5 @@
+// theme
+import Theme from '../../theme';
 ////////////////////////////////////////////////////
 
 const commonWrapper = {
@@ -15,8 +17,8 @@ const commonText = {
   fontSize: '14px',
   textAlign: 'center',
   borderRadius: '20px',
-  background: '#888181',
   textTransform: 'capitalize',
+  background: Theme.colors.grey,
 };
 
 const commonIcon = {
@@ -25,9 +27,9 @@ const commonIcon = {
   height: '50px',
   borderRadius: '50%',
   alignItems: 'center',
-  background: '#f9f9f9',
   justifyContent: 'center',
-  boxShadow: '0 2px 4px 0 #363135',
+  background: Theme.colors.lighterGrey,
+  boxShadow: `0 2px 4px 0 ${Theme.colors.darkGrey}`,
 };
 
 export default props => ({

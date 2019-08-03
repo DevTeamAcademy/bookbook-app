@@ -1,7 +1,7 @@
 import R from 'ramda';
-import React from 'react';
 import PropTypes from 'prop-types';
-//components
+import React, { useState } from 'react';
+// components
 import TextEllipsed from '../text-ellipsed';
 // helpers
 import * as H from '../../helpers';
@@ -9,8 +9,10 @@ import * as H from '../../helpers';
 import * as I from '../../icons';
 // settings
 import settings from './settings';
+// theme
+import Theme from '../../theme';
 // ui
-import { Flex, AbsoluteWrapper } from '../../ui';
+import { Flex, PositionedBox, AnimatedPositionBox } from '../../ui';
 /////////////////////////////////////////////////////////////////////////////
 
 const getActionString = (actionName, itemName) =>
@@ -18,8 +20,8 @@ const getActionString = (actionName, itemName) =>
 
 const itemList = props => [
   {
-    icon: I.Book,
     width: 21,
+    icon: I.Book,
     text: getActionString('add', 'book'),
     action: () => console.log(getActionString('add', 'book')),
   },
@@ -50,7 +52,7 @@ export const AddItemComponent = props => (
     {H.isNotNilAndNotEmpty(props.icon) && (
       <Flex onClick={props.action} {...pathToSettings('icon', props.settingsType)}>
         <I.IconWrapper>
-          <props.icon width={props.width} height={26} color='#363135' />
+          <props.icon height={26} width={props.width} color={Theme.colors.darkGrey} />
         </I.IconWrapper>
       </Flex>
     )}
@@ -58,41 +60,54 @@ export const AddItemComponent = props => (
 );
 
 export const AddItemsList = props => {
+  const [animationName, setAnimationName] = useState('default');
+  const handleToggleAnimatedActionList = () => {
+    if (props.isActionListOpened) {
+      setAnimationName('fade-out');
+      setTimeout(() => props.toggleActionList(false), 600);
+    } else {
+      setAnimationName('fade-in');
+      props.toggleActionList(true);
+    }
+  };
   return (
-    <Flex justifyContent='flex-end' alignItems='flex-end'>
-      <Flex
-        width='60px'
-        height='60px'
-        borderRadius='50%'
-        alignItems='center'
-        position='relative'
-        background='#6fa6d6'
-        justifyContent='center'
-        style={{ cursor: 'pointer' }}
-        onClick={() => props.toggleAddItemsListOpened(R.not(props.isAddListItemsOpened))}
-      >
-        <I.IconWrapper>
-          <I.Add width={20} height={20} color='white' />
+    <>
+      <PositionedBox right='15px' bottom='15px' position='fixed'>
+        <I.IconWrapper
+          p='20px'
+          pb='15px'
+          borderRadius='50%'
+          bg={Theme.colors.lightBlue}
+          onClick={handleToggleAnimatedActionList}
+        >
+          <I.Add width={20} height={20} color={Theme.colors.white} />
         </I.IconWrapper>
-      </Flex>
-      {props.isAddListItemsOpened && (
-        <AbsoluteWrapper bottom='140px'>
-          <Flex flexDirection='column' width='240px'>
+      </PositionedBox>
+      {props.isActionListOpened && (
+        <AnimatedPositionBox
+          right='15px'
+          bottom='80px'
+          position='fixed'
+          animationName={animationName}
+          isActionListOpened={props.isActionListOpened}
+          animationProps='0.6s cubic-bezier(.77,0.000,.175,1.000) both'
+        >
+          <Flex width='240px' flexDirection='column'>
             {itemList(props).map((item, index) => (
               <AddItemComponent {...item} key={index} />
             ))}
           </Flex>
-        </AbsoluteWrapper>
+        </AnimatedPositionBox>
       )}
-    </Flex>
+    </>
   );
 };
 
 export default AddItemsList;
 
 AddItemsList.propTypes = {
-  isAddListItemsOpened: PropTypes.bool.isRequired,
-  toggleAddItemsListOpened: PropTypes.func.isRequired,
+  toggleActionList: PropTypes.func.isRequired,
+  isActionListOpened: PropTypes.bool.isRequired,
 };
 
 AddItemsList.displayName = 'AddItemsList';
