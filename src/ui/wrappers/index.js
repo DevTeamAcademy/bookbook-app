@@ -18,3 +18,10 @@ AbsoluteWrapper.propTypes = {
 };
 
 AbsoluteWrapper.displayName = 'AbsoluteWrapper';
+
+export const AuthPagesWrapper = styled.div`
+  height: 100vh;
+  background: url(${props => require('../../images/main-bg.png')});
+`;
+
+AuthPagesWrapper.displayName = 'AuthPagesWrapper';

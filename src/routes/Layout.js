@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import { withTheme } from 'styled-components';
 import React, { Suspense, useContext } from 'react';
 // components
 import HeaderNav from '../components/header-nav';
+import SidebarMenu from '../components/sidebar-menu';
 // contexts
 import { LocaleContext } from '../contexts/locale';
 // global-state
-import { dispatch, useGlobalState } from '../global-state';
-import { GLOBAL_TOGGLE_SIDEBAR } from '../global-state/action-types';
+import { useGlobalState } from '../global-state';
+import { toggleSidebarOpened } from '../global-state/dispatchers';
 // hooks
 import { useWindowSize } from '../hooks';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,31 +21,33 @@ const LoadingFallback = ({ error }) => {
   return <p>Page Loading...</p>;
 };
 
-const toggleSidebarOpened = () => dispatch({ type: GLOBAL_TOGGLE_SIDEBAR });
-
-export const Layout = ({ theme, children, location }) => {
+export const Layout = ({ children, location }) => {
   const { locale } = useContext(LocaleContext);
   const size = useWindowSize();
   const [isSidebarOpened] = useGlobalState('isSidebarOpened');
   return (
     <>
-      <HeaderNav
-        size={size}
-        theme={theme}
+      <SidebarMenu
         locale={locale}
         location={location}
-        activeMenu={isSidebarOpened}
-        handleToggleMenu={toggleSidebarOpened}
+        sidebarOpened={isSidebarOpened}
+        handleToggleSidebar={toggleSidebarOpened}
+      />
+      <HeaderNav
+        size={size}
+        locale={locale}
+        location={location}
+        sidebarOpened={isSidebarOpened}
+        handleToggleSidebar={toggleSidebarOpened}
       />
       <Suspense fallback={<LoadingFallback />}>{children}</Suspense>
     </>
   );
 };
 
-export default withTheme(Layout);
+export default Layout;
 
 Layout.propTypes = {
-  theme: PropTypes.object,
   location: PropTypes.object,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 };

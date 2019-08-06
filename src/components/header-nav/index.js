@@ -1,100 +1,81 @@
+import R from 'ramda';
 import React from 'react';
-import { equals } from 'ramda';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { themeGet } from 'styled-system';
 // constants
 import * as C from '../../constants';
 // helpers
 import * as H from '../../helpers';
 // icons
-import { Menu, List, Quote, Notify, Search, Library, IconWrapper } from '../../icons';
+import * as I from '../../icons';
+// theme
+import Theme from '../../theme';
 // ui
 import { Box, Flex, Text } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const navItemMenu = {
-  icon: Menu,
-  label: ['headerNavLabels', 'menu'],
+const navItemMenu = {
+  icon: I.Menu,
+  label: 'headerNavLabels.menu',
 };
 
-export const navItems = [
+const navItems = [
   {
-    icon: List,
-    label: ['headerNavLabels', 'list'],
+    icon: I.List,
     route: C.ROUTE_HOME_PAGE,
+    label: 'headerNavLabels.list',
   },
   {
-    icon: Library,
-    label: ['headerNavLabels', 'library'],
+    icon: I.Library,
     route: C.ROUTE_LIBRARY_PAGE,
+    label: 'headerNavLabels.library',
   },
   {
-    icon: Quote,
-    label: ['headerNavLabels', 'quotes'],
+    icon: I.Quote,
     route: C.ROUTE_QUOTES_PAGE,
+    label: 'headerNavLabels.quotes',
   },
   {
-    icon: Notify,
-    label: ['headerNavLabels', 'notify'],
+    icon: I.Notify,
     route: C.ROUTE_NOTIFICATIONS_PAGE,
+    label: 'headerNavLabels.notify',
   },
   {
-    icon: Search,
-    label: ['headerNavLabels', 'search'],
+    icon: I.Search,
     route: C.ROUTE_SEARCH_PAGE,
+    label: 'headerNavLabels.search',
   },
 ];
 
-export const HeaderNavItem = props => (
+const HeaderNavItem = props => (
   <Flex
     height={40}
     width={props.width}
     alignItems='center'
     justifyContent='center'
-    onClick={props.handleClickNavItem}
-    data-testid={C.TEST_ID_HEADER_NAV_ITEM}
     flexDirection={['column', 'row', 'row']}
-    bg={H.ifElse(props.active, themeGet('colors.lightGrey', 'grey')(props), themeGet('colors.darkGrey', 'grey')(props))}
+    bg={H.ifElse(props.active, Theme.colors.lightGrey, Theme.colors.darkGrey)}
   >
-    <IconWrapper opacity={0.9}>
-      <props.item.icon
-        color={H.ifElse(
-          props.active,
-          themeGet('icons.activeColor', 'white')(props),
-          themeGet('colors.white', 'white')(props),
-        )}
-      />
-    </IconWrapper>
-    <Text color={themeGet('coors.white', 'white')(props)} ml={[0, 10, 10]} fontSize={[9, 10, 12]}>
-      {H.getLocale(props.item.label, '...', props.locale)}
+    <I.IconWrapper opacity={0.9}>
+      <props.item.icon color={H.ifElse(props.active, Theme.icons.activeColor, Theme.colors.white)} />
+    </I.IconWrapper>
+    <Text color={Theme.colors.white} ml={[0, 10, 10]} fontSize={[9, 10, 12]}>
+      {H.getLocale(props.item.label)}
     </Text>
   </Flex>
 );
 
-export const setItemActiveStatus = (location, item) => equals(location.pathname, item.route);
+const setItemActiveStatus = (location, item) => R.equals(location.pathname, item.route);
 
 export const HeaderNav = props => (
-  <Flex data-testid={C.TEST_ID_HEADER_NAV}>
-    <Box width='16.66%'>
-      <HeaderNavItem
-        active={false}
-        item={navItemMenu}
-        theme={props.theme}
-        locale={props.locale}
-        handleClickNavItem={props.handleToggleMenu}
-      />
+  <Flex>
+    <Box width='16.66%' onClick={props.handleToggleSidebar}>
+      <HeaderNavItem item={navItemMenu} locale={props.locale} active={props.sidebarOpened} />
     </Box>
     {navItems.map((item, index) => (
       <Box width='16.66%' key={index}>
         <Link to={item.route}>
-          <HeaderNavItem
-            item={item}
-            theme={props.theme}
-            locale={props.locale}
-            handleClickNavItem={props.handleClickNavItem}
-            active={setItemActiveStatus(props.location, item)}
-          />
+          <HeaderNavItem item={item} locale={props.locale} active={setItemActiveStatus(props.location, item)} />
         </Link>
       </Box>
     ))}
@@ -104,10 +85,9 @@ export const HeaderNav = props => (
 export default HeaderNav;
 
 HeaderNav.propTypes = {
-  theme: PropTypes.object,
-  locale: PropTypes.object,
-  location: PropTypes.object,
-  handleToggleMenu: PropTypes.func.isRequired,
+  location: PropTypes.object.isRequired,
+  sidebarOpened: PropTypes.bool.isRequired,
+  handleToggleSidebar: PropTypes.func.isRequired,
 };
 
 HeaderNav.displayName = 'HeaderNav';

@@ -1,18 +1,21 @@
 import React, { StrictMode } from 'react';
 import { withRouter } from 'react-router-dom';
 import ErrorBoundary from 'react-error-boundary';
-import { ThemeProvider } from 'styled-components';
+import { ToastsContainer, ToastsStore } from 'react-toasts';
 // contexts
 import { LocaleProvider } from './contexts/locale';
 // global-state
 import { GlobalStateProvider } from './global-state';
 // routes
 import Routes from './routes';
-// theme
-import theme from './theme';
 // ui
 import GlobalStyles from './ui/global-styles';
 //  /////////////////////////////////////////////////////////////////////////////////////////////////
+
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo-hooks';
+
+const client = new ApolloClient();
 
 const ErrorFallback = ({ error }) => {
   return (
@@ -26,14 +29,15 @@ const ErrorFallback = ({ error }) => {
 const App = () => (
   <StrictMode>
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <GlobalStyles />
-      <GlobalStateProvider>
-        <ThemeProvider theme={theme}>
+      <ApolloProvider client={client}>
+        <GlobalStyles />
+        <ToastsContainer store={ToastsStore} />
+        <GlobalStateProvider>
           <LocaleProvider>
             <Routes />
           </LocaleProvider>
-        </ThemeProvider>
-      </GlobalStateProvider>
+        </GlobalStateProvider>
+      </ApolloProvider>
     </ErrorBoundary>
   </StrictMode>
 );
