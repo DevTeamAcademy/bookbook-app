@@ -153,7 +153,6 @@ const MultiswitchComponent = props => {
       alignItems='center'
       color={settings.color}
       height={settings.height}
-      data-testid={C.TEST_ID_MULTISWITCH}
       borderRadius={settings.borderRadius}
     >
       {props.options.map((radioOption, index) => (
