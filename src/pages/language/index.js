@@ -11,9 +11,7 @@ import * as I from '../../icons';
 //theme
 import Theme from '../../theme';
 // ui
-import { Box, Flex, Text } from '../../ui';
-// TODO: add export { PageWrapper, AbsoluteWrapper, AuthPagesWrapper } from './wrappers'; to ui/index and import direct like Box, Flex etc.
-import { PageWrapper } from '../../ui/wrappers';
+import { Box, Flex, Text, PageWrapper } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const langs = [
@@ -52,16 +50,12 @@ const LangItem = props => (
     alignItems='center'
     justifyContent='space-between'
     backgroundColor={Theme.colors.darkBlue}
-    borderBottom='1px solid rgba(94, 92, 94, .65)' // TODO: add to Theme borders section
+    borderBottom={Theme.borders.itemBorderBottom}
     onClick={() => {
       props.changeLocale(props.localeName);
     }}
   >
     <Flex>
-      {/* <Flex ml={20} alignItems='center'>
-        {<props.icon />}
-      </Flex> */}
-      {/* We have I.IconWrapper to wrap icon */}
       <I.IconWrapper opacity='1'>{<props.icon />}</I.IconWrapper>
       <Text
         ml={15}
@@ -75,11 +69,6 @@ const LangItem = props => (
       <Text fontSize={[11, 12, 14]} color={H.ifElse(props.active, Theme.colors.white, Theme.colors.inactiveGrey)}>
         {H.getLocale(props.translatedLanguageName)}
       </Text>
-      {/* It isn't good approach to manipulate visibility in jsx with display */}
-      {/* <Text padding='0px 0px 0px 6px' display={H.ifElse(props.active, 'flex', 'none')}>
-        <I.Tick />
-      </Text> */}
-      {/* Render component with some condition like below */}
       {props.active && (
         <I.IconWrapper pl={10} opacity='1'>
           <I.Tick />
