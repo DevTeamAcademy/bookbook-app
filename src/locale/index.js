@@ -25,9 +25,9 @@ const UA = {
     },
   ],
   addItems: {
-    book: 'книжку',
-    quote: 'цитату',
-    library: 'бібліотеку',
+    book: 'Книжку',
+    quote: 'Цитату',
+    library: 'Бібліотеку',
   },
   headerNavLabels: {
     menu: 'Меню',
@@ -54,7 +54,7 @@ const UA = {
     password: 'Пароль',
   },
   actions: {
-    add: 'додати',
+    add: 'Додати',
     login: 'Увійти',
     register: 'Зареєструватись',
   },
@@ -87,9 +87,9 @@ const EN = {
     },
   ],
   addItems: {
-    book: 'book',
-    quote: 'quote',
-    library: 'library',
+    book: 'Book',
+    quote: 'Quote',
+    library: 'Library',
   },
   headerNavLabels: {
     menu: 'Menu',
@@ -116,7 +116,7 @@ const EN = {
     login: 'Login',
   },
   actions: {
-    add: 'add',
+    add: 'Add',
     login: 'Login',
     register: 'Submit',
   },
@@ -178,7 +178,7 @@ const RU = {
     login: 'Login',
   },
   actions: {
-    add: 'add',
+    add: 'Add',
     login: 'Login',
     register: 'Submit',
   },
@@ -211,9 +211,9 @@ const PL = {
     },
   ],
   addItems: {
-    book: 'book',
-    quote: 'quote',
-    library: 'library',
+    book: 'Book',
+    quote: 'Quote',
+    library: 'Library',
   },
   headerNavLabels: {
     menu: 'Menu',
@@ -240,7 +240,7 @@ const PL = {
     login: 'Login',
   },
   actions: {
-    add: 'add',
+    add: 'Add',
     login: 'Login',
     register: 'Submit',
   },

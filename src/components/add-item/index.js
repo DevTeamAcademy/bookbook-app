@@ -44,14 +44,14 @@ const pathToSettings = (itemType, settingsType) =>
   R.pathOr(settings().default[itemType], [settingsType, itemType], settings());
 
 export const AddItemComponent = props => (
-  <Flex {...pathToSettings('wrapper', props.settingsType)}>
+  <Flex {...pathToSettings('commonWrapper', props.settingsType)}>
     {H.isNotNilAndNotEmpty(props.text) && (
-      <TextEllipsed title={props.text} {...pathToSettings('text', props.settingsType)}>
+      <TextEllipsed title={props.text} {...pathToSettings('commonText', props.settingsType)}>
         {props.text}
       </TextEllipsed>
     )}
     {H.isNotNilAndNotEmpty(props.icon) && (
-      <Flex onClick={props.action} {...pathToSettings('icon', props.settingsType)}>
+      <Flex onClick={props.action} {...pathToSettings('commonIcon', props.settingsType)}>
         <I.IconWrapper>
           <props.icon height={26} width={props.width} color={Theme.colors.darkGrey} />
         </I.IconWrapper>

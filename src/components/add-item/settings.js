@@ -12,12 +12,11 @@ const commonWrapper = {
 const commonText = {
   m: '10px',
   py: '10px',
-  color: 'white',
   width: '150px',
   fontSize: '14px',
   textAlign: 'center',
   borderRadius: '20px',
-  textTransform: 'capitalize',
+  color: Theme.colors.white,
   background: Theme.colors.grey,
 };
 
@@ -34,13 +33,13 @@ const commonIcon = {
 
 export default props => ({
   default: {
-    wrapper: {
+    commonWrapper: {
       ...commonWrapper,
     },
-    text: {
+    commonText: {
       ...commonText,
     },
-    icon: {
+    commonIcon: {
       ...commonIcon,
     },
   },
