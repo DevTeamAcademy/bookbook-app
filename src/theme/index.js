@@ -1,12 +1,15 @@
 // NOTE: add all default styles props here (colors, shadows, borders, spaces, sizes etc.)
 
 const colors = {
+  grey: '#888181',
   white: '#ffffff',
   black: '#000000',
-  lightGrey: '#615d60',
-  middleGrey: '#9D8C70',
-  darkGrey: '#363135',
   mainBlue: '#2c7bda',
+  darkGrey: '#363135',
+  lightGrey: '#615d60',
+  lightBlue: '#6fa6d6',
+  middleGrey: '#9D8C70',
+  lighterGrey: '#f9f9f9',
 };
 
 export default {

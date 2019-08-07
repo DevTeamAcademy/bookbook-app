@@ -14,6 +14,7 @@ import {
   minHeight,
   textAlign,
   boxShadow,
+  background,
   fontWeight,
   borderLeft,
   borderColor,
@@ -40,6 +41,7 @@ export const Text = styled.div`
   ${boxShadow}
   ${fontWeight}
   ${borderLeft}
+  ${background}
   ${borderColor}
   ${borderRight}
   ${borderBottom}
@@ -80,6 +82,7 @@ TextEllipsed.propTypes = {
   ...textAlign.propTypes,
   ...boxShadow.propTypes,
   ...fontWeight.propTypes,
+  ...background.propTypes,
   ...borderLeft.propTypes,
   ...borderColor.propTypes,
   ...borderRight.propTypes,

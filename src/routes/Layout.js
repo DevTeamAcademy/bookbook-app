@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 import React, { Suspense, useContext } from 'react';
 // components
 import HeaderNav from '../components/header-nav';
+import AddItemsList from '../components/add-item';
 import SidebarMenu from '../components/sidebar-menu';
 // contexts
 import { LocaleContext } from '../contexts/locale';
 // global-state
 import { useGlobalState } from '../global-state';
-import { toggleSidebarOpened } from '../global-state/dispatchers';
+import { toggleActionList, toggleSidebarOpened } from '../global-state/dispatchers';
 // hooks
 import { useWindowSize } from '../hooks';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,6 +26,7 @@ export const Layout = ({ children, location }) => {
   const { locale } = useContext(LocaleContext);
   const size = useWindowSize();
   const [isSidebarOpened] = useGlobalState('isSidebarOpened');
+  const [isActionListOpened] = useGlobalState('isActionListOpened');
   return (
     <>
       <SidebarMenu
@@ -41,6 +43,7 @@ export const Layout = ({ children, location }) => {
         handleToggleSidebar={toggleSidebarOpened}
       />
       <Suspense fallback={<LoadingFallback />}>{children}</Suspense>
+      <AddItemsList toggleActionList={toggleActionList} isActionListOpened={isActionListOpened} />
     </>
   );
 };
