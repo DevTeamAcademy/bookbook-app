@@ -149,9 +149,9 @@ const RU = {
     },
   ],
   addItems: {
-    book: 'book',
-    quote: 'quote',
-    library: 'library',
+    book: 'Book',
+    quote: 'Quote',
+    library: 'Library',
   },
   headerNavLabels: {
     menu: 'Menu',
