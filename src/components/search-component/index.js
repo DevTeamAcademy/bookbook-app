@@ -35,8 +35,8 @@ export const SearchComponent = props => {
       width='100%'
       p='10px 15px'
       maxWidth='300px'
-      borderRadius='20px'
       border='1px solid'
+      borderRadius='20px'
       justifyContent='space-between'
       borderColor={Theme.colors.middleGrey}
     >
