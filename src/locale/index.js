@@ -62,6 +62,9 @@ const UA = {
     successLogin: 'Успішний Вхід!',
     successRegister: 'Успішна Реєстрація!',
   },
+  fields: {
+    search: 'Пошук...',
+  },
 };
 
 const EN = {
@@ -123,6 +126,9 @@ const EN = {
   messages: {
     successLogin: 'Success Login!',
     successRegister: 'Success Register!',
+  },
+  fields: {
+    search: 'Search...',
   },
 };
 
@@ -186,6 +192,9 @@ const RU = {
     successLogin: 'Success Login!',
     successRegister: 'Success Register!',
   },
+  fields: {
+    search: 'Search...',
+  },
 };
 
 const PL = {
@@ -247,6 +256,9 @@ const PL = {
   messages: {
     successLogin: 'Success Login!',
     successRegister: 'Success Register!',
+  },
+  fields: {
+    search: 'Search...',
   },
 };
 

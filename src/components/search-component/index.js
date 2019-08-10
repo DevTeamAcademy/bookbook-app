@@ -1,47 +1,44 @@
 import React, { useState, useEffect } from 'react';
+// helpers
+import * as H from '../../helpers';
+// hooks
+import { useDebounce } from '../../hooks';
 // icons
 import * as I from '../../icons';
+// theme
+import Theme from '../../theme';
 // ui
-import { Flex, Input } from '../../ui';
+import { Box, Flex, Input } from '../../ui';
 ////////////////////////////////////////////////////////////////////////////////
 
-const useDebounce = (searchedValue, delay) => {
-  const [debouncedValue, setDebouncedValue] = useState(searchedValue);
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(searchedValue);
-    }, delay);
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [searchedValue]);
-  return debouncedValue;
-};
-
 export const SearchComponent = props => {
-  const searchIcon = <I.Search width={20} height={20} color='#6fa6d6' />;
-  const clearIcon = <I.Settings width={20} height={20} color='#6fa6d6' />;
-  const [isSearching, setIsSearching] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchedValue, setSearchedValue] = useState('');
-  const debouncedSearchTerm = useDebounce(searchedValue, 0);
-  const [searchedIcon, setSearchedIcon] = useState(searchIcon);
+  const debouncedSearchValue = useDebounce(searchedValue, 500);
+  const [iconColor, setIconColor] = useState(Theme.colors.white);
   useEffect(() => {
-    setIsSearching(true);
-    // todo: with searched function
-    setTimeout(() => setIsSearching(false), 500);
-  }, [debouncedSearchTerm]);
+    if (debouncedSearchValue) {
+      setIsLoading(true);
+      // TODO: with searched action
+      setTimeout(() => {
+        setIsLoading(false);
+        setIconColor(Theme.colors.white);
+      }, 500);
+    }
+  }, [debouncedSearchValue]);
   const handleChange = event => {
-    setSearchedIcon(clearIcon);
+    setIconColor(Theme.colors.lightBlue);
     setSearchedValue(event.target.value);
   };
   return (
     <Flex
+      width='100%'
       p='10px 15px'
-      ml='200px'
-      width='375px'
+      maxWidth='300px'
       borderRadius='20px'
-      border='1px solid #9d8c70'
+      border='1px solid'
       justifyContent='space-between'
+      borderColor={Theme.colors.middleGrey}
     >
       <Input
         type='text'
@@ -50,16 +47,24 @@ export const SearchComponent = props => {
         bg='transparent'
         focusBoxShadow='none'
         value={searchedValue}
-        placeholder='Search...'
         onChange={handleChange}
         width='calc(100% - 40px)'
-        placeholderColor='#9d8c70'
+        placeholderColor={Theme.colors.middleGrey}
+        placeholder={H.getLocale('fields.search')}
       />
-      <I.IconWrapper height={20}>
-        {searchedIcon}
-        {console.log('searchedIcon', searchedIcon)}
-      </I.IconWrapper>
-      {isSearching && <div style={{ color: 'white' }}>Loading...</div>}
+      {H.isFalse(isLoading) && (
+        <Box height='20px'>
+          <I.IconWrapper>
+            <I.Search width={20} height={20} color={iconColor} />
+          </I.IconWrapper>
+        </Box>
+      )}
+      {/* TODO: change on gif or box with animation */}
+      {H.isTrue(isLoading) && (
+        <Box height='20px' color='white'>
+          Loading...
+        </Box>
+      )}
     </Flex>
   );
 };
