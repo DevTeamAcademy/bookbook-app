@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Theme from '../../theme';
 import { top, left, right, bottom } from 'styled-system';
 // //////////////////////////////////////////////////////////////////////////////
 
@@ -26,8 +27,7 @@ export const AuthPagesWrapper = styled.div`
 
 AuthPagesWrapper.displayName = 'AuthPagesWrapper';
 
-// TODO: use color from Theme
 export const PageWrapper = styled.div`
   height: 100vh;
-  background-color: #1f2532;
+  background-color: ${Theme.colors.darkBlue};
 `;

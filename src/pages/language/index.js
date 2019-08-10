@@ -1,4 +1,5 @@
 import R from 'ramda';
+import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 // constants
 import * as C from '../../constants';
@@ -56,7 +57,7 @@ const LangItem = props => (
     }}
   >
     <Flex>
-      <I.IconWrapper opacity='1'>{<props.icon />}</I.IconWrapper>
+      <I.IconWrapper opacity='1'>{<props.icon width={30} height={21} />}</I.IconWrapper>
       <Text
         ml={15}
         fontSize={[14, 18, 22]}
@@ -71,7 +72,7 @@ const LangItem = props => (
       </Text>
       {props.active && (
         <I.IconWrapper pl={10} opacity='1'>
-          <I.Tick />
+          <I.Tick width={14} height={11} color={Theme.colors.white} />
         </I.IconWrapper>
       )}
     </Box>
@@ -101,6 +102,10 @@ export const LanguagePage = () => {
 
 export default LanguagePage;
 
-LanguagePage.propTypes = {}; // TODO: check what prop types you have on react devtools and set here
+LanguagePage.propTypes = {
+  match: PropTypes.object,
+  history: PropTypes.object,
+  location: PropTypes.object,
+};
 
 LanguagePage.displayName = 'LanguagePage';

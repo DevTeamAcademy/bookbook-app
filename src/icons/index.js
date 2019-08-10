@@ -11,6 +11,16 @@ const iconPropTypes = {
   opacity: PropTypes.number,
 };
 
+const flagPropTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+};
+
+const defaultFlagProps = {
+  width: 30,
+  height: 21,
+};
+
 const defaultIconProps = {
   width: 13,
   height: 15,
@@ -187,10 +197,12 @@ export const Logout = ({ color, width, height }) => (
     />
   </svg>
 );
+Logout.propTypes = iconPropTypes;
+Logout.defaultProps = defaultIconProps;
 
-export const UkrFlag = () => (
-  <svg xmlns='http://www.w3.org/2000/svg' width='30' height='22' viewBox='0 0 30 22'>
-    <g fill='none' fill-rule='evenodd'>
+export const UkrFlag = ({ width, height }) => (
+  <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 30 22'>
+    <g fill='none' fillRule='evenodd'>
       <path
         fill='#005BBB'
         d='M26.64.065H3.33A3.327 3.327 0 0 0 0 3.388v7.475h29.97V3.388A3.327 3.327 0 0 0 26.64.065'
@@ -202,10 +214,12 @@ export const UkrFlag = () => (
     </g>
   </svg>
 );
+UkrFlag.propTypes = flagPropTypes;
+UkrFlag.defaultProps = defaultFlagProps;
 
-export const UsaFlag = () => (
-  <svg xmlns='http://www.w3.org/2000/svg' width='30' height='21' viewBox='0 0 30 21'>
-    <g fill='none' fill-rule='evenodd'>
+export const UsaFlag = ({ width, height }) => (
+  <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 30 21'>
+    <g fill='none' fillRule='evenodd'>
       <path
         fill='#F5F5F5'
         d='M27.753.017H2.247C1.006.017 0 1.09 0 2.414v16.172c0 1.324 1.006 2.397 2.247 2.397h25.506c1.241 0 2.247-1.073 2.247-2.397V2.414C30 1.09 28.994.017 27.753.017z'
@@ -223,10 +237,12 @@ export const UsaFlag = () => (
     </g>
   </svg>
 );
+UsaFlag.propTypes = flagPropTypes;
+UsaFlag.defaultProps = defaultFlagProps;
 
-export const PolFlag = () => (
-  <svg xmlns='http://www.w3.org/2000/svg' width='30' height='21' viewBox='0 0 30 21'>
-    <g fill='none' fill-rule='evenodd'>
+export const PolFlag = ({ width, height }) => (
+  <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 30 21'>
+    <g fill='none' fillRule='evenodd'>
       <path fill='#EEE' d='M26.615.063H3.327C1.49.063 0 1.5 0 3.274V10.5h29.942V3.274c0-1.773-1.49-3.211-3.327-3.211' />
       <path
         fill='#DC143C'
@@ -235,10 +251,12 @@ export const PolFlag = () => (
     </g>
   </svg>
 );
+PolFlag.propTypes = flagPropTypes;
+PolFlag.defaultProps = defaultFlagProps;
 
-export const RusFlag = () => (
-  <svg xmlns='http://www.w3.org/2000/svg' width='30' height='21' viewBox='0 0 30 21'>
-    <g fill='none' fill-rule='evenodd'>
+export const RusFlag = ({ width, height }) => (
+  <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 30 21'>
+    <g fill='none' fillRule='evenodd'>
       <path
         fill='#CE2028'
         d='M29.942 17.726c0 1.773-1.49 3.211-3.327 3.211H3.327C1.49 20.937 0 19.5 0 17.726v-3.212h29.942v3.212z'
@@ -251,16 +269,15 @@ export const RusFlag = () => (
     </g>
   </svg>
 );
+RusFlag.propTypes = flagPropTypes;
+RusFlag.defaultProps = defaultFlagProps;
 
-export const Tick = () => (
-  <svg xmlns='http://www.w3.org/2000/svg' width='14' height='11' viewBox='0 0 14 11'>
+export const Tick = ({ color, width, height }) => (
+  <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 14 11'>
     <path
-      fill='#FFF'
+      fill={color}
       fill-rule='evenodd'
       d='M13.795.7a.714.714 0 0 0-.99 0L4.419 8.855 1.195 5.721a.714.714 0 0 0-.99 0 .668.668 0 0 0 0 .963L3.924 10.3a.714.714 0 0 0 .99 0l8.881-8.639a.668.668 0 0 0 0-.963z'
     />
   </svg>
 );
-
-Logout.propTypes = iconPropTypes;
-Logout.defaultProps = defaultIconProps;
