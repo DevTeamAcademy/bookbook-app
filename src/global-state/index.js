@@ -4,12 +4,13 @@ import { createStore } from 'react-hooks-global-state';
 // helpers
 import * as H from '../helpers';
 // global-state
-import { GLOBAL_TOGGLE_SIDEBAR, GLOBAL_SET_CURRENT_USER } from './action-types';
+import { GLOBAL_TOGGLE_SIDEBAR, GLOBAL_SET_CURRENT_USER, GLOBAL_TOGGLE_ACTION_LIST } from './action-types';
 //  /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const initialState = {
-  isSidebarOpened: false,
   currentUser: null,
+  isSidebarOpened: false,
+  isActionListOpened: false,
 };
 
 export const { GlobalStateProvider, dispatch, useGlobalState } = createStore(
@@ -23,6 +24,9 @@ export const { GlobalStateProvider, dispatch, useGlobalState } = createStore(
           const accessToken = R.path(['payload', 'access_token'], action);
           H.setAuthTokenToSession(accessToken);
           draft.currentUser = action.payload;
+          break;
+        case GLOBAL_TOGGLE_ACTION_LIST:
+          draft.isActionListOpened = R.not(state.isActionListOpened);
           break;
         default:
           draft = state;

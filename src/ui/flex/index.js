@@ -16,6 +16,7 @@ import {
   minHeight,
   boxShadow,
   borderTop,
+  background,
   alignItems,
   borderLeft,
   borderColor,
@@ -46,6 +47,7 @@ export const Flex = styled.div`
   ${boxShadow}
   ${borderTop}
   ${borderLeft}
+  ${background}
   ${alignItems}
   ${borderColor}
   ${borderRight}
@@ -53,6 +55,7 @@ export const Flex = styled.div`
   ${borderRadius}
   ${flexDirection}
   ${justifyContent}
+  cursor: ${({ cursor }) => cursor};
   display: ${({ inline }) => H.ifElse(inline, 'inline-flex', 'flex')};
 `;
 
@@ -72,6 +75,7 @@ Flex.propTypes = {
   ...minHeight.propTypes,
   ...boxShadow.propTypes,
   ...borderTop.propTypes,
+  ...background.propTypes,
   ...borderLeft.propTypes,
   ...alignItems.propTypes,
   ...borderColor.propTypes,
@@ -80,6 +84,7 @@ Flex.propTypes = {
   ...borderRadius.propTypes,
   ...flexDirection.propTypes,
   ...justifyContent.propTypes,
+  cursor: PropTypes.string,
   inline: PropTypes.string,
 };
 
