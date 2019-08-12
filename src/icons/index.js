@@ -276,7 +276,7 @@ export const Tick = ({ color, width, height }) => (
   <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 14 11'>
     <path
       fill={color}
-      fill-rule='evenodd'
+      fillRule='evenodd'
       d='M13.795.7a.714.714 0 0 0-.99 0L4.419 8.855 1.195 5.721a.714.714 0 0 0-.99 0 .668.668 0 0 0 0 .963L3.924 10.3a.714.714 0 0 0 .99 0l8.881-8.639a.668.668 0 0 0 0-.963z'
     />
   </svg>
