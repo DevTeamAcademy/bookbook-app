@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { top, left, right, bottom, position } from 'styled-system';
+// theme
+import Theme from '../../theme';
 // ui
 import { animation } from '../animations';
 // //////////////////////////////////////////////////////////////////////////////
@@ -20,9 +22,7 @@ export const PositionedBox = styled.div`
   ${bottom}
   ${position}
 `;
-
 PositionedBox.propTypes = defaultPositionedBoxPropTypes;
-
 PositionedBox.displayName = 'PositionedBox';
 
 export const AnimatedPositionBox = styled(PositionedBox)`
@@ -34,12 +34,16 @@ AnimatedPositionBox.propTypes = {
   animationName: PropTypes.string.isRequired,
   animationProps: PropTypes.string.isRequired,
 };
-
 AnimatedPositionBox.displayName = 'AnimatedPositionBox';
 
 export const AuthPagesWrapper = styled.div`
   height: 100vh;
   background: url(${props => require('../../images/main-bg.png')});
 `;
-
 AuthPagesWrapper.displayName = 'AuthPagesWrapper';
+
+export const PageWrapper = styled.div`
+  height: 100vh;
+  background-color: ${Theme.colors.darkBlue};
+`;
+PageWrapper.displayName = 'PageWrapper';

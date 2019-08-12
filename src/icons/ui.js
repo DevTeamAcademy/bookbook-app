@@ -1,4 +1,3 @@
-import { or } from 'ramda';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { color, space, width, height, border, display, opacity, boxShadow, borderRadius } from 'styled-system';
@@ -14,7 +13,7 @@ export const IconWrapper = styled.div`
   ${opacity}
   ${boxShadow}
   ${borderRadius}
-  cursor: ${({ cursor }) => or(cursor, 'initial')}
+  cursor: ${({ cursor }) => cursor}
   &:hover {
     opacity: 1;
   }

@@ -4,7 +4,7 @@ export { Text } from './text';
 export { Button } from './button';
 export { Input } from './forms/input';
 export { Label } from './forms/label';
-export { PositionedBox, AuthPagesWrapper, AnimatedPositionBox } from './wrappers';
+export { PageWrapper, PositionedBox, AuthPagesWrapper, AnimatedPositionBox } from './wrappers';
 // //////////////////////////////////////////////////////////////////////////////
 
 export const createMinWithMediaQuery = n => `
