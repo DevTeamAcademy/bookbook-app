@@ -1,6 +1,7 @@
 // NOTE: add all default styles props here (colors, shadows, borders, spaces, sizes etc.)
 
 const colors = {
+  grey: '#888181',
   white: '#ffffff',
   black: '#000000',
   darkBlue: '#1f2532',
@@ -8,9 +9,10 @@ const colors = {
   mainBlue: '#2c7bda',
   lightGrey: '#615d60',
   paleOlive: '#e6dda6',
+  lightBlue: '#6fa6d6',
   middleGrey: '#9D8C70',
   paleYellow: '#fff8f0',
-  inactiveGrey: '#9d9c9d', //TODO: rename properly;
+  inactiveGrey: '#9d9c9d', // TODO: rename properly;
 };
 
 const borders = {

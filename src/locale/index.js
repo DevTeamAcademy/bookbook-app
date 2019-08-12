@@ -30,6 +30,11 @@ export const UA = {
       value: 'Polski',
     },
   ],
+  addItems: {
+    book: 'Книжку',
+    quote: 'Цитату',
+    library: 'Бібліотеку',
+  },
   headerNavLabels: {
     menu: 'Меню',
     list: 'Домашня',
@@ -55,12 +60,16 @@ export const UA = {
     password: 'Пароль',
   },
   actions: {
-    register: 'Зареєструватись',
+    add: 'Додати',
     login: 'Увійти',
+    register: 'Зареєструватись',
   },
   messages: {
     successLogin: 'Успішний Вхід!',
     successRegister: 'Успішна Реєстрація!',
+  },
+  fields: {
+    search: 'Пошук...',
   },
 };
 
@@ -92,6 +101,11 @@ const EN = {
       value: 'Polski',
     },
   ],
+  addItems: {
+    book: 'Book',
+    quote: 'Quote',
+    library: 'Library',
+  },
   headerNavLabels: {
     menu: 'Menu',
     list: 'Home',
@@ -117,12 +131,16 @@ const EN = {
     login: 'Login',
   },
   actions: {
-    register: 'Submit',
+    add: 'Add',
     login: 'Login',
+    register: 'Submit',
   },
   messages: {
     successLogin: 'Success Login!',
     successRegister: 'Success Register!',
+  },
+  fields: {
+    search: 'Search...',
   },
 };
 
@@ -154,6 +172,11 @@ const RU = {
       value: 'Polski',
     },
   ],
+  addItems: {
+    book: 'Book',
+    quote: 'Quote',
+    library: 'Library',
+  },
   headerNavLabels: {
     menu: 'Menu',
     list: 'Home',
@@ -179,12 +202,16 @@ const RU = {
     login: 'Login',
   },
   actions: {
-    register: 'Submit',
+    add: 'Add',
     login: 'Login',
+    register: 'Submit',
   },
   messages: {
     successLogin: 'Success Login!',
     successRegister: 'Success Register!',
+  },
+  fields: {
+    search: 'Search...',
   },
 };
 
@@ -216,6 +243,11 @@ const PL = {
       value: 'Polski',
     },
   ],
+  addItems: {
+    book: 'Book',
+    quote: 'Quote',
+    library: 'Library',
+  },
   headerNavLabels: {
     menu: 'Menu',
     list: 'Home',
@@ -241,12 +273,16 @@ const PL = {
     login: 'Login',
   },
   actions: {
-    register: 'Submit',
+    add: 'Add',
     login: 'Login',
+    register: 'Submit',
   },
   messages: {
     successLogin: 'Success Login!',
     successRegister: 'Success Register!',
+  },
+  fields: {
+    search: 'Search...',
   },
 };
 

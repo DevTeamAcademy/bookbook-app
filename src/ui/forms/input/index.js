@@ -47,6 +47,9 @@ export const Input = styled.input`
   &:focus {
     box-shadow: ${({ focusBoxShadow }) => or(focusBoxShadow, Theme.form.input.focusBoxShadow)};
   }
+  &::placeholder {
+    color: ${({ placeholderColor }) => placeholderColor};
+  }
 `;
 
 Input.propTypes = {
@@ -62,6 +65,7 @@ Input.propTypes = {
   ...borderRadius.propTypes,
   cursor: PropTypes.string,
   focusBoxShadow: PropTypes.string,
+  placeholderColor: PropTypes.string,
 };
 
 Input.displayName = 'Input';
