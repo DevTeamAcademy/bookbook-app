@@ -12,23 +12,23 @@ import { Box, Flex, Input } from '../../ui';
 ////////////////////////////////////////////////////////////////////////////////
 
 export const SearchComponent = props => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [searchedValue, setSearchedValue] = useState('');
-  const debouncedSearchValue = useDebounce(searchedValue, 500);
+  const [loading, setLoading] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
+  const debouncedSearchValue = useDebounce(searchValue, 500);
   const [iconColor, setIconColor] = useState(Theme.colors.white);
   useEffect(() => {
     if (debouncedSearchValue) {
-      setIsLoading(true);
+      setLoading(true);
       // TODO: with searched action
       setTimeout(() => {
-        setIsLoading(false);
+        setLoading(false);
         setIconColor(Theme.colors.white);
       }, 500);
     }
   }, [debouncedSearchValue]);
   const handleChange = event => {
+    setSearchValue(event.target.value);
     setIconColor(Theme.colors.lightBlue);
-    setSearchedValue(event.target.value);
   };
   return (
     <Flex
@@ -46,13 +46,13 @@ export const SearchComponent = props => {
         height='20px'
         bg='transparent'
         focusBoxShadow='none'
-        value={searchedValue}
+        value={searchValue}
         onChange={handleChange}
         width='calc(100% - 40px)'
         placeholderColor={Theme.colors.middleGrey}
         placeholder={H.getLocale('fields.search')}
       />
-      {H.isFalse(isLoading) && (
+      {H.isFalse(loading) && (
         <Box height='20px'>
           <I.IconWrapper>
             <I.Search width={20} height={20} color={iconColor} />
@@ -60,7 +60,7 @@ export const SearchComponent = props => {
         </Box>
       )}
       {/* TODO: change on gif or box with animation */}
-      {H.isTrue(isLoading) && (
+      {H.isTrue(loading) && (
         <Box height='20px' color='white'>
           Loading...
         </Box>
