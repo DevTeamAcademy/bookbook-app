@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import { color, width, height, display, position } from 'styled-system';
 // constants
 import * as C from '../../constants';
+// theme
+import Theme from '../../theme';
 // ui
 import { Flex, Box, PositionedBox } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -131,18 +133,20 @@ RadioOption.propTypes = {
 };
 
 const makeWrapperSettings = settings => ({
-  bg: R.or(settings.bg, '#615d60'),
-  height: R.or(settings.height, '7px'),
-  color: R.or(settings.color, '#eeeeee'),
-  fontSize: R.or(settings.fontSize, '11px'),
+  height: R.or(settings.height, '15px'),
+  fontSize: R.or(settings.fontSize, '12px'),
+  border: R.or(settings.border, '1px solid'),
+  bg: R.or(settings.bg, Theme.multiswitch.bg),
   fontWeight: R.or(settings.fontWeight, 'bold'),
-  checkedBg: R.or(settings.checkedBg, '#e6dda6'),
-  borderRadius: R.or(settings.borderRadius, '6px'),
-  checkedColor: R.or(settings.checkedColor, '#363135'),
+  borderRadius: R.or(settings.borderRadius, '7px'),
+  color: R.or(settings.color, Theme.multiswitch.color),
+  checkedBg: R.or(settings.checkedBg, Theme.multiswitch.checkedBg),
+  borderColor: R.or(settings.borderColor, Theme.multiswitch.borderColor),
+  checkedColor: R.or(settings.checkedColor, Theme.multiswitch.checkedColor),
 });
 
 const MultiswitchComponent = props => {
-  const settings = makeWrapperSettings(props.settings);
+  const settings = makeWrapperSettings(R.or(props.settings, {}));
   return (
     <MultiswitchWrapper
       display='flex'
@@ -153,6 +157,8 @@ const MultiswitchComponent = props => {
       alignItems='center'
       color={settings.color}
       height={settings.height}
+      border={settings.border}
+      borderColor={settings.borderColor}
       borderRadius={settings.borderRadius}
     >
       {props.options.map((radioOption, index) => (

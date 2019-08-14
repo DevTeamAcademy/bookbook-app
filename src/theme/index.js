@@ -39,6 +39,14 @@ export default {
       focusBoxShadow: '0 0 5px 0 rgba(206, 40, 40, 0.5)',
     },
   },
+  multiswitch: {
+    bg: colors.darkBlue,
+    color: colors.paleOlive,
+    border: colors.paleOlive,
+    checkedBg: colors.paleOlive,
+    checkedColor: colors.darkBlue,
+    borderColor: colors.paleOlive,
+  },
   btns: {
     authPages: {
       width: '280px',
