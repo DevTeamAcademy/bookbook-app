@@ -8,7 +8,6 @@ import locales from '../locale';
 
 export const LocaleContext = createContext();
 
-// TODO: check all logic and change locale helper
 export const LocaleProvider = props => {
   const [locale, setLocale] = useState(() => {
     const localeName = H.getLocaleName();

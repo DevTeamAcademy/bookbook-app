@@ -9,21 +9,3 @@ export const Box = Abstract('div');
 Box.propTypes = AbstractPropTypes;
 
 Box.displayName = 'Box';
-
-export const PositionedBox = styled(Box)`
-  ${top}
-  ${left}
-  ${right}
-  ${bottom}
-  ${position}
-`;
-
-Box.propTypes = {
-  ...top.propTypes,
-  ...left.propTypes,
-  ...right.propTypes,
-  ...bottom.propTypes,
-  ...position.propTypes,
-};
-
-PositionedBox.displayName = 'PositionedBox';

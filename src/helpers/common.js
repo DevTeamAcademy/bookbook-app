@@ -11,15 +11,20 @@ import * as H from './';
 import locales from '../locale';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const getLocaleName = () =>
-  H.ifElse(
+export const getLocaleName = () => {
+  const localeString = H.ifElse(
     H.isNotNilAndNotEmpty(H.getItemFromLocalStorage('localeName')),
     H.getItemFromLocalStorage('localeName'),
     C.LOCALE_NAME_UA,
   );
+  if (R.contains(localeString, R.keys(locales))) {
+    return localeString;
+  }
+  return C.LOCALE_NAME_UA;
+};
 
 // TODO: add more caseActions if needed
-export const getLocale = (localePath: string, options) => {
+export const getLocale = (localePath, options) => {
   const caseActionMap = {
     titleCase,
     upperCase,
@@ -39,14 +44,14 @@ export const showToast = (type, messageLocale, timer) => ToastsStore[type](getLo
 
 export const isResponseSuccess = ({ status }) => R.and(R.gte(status, 200), R.lt(status, 300));
 
-export const hasNotResponseErrors = (res: Object) => {
+export const hasNotResponseErrors = res => {
   const { invalidFields, message, errors, error_description } = res;
   if (H.isNotNil(invalidFields)) {
-    invalidFields.map((field: Object) => showToast('error', `${field.fieldName}: ${field.message}`));
+    invalidFields.map(field => showToast('error', `${field.fieldName}: ${field.message}`));
     return false;
   } else if (H.isNotNil(message)) {
     if (H.isNotNilAndNotEmpty(errors)) {
-      errors.map((error: Object) => showToast('error', error));
+      errors.map(error => showToast('error', error));
     } else {
       showToast('error', message);
     }

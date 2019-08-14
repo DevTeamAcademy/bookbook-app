@@ -1,3 +1,4 @@
+import R from 'ramda';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
@@ -33,7 +34,7 @@ import {
 } from 'styled-system';
 // //////////////////////////////////////////////////////////////////////////////
 
-export const Abstract = tag => styled(tag || 'div')`
+export const Abstract = tag => styled(R.or(tag, 'div'))`
   ${top}
   ${left}
   ${flex}

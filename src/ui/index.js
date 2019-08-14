@@ -1,4 +1,3 @@
-import { or } from 'ramda';
 import styled from 'styled-components';
 import {
   color,
@@ -23,8 +22,8 @@ export { Text } from './text';
 export { Button } from './button';
 export { Input } from './forms/input';
 export { Label } from './forms/label';
-export { Box, PositionedBox } from './box';
-export { AbsoluteWrapper, AuthPagesWrapper } from './wrappers';
+export { Box } from './box';
+export { PageWrapper, PositionedBox, AuthPagesWrapper, AnimatedPositionBox } from './wrappers';
 // //////////////////////////////////////////////////////////////////////////////
 
 export const createMinWithMediaQuery = n => `

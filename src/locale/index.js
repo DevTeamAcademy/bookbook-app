@@ -2,10 +2,16 @@
 import * as C from '../constants';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-const UA = {
+export const UA = {
   termsAndConditions: 'Умови використання',
   privacyPolicy: 'Політика приватності',
   copyright: '2019 © Всі права захищено',
+  localeNames: {
+    [C.LOCALE_NAME_UA]: 'Українська',
+    [C.LOCALE_NAME_EN]: 'Англійська',
+    [C.LOCALE_NAME_PL]: 'Польська',
+    [C.LOCALE_NAME_RU]: 'Російська',
+  },
   languages: [
     {
       localeName: C.LOCALE_NAME_EN,
@@ -24,6 +30,11 @@ const UA = {
       value: 'Polski',
     },
   ],
+  addItems: {
+    book: 'Книжку',
+    quote: 'Цитату',
+    library: 'Бібліотеку',
+  },
   headerNavLabels: {
     menu: 'Меню',
     list: 'Домашня',
@@ -49,12 +60,16 @@ const UA = {
     password: 'Пароль',
   },
   actions: {
-    register: 'Зареєструватись',
+    add: 'Додати',
     login: 'Увійти',
+    register: 'Зареєструватись',
   },
   messages: {
     successLogin: 'Успішний Вхід!',
     successRegister: 'Успішна Реєстрація!',
+  },
+  fields: {
+    search: 'Пошук...',
   },
 };
 
@@ -62,6 +77,12 @@ const EN = {
   termsAndConditions: 'Terms and conditions',
   privacyPolicy: 'Privacy policy',
   copyright: '2019 © All rights reserved',
+  localeNames: {
+    [C.LOCALE_NAME_UA]: 'Ukrainian',
+    [C.LOCALE_NAME_EN]: 'English',
+    [C.LOCALE_NAME_PL]: 'Polish',
+    [C.LOCALE_NAME_RU]: 'Russian',
+  },
   languages: [
     {
       localeName: C.LOCALE_NAME_EN,
@@ -80,6 +101,11 @@ const EN = {
       value: 'Polski',
     },
   ],
+  addItems: {
+    book: 'Book',
+    quote: 'Quote',
+    library: 'Library',
+  },
   headerNavLabels: {
     menu: 'Menu',
     list: 'Home',
@@ -105,12 +131,16 @@ const EN = {
     login: 'Login',
   },
   actions: {
-    register: 'Submit',
+    add: 'Add',
     login: 'Login',
+    register: 'Submit',
   },
   messages: {
     successLogin: 'Success Login!',
     successRegister: 'Success Register!',
+  },
+  fields: {
+    search: 'Search...',
   },
 };
 
@@ -118,6 +148,12 @@ const RU = {
   termsAndConditions: 'Terms and conditions',
   privacyPolicy: 'Privacy policy',
   copyright: '2019 © All rights reserved',
+  localeNames: {
+    [C.LOCALE_NAME_UA]: 'Украинский',
+    [C.LOCALE_NAME_EN]: 'Английский',
+    [C.LOCALE_NAME_PL]: 'Польский',
+    [C.LOCALE_NAME_RU]: 'Русский',
+  },
   languages: [
     {
       localeName: C.LOCALE_NAME_EN,
@@ -136,6 +172,11 @@ const RU = {
       value: 'Polski',
     },
   ],
+  addItems: {
+    book: 'Book',
+    quote: 'Quote',
+    library: 'Library',
+  },
   headerNavLabels: {
     menu: 'Menu',
     list: 'Home',
@@ -161,12 +202,16 @@ const RU = {
     login: 'Login',
   },
   actions: {
-    register: 'Submit',
+    add: 'Add',
     login: 'Login',
+    register: 'Submit',
   },
   messages: {
     successLogin: 'Success Login!',
     successRegister: 'Success Register!',
+  },
+  fields: {
+    search: 'Search...',
   },
 };
 
@@ -174,6 +219,12 @@ const PL = {
   termsAndConditions: 'Terms and conditions',
   privacyPolicy: 'Privacy policy',
   copyright: '2019 © All rights reserved',
+  localeNames: {
+    [C.LOCALE_NAME_UA]: 'Ukraiński',
+    [C.LOCALE_NAME_EN]: 'Angielski',
+    [C.LOCALE_NAME_PL]: 'Polski',
+    [C.LOCALE_NAME_RU]: 'Rosyjski',
+  },
   languages: [
     {
       localeName: C.LOCALE_NAME_EN,
@@ -192,6 +243,11 @@ const PL = {
       value: 'Polski',
     },
   ],
+  addItems: {
+    book: 'Book',
+    quote: 'Quote',
+    library: 'Library',
+  },
   headerNavLabels: {
     menu: 'Menu',
     list: 'Home',
@@ -217,12 +273,16 @@ const PL = {
     login: 'Login',
   },
   actions: {
-    register: 'Submit',
+    add: 'Add',
     login: 'Login',
+    register: 'Submit',
   },
   messages: {
     successLogin: 'Success Login!',
     successRegister: 'Success Register!',
+  },
+  fields: {
+    search: 'Search...',
   },
 };
 
