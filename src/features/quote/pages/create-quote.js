@@ -29,6 +29,10 @@ export const CreateQuotePage = props => {
 
 export default CreateQuotePage;
 
-CreateQuotePage.propTypes = {};
+CreateQuotePage.propTypes = {
+  match: PropTypes.object,
+  history: PropTypes.object,
+  location: PropTypes.object,
+};
 
 CreateQuotePage.displayName = 'CreateQuotePage';

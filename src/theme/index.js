@@ -34,7 +34,7 @@ export default {
     },
     input: {
       main: {
-        p: '15px',
+        px: '10px',
         mb: '20px',
         width: '280px',
         height: '40px',
@@ -44,7 +44,7 @@ export default {
         border: `1px solid ${colors.middleBlue}`,
       },
       authPages: {
-        p: '15px',
+        px: '10px',
         mb: '20px',
         width: '280px',
         height: '40px',

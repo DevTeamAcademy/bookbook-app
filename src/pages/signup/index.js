@@ -25,6 +25,7 @@ const signUpFormSettings = {
   },
   fields: [
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'text',
@@ -34,6 +35,7 @@ const signUpFormSettings = {
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'email',
@@ -43,6 +45,7 @@ const signUpFormSettings = {
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'password',

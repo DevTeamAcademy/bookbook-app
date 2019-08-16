@@ -26,6 +26,7 @@ const signInFormSettings = {
   },
   fields: [
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'text',
@@ -35,6 +36,7 @@ const signInFormSettings = {
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'password',
