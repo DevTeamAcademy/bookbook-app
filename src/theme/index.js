@@ -10,6 +10,7 @@ const colors = {
   lightGrey: '#615d60',
   paleOlive: '#e6dda6',
   lightBlue: '#6fa6d6',
+  middleBlue: '#333b4a',
   middleGrey: '#9D8C70',
   paleYellow: '#fff8f0',
   inactiveGrey: '#9d9c9d', // TODO: rename properly;
@@ -24,10 +25,24 @@ export default {
   borders,
   form: {
     label: {
-      color: 'black',
-      requiredStarColor: 'red',
+      main: {
+        p: '5px 0',
+        fontSize: 14,
+        color: colors.white,
+        requiredStarColor: 'red', // TODO: with design
+      },
     },
     input: {
+      main: {
+        p: '15px',
+        mb: '20px',
+        width: '280px',
+        height: '40px',
+        borderRadius: '4px',
+        color: colors.white,
+        bg: colors.darkBlue,
+        border: `1px solid ${colors.middleBlue}`,
+      },
       authPages: {
         p: '15px',
         mb: '20px',
@@ -48,6 +63,15 @@ export default {
     borderColor: colors.paleOlive,
   },
   btns: {
+    main: {
+      width: '280px',
+      height: '44px',
+      cursor: 'pointer',
+      borderRadius: '22px',
+      bg: colors.darkBlue,
+      color: colors.lightBlue,
+      border: `1px solid ${colors.lightBlue}`,
+    },
     authPages: {
       width: '280px',
       height: '44px',

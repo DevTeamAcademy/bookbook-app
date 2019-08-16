@@ -26,6 +26,9 @@ const ProfilePage = lazy(() => import(/* webpackChunkName: 'ProfilePage' */ '../
 const LanguagePage = lazy(() => import(/* webpackChunkName: 'LanguagePage' */ '../pages/language'));
 const SettingsPage = lazy(() => import(/* webpackChunkName: 'SettingsPage' */ '../pages/settings'));
 const NotificationsPage = lazy(() => import(/* webpackChunkName: 'NotificationsPage' */ '../pages/notifications'));
+const CreateQuotePage = lazy(() =>
+  import(/* webpackChunkName: 'CreateQuotePage' */ '../features/quote/pages/create-quote'),
+);
 
 export default () => {
   const token = H.getToken();
@@ -59,6 +62,7 @@ export default () => {
             <Route path={C.ROUTE_LIBRARY_PAGE} exact component={LibraryPage} />
             <Route path={C.ROUTE_LANGUAGE_PAGE} exact component={LanguagePage} />
             <Route path={C.ROUTE_SETTINGS_PAGE} exact component={SettingsPage} />
+            <Route path={C.ROUTE_CREATE_QUOTE_PAGE} exact component={CreateQuotePage} />
             <Route path={C.ROUTE_NOTIFICATIONS_PAGE} exact component={NotificationsPage} />
             <RedirectTo redirect={C.ROUTE_HOME_PAGE} />
           </Switch>
