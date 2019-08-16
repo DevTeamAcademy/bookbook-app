@@ -4,6 +4,7 @@ import { top, left, right, bottom, position } from 'styled-system';
 // theme
 import Theme from '../../theme';
 // ui
+import { Box } from '../box';
 import { animation } from '../animations';
 // //////////////////////////////////////////////////////////////////////////////
 
@@ -15,13 +16,14 @@ const defaultPositionedBoxPropTypes = {
   ...position.propTypes,
 };
 
-export const PositionedBox = styled.div`
+export const PositionedBox = styled(Box)`
   ${top}
   ${left}
   ${right}
   ${bottom}
   ${position}
 `;
+
 PositionedBox.propTypes = defaultPositionedBoxPropTypes;
 PositionedBox.displayName = 'PositionedBox';
 
