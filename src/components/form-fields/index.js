@@ -3,14 +3,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // helpers
 import * as H from '../../helpers';
-// theme
-import Theme from '../../theme';
 // ui
-import { Box, Flex, Input, Label } from '../../ui';
+import { Box, Flex, Input, Label, Textarea } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
+const typeComponentMap = {
+  input: Input,
+  textarea: Textarea,
+};
+
 export const FieldComponent = (props: Object) => {
-  return <Input {...props} />;
+  const type = props.type;
+  const fieldProps = R.omit('type', props);
+  const Component = typeComponentMap[type];
+  return <Component {...fieldProps} />;
 };
 
 export const FormFields = props => (
@@ -27,6 +33,7 @@ export const FormFields = props => (
         <div />
         <FieldComponent
           {...item.input}
+          type={item.type}
           onBlur={props.handleBlur}
           onChange={props.handleChange}
           value={R.path([item.fieldName, 'values'], props)}

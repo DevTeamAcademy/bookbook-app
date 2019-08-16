@@ -18,9 +18,10 @@ const quoteFormSettings = {
   },
   fields: [
     {
+      type: 'textarea',
       input: {
         ...Theme.form.input.main,
-        type: 'text',
+        height: 150,
         required: true,
         name: C.QUOTE_FIELDS.FIELD_QUOTE,
       },
@@ -30,6 +31,7 @@ const quoteFormSettings = {
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.main,
         type: 'text',
@@ -42,6 +44,7 @@ const quoteFormSettings = {
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.main,
         type: 'text',
@@ -54,6 +57,7 @@ const quoteFormSettings = {
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.main,
         type: 'text',
@@ -66,6 +70,7 @@ const quoteFormSettings = {
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.main,
         type: 'text',
@@ -78,9 +83,10 @@ const quoteFormSettings = {
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.main,
-        type: 'text',
+        height: 150,
         required: true,
         name: C.QUOTE_FIELDS.FIELD_DESCRIPTION,
       },
@@ -90,6 +96,7 @@ const quoteFormSettings = {
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.main,
         type: 'text',
