@@ -3,6 +3,7 @@ import * as C from '../constants';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const UA = {
+  quotes: 'Цитати',
   termsAndConditions: 'Умови використання',
   privacyPolicy: 'Політика приватності',
   copyright: '2019 © Всі права захищено',
@@ -71,9 +72,14 @@ export const UA = {
   fields: {
     search: 'Пошук...',
   },
+  settings: {
+    homeList: 'Домашній Список',
+    notifications: 'Сповіщення',
+  },
 };
 
 const EN = {
+  quotes: 'Quotes',
   termsAndConditions: 'Terms and conditions',
   privacyPolicy: 'Privacy policy',
   copyright: '2019 © All rights reserved',
@@ -142,9 +148,14 @@ const EN = {
   fields: {
     search: 'Search...',
   },
+  settings: {
+    homeList: 'Home List',
+    notifications: 'Notifications',
+  },
 };
 
 const RU = {
+  quotes: 'Quotes',
   termsAndConditions: 'Terms and conditions',
   privacyPolicy: 'Privacy policy',
   copyright: '2019 © All rights reserved',
@@ -213,9 +224,14 @@ const RU = {
   fields: {
     search: 'Search...',
   },
+  settings: {
+    homeList: 'Домашний Список',
+    notifications: 'Оповещения',
+  },
 };
 
 const PL = {
+  quotes: 'Quotes',
   termsAndConditions: 'Terms and conditions',
   privacyPolicy: 'Privacy policy',
   copyright: '2019 © All rights reserved',
@@ -283,6 +299,10 @@ const PL = {
   },
   fields: {
     search: 'Search...',
+  },
+  settings: {
+    homeList: 'Home List',
+    notifications: 'Notifications',
   },
 };
 
