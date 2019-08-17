@@ -26,6 +26,8 @@ const ProfilePage = lazy(() => import(/* webpackChunkName: 'ProfilePage' */ '../
 const LanguagePage = lazy(() => import(/* webpackChunkName: 'LanguagePage' */ '../pages/language'));
 const SettingsPage = lazy(() => import(/* webpackChunkName: 'SettingsPage' */ '../pages/settings'));
 const NotificationsPage = lazy(() => import(/* webpackChunkName: 'NotificationsPage' */ '../pages/notifications'));
+const PasswordResetPage = lazy(() => import(/* webpackChunkName: 'PasswordResetPage' */ '../pages/password-reset'));
+const PasswordForgotPage = lazy(() => import(/* webpackChunkName: 'PasswordForgotPage' */ '../pages/password-forgot'));
 
 export default () => {
   const token = H.getToken();
@@ -47,6 +49,8 @@ export default () => {
       <Switch>
         <Route path={C.ROUTE_SIGNIN_PAGE} exact component={SignInPage} />
         <Route path={C.ROUTE_SIGNUP_PAGE} exact component={SignUpPage} />
+        <Route path={C.ROUTE_PASSWORD_RESET_PAGE} exact component={PasswordResetPage} />
+        <Route path={C.ROUTE_PASSWORD_FORGOT_PAGE} exact component={PasswordForgotPage} />
         <Layout>
           <Switch>
             <Route path={C.ROUTE_HELP_PAGE} exact component={HelpPage} />

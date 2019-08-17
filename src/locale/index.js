@@ -62,7 +62,9 @@ export const UA = {
   actions: {
     add: 'Додати',
     login: 'Увійти',
+    send: 'Відправити',
     register: 'Зареєструватись',
+    forgotPassword: 'Забули пароль?',
   },
   messages: {
     successLogin: 'Успішний Вхід!',
@@ -70,6 +72,9 @@ export const UA = {
   },
   fields: {
     search: 'Пошук...',
+  },
+  hints: {
+    passwordRecovery: 'Введіть свою адресу електронної пошти, і ми надішлемо вам посилання для його скидання',
   },
 };
 
@@ -134,6 +139,8 @@ const EN = {
     add: 'Add',
     login: 'Login',
     register: 'Submit',
+    send: 'Send',
+    forgotPassword: 'Forgot password?',
   },
   messages: {
     successLogin: 'Success Login!',
@@ -141,6 +148,9 @@ const EN = {
   },
   fields: {
     search: 'Search...',
+  },
+  hints: {
+    passwordRecovery: 'Enter your email and we will send you a link for password recovery',
   },
 };
 
@@ -205,6 +215,8 @@ const RU = {
     add: 'Add',
     login: 'Login',
     register: 'Submit',
+    send: 'Send',
+    forgotPassword: 'Forgot password?',
   },
   messages: {
     successLogin: 'Success Login!',
@@ -212,6 +224,9 @@ const RU = {
   },
   fields: {
     search: 'Search...',
+  },
+  hints: {
+    passwordRecovery: 'Enter your email and we will send you a link for password recovery',
   },
 };
 
@@ -276,6 +291,8 @@ const PL = {
     add: 'Add',
     login: 'Login',
     register: 'Submit',
+    send: 'Send',
+    forgotPassword: 'Forgot password?',
   },
   messages: {
     successLogin: 'Success Login!',
@@ -283,6 +300,9 @@ const PL = {
   },
   fields: {
     search: 'Search...',
+  },
+  hints: {
+    passwordRecovery: 'Enter your email and we will send you a link for password recovery',
   },
 };
 

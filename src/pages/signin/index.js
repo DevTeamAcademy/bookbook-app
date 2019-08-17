@@ -51,6 +51,13 @@ const SignInForm = props => {
   return (
     <form onSubmit={handleSubmit}>
       <FormFields {...props} settings={signInFormSettings} />
+      <Box>
+        <RouteLink
+          linkTo={C.ROUTE_PASSWORD_FORGOT_PAGE}
+          text={H.getLocale('actions.forgotPassword')}
+          styles={{ fontSize: '12px', fontFamily: 'AvenirNext', color: '#fff8f0' }} // TODO Move to Theme
+        />
+      </Box>
       <Button type='submit' {...Theme.btns.authPages}>
         {H.getLocale('actions.login')}
       </Button>
