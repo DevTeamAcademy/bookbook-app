@@ -1,15 +1,28 @@
 import R from 'ramda';
 import React from 'react';
 import PropTypes from 'prop-types';
+// components
+import { Multiswitch } from '../../components';
 // helpers
 import * as H from '../../helpers';
 // ui
 import { Box, Flex, Input, Label, Textarea } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
+// TODO: check initial selected index and onSwitch
+const MultiswitchComponent = ({ name, value, onChange, options }) => (
+  <Multiswitch
+    options={options}
+    selectedOptionIndex={0}
+    value={R.or(value, null)}
+    onSwitch={(value: string) => onChange(name, value)}
+  />
+);
+
 const typeComponentMap = {
   input: Input,
   textarea: Textarea,
+  multiswitch: MultiswitchComponent,
 };
 
 export const FieldComponent = (props: Object) => {
@@ -25,7 +38,7 @@ export const FormFields = props => (
       <Box key={index} {...H.spreadUiProps(item.wrapperStyles)}>
         {item.label && (
           <Flex>
-            <Label {...H.spreadUiProps(item.label.styles)} htmlFor={item.fieldName}>
+            <Label {...H.spreadUiProps(item.label.styles)} htmlFor={item.input.name}>
               {H.getLocale(item.label.locale)}
             </Label>
           </Flex>
@@ -36,7 +49,7 @@ export const FormFields = props => (
           type={item.type}
           onBlur={props.handleBlur}
           onChange={props.handleChange}
-          value={R.path([item.fieldName, 'values'], props)}
+          value={R.path([item.input.name, 'values'], props)}
           placeholder={H.getLocale(R.path(['input', 'placeholder'], item))}
         />
       </Box>

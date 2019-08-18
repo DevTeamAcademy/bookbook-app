@@ -4,6 +4,7 @@ const FIELD_PAGE = 'page';
 const FIELD_EMAIL = 'email';
 const FIELD_LOGIN = 'login';
 const FIELD_QUOTE = 'quote';
+const FIELD_SCOPE = 'scope';
 const FIELD_AUTHOR = 'author';
 const FIELD_CATEGORY = 'category';
 const FIELD_USERNAME = 'username';
@@ -25,6 +26,7 @@ export const QUOTE_FIELDS = {
   FIELD_LINK,
   FIELD_BOOK,
   FIELD_PAGE,
+  FIELD_SCOPE,
   FIELD_QUOTE,
   FIELD_AUTHOR,
   FIELD_CATEGORY,

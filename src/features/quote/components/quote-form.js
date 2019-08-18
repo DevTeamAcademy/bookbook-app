@@ -1,22 +1,55 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 // components
 import { FormFields } from '../../../components';
 // constants
 import * as C from '../../../constants';
 // helpers
 import * as H from '../../../helpers';
+// prop-types
+import * as PT from '../../../prop-types';
 // theme
 import Theme from '../../../theme';
 // ui
 import { Button } from '../../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
+export const scopeOptions = [
+  {
+    width: 93,
+    value: 'private',
+    name: H.getLocale('labels.private'),
+  },
+  {
+    width: 93,
+    value: 'semiPublic',
+    name: H.getLocale('labels.semiPublic'),
+  },
+  {
+    width: 93,
+    value: 'public',
+    name: H.getLocale('labels.public'),
+  },
+];
+
 const quoteFormSettings = {
   wrapperStyles: {
     flexDirection: 'column',
   },
   fields: [
+    {
+      type: 'multiswitch',
+      wrapperStyles: {
+        mb: 15,
+      },
+      input: {
+        options: scopeOptions,
+        name: C.QUOTE_FIELDS.FIELD_SCOPE,
+      },
+      label: {
+        locale: 'labels.scope',
+        styles: Theme.form.label.main,
+      },
+    },
     {
       type: 'textarea',
       input: {
@@ -35,7 +68,7 @@ const quoteFormSettings = {
       input: {
         ...Theme.form.input.main,
         type: 'text',
-        required: true,
+        required: false,
         name: C.QUOTE_FIELDS.FIELD_CATEGORY,
       },
       label: {
@@ -48,7 +81,7 @@ const quoteFormSettings = {
       input: {
         ...Theme.form.input.main,
         type: 'text',
-        required: true,
+        required: false,
         name: C.QUOTE_FIELDS.FIELD_AUTHOR,
       },
       label: {
@@ -61,7 +94,7 @@ const quoteFormSettings = {
       input: {
         ...Theme.form.input.main,
         type: 'text',
-        required: true,
+        required: false,
         name: C.QUOTE_FIELDS.FIELD_BOOK,
       },
       label: {
@@ -74,7 +107,7 @@ const quoteFormSettings = {
       input: {
         ...Theme.form.input.main,
         type: 'text',
-        required: true,
+        required: false,
         name: C.QUOTE_FIELDS.FIELD_PAGE,
       },
       label: {
@@ -87,7 +120,7 @@ const quoteFormSettings = {
       input: {
         ...Theme.form.input.main,
         height: 150,
-        required: true,
+        required: false,
         name: C.QUOTE_FIELDS.FIELD_DESCRIPTION,
       },
       label: {
@@ -100,7 +133,7 @@ const quoteFormSettings = {
       input: {
         ...Theme.form.input.main,
         type: 'text',
-        required: true,
+        required: false,
         name: C.QUOTE_FIELDS.FIELD_LINK,
       },
       label: {
@@ -125,39 +158,7 @@ const QuoteForm = props => {
 
 export default QuoteForm;
 
-// TODO: move Formik props to own proptype into global proptypes
-QuoteForm.propTypes = {
-  dirty: PropTypes.bool.isRequired,
-  isValid: PropTypes.bool.isRequired,
-  isSubmitting: PropTypes.bool.isRequired,
-  isValidating: PropTypes.bool.isRequired,
-  validateOnBlur: PropTypes.bool.isRequired,
-  validateOnChange: PropTypes.bool.isRequired,
-  submitCount: PropTypes.number.isRequired,
-  values: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired,
-  touched: PropTypes.object.isRequired,
-  initialValues: PropTypes.object.isRequired,
-  resetForm: PropTypes.func.isRequired,
-  submitForm: PropTypes.func.isRequired,
-  validateForm: PropTypes.func.isRequired,
-  validateField: PropTypes.func.isRequired,
-  setError: PropTypes.func.isRequired,
-  setErrors: PropTypes.func.isRequired,
-  setFieldError: PropTypes.func.isRequired,
-  setFieldTouched: PropTypes.func.isRequired,
-  setFieldValue: PropTypes.func.isRequired,
-  setStatus: PropTypes.func.isRequired,
-  setSubmitting: PropTypes.func.isRequired,
-  setTouched: PropTypes.func.isRequired,
-  setValues: PropTypes.func.isRequired,
-  setFormikState: PropTypes.func.isRequired,
-  registerField: PropTypes.func.isRequired,
-  unregisterField: PropTypes.func.isRequired,
-  handleBlur: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  handleReset: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-};
+// TODO: add all other prop types
+QuoteForm.propTypes = { ...PT.formicPropTypes };
 
 QuoteForm.displayName = 'QuoteForm';
