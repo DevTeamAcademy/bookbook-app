@@ -26,20 +26,22 @@ const signInFormSettings = {
   },
   fields: [
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'text',
         required: true,
-        name: C.USER.USERNAME,
+        name: C.USER_FIELDS.USERNAME,
         placeholder: 'labels.login',
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'password',
         required: true,
-        name: C.USER.PASSWORD,
+        name: C.USER_FIELDS.PASSWORD,
         placeholder: 'labels.email',
       },
     },

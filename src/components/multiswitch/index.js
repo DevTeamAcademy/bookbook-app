@@ -145,7 +145,7 @@ const makeWrapperSettings = settings => ({
   checkedColor: R.or(settings.checkedColor, Theme.multiswitch.checkedColor),
 });
 
-const MultiswitchComponent = props => {
+export const Multiswitch = props => {
   const settings = makeWrapperSettings(R.or(props.settings, {}));
   return (
     <MultiswitchWrapper
@@ -174,7 +174,9 @@ const MultiswitchComponent = props => {
   );
 };
 
-MultiswitchComponent.propTypes = {
+export default Multiswitch;
+
+Multiswitch.propTypes = {
   selectedOptionIndex: PropTypes.number,
   options: PropTypes.arrayOf(optionPropType).isRequired,
   settings: PropTypes.shape({
@@ -189,6 +191,4 @@ MultiswitchComponent.propTypes = {
   }),
 };
 
-MultiswitchComponent.displayName = 'Multiswitch';
-
-export default MultiswitchComponent;
+Multiswitch.displayName = 'Multiswitch';

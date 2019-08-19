@@ -25,29 +25,32 @@ const signUpFormSettings = {
   },
   fields: [
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'text',
         required: true,
-        name: C.USER.LOGIN,
+        name: C.USER_FIELDS.LOGIN,
         placeholder: 'labels.login',
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'email',
         required: true,
-        name: C.USER.EMAIL,
+        name: C.USER_FIELDS.EMAIL,
         placeholder: 'labels.email',
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'password',
         required: true,
-        name: C.USER.PASSWORD,
+        name: C.USER_FIELDS.PASSWORD,
         placeholder: 'labels.password',
       },
     },
