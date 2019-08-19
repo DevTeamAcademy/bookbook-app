@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { withRouter } from 'react-router';
 // components
-import { RouteLink, FormFields } from '../../components';
+import { RouteLink, FormFields } from '../../../components';
 // constants
-import * as C from '../../constants';
+import * as C from '../../../constants';
 // global-state
-import { setCurrentUser } from '../../global-state/dispatchers';
+import { setCurrentUser } from '../../../global-state/dispatchers';
 // helpers
-import * as H from '../../helpers';
+import * as H from '../../../helpers';
 // hooks
-import { useRequest } from '../../hooks';
+import { useRequest } from '../../../hooks';
 // images
-import { ReactComponent as LogoIcon } from '../../images/logo.svg';
+import { ReactComponent as LogoIcon } from '../../../images/logo.svg';
 // theme
-import Theme from '../../theme';
+import Theme from '../../../theme';
 // ui
-import { Box, Flex, Button, AuthPagesWrapper } from '../../ui';
+import { Box, Flex, Button, AuthPagesWrapper } from '../../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const signInFormSettings = {
@@ -31,7 +31,7 @@ const signInFormSettings = {
         ...Theme.form.input.authPages,
         type: 'text',
         required: true,
-        name: C.USER_FIELDS.USERNAME,
+        name: C.USER_FIELDS.FIELD_USERNAME,
         placeholder: 'labels.login',
       },
     },
@@ -41,7 +41,7 @@ const signInFormSettings = {
         ...Theme.form.input.authPages,
         type: 'password',
         required: true,
-        name: C.USER_FIELDS.PASSWORD,
+        name: C.USER_FIELDS.FIELD_PASSWORD,
         placeholder: 'labels.email',
       },
     },

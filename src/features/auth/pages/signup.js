@@ -2,21 +2,21 @@ import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 // components
-import { RouteLink, FormFields } from '../../components';
+import { RouteLink, FormFields } from '../../../components';
 // constants
-import * as C from '../../constants';
+import * as C from '../../../constants';
 // global-state
-import { setCurrentUser } from '../../global-state/dispatchers';
+import { setCurrentUser } from '../../../global-state/dispatchers';
 // helpers
-import * as H from '../../helpers';
+import * as H from '../../../helpers';
 // hooks
-import { useRequest } from '../../hooks';
+import { useRequest } from '../../../hooks';
 // images
-import { ReactComponent as LogoIcon } from '../../images/logo.svg';
+import { ReactComponent as LogoIcon } from '../../../images/logo.svg';
 // theme
-import Theme from '../../theme';
+import Theme from '../../../theme';
 // ui
-import { Box, Flex, Text, Button, AuthPagesWrapper } from '../../ui';
+import { Box, Flex, Text, Button, AuthPagesWrapper } from '../../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const signUpFormSettings = {
@@ -30,7 +30,7 @@ const signUpFormSettings = {
         ...Theme.form.input.authPages,
         type: 'text',
         required: true,
-        name: C.USER_FIELDS.LOGIN,
+        name: C.USER_FIELDS.FIELD_LOGIN,
         placeholder: 'labels.login',
       },
     },
@@ -40,7 +40,7 @@ const signUpFormSettings = {
         ...Theme.form.input.authPages,
         type: 'email',
         required: true,
-        name: C.USER_FIELDS.EMAIL,
+        name: C.USER_FIELDS.FIELD_EMAIL,
         placeholder: 'labels.email',
       },
     },
@@ -50,7 +50,7 @@ const signUpFormSettings = {
         ...Theme.form.input.authPages,
         type: 'password',
         required: true,
-        name: C.USER_FIELDS.PASSWORD,
+        name: C.USER_FIELDS.FIELD_PASSWORD,
         placeholder: 'labels.password',
       },
     },

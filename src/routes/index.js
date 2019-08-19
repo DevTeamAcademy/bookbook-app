@@ -17,15 +17,15 @@ const HomePage = lazy(() => import(/* webpackChunkName: 'HomePage' */ '../pages/
 const HelpPage = lazy(() => import(/* webpackChunkName: 'HelpPage' */ '../pages/help'));
 const SharePage = lazy(() => import(/* webpackChunkName: 'SharePage' */ '../pages/share'));
 const AboutPage = lazy(() => import(/* webpackChunkName: 'AboutPage' */ '../pages/about'));
-const SignInPage = lazy(() => import(/* webpackChunkName: 'SignInPage' */ '../pages/signin'));
-const SignUpPage = lazy(() => import(/* webpackChunkName: 'SignUpPage' */ '../pages/signup'));
 const SearchPage = lazy(() => import(/* webpackChunkName: 'SearchPage' */ '../pages/search'));
-const QuotesPage = lazy(() => import(/* webpackChunkName: 'QuotesPage' */ '../pages/quotes'));
+const QuotesPage = lazy(() => import(/* webpackChunkName: 'QuotesPage' */ '../features/quote'));
 const LibraryPage = lazy(() => import(/* webpackChunkName: 'LibraryPage' */ '../pages/library'));
-const ProfilePage = lazy(() => import(/* webpackChunkName: 'ProfilePage' */ '../pages/profile'));
-const LanguagePage = lazy(() => import(/* webpackChunkName: 'LanguagePage' */ '../pages/language'));
-const SettingsPage = lazy(() => import(/* webpackChunkName: 'SettingsPage' */ '../pages/settings'));
+const ProfilePage = lazy(() => import(/* webpackChunkName: 'ProfilePage' */ '../features/profile'));
+const SettingsPage = lazy(() => import(/* webpackChunkName: 'SettingsPage' */ '../features/settings'));
+const SignInPage = lazy(() => import(/* webpackChunkName: 'SignInPage' */ '../features/auth/pages/signin'));
+const SignUpPage = lazy(() => import(/* webpackChunkName: 'SignUpPage' */ '../features/auth/pages/signup'));
 const NotificationsPage = lazy(() => import(/* webpackChunkName: 'NotificationsPage' */ '../pages/notifications'));
+const LanguagePage = lazy(() => import(/* webpackChunkName: 'LanguagePage' */ '../features/settings/pages/language'));
 const CreateQuotePage = lazy(() =>
   import(/* webpackChunkName: 'CreateQuotePage' */ '../features/quote/pages/create-quote'),
 );
