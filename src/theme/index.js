@@ -32,6 +32,23 @@ export default {
         requiredStarColor: 'red', // TODO: with design
       },
     },
+    // NOTE: check Styles API on react-select (https://react-select.com/styles)
+    reactSelect: {
+      main: {
+        control: {
+          width: '280px',
+          marginBottom: '20px',
+          backgroundColor: colors.darkBlue,
+          border: `1px solid ${colors.middleBlue}`,
+          // TODO: check focused state
+          borderColor: colors.middleBlue,
+          boxShadow: '0 0 5px 0 rgba(206, 40, 40, 0.5)',
+        },
+        input: {
+          color: colors.white,
+        },
+      },
+    },
     input: {
       main: {
         px: '10px',

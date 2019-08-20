@@ -64,11 +64,20 @@ const quoteFormSettings = {
       },
     },
     {
-      type: 'input',
+      type: 'searchSelect',
+      reactSelectStyles: Theme.form.reactSelect.main,
       input: {
-        ...Theme.form.input.main,
-        type: 'text',
-        required: false,
+        isMulti: true,
+        isClearable: true,
+        // TODO: add options from inside
+        options: [
+          { value: 'Food', label: 'Food' },
+          { value: 'Being Fabulous', label: 'Being Fabulous' },
+          { value: 'Ken Wheeler', label: 'Ken Wheeler' },
+          { value: 'ReasonML', label: 'ReasonML' },
+          { value: 'Unicorns', label: 'Unicorns' },
+          { value: 'Kittens', label: 'Kittens' },
+        ],
         name: C.QUOTE_FIELDS.FIELD_CATEGORY,
       },
       label: {
