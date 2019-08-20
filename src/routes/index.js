@@ -17,17 +17,20 @@ const HomePage = lazy(() => import(/* webpackChunkName: 'HomePage' */ '../pages/
 const HelpPage = lazy(() => import(/* webpackChunkName: 'HelpPage' */ '../pages/help'));
 const SharePage = lazy(() => import(/* webpackChunkName: 'SharePage' */ '../pages/share'));
 const AboutPage = lazy(() => import(/* webpackChunkName: 'AboutPage' */ '../pages/about'));
-const SignInPage = lazy(() => import(/* webpackChunkName: 'SignInPage' */ '../pages/signin'));
-const SignUpPage = lazy(() => import(/* webpackChunkName: 'SignUpPage' */ '../pages/signup'));
 const SearchPage = lazy(() => import(/* webpackChunkName: 'SearchPage' */ '../pages/search'));
-const QuotesPage = lazy(() => import(/* webpackChunkName: 'QuotesPage' */ '../pages/quotes'));
+const QuotesPage = lazy(() => import(/* webpackChunkName: 'QuotesPage' */ '../features/quote'));
 const LibraryPage = lazy(() => import(/* webpackChunkName: 'LibraryPage' */ '../pages/library'));
-const ProfilePage = lazy(() => import(/* webpackChunkName: 'ProfilePage' */ '../pages/profile'));
-const LanguagePage = lazy(() => import(/* webpackChunkName: 'LanguagePage' */ '../pages/language'));
-const SettingsPage = lazy(() => import(/* webpackChunkName: 'SettingsPage' */ '../pages/settings'));
+const ProfilePage = lazy(() => import(/* webpackChunkName: 'ProfilePage' */ '../features/profile'));
+const SettingsPage = lazy(() => import(/* webpackChunkName: 'SettingsPage' */ '../features/settings'));
+const SignInPage = lazy(() => import(/* webpackChunkName: 'SignInPage' */ '../features/auth/pages/signin'));
+const SignUpPage = lazy(() => import(/* webpackChunkName: 'SignUpPage' */ '../features/auth/pages/signup'));
 const NotificationsPage = lazy(() => import(/* webpackChunkName: 'NotificationsPage' */ '../pages/notifications'));
 const PasswordResetPage = lazy(() => import(/* webpackChunkName: 'PasswordResetPage' */ '../pages/password-reset'));
 const PasswordForgotPage = lazy(() => import(/* webpackChunkName: 'PasswordForgotPage' */ '../pages/password-forgot'));
+const LanguagePage = lazy(() => import(/* webpackChunkName: 'LanguagePage' */ '../features/settings/pages/language'));
+const CreateQuotePage = lazy(() =>
+  import(/* webpackChunkName: 'CreateQuotePage' */ '../features/quote/pages/create-quote'),
+);
 
 export default () => {
   const token = H.getToken();
@@ -63,6 +66,7 @@ export default () => {
             <Route path={C.ROUTE_LIBRARY_PAGE} exact component={LibraryPage} />
             <Route path={C.ROUTE_LANGUAGE_PAGE} exact component={LanguagePage} />
             <Route path={C.ROUTE_SETTINGS_PAGE} exact component={SettingsPage} />
+            <Route path={C.ROUTE_CREATE_QUOTE_PAGE} exact component={CreateQuotePage} />
             <Route path={C.ROUTE_NOTIFICATIONS_PAGE} exact component={NotificationsPage} />
             <RedirectTo redirect={C.ROUTE_HOME_PAGE} />
           </Switch>

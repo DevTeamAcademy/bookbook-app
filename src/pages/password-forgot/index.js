@@ -25,7 +25,7 @@ const SendEmailFormSettings = {
         ...Theme.form.input.authPages,
         type: 'email',
         required: true,
-        name: C.USER.EMAIL,
+        name: C.USER_FIELDS.FIELD_EMAIL,
         placeholder: 'labels.email',
       },
     },

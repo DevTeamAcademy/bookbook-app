@@ -1,77 +1,85 @@
+import R from 'ramda';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
+  top,
+  left,
+  flex,
   size,
   color,
   space,
   width,
+  right,
   height,
+  bottom,
   border,
   opacity,
-  overflow,
+  display,
   position,
-  flexWrap,
   maxWidth,
   minWidth,
+  fontSize,
+  textAlign,
   maxHeight,
   minHeight,
   boxShadow,
   borderTop,
-  background,
-  alignItems,
+  fontWeight,
+  lineHeight,
   borderLeft,
   borderColor,
   borderRight,
   borderBottom,
   borderRadius,
-  flexDirection,
-  justifyContent,
 } from 'styled-system';
-// helpers
-import * as H from '../../helpers';
 // //////////////////////////////////////////////////////////////////////////////
 
-export const Flex = styled.div`
+export const Abstract = tag => styled(R.or(tag, 'div'))`
+  ${top}
+  ${left}
+  ${flex}
   ${size}
   ${color}
   ${space}
   ${width}
+  ${right}
   ${height}
+  ${bottom}
   ${border}
   ${opacity}
-  ${overflow}
-  ${flexWrap}
+  ${display}
+  ${fontSize}
   ${position}
   ${maxWidth}
   ${minWidth}
+  ${textAlign}
   ${maxHeight}
   ${minHeight}
   ${boxShadow}
   ${borderTop}
-  ${background}
+  ${fontWeight}
+  ${lineHeight}
   ${borderLeft}
-  ${background}
-  ${alignItems}
-  ${borderColor}
   ${borderRight}
+  ${borderColor}
   ${borderBottom}
   ${borderRadius}
-  ${flexDirection}
-  ${justifyContent}
-  cursor: ${({ cursor }) => cursor};
-  display: ${({ inline }) => H.ifElse(inline, 'inline-flex', 'flex')};
+  cursor: ${({ cursor }) => cursor}};
 `;
 
-Flex.propTypes = {
+export const AbstractPropTypes = {
+  ...top.propTypes,
+  ...left.propTypes,
   ...size.propTypes,
   ...color.propTypes,
   ...space.propTypes,
   ...width.propTypes,
+  ...right.propTypes,
   ...height.propTypes,
+  ...bottom.propTypes,
   ...border.propTypes,
   ...opacity.propTypes,
-  ...overflow.propTypes,
-  ...flexWrap.propTypes,
+  ...display.propTypes,
   ...position.propTypes,
   ...maxWidth.propTypes,
   ...minWidth.propTypes,
@@ -79,17 +87,10 @@ Flex.propTypes = {
   ...minHeight.propTypes,
   ...boxShadow.propTypes,
   ...borderTop.propTypes,
-  ...background.propTypes,
   ...borderLeft.propTypes,
-  ...alignItems.propTypes,
   ...borderColor.propTypes,
   ...borderRight.propTypes,
   ...borderBottom.propTypes,
   ...borderRadius.propTypes,
-  ...flexDirection.propTypes,
-  ...justifyContent.propTypes,
   cursor: PropTypes.string,
-  inline: PropTypes.string,
 };
-
-Flex.displayName = 'Flex';

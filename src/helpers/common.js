@@ -25,6 +25,7 @@ export const getLocaleName = () => {
 
 // TODO: add more caseActions if needed
 export const getLocale = (localePath, options) => {
+  if (R.isNil(localePath)) return '';
   const caseActionMap = {
     titleCase,
     upperCase,

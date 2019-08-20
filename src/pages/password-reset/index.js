@@ -25,7 +25,7 @@ const SendPasswordFormSettings = {
         ...Theme.form.input.authPages,
         type: 'password',
         required: true,
-        name: C.USER.PASSWORD,
+        name: C.USER_FIELDS.FIELD_PASSWORD,
         placeholder: 'labels.password',
       },
     },

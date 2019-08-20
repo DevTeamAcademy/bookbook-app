@@ -1,3 +1,5 @@
+// TODO: settings list here (with 2 options for now - languages and push notifications)
+
 import React from 'react';
 import PropTypes from 'prop-types';
 // ui

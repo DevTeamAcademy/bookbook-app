@@ -4,6 +4,7 @@ export { Text } from './text';
 export { Button } from './button';
 export { Input } from './forms/input';
 export { Label } from './forms/label';
+export { Textarea } from './forms/textarea';
 export { PageWrapper, PositionedBox, AuthPagesWrapper, AnimatedPositionBox } from './wrappers';
 // //////////////////////////////////////////////////////////////////////////////
 
