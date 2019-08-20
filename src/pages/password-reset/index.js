@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 // components
-import { RouteLink, FormFields } from '../../components';
+import { FormFields } from '../../components';
 // constants
 import * as C from '../../constants';
 // helpers
@@ -48,7 +48,7 @@ export const PasswordResetPage = props => {
   return (
     <AuthPagesWrapper>
       <Flex height='100%' alignItems='center' flexDirection='column' justifyContent='center'>
-        <Box mb='70px'>
+        <Box mb={70}>
           <LogoIcon />
         </Box>
         <Formik

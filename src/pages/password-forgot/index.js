@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 // components
-import { RouteLink, FormFields } from '../../components';
+import { FormFields } from '../../components';
 // constants
 import * as C from '../../constants';
 // helpers
@@ -37,15 +37,10 @@ const SendEmailForm = props => {
   return (
     <form onSubmit={handleSubmit}>
       <Box>
-        <Text
-          fontSize={18}
-          fontFamily={'AvenirNext'}
-          color='#fff8f0' // TODO Move to Theme
-          fontWeight={600}
-        >
+        <Text fontSize={18} fontWeight={600} color={Theme.colors.paleYellow}>
           {H.getLocale('actions.forgotPassword')}
         </Text>
-        <Box width={280} fontSize='12px' fontFamily={'AvenirNext'} color='#fff8f0' mb={10}>
+        <Box mb={10} width={280} fontSize={12} color={Theme.colors.paleYellow}>
           {H.getLocale('hints.passwordRecovery')}
         </Box>
       </Box>
@@ -61,7 +56,7 @@ export const PasswordForgotPage = props => {
   return (
     <AuthPagesWrapper>
       <Flex height='100%' alignItems='center' flexDirection='column' justifyContent='center'>
-        <Box mb='70px'>
+        <Box mb={70}>
           <LogoIcon />
         </Box>
         <Formik
