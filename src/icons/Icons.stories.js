@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import { setAddon, storiesOf } from '@storybook/react';
-import { actions } from '@storybook/addon-actions';
-import { withKnobs, text, color, number } from '@storybook/addon-knobs/react';
-import { withInfo } from '@storybook/addon-info';
+import React from 'react';
 import JSXAddon from 'storybook-addon-jsx';
+import { withInfo } from '@storybook/addon-info';
+import { actions } from '@storybook/addon-actions';
+import { setAddon, storiesOf } from '@storybook/react';
+import { withKnobs, text, color, number } from '@storybook/addon-knobs/react';
 // ui
 import { Text, Flex } from '../ui';
 // icons

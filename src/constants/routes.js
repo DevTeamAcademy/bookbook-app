@@ -10,4 +10,5 @@ export const ROUTE_LIBRARY_PAGE = '/library';
 export const ROUTE_PROFILE_PAGE = '/profile';
 export const ROUTE_LANGUAGE_PAGE = '/language';
 export const ROUTE_SETTINGS_PAGE = '/settings';
+export const ROUTE_CREATE_QUOTE_PAGE = '/quote/new';
 export const ROUTE_NOTIFICATIONS_PAGE = '/notifications';

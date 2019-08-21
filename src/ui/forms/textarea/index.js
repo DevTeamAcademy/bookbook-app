@@ -1,4 +1,4 @@
-import R from 'ramda';
+import { or, and } from 'ramda';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
@@ -15,13 +15,9 @@ import {
 } from 'styled-system';
 // theme
 import Theme from '../../../theme';
-// ui
-import { renderBgColor, renderBorderColor } from '../../helpers';
 // //////////////////////////////////////////////////////////////////////////////
 
-// TODO: with render border
-
-export const Input = styled.input`
+export const Textarea = styled.textarea`
   ${color}
   ${space}
   ${width}
@@ -33,16 +29,16 @@ export const Input = styled.input`
   ${borderColor}
   ${borderRadius}
   outline: none;
-  cursor: ${({ cursor }) => R.or(cursor, 'text')};
+  cursor: ${({ cursor }) => or(cursor, 'text')};
   &:focus {
-    box-shadow: ${({ focusBoxShadow }) => R.or(focusBoxShadow, Theme.form.input.focusBoxShadow)};
+    box-shadow: ${({ focusBoxShadow }) => or(focusBoxShadow, Theme.form.input.focusBoxShadow)};
   }
   &::placeholder {
     color: ${({ placeholderColor }) => placeholderColor};
   }
 `;
 
-Input.propTypes = {
+Textarea.propTypes = {
   ...color.propTypes,
   ...space.propTypes,
   ...width.propTypes,
@@ -58,4 +54,4 @@ Input.propTypes = {
   placeholderColor: PropTypes.string,
 };
 
-Input.displayName = 'Input';
+Textarea.displayName = 'Textarea';
