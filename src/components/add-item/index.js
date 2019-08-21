@@ -50,9 +50,13 @@ export const AddItemComponent = props => (
         {props.text}
       </TextEllipsed>
     )}
+    {/* {H.isObject(props.text)  && (
+      
+    )} */}
     {H.isNotNilAndNotEmpty(props.icon) && (
       <Flex onClick={props.action} {...pathToSettings('commonIcon', props.settingsType)}>
         <I.IconWrapper>
+          {console.log('props', props)}
           <props.icon height={26} width={props.width} color={Theme.colors.darkGrey} />
         </I.IconWrapper>
       </Flex>
@@ -95,7 +99,7 @@ export const AddItemsList = props => {
         >
           <Flex width='240px' flexDirection='column'>
             {itemList(props).map((item, index) => (
-              <AddItemComponent {...item} key={index} />
+              <AddItemComponent {...item} key={index} settingsType='default' />
             ))}
           </Flex>
         </AnimatedPositionBox>

@@ -33,14 +33,8 @@ const commonIcon = {
 
 export default props => ({
   default: {
-    commonWrapper: {
-      ...commonWrapper,
-    },
-    commonText: {
-      ...commonText,
-    },
-    commonIcon: {
-      ...commonIcon,
-    },
+    commonText: commonText,
+    commonIcon: commonIcon,
+    commonWrapper: commonWrapper,
   },
 });

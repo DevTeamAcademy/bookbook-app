@@ -56,6 +56,7 @@ export const Flex = styled.div`
   ${flexDirection}
   ${justifyContent}
   cursor: ${({ cursor }) => cursor};
+  overflow-y: ${({ overflowY }) => overflowY};
   display: ${({ inline }) => H.ifElse(inline, 'inline-flex', 'flex')};
 `;
 
@@ -86,6 +87,7 @@ Flex.propTypes = {
   ...justifyContent.propTypes,
   cursor: PropTypes.string,
   inline: PropTypes.string,
+  overflowY: PropTypes.string,
 };
 
 Flex.displayName = 'Flex';
