@@ -1,22 +1,21 @@
 import R from 'ramda';
 import React from 'react';
 import Select from 'react-select';
-// helpers
-import * as H from '../../../helpers';
+import PropTypes from 'prop-types';
+// theme
+import Theme from '../../../theme';
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-// TODO: check moving to common
-
-/**
- * @param {Object} provided -- the component's default styles
- * @param {Object} state -- the component's current state e.g. `isFocused`
- * @returns {Object}
- */
 const getStyles = reactSelectStyles => ({
   input: (provided, state) => ({ ...provided, ...reactSelectStyles.input }),
-  control: (provided, state) => ({ ...provided, ...reactSelectStyles.control }),
+  control: (provided, state) => ({
+    ...provided,
+    ...reactSelectStyles.control,
+    boxShadow: state.isFocused ? Theme.shadows.formInputDefault : 'none',
+  }),
 });
 
+// TODO: concat async options
 export const SearchSelect = props => {
   const {
     name,
@@ -55,22 +54,24 @@ export const SearchSelect = props => {
 
 export default SearchSelect;
 
-// TODO: with all propTypes
-SearchSelect.propTypes = {};
-
-// SearchSelect.propTypes = {
-//   selectedOptionIndex: PropTypes.number,
-//   options: PropTypes.arrayOf(optionPropType).isRequired,
-//   settings: PropTypes.shape({
-//     color: PropTypes.string,
-//     height: PropTypes.string,
-//     fontSize: PropTypes.string,
-//     checkedBg: PropTypes.string,
-//     fontWeight: PropTypes.string,
-//     background: PropTypes.string,
-//     checkedColor: PropTypes.string,
-//     borderRadius: PropTypes.string,
-//   }),
-// };
+SearchSelect.propTypes = {
+  onBlur: PropTypes.func,
+  isMulti: PropTypes.bool,
+  onChange: PropTypes.func,
+  isLoading: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  isClearable: PropTypes.bool,
+  isSearchable: PropTypes.bool,
+  placeholder: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
+  setFieldValue: PropTypes.func.isRequired,
+  setFieldTouched: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  reactSelectStyles: PropTypes.shape({
+    input: PropTypes.object,
+    control: PropTypes.object,
+  }),
+};
 
 SearchSelect.displayName = 'SearchSelect';

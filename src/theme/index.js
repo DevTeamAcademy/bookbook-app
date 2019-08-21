@@ -17,12 +17,17 @@ const colors = {
 };
 
 const borders = {
-  itemBorderBottom: '1px solid rgba(94, 92, 94, .65)',
+  itemBorderBottom: '1px solid rgba(94, 92, 94, .65)', // TODO: rename properly;
+};
+
+const shadows = {
+  formInputDefault: '0 0 5px 0 rgba(206, 40, 40, 0.5)',
 };
 
 export default {
   colors,
   borders,
+  shadows,
   form: {
     label: {
       main: {
@@ -32,17 +37,18 @@ export default {
         requiredStarColor: 'red', // TODO: with design
       },
     },
-    // NOTE: check Styles API on react-select (https://react-select.com/styles)
+    // NOTE: from Styles API on react-select (https://react-select.com/styles)
     reactSelect: {
       main: {
         control: {
           width: '280px',
           marginBottom: '20px',
+          borderColor: colors.middleBlue,
           backgroundColor: colors.darkBlue,
           border: `1px solid ${colors.middleBlue}`,
-          // TODO: check focused state
-          borderColor: colors.middleBlue,
-          boxShadow: '0 0 5px 0 rgba(206, 40, 40, 0.5)',
+          '&:hover': {
+            borderColor: colors.middleBlue,
+          },
         },
         input: {
           color: colors.white,
@@ -68,7 +74,7 @@ export default {
         borderRadius: '2px',
         bg: colors.paleYellow,
       },
-      focusBoxShadow: '0 0 5px 0 rgba(206, 40, 40, 0.5)',
+      focusBoxShadow: shadows.formInputDefault,
     },
   },
   multiswitch: {
