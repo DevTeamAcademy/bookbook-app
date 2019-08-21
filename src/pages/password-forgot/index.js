@@ -21,12 +21,13 @@ const SendEmailFormSettings = {
   },
   fields: [
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'email',
         required: true,
-        name: C.USER_FIELDS.FIELD_EMAIL,
         placeholder: 'labels.email',
+        name: C.USER_FIELDS.FIELD_EMAIL,
       },
     },
   ],

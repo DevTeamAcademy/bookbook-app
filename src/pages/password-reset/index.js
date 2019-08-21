@@ -21,12 +21,13 @@ const SendPasswordFormSettings = {
   },
   fields: [
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'password',
         required: true,
-        name: C.USER_FIELDS.FIELD_PASSWORD,
         placeholder: 'labels.password',
+        name: C.USER_FIELDS.FIELD_PASSWORD,
       },
     },
   ],
