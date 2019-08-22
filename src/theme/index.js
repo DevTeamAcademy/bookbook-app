@@ -53,6 +53,9 @@ export default {
         input: {
           color: colors.white,
         },
+        singleValue: {
+          color: colors.white,
+        },
       },
     },
     input: {
