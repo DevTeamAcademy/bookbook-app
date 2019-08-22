@@ -32,10 +32,9 @@ const typeComponentMap = {
 };
 
 export const FieldComponent = (props: Object) => {
-  const type = props.type;
-  const fieldProps = R.omit('type', props);
+  const { type, ...rest } = props;
   const Component = typeComponentMap[type];
-  return <Component {...fieldProps} />;
+  return <Component {...rest} />;
 };
 
 export const FormFields = props => (
