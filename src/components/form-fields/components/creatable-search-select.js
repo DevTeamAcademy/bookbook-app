@@ -1,13 +1,14 @@
 import R from 'ramda';
 import React from 'react';
-import Select from 'react-select';
 import PropTypes from 'prop-types';
+import CreatableSelect from 'react-select/creatable';
 // theme
 import Theme from '../../../theme';
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 const getStyles = reactSelectStyles => ({
   input: (provided, state) => ({ ...provided, ...reactSelectStyles.input }),
+  singleValue: (provided, state) => ({ ...provided, ...reactSelectStyles.input }),
   control: (provided, state) => ({
     ...provided,
     ...reactSelectStyles.control,
@@ -16,7 +17,7 @@ const getStyles = reactSelectStyles => ({
 });
 
 // TODO: concat async options
-export const SearchSelect = props => {
+export const CreatableSearchSelect = props => {
   const {
     name,
     value,
@@ -24,8 +25,8 @@ export const SearchSelect = props => {
     options,
     isLoading,
     isDisabled,
-    placeholder,
     isClearable,
+    placeholder,
     isSearchable,
     setFieldValue,
     setFieldTouched,
@@ -35,7 +36,7 @@ export const SearchSelect = props => {
   const handleBlur = () => setFieldTouched(name, true);
   const handleChange = (value: any) => setFieldValue(name, value);
   return (
-    <Select
+    <CreatableSelect
       id={name}
       value={value}
       styles={styles}
@@ -52,9 +53,9 @@ export const SearchSelect = props => {
   );
 };
 
-export default SearchSelect;
+export default CreatableSearchSelect;
 
-SearchSelect.propTypes = {
+CreatableSearchSelect.propTypes = {
   value: PropTypes.any,
   onBlur: PropTypes.func,
   isMulti: PropTypes.bool,
@@ -74,4 +75,4 @@ SearchSelect.propTypes = {
   }),
 };
 
-SearchSelect.displayName = 'SearchSelect';
+CreatableSearchSelect.displayName = 'CreatableSearchSelect';

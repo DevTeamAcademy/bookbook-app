@@ -68,7 +68,6 @@ const quoteFormSettings = {
       reactSelectStyles: Theme.form.reactSelect.main,
       input: {
         options: [],
-        isClearable: true,
         name: C.QUOTE_FIELDS.FIELD_CATEGORY,
       },
       label: {
@@ -77,11 +76,12 @@ const quoteFormSettings = {
       },
     },
     {
-      type: 'input',
+      type: 'creatableSearchSelect',
+      reactSelectStyles: Theme.form.reactSelect.main,
       input: {
-        ...Theme.form.input.main,
-        type: 'text',
-        required: false,
+        options: [],
+        isMulti: true,
+        isClearable: true,
         name: C.QUOTE_FIELDS.FIELD_AUTHOR,
       },
       label: {
@@ -90,11 +90,10 @@ const quoteFormSettings = {
       },
     },
     {
-      type: 'input',
+      type: 'creatableSearchSelect',
+      reactSelectStyles: Theme.form.reactSelect.main,
       input: {
-        ...Theme.form.input.main,
-        type: 'text',
-        required: false,
+        options: [],
         name: C.QUOTE_FIELDS.FIELD_BOOK,
       },
       label: {

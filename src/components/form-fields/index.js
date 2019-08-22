@@ -10,6 +10,7 @@ import * as H from '../../helpers';
 import { Box, Flex, Input, Label, Textarea } from '../../ui';
 // form-fields
 import SearchSelect from './components/search-select';
+import CreatableSearchSelect from './components/creatable-search-select';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TODO: check initial selected index and onSwitch
@@ -27,13 +28,13 @@ const typeComponentMap = {
   textarea: Textarea,
   searchSelect: SearchSelect,
   multiswitch: MultiswitchComponent,
+  creatableSearchSelect: CreatableSearchSelect,
 };
 
 export const FieldComponent = (props: Object) => {
-  const type = props.type;
-  const fieldProps = R.omit('type', props);
+  const { type, ...rest } = props;
   const Component = typeComponentMap[type];
-  return <Component {...fieldProps} />;
+  return <Component {...rest} />;
 };
 
 export const FormFields = props => (
