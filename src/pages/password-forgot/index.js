@@ -63,9 +63,7 @@ export const PasswordForgotPage = props => {
         <Formik
           onSubmit={(values, { setSubmitting }) => {
             const { email } = values;
-            const body = new FormData(values);
-            body.append('email', email);
-            // sendLoginData(body); // TODO Finish request
+            // TODO: with send data
           }}
           render={props => <SendEmailForm {...props} />}
         />

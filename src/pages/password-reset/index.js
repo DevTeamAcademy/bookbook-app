@@ -24,7 +24,7 @@ const SendPasswordFormSettings = {
       type: 'input',
       input: {
         ...Theme.form.input.authPages,
-        type: 'password',
+        type: 'password', // TODO should be used to hide password input text
         required: true,
         placeholder: 'labels.password',
         name: C.USER_FIELDS.FIELD_PASSWORD,
@@ -55,9 +55,7 @@ export const PasswordResetPage = props => {
         <Formik
           onSubmit={(values, { setSubmitting }) => {
             const { password } = values;
-            const body = new FormData(values);
-            body.append('password', password);
-            // sendLoginData(body); // TODO Finish request
+            // TODO: with sending data
           }}
           render={props => <SendPasswordForm {...props} />}
         />
