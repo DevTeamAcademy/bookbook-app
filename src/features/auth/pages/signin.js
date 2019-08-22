@@ -55,9 +55,9 @@ const SignInForm = props => {
       <FormFields {...props} settings={signInFormSettings} />
       <Box>
         <RouteLink
+          styles={{ fontSize: '12px' }}
           linkTo={C.ROUTE_PASSWORD_FORGOT_PAGE}
           text={H.getLocale('actions.forgotPassword')}
-          styles={{ fontSize: '12px' }}
         />
       </Box>
       <Button type='submit' {...Theme.btns.authPages}>

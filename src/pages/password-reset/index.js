@@ -24,10 +24,10 @@ const SendPasswordFormSettings = {
       type: 'input',
       input: {
         ...Theme.form.input.authPages,
-        type: 'password', // TODO should be used to hide password input text
+        type: 'password',
         required: true,
-        placeholder: 'labels.password',
         name: C.USER_FIELDS.FIELD_PASSWORD,
+        placeholder: 'labels.password',
       },
     },
   ],
