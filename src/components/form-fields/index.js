@@ -1,5 +1,6 @@
 import R from 'ramda';
 import React from 'react';
+import Select from 'react-select';
 import PropTypes from 'prop-types';
 // components
 import { Multiswitch } from '../../components';
@@ -7,6 +8,8 @@ import { Multiswitch } from '../../components';
 import * as H from '../../helpers';
 // ui
 import { Box, Flex, Input, Label, Textarea } from '../../ui';
+// form-fields
+import SearchSelect from './components/search-select';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TODO: check initial selected index and onSwitch
@@ -22,6 +25,7 @@ const MultiswitchComponent = ({ name, value, onChange, options }) => (
 const typeComponentMap = {
   input: Input,
   textarea: Textarea,
+  searchSelect: SearchSelect,
   multiswitch: MultiswitchComponent,
 };
 
@@ -49,6 +53,9 @@ export const FormFields = props => (
           type={item.type}
           onBlur={props.handleBlur}
           onChange={props.handleChange}
+          setFieldValue={props.setFieldValue}
+          setFieldTouched={props.setFieldTouched}
+          reactSelectStyles={item.reactSelectStyles}
           value={R.path([item.input.name, 'values'], props)}
           placeholder={H.getLocale(R.path(['input', 'placeholder'], item))}
         />

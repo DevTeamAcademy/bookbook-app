@@ -64,11 +64,11 @@ const quoteFormSettings = {
       },
     },
     {
-      type: 'input',
+      type: 'searchSelect',
+      reactSelectStyles: Theme.form.reactSelect.main,
       input: {
-        ...Theme.form.input.main,
-        type: 'text',
-        required: false,
+        options: [],
+        isClearable: true,
         name: C.QUOTE_FIELDS.FIELD_CATEGORY,
       },
       label: {
