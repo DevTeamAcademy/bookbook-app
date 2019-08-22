@@ -69,7 +69,6 @@ CreatableSearchSelect.propTypes = {
   name: PropTypes.string.isRequired,
   setFieldValue: PropTypes.func.isRequired,
   setFieldTouched: PropTypes.func.isRequired,
-  value: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   reactSelectStyles: PropTypes.shape({
     input: PropTypes.object,
     control: PropTypes.object,
