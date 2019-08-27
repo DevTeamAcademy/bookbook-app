@@ -83,5 +83,3 @@ export const SearchComponent = props => {
     </Flex>
   );
 };
-
-export default SearchComponent;

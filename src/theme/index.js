@@ -2,6 +2,7 @@
 
 const colors = {
   grey: '#888181',
+  light: '#f9f9f9',
   white: '#ffffff',
   black: '#000000',
   darkBlue: '#1f2532',
@@ -89,5 +90,10 @@ export default {
     fontSize: '12px',
     cursor: 'pointer',
     color: colors.mainBlue,
+  },
+  addItem: {
+    iconBackground: colors.light,
+    commonTextColor: colors.white,
+    commonTextBackground: colors.middleBlue,
   },
 };

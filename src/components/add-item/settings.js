@@ -10,24 +10,24 @@ const commonWrapper = {
 };
 
 const commonText = {
-  m: '10px',
-  py: '10px',
-  width: '150px',
-  fontSize: '14px',
+  py: '8px',
+  m: '10px 5px',
+  width: '130px',
+  fontSize: '13px',
   textAlign: 'center',
   borderRadius: '20px',
-  color: Theme.colors.white,
-  background: Theme.colors.grey,
+  color: Theme.addItem.commonTextColor,
+  background: Theme.addItem.commonTextBackground,
 };
 
 const commonIcon = {
-  m: '10px',
+  m: '10px 5px',
   width: '50px',
   height: '50px',
   borderRadius: '50%',
   alignItems: 'center',
   justifyContent: 'center',
-  background: Theme.colors.lighterGrey,
+  background: Theme.addItem.iconBackground,
   boxShadow: `0 2px 4px 0 ${Theme.colors.darkGrey}`,
 };
 

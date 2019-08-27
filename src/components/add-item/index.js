@@ -97,7 +97,7 @@ export const AddItemsList = props => {
           isActionListOpened={props.isActionListOpened}
           animationProps='0.6s cubic-bezier(.77,0.000,.175,1.000) both'
         >
-          <Flex width='240px' flexDirection='column'>
+          <Flex width='max-content' flexDirection='column'>
             {itemList(props).map((item, index) => (
               <AddItemComponent {...item} key={index} settingsType='default' />
             ))}
