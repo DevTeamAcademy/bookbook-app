@@ -25,6 +25,8 @@ const SearchPage = lazy(() => import(/* webpackChunkName: 'SearchPage' */ '../fe
 const SignInPage = lazy(() => import(/* webpackChunkName: 'SignInPage' */ '../features/auth/pages/signin'));
 const SignUpPage = lazy(() => import(/* webpackChunkName: 'SignUpPage' */ '../features/auth/pages/signup'));
 const NotificationsPage = lazy(() => import(/* webpackChunkName: 'NotificationsPage' */ '../pages/notifications'));
+const PasswordResetPage = lazy(() => import(/* webpackChunkName: 'PasswordResetPage' */ '../pages/password-reset'));
+const PasswordForgotPage = lazy(() => import(/* webpackChunkName: 'PasswordForgotPage' */ '../pages/password-forgot'));
 const LanguagePage = lazy(() => import(/* webpackChunkName: 'LanguagePage' */ '../features/settings/pages/language'));
 const CreateQuotePage = lazy(() =>
   import(/* webpackChunkName: 'CreateQuotePage' */ '../features/quote/pages/create-quote'),
@@ -50,6 +52,8 @@ export default () => {
       <Switch>
         <Route path={C.ROUTE_SIGNIN_PAGE} exact component={SignInPage} />
         <Route path={C.ROUTE_SIGNUP_PAGE} exact component={SignUpPage} />
+        <Route path={C.ROUTE_PASSWORD_RESET_PAGE} exact component={PasswordResetPage} />
+        <Route path={C.ROUTE_PASSWORD_FORGOT_PAGE} exact component={PasswordForgotPage} />
         <Layout>
           <Switch>
             <Route path={C.ROUTE_HELP_PAGE} exact component={HelpPage} />

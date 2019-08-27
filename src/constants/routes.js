@@ -12,3 +12,5 @@ export const ROUTE_LANGUAGE_PAGE = '/language';
 export const ROUTE_SETTINGS_PAGE = '/settings';
 export const ROUTE_CREATE_QUOTE_PAGE = '/quote/new';
 export const ROUTE_NOTIFICATIONS_PAGE = '/notifications';
+export const ROUTE_PASSWORD_RESET_PAGE = '/password/reset';
+export const ROUTE_PASSWORD_FORGOT_PAGE = '/password/forgot';

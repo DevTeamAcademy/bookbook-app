@@ -1,5 +1,6 @@
 import R from 'ramda';
 import React from 'react';
+import Select from 'react-select';
 import PropTypes from 'prop-types';
 // components
 import { Multiswitch } from '../../components';
@@ -7,29 +8,33 @@ import { Multiswitch } from '../../components';
 import * as H from '../../helpers';
 // ui
 import { Box, Flex, Input, Label, Textarea } from '../../ui';
+// form-fields
+import SearchSelect from './components/search-select';
+import CreatableSearchSelect from './components/creatable-search-select';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TODO: check initial selected index and onSwitch
-const MultiswitchComponent = ({ name, value, onChange, options }) => (
+const MultiswitchComponent = ({ name, value, setFieldValue, options }) => (
   <Multiswitch
     options={options}
     selectedOptionIndex={0}
     value={R.or(value, null)}
-    onSwitch={(value: string) => onChange(name, value)}
+    onSwitch={(value: string) => setFieldValue(name, value)}
   />
 );
 
 const typeComponentMap = {
   input: Input,
   textarea: Textarea,
+  searchSelect: SearchSelect,
   multiswitch: MultiswitchComponent,
+  creatableSearchSelect: CreatableSearchSelect,
 };
 
 export const FieldComponent = (props: Object) => {
-  const type = props.type;
-  const fieldProps = R.omit('type', props);
+  const { type, ...rest } = props;
   const Component = typeComponentMap[type];
-  return <Component {...fieldProps} />;
+  return <Component {...rest} />;
 };
 
 export const FormFields = props => (
@@ -49,7 +54,10 @@ export const FormFields = props => (
           type={item.type}
           onBlur={props.handleBlur}
           onChange={props.handleChange}
-          value={R.path([item.input.name, 'values'], props)}
+          setFieldValue={props.setFieldValue}
+          setFieldTouched={props.setFieldTouched}
+          reactSelectStyles={item.reactSelectStyles}
+          value={R.path(['values', item.input.name], props)}
           placeholder={H.getLocale(R.path(['input', 'placeholder'], item))}
         />
       </Box>
