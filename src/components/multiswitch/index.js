@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { color, width, height, display, position } from 'styled-system';
-// constants
-import * as C from '../../constants';
+// helpers
+import * as H from '../../helpers';
 // theme
 import Theme from '../../theme';
 // ui
@@ -84,9 +84,11 @@ const RadioOption = props => (
       display='none'
       name='switcher'
       id={props.index}
+      onChange={props.onSwitch}
       height={props.settings.height}
+      value={props.radioOption.value}
       checkedColor={props.settings.checkedColor}
-      defaultChecked={R.equals(props.selectedOptionIndex, props.index)}
+      checked={R.equals(props.value, props.index)}
     />
     <RadioBackground
       top='0'
@@ -147,6 +149,22 @@ const makeWrapperSettings = settings => ({
 
 export const Multiswitch = props => {
   const settings = makeWrapperSettings(R.or(props.settings, {}));
+  let incomeValue = R.findIndex(R.propEq('value', props.value), props.options);
+  if (R.equals(incomeValue, -1)) {
+    incomeValue = R.or(props.selectedOptionIndex, 0);
+  }
+  const [value, setValue] = useState(incomeValue);
+  useEffect(() => {
+    setValue(incomeValue);
+  }, [incomeValue]);
+  const onSwitch = e => {
+    const newValue = R.pathOr(value, ['target', 'value'], e);
+    if (H.isFunction(props.onSwitch)) {
+      props.onSwitch(newValue);
+      return;
+    }
+    setValue(R.findIndex(R.propEq('value', newValue), props.options));
+  };
   return (
     <MultiswitchWrapper
       display='flex'
@@ -165,9 +183,10 @@ export const Multiswitch = props => {
         <RadioOption
           key={index}
           index={index}
+          value={value}
           settings={settings}
+          onSwitch={onSwitch}
           radioOption={radioOption}
-          selectedOptionIndex={props.selectedOptionIndex}
         />
       ))}
     </MultiswitchWrapper>

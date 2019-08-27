@@ -1,8 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
-// components
-import { Multiswitch } from '../../../components';
 // constants
 import * as C from '../../../constants';
 // helpers

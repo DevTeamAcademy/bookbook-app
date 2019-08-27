@@ -14,12 +14,12 @@ import CreatableSearchSelect from './components/creatable-search-select';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // TODO: check initial selected index and onSwitch
-const MultiswitchComponent = ({ name, value, onChange, options }) => (
+const MultiswitchComponent = ({ name, value, setFieldValue, options }) => (
   <Multiswitch
     options={options}
     selectedOptionIndex={0}
     value={R.or(value, null)}
-    onSwitch={(value: string) => onChange(name, value)}
+    onSwitch={(value: string) => setFieldValue(name, value)}
   />
 );
 
@@ -57,7 +57,7 @@ export const FormFields = props => (
           setFieldValue={props.setFieldValue}
           setFieldTouched={props.setFieldTouched}
           reactSelectStyles={item.reactSelectStyles}
-          value={R.path([item.input.name, 'values'], props)}
+          value={R.path(['values', item.input.name], props)}
           placeholder={H.getLocale(R.path(['input', 'placeholder'], item))}
         />
       </Box>
