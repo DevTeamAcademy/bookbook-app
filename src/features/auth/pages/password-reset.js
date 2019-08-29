@@ -2,17 +2,17 @@ import React from 'react';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 // components
-import { FormFields } from '../../components';
+import { FormFields } from '../../../components';
 // constants
-import * as C from '../../constants';
+import * as C from '../../../constants';
 // helpers
-import * as H from '../../helpers';
+import * as H from '../../../helpers';
 // images
-import { ReactComponent as LogoIcon } from '../../images/logo.svg';
+import { ReactComponent as LogoIcon } from '../../../images/logo.svg';
 // theme
-import Theme from '../../theme';
+import Theme from '../../../theme';
 // ui
-import { Box, Flex, Button, AuthPagesWrapper } from '../../ui';
+import { Box, Flex, Button, AuthPagesWrapper } from '../../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const SendPasswordFormSettings = {

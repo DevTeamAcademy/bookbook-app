@@ -25,11 +25,15 @@ const SettingsPage = lazy(() => import(/* webpackChunkName: 'SettingsPage' */ '.
 const SignInPage = lazy(() => import(/* webpackChunkName: 'SignInPage' */ '../features/auth/pages/signin'));
 const SignUpPage = lazy(() => import(/* webpackChunkName: 'SignUpPage' */ '../features/auth/pages/signup'));
 const NotificationsPage = lazy(() => import(/* webpackChunkName: 'NotificationsPage' */ '../pages/notifications'));
-const PasswordResetPage = lazy(() => import(/* webpackChunkName: 'PasswordResetPage' */ '../pages/password-reset'));
-const PasswordForgotPage = lazy(() => import(/* webpackChunkName: 'PasswordForgotPage' */ '../pages/password-forgot'));
 const LanguagePage = lazy(() => import(/* webpackChunkName: 'LanguagePage' */ '../features/settings/pages/language'));
 const CreateQuotePage = lazy(() =>
   import(/* webpackChunkName: 'CreateQuotePage' */ '../features/quote/pages/create-quote'),
+);
+const PasswordResetPage = lazy(() =>
+  import(/* webpackChunkName: 'PasswordResetPage' */ '../features/auth/pages/password-reset'),
+);
+const PasswordForgotPage = lazy(() =>
+  import(/* webpackChunkName: 'PasswordForgotPage' */ '../features/auth/pages/password-forgot'),
 );
 
 export default () => {
