@@ -50,7 +50,6 @@ export const SearchComponent = props => {
     <Flex
       width='100%'
       p='10px 15px'
-      maxWidth='300px'
       border='1px solid'
       borderRadius='20px'
       height='max-content'
@@ -83,3 +82,5 @@ export const SearchComponent = props => {
     </Flex>
   );
 };
+
+SearchComponent.displayName = 'SearchComponent';

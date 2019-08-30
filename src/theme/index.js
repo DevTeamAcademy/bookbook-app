@@ -1,3 +1,5 @@
+import { hasClientExports } from 'apollo-utilities';
+
 // NOTE: add all default styles props here (colors, shadows, borders, spaces, sizes etc.)
 
 const colors = {
@@ -121,5 +123,11 @@ export default {
     iconBackground: colors.light,
     commonTextColor: colors.white,
     commonTextBackground: colors.middleBlue,
+  },
+  booker: {
+    nickNameText: colors.light,
+    addedBookerIcon: colors.white,
+    addBookerIcon: colors.lightBlue,
+    descriptionText: colors.inactiveGrey,
   },
 };

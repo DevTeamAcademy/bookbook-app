@@ -5,6 +5,7 @@ const FIELD_EMAIL = 'email';
 const FIELD_LOGIN = 'login';
 const FIELD_QUOTE = 'quote';
 const FIELD_SCOPE = 'scope';
+const FIELD_BOOKER = 'booker';
 const FIELD_AUTHOR = 'author';
 const FIELD_CATEGORY = 'category';
 const FIELD_USERNAME = 'username';
@@ -12,6 +13,13 @@ const FIELD_PASSWORD = 'password';
 const FIELD_LAST_NAME = 'lastName';
 const FIELD_FIRST_NAME = 'firstName';
 const FIELD_DESCRIPTION = 'description';
+
+export const SEARCH_SWITCH_FIELDS = {
+  FIELD_BOOK,
+  FIELD_QUOTE,
+  FIELD_AUTHOR,
+  FIELD_BOOKER,
+};
 
 export const USER_FIELDS = {
   FIELD_EMAIL,

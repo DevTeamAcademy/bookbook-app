@@ -89,6 +89,12 @@ export const UA = {
   hints: {
     passwordRecovery: 'Введіть свою адресу електронної пошти, і ми надішлемо вам посилання для його скидання',
   },
+  searchSwitchLabels: {
+    [C.SEARCH_SWITCH_FIELDS.FIELD_BOOK]: 'Книжки',
+    [C.SEARCH_SWITCH_FIELDS.FIELD_QUOTE]: 'Цитати',
+    [C.SEARCH_SWITCH_FIELDS.FIELD_BOOKER]: 'Букери',
+    [C.SEARCH_SWITCH_FIELDS.FIELD_AUTHOR]: 'Автори',
+  },
 };
 
 const EN = {
@@ -177,6 +183,12 @@ const EN = {
   },
   hints: {
     passwordRecovery: 'Enter your email and we will send you a link for password recovery',
+  },
+  searchSwitchLabels: {
+    [C.SEARCH_SWITCH_FIELDS.FIELD_BOOK]: 'Books',
+    [C.SEARCH_SWITCH_FIELDS.FIELD_QUOTE]: 'Quotes',
+    [C.SEARCH_SWITCH_FIELDS.FIELD_BOOKER]: 'Bookers',
+    [C.SEARCH_SWITCH_FIELDS.FIELD_AUTHOR]: 'Authors',
   },
 };
 
@@ -267,6 +279,12 @@ const RU = {
   hints: {
     passwordRecovery: 'Enter your email and we will send you a link for password recovery',
   },
+  searchSwitchLabels: {
+    [C.SEARCH_SWITCH_FIELDS.FIELD_BOOK]: 'Books',
+    [C.SEARCH_SWITCH_FIELDS.FIELD_QUOTE]: 'Quotes',
+    [C.SEARCH_SWITCH_FIELDS.FIELD_BOOKER]: 'Bookers',
+    [C.SEARCH_SWITCH_FIELDS.FIELD_AUTHOR]: 'Authors',
+  },
 };
 
 const PL = {
@@ -355,6 +373,12 @@ const PL = {
   },
   hints: {
     passwordRecovery: 'Enter your email and we will send you a link for password recovery',
+  },
+  searchSwitchLabels: {
+    [C.SEARCH_SWITCH_FIELDS.FIELD_BOOK]: 'Books',
+    [C.SEARCH_SWITCH_FIELDS.FIELD_QUOTE]: 'Quotes',
+    [C.SEARCH_SWITCH_FIELDS.FIELD_BOOKER]: 'Bookers',
+    [C.SEARCH_SWITCH_FIELDS.FIELD_AUTHOR]: 'Authors',
   },
 };
 
