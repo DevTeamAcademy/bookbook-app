@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
+import useAxios from 'axios-hooks';
 import React, { useContext } from 'react';
 import { withRouter } from 'react-router';
 // components
@@ -67,17 +68,57 @@ const SignInForm = props => {
   );
 };
 
+const auth = {
+  username: 'frontend',
+  password: 'secret',
+};
+
 export const SignInPage = props => {
   const { history } = props;
-  const request = useRequest(C.AUTH_OPTIONS);
-  async function sendLoginData(body) {
-    const data = await request.post(C.ENDP_SIGNIN, body);
-    if (H.hasNotResponseErrors(data)) {
-      setCurrentUser(data);
-      H.showToast('success', 'messages.successLogin');
-      history.push(C.ROUTE_HOME_PAGE);
-    }
+
+  // const request = useRequest(C.AUTH_OPTIONS);
+  // async function sendLoginData(body) {
+  //   const data = await request.post(C.ENDP_SIGNIN, body);
+  //   if (H.hasNotResponseErrors(data)) {
+  //     setCurrentUser(data);
+  //     H.showToast('success', 'messages.successLogin');
+  //     history.push(C.ROUTE_HOME_PAGE);
+  //   }
+  // }
+
+  const [{ data, loading, error, response }, executeRequest] = useAxios(
+    {
+      method: 'POST',
+      url: H.makeRequestUrl(C.ENDP_SIGNIN),
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      // headers: H.makeRequestHeaders(C.AUTH_OPTIONS.headers),
+    },
+    { manual: true },
+  );
+
+  function sendLoginData(values) {
+    const { username, password } = values;
+    const data = H.qsStringify({
+      grant_type: 'password',
+      username,
+      password,
+    });
+    executeRequest({ data, auth });
   }
+
+  if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error!</p>;
+  // if (data) return <pre>{JSON.stringify(putData, null, 2)}</pre>;
+
+  if (error) {
+    H.showResponseError(error);
+  }
+  if (H.isResponseSuccess(response)) {
+    setCurrentUser(data);
+    H.showToast('success', 'messages.successLogin');
+    history.push(C.ROUTE_HOME_PAGE);
+  }
+
   return (
     <AuthPagesWrapper>
       <Flex height='100%' alignItems='center' flexDirection='column' justifyContent='center'>
@@ -86,12 +127,11 @@ export const SignInPage = props => {
         </Box>
         <Formik
           onSubmit={(values, { setSubmitting }) => {
-            const { username, password } = values;
-            const body = new FormData(values);
-            body.append('username', username);
-            body.append('password', password);
-            body.append('grant_type', 'password');
-            sendLoginData(body);
+            // const body = new FormData(values);
+            // body.append('username', username);
+            // body.append('password', password);
+            // body.append('grant_type', 'password');
+            sendLoginData(values);
           }}
           render={props => <SignInForm {...props} />}
         />

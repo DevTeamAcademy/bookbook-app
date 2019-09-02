@@ -41,9 +41,9 @@ export default () => {
   const request = useRequest(C.AUTH_OPTIONS);
   async function sendSessionData(body) {
     const data = await request.post(C.ENDP_SESSION, body);
-    if (H.hasNotResponseErrors(data)) {
-      setCurrentUser(R.assoc('access_token', token, data));
-    }
+    // if (H.hasNotResponseErrors(data)) {
+    //   setCurrentUser(R.assoc('access_token', token, data));
+    // }
   }
   useEffect(() => {
     if (H.isNilOrEmpty(token)) return;

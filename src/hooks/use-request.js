@@ -4,7 +4,7 @@ import useFetch from 'use-http';
 import * as H from '../helpers';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const makeRequestHeaders = (customHeaders: Object) => {
+export const makeRequestHeaders = customHeaders => {
   let token;
   let sessionHeaders = {};
   try {

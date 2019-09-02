@@ -76,11 +76,11 @@ export const SignUpPage = props => {
   async function sendSignupData(body) {
     const data = await request.post(C.ENDP_SIGNUP, body);
     // TODO: check 200 with validate errors or without user response
-    if (H.hasNotResponseErrors(data)) {
-      setCurrentUser(data);
-      H.showToast('success', 'messages.successRegister');
-      history.push(C.ROUTE_HOME_PAGE);
-    }
+    // if (H.hasNotResponseErrors(data)) {
+    //   setCurrentUser(data);
+    //   H.showToast('success', 'messages.successRegister');
+    //   history.push(C.ROUTE_HOME_PAGE);
+    // }
   }
   return (
     <AuthPagesWrapper>
