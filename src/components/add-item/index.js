@@ -53,7 +53,6 @@ export const AddItemComponent = props => (
     {H.isNotNilAndNotEmpty(props.icon) && (
       <Flex onClick={props.action} {...pathToSettings('commonIcon', props.settingsType)}>
         <I.IconWrapper>
-          {console.log('props', props)}
           <props.icon height={26} width={props.width} color={Theme.colors.darkGrey} />
         </I.IconWrapper>
       </Flex>
