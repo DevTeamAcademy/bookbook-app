@@ -44,7 +44,7 @@ export const RadioBackground = styled(PositionedBox)`
 `;
 
 RadioBackground.propTypes = {
-  forTransform: PropTypes.number,
+  forTransform: PropTypes.string,
 };
 
 export const Radio = styled.input`
@@ -115,7 +115,7 @@ const RadioOption = props => (
 const optionPropType = PropTypes.shape({
   value: PropTypes.string,
   name: PropTypes.string.isRequired,
-  width: PropTypes.number.isRequired,
+  width: PropTypes.string.isRequired,
 });
 
 RadioOption.propTypes = {

@@ -124,6 +124,10 @@ export default {
     commonTextColor: colors.white,
     commonTextBackground: colors.middleBlue,
   },
+  avatar: {
+    initialsText: colors.mainBlue,
+    initialsBackground: colors.light,
+  },
   booker: {
     nickNameText: colors.light,
     addedBookerIcon: colors.white,
