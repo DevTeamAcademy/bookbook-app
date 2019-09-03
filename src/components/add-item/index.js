@@ -50,9 +50,6 @@ export const AddItemComponent = props => (
         {props.text}
       </TextEllipsed>
     )}
-    {/* {H.isObject(props.text)  && (
-      
-    )} */}
     {H.isNotNilAndNotEmpty(props.icon) && (
       <Flex onClick={props.action} {...pathToSettings('commonIcon', props.settingsType)}>
         <I.IconWrapper>
