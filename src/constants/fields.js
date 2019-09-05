@@ -14,6 +14,7 @@ const FIELD_LAST_NAME = 'lastName';
 const FIELD_FIRST_NAME = 'firstName';
 const FIELD_DESCRIPTION = 'description';
 
+// NOTE: check this fields
 export const SEARCH_SWITCH_FIELDS = {
   FIELD_BOOK,
   FIELD_QUOTE,

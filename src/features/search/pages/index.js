@@ -7,6 +7,7 @@ import { Box, PageWrapper } from '../../../ui';
 import BookerComponent from '../components/booker';
 import { searchSwitchFields, muiltiSwitchSettings } from '../settings/field-settings';
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TODO: with call API logic
 
 const users = [
   {

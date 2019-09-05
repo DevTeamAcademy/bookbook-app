@@ -16,14 +16,12 @@ const Image = styled.img`
 `;
 Image.PropTypes = { ...borderRadius.propTypes };
 
+// TODO: check loginId and logic
 const getBookerInitials = nickName =>
   R.compose(
     R.join(''),
     R.map(item => R.take(1, item)),
   )(nickName);
-getBookerInitials.propTypes = {
-  nickName: PropTypes.array.isRequired,
-};
 
 export const AvatarComponent = props => (
   <Flex
@@ -59,6 +57,7 @@ export const AvatarComponent = props => (
     )}
   </Flex>
 );
+
 AvatarComponent.propTypes = {
   avatar: PropTypes.string,
   border: PropTypes.string,

@@ -12,20 +12,22 @@ import Theme from '../../theme';
 import { Box, Flex, Input } from '../../ui';
 ////////////////////////////////////////////////////////////////////////////////
 
+const clearIcon = () => (
+  <I.IconWrapper transform='rotate(45deg)'>
+    <I.Add width={20} height={20} color={Theme.colors.white} />
+  </I.IconWrapper>
+);
+
+const searchIcon = () => (
+  <I.IconWrapper>
+    <I.Search width={20} height={20} color={Theme.colors.lightBlue} />
+  </I.IconWrapper>
+);
+
 export const SearchComponent = props => {
   const [loading, setLoading] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const debouncedSearchValue = useDebounce(searchValue, 500);
-  const clearIcon = () => (
-    <I.IconWrapper transform='rotate(45deg)'>
-      <I.Add width={20} height={20} color={Theme.colors.white} />
-    </I.IconWrapper>
-  );
-  const searchIcon = () => (
-    <I.IconWrapper>
-      <I.Search width={20} height={20} color={Theme.colors.lightBlue} />
-    </I.IconWrapper>
-  );
   const [icon, setIcon] = useState(searchIcon);
   useEffect(() => {
     if (debouncedSearchValue) {

@@ -11,6 +11,7 @@ import Theme from '../../../theme';
 // ui
 import { Box, Flex } from '../../../ui';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+// TODO: with proper routing and check using propTypes for all components
 
 export const BookerInfo = props => (
   <Flex alignItems='center' width='calc(100% - 55px)'>

@@ -2,6 +2,7 @@
 import * as C from '../../../constants';
 // helpers
 import * as H from '../../../helpers';
+///////////////////////////////////////////////////////////////////////////////
 
 export const muiltiSwitchSettings = {
   width: '100%',
