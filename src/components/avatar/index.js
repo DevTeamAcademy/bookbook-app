@@ -15,8 +15,8 @@ const Image = styled.img`
   ${borderRadius};
 `;
 Image.PropTypes = { ...borderRadius.propTypes };
-
 // TODO: check loginId and logic
+
 const getBookerInitials = nickName =>
   R.compose(
     R.join(''),
