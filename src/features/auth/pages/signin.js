@@ -1,7 +1,8 @@
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import useAxios from 'axios-hooks';
-import React, { useContext } from 'react';
+import Loading from 'react-loading-bar';
+import React from 'react';
 import { withRouter } from 'react-router';
 // components
 import { RouteLink, FormFields } from '../../../components';
@@ -11,8 +12,6 @@ import * as C from '../../../constants';
 import { setCurrentUser } from '../../../global-state/dispatchers';
 // helpers
 import * as H from '../../../helpers';
-// hooks
-import { useRequest } from '../../../hooks';
 // images
 import { ReactComponent as LogoIcon } from '../../../images/logo.svg';
 // theme
@@ -20,6 +19,20 @@ import Theme from '../../../theme';
 // ui
 import { Box, Flex, Button, AuthPagesWrapper } from '../../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
+
+import { branch, compose, renderNothing, renderComponent } from 'recompose';
+
+// const withLoader = WrappedComponent => renderComponent(WrappedComponent);
+
+// const withLoader = props => WrappedComponent => (
+//   <div>
+//     <Loading
+//       show={props.loading}
+//       color={Theme.colors.red}
+//     />
+//     <WrappedComponent {...props} />
+//   </div>
+// );
 
 const signInFormSettings = {
   wrapperStyles: {
@@ -50,7 +63,7 @@ const signInFormSettings = {
 };
 
 const SignInForm = props => {
-  const { handleSubmit } = props;
+  const { loading, handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
       <FormFields {...props} settings={signInFormSettings} />
@@ -61,41 +74,23 @@ const SignInForm = props => {
           text={H.getLocale('actions.forgotPassword')}
         />
       </Box>
-      <Button type='submit' {...Theme.btns.authPages}>
+      <Button type='submit' disabled={loading} {...Theme.btns.authPages}>
         {H.getLocale('actions.login')}
       </Button>
     </form>
   );
 };
 
-const auth = {
-  username: 'frontend',
-  password: 'secret',
-};
-
 export const SignInPage = props => {
   const { history } = props;
-
-  // const request = useRequest(C.AUTH_OPTIONS);
-  // async function sendLoginData(body) {
-  //   const data = await request.post(C.ENDP_SIGNIN, body);
-  //   if (H.hasNotResponseErrors(data)) {
-  //     setCurrentUser(data);
-  //     H.showToast('success', 'messages.successLogin');
-  //     history.push(C.ROUTE_HOME_PAGE);
-  //   }
-  // }
-
   const [{ data, loading, error, response }, executeRequest] = useAxios(
     {
       method: 'POST',
       url: H.makeRequestUrl(C.ENDP_SIGNIN),
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      // headers: H.makeRequestHeaders(C.AUTH_OPTIONS.headers),
+      headers: H.makeRequestHeaders(C.AUTH_OPTIONS.headers),
     },
     { manual: true },
   );
-
   function sendLoginData(values) {
     const { username, password } = values;
     const data = H.qsStringify({
@@ -103,13 +98,8 @@ export const SignInPage = props => {
       username,
       password,
     });
-    executeRequest({ data, auth });
+    executeRequest({ data });
   }
-
-  if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error!</p>;
-  // if (data) return <pre>{JSON.stringify(putData, null, 2)}</pre>;
-
   if (error) {
     H.showResponseError(error);
   }
@@ -121,19 +111,14 @@ export const SignInPage = props => {
 
   return (
     <AuthPagesWrapper>
+      <Loading show={loading} color={Theme.colors.red} />
       <Flex height='100%' alignItems='center' flexDirection='column' justifyContent='center'>
         <Box mb='50px'>
           <LogoIcon />
         </Box>
         <Formik
-          onSubmit={(values, { setSubmitting }) => {
-            // const body = new FormData(values);
-            // body.append('username', username);
-            // body.append('password', password);
-            // body.append('grant_type', 'password');
-            sendLoginData(values);
-          }}
-          render={props => <SignInForm {...props} />}
+          onSubmit={values => sendLoginData(values)}
+          render={props => <SignInForm loading={loading} {...props} />}
         />
         <Box mt='50px'>
           <RouteLink

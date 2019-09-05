@@ -1,6 +1,7 @@
 // NOTE: add all default styles props here (colors, shadows, borders, spaces, sizes etc.)
 
 const colors = {
+  red: 'red', // TODO: check main red color
   grey: '#888181',
   white: '#ffffff',
   black: '#000000',
