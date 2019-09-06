@@ -14,6 +14,7 @@ export const IconWrapper = styled.div`
   ${boxShadow}
   ${borderRadius}
   cursor: ${({ cursor }) => cursor}
+  transform: ${({ transform }) => transform};
   &:hover {
     opacity: 1;
   }
@@ -30,6 +31,7 @@ IconWrapper.propTypes = {
   ...boxShadow.propTypes,
   ...borderRadius.propTypes,
   cursor: PropTypes.string,
+  transform: PropTypes.string,
 };
 
 IconWrapper.defaultProps = {

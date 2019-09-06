@@ -9,6 +9,7 @@ export const isBoolean = R.is(Boolean);
 export const isFunction = R.is(Function);
 export const isTrue = R.equals(true);
 export const isFalse = R.equals(false);
+export const mapIndexed = R.addIndex(R.map);
 export const isNotNil = R.complement(R.isNil);
 export const notEquals = R.complement(R.equals);
 export const isNotEmpty = R.complement(R.isEmpty);

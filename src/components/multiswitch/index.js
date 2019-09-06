@@ -44,7 +44,7 @@ export const RadioBackground = styled(PositionedBox)`
 `;
 
 RadioBackground.propTypes = {
-  forTransform: PropTypes.number,
+  forTransform: PropTypes.string,
 };
 
 export const Radio = styled.input`
@@ -105,7 +105,7 @@ const RadioOption = props => (
       position='relative'
       htmlFor={props.index}
       height={props.settings.height}
-      width={props.radioOption.width}
+      width={props.radioOption.labelWidth}
     >
       {props.radioOption.name}
     </Label>
@@ -115,7 +115,7 @@ const RadioOption = props => (
 const optionPropType = PropTypes.shape({
   value: PropTypes.string,
   name: PropTypes.string.isRequired,
-  width: PropTypes.number.isRequired,
+  width: PropTypes.string.isRequired,
 });
 
 RadioOption.propTypes = {
@@ -135,8 +135,10 @@ RadioOption.propTypes = {
 };
 
 const makeWrapperSettings = settings => ({
+  m: settings.multiswitchMargin,
   height: R.or(settings.height, '15px'),
   fontSize: R.or(settings.fontSize, '12px'),
+  width: R.or(settings.width, 'max-content'),
   border: R.or(settings.border, '1px solid'),
   bg: R.or(settings.bg, Theme.multiswitch.bg),
   fontWeight: R.or(settings.fontWeight, 'bold'),
@@ -168,11 +170,12 @@ export const Multiswitch = props => {
   return (
     <MultiswitchWrapper
       display='flex'
+      m={settings.m}
       bg={settings.bg}
       overflow='hidden'
       position='relative'
-      width='max-content'
       alignItems='center'
+      width={settings.width}
       color={settings.color}
       height={settings.height}
       border={settings.border}

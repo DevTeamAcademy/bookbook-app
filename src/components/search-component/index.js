@@ -1,3 +1,4 @@
+import R from 'ramda';
 import React, { useState, useEffect } from 'react';
 // helpers
 import * as H from '../../helpers';
@@ -11,52 +12,67 @@ import Theme from '../../theme';
 import { Box, Flex, Input } from '../../ui';
 ////////////////////////////////////////////////////////////////////////////////
 
+const clearIcon = () => (
+  <I.IconWrapper transform='rotate(45deg)'>
+    <I.Add width={20} height={20} color={Theme.colors.white} />
+  </I.IconWrapper>
+);
+
+const searchIcon = () => (
+  <I.IconWrapper>
+    <I.Search width={20} height={20} color={Theme.colors.lightBlue} />
+  </I.IconWrapper>
+);
+
 export const SearchComponent = props => {
   const [loading, setLoading] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const debouncedSearchValue = useDebounce(searchValue, 500);
-  const [iconColor, setIconColor] = useState(Theme.colors.white);
+  const [icon, setIcon] = useState(searchIcon);
   useEffect(() => {
     if (debouncedSearchValue) {
       setLoading(true);
       // TODO: with searched action
       setTimeout(() => {
         setLoading(false);
-        setIconColor(Theme.colors.white);
+        setIcon(clearIcon);
       }, 500);
     }
   }, [debouncedSearchValue]);
   const handleChange = event => {
+    setIcon(searchIcon);
     setSearchValue(event.target.value);
-    setIconColor(Theme.colors.lightBlue);
+  };
+  const handleCleanSearchInput = () => {
+    if (H.isNilOrEmpty(searchValue)) return null;
+    setSearchValue('');
+    setIcon(searchIcon);
   };
   return (
     <Flex
       width='100%'
       p='10px 15px'
-      maxWidth='300px'
       border='1px solid'
       borderRadius='20px'
+      height='max-content'
       justifyContent='space-between'
       borderColor={Theme.colors.middleGrey}
     >
       <Input
         type='text'
-        color='white'
         height='20px'
         bg='transparent'
-        focusBoxShadow='none'
         value={searchValue}
+        focusBoxShadow='none'
         onChange={handleChange}
         width='calc(100% - 40px)'
+        color={Theme.colors.lightBlue}
         placeholderColor={Theme.colors.middleGrey}
         placeholder={H.getLocale('fields.search')}
       />
       {H.isFalse(loading) && (
-        <Box height='20px'>
-          <I.IconWrapper>
-            <I.Search width={20} height={20} color={iconColor} />
-          </I.IconWrapper>
+        <Box height='20px' onClick={handleCleanSearchInput}>
+          {icon}
         </Box>
       )}
       {/* TODO: change on gif or box with animation */}
@@ -69,4 +85,4 @@ export const SearchComponent = props => {
   );
 };
 
-export default SearchComponent;
+SearchComponent.displayName = 'SearchComponent';

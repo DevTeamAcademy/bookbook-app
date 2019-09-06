@@ -17,11 +17,11 @@ const HomePage = lazy(() => import(/* webpackChunkName: 'HomePage' */ '../pages/
 const HelpPage = lazy(() => import(/* webpackChunkName: 'HelpPage' */ '../pages/help'));
 const SharePage = lazy(() => import(/* webpackChunkName: 'SharePage' */ '../pages/share'));
 const AboutPage = lazy(() => import(/* webpackChunkName: 'AboutPage' */ '../pages/about'));
-const SearchPage = lazy(() => import(/* webpackChunkName: 'SearchPage' */ '../pages/search'));
 const QuotesPage = lazy(() => import(/* webpackChunkName: 'QuotesPage' */ '../features/quote'));
 const LibraryPage = lazy(() => import(/* webpackChunkName: 'LibraryPage' */ '../pages/library'));
 const ProfilePage = lazy(() => import(/* webpackChunkName: 'ProfilePage' */ '../features/profile'));
 const SettingsPage = lazy(() => import(/* webpackChunkName: 'SettingsPage' */ '../features/settings'));
+const SearchPage = lazy(() => import(/* webpackChunkName: 'SearchPage' */ '../features/search/pages'));
 const SignInPage = lazy(() => import(/* webpackChunkName: 'SignInPage' */ '../features/auth/pages/signin'));
 const SignUpPage = lazy(() => import(/* webpackChunkName: 'SignUpPage' */ '../features/auth/pages/signup'));
 const NotificationsPage = lazy(() => import(/* webpackChunkName: 'NotificationsPage' */ '../pages/notifications'));
