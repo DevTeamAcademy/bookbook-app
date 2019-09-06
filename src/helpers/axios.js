@@ -48,14 +48,8 @@ export const createRequestConfig = (method, endpoint, options = {}, isUrlencoded
     url: makeRequestUrl(endpoint),
     headers: makeRequestHeaders(R.or(options.headers, {})),
   };
-  if (H.isNotNil(options.auth)) {
-    config.auth = options.auth;
-  }
-  if (R.and(isUrlencoded, R.equals(method, 'post'))) {
-    config.data = qs.stringify(options.data);
-  }
-  if (options.resType) {
-    config.responseType = options.resType;
+  if (options.responseType) {
+    config.responseType = options.responseType;
   }
   return instance(config);
 };
