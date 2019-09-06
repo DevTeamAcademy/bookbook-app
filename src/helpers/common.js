@@ -15,8 +15,10 @@ import locales from '../locale';
 export const qsStringify = data => qs.stringify(data);
 
 export const showToast = (type, message, withoutLocale, timer) => {
-  if (withoutLocale) return ToastsStore[type](message, R.or(timer, 3000));
-  ToastsStore[type](getLocale(message), R.or(timer, 3000));
+  const defaultTimer = 5000;
+  const showTime = R.or(timer, defaultTimer);
+  if (withoutLocale) return ToastsStore[type](message, showTime);
+  ToastsStore[type](getLocale(message), showTime);
 };
 
 export const getLocaleName = () => {

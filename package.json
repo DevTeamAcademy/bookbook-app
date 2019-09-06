@@ -32,10 +32,8 @@
     "react-scripts": "^3.0.1",
     "react-select": "^3.0.4",
     "react-toasts": "^3.0.3",
-    "recompose": "^0.30.0",
     "styled-components": "^4.3.2",
     "styled-system": "^4.2.2",
-    "use-http": "^0.1.76",
     "voca": "^1.4.0"
   },
   "devDependencies": {

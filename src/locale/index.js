@@ -69,6 +69,7 @@ export const UA = {
     private: 'Приватний',
     category: 'Категорія',
     semiPublic: 'Напівприватний',
+    loginOrEmail: 'Логін або Пошта',
   },
   actions: {
     add: 'Додати',
@@ -158,6 +159,7 @@ const EN = {
     firstName: 'First Name',
     semiPublic: 'Semi-Public',
     description: 'Description',
+    loginOrEmail: 'Login or Email',
   },
   actions: {
     add: 'Add',
@@ -247,6 +249,7 @@ const RU = {
     firstName: 'First Name',
     semiPublic: 'Semi-Public',
     description: 'Description',
+    loginOrEmail: 'Login or Email',
   },
   actions: {
     add: 'Add',
@@ -336,6 +339,7 @@ const PL = {
     firstName: 'First Name',
     semiPublic: 'Semi-Public',
     description: 'Description',
+    loginOrEmail: 'Login or Email',
   },
   actions: {
     add: 'Add',

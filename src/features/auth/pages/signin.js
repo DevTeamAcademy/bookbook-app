@@ -1,11 +1,11 @@
+import React from 'react';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import useAxios from 'axios-hooks';
 import Loading from 'react-loading-bar';
-import React from 'react';
 import { withRouter } from 'react-router';
 // components
-import { RouteLink, FormFields } from '../../../components';
+import { RouteLink, FormFields, LoadingWrapper } from '../../../components';
 // constants
 import * as C from '../../../constants';
 // global-state
@@ -20,20 +20,6 @@ import Theme from '../../../theme';
 import { Box, Flex, Button, AuthPagesWrapper } from '../../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-import { branch, compose, renderNothing, renderComponent } from 'recompose';
-
-// const withLoader = WrappedComponent => renderComponent(WrappedComponent);
-
-// const withLoader = props => WrappedComponent => (
-//   <div>
-//     <Loading
-//       show={props.loading}
-//       color={Theme.colors.red}
-//     />
-//     <WrappedComponent {...props} />
-//   </div>
-// );
-
 const signInFormSettings = {
   wrapperStyles: {
     flexDirection: 'column',
@@ -46,7 +32,7 @@ const signInFormSettings = {
         type: 'text',
         required: true,
         name: C.USER_FIELDS.FIELD_USERNAME,
-        placeholder: 'labels.login',
+        placeholder: 'labels.loginOrEmail',
       },
     },
     {
@@ -56,7 +42,7 @@ const signInFormSettings = {
         type: 'password',
         required: true,
         name: C.USER_FIELDS.FIELD_PASSWORD,
-        placeholder: 'labels.email',
+        placeholder: 'labels.password',
       },
     },
   ],
@@ -118,7 +104,11 @@ export const SignInPage = props => {
         </Box>
         <Formik
           onSubmit={values => sendLoginData(values)}
-          render={props => <SignInForm loading={loading} {...props} />}
+          render={props => (
+            <LoadingWrapper loading={loading}>
+              <SignInForm loading={loading} {...props} />
+            </LoadingWrapper>
+          )}
         />
         <Box mt='50px'>
           <RouteLink
