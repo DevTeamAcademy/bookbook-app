@@ -1,9 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
-import PropTypes from 'prop-types';
 import useAxios from 'axios-hooks';
-import Loading from 'react-loading-bar';
-import { withRouter } from 'react-router';
 // components
 import { RouteLink, FormFields, LoadingWrapper } from '../../../components';
 // constants
@@ -14,6 +11,8 @@ import { setCurrentUser } from '../../../global-state/dispatchers';
 import * as H from '../../../helpers';
 // images
 import { ReactComponent as LogoIcon } from '../../../images/logo.svg';
+// prop-types
+import * as PT from '../../../prop-types';
 // theme
 import Theme from '../../../theme';
 // ui
@@ -50,6 +49,7 @@ const signInFormSettings = {
 
 const SignInForm = props => {
   const { loading, handleSubmit } = props;
+
   return (
     <form onSubmit={handleSubmit}>
       <FormFields {...props} settings={signInFormSettings} />
@@ -97,7 +97,6 @@ export const SignInPage = props => {
 
   return (
     <AuthPagesWrapper>
-      <Loading show={loading} color={Theme.colors.red} />
       <Flex height='100%' alignItems='center' flexDirection='column' justifyContent='center'>
         <Box mb='50px'>
           <LogoIcon />
@@ -122,12 +121,8 @@ export const SignInPage = props => {
   );
 };
 
-export default withRouter(SignInPage);
+export default SignInPage;
 
-SignInPage.propTypes = {
-  match: PropTypes.object,
-  history: PropTypes.object,
-  location: PropTypes.object,
-};
+SignInPage.propTypes = PT.withRouterPropTypes;
 
 SignInPage.displayName = 'SignInPage';

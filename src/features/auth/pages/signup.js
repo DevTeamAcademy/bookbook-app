@@ -1,19 +1,16 @@
 import React from 'react';
 import { Formik } from 'formik';
-import PropTypes from 'prop-types';
 import useAxios from 'axios-hooks';
-import Loading from 'react-loading-bar';
-import { withRouter } from 'react-router';
 // components
 import { RouteLink, FormFields, LoadingWrapper } from '../../../components';
 // constants
 import * as C from '../../../constants';
-// global-state
-import { setCurrentUser } from '../../../global-state/dispatchers';
 // helpers
 import * as H from '../../../helpers';
 // images
 import { ReactComponent as LogoIcon } from '../../../images/logo.svg';
+// prop-types
+import * as PT from '../../../prop-types';
 // theme
 import Theme from '../../../theme';
 // ui
@@ -60,6 +57,7 @@ const signUpFormSettings = {
 
 const SignUpForm = props => {
   const { loading, handleSubmit } = props;
+
   return (
     <form onSubmit={handleSubmit}>
       <FormFields {...props} settings={signUpFormSettings} />
@@ -121,10 +119,6 @@ export const SignUpPage = props => {
 
 export default SignUpPage;
 
-SignUpPage.propTypes = {
-  match: PropTypes.object,
-  history: PropTypes.object,
-  location: PropTypes.object,
-};
+SignUpPage.propTypes = PT.withRouterPropTypes;
 
 SignUpPage.displayName = 'SignUpPage';

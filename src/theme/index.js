@@ -1,8 +1,11 @@
+import { hasClientExports } from 'apollo-utilities';
+
 // NOTE: add all default styles props here (colors, shadows, borders, spaces, sizes etc.)
 
 const colors = {
   red: 'red', // TODO: check main red color
   grey: '#888181',
+  light: '#f9f9f9',
   white: '#ffffff',
   black: '#000000',
   darkBlue: '#1f2532',
@@ -116,5 +119,20 @@ export default {
     fontSize: '12px',
     cursor: 'pointer',
     color: colors.mainBlue,
+  },
+  addItem: {
+    iconBackground: colors.light,
+    commonTextColor: colors.white,
+    commonTextBackground: colors.middleBlue,
+  },
+  avatar: {
+    initialsText: colors.mainBlue,
+    initialsBackground: colors.light,
+  },
+  booker: {
+    nickNameText: colors.light,
+    addedBookerIcon: colors.white,
+    addBookerIcon: colors.lightBlue,
+    descriptionText: colors.inactiveGrey,
   },
 };
