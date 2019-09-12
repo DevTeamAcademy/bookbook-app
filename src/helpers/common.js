@@ -1,3 +1,4 @@
+import qs from 'qs';
 import R from 'ramda';
 import titleCase from 'voca/title_case';
 import upperCase from 'voca/upper_case';
@@ -10,6 +11,15 @@ import * as H from './';
 // locale
 import locales from '../locale';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const qsStringify = data => qs.stringify(data);
+
+export const showToast = (type, message, withoutLocale, timer) => {
+  const defaultTimer = 5000;
+  const showTime = R.or(timer, defaultTimer);
+  if (withoutLocale) return ToastsStore[type](message, showTime);
+  ToastsStore[type](getLocale(message), showTime);
+};
 
 export const getLocaleName = () => {
   const localeString = H.ifElse(
@@ -39,27 +49,4 @@ export const getLocale = (localePath, options) => {
     if (R.and(caseAction, H.isFunction(caseActionFn))) return caseActionFn(text);
   }
   return text;
-};
-
-export const showToast = (type, messageLocale, timer) => ToastsStore[type](getLocale(messageLocale), R.or(timer, 3000));
-
-export const isResponseSuccess = ({ status }) => R.and(R.gte(status, 200), R.lt(status, 300));
-
-export const hasNotResponseErrors = res => {
-  const { invalidFields, message, errors, error_description } = res;
-  if (H.isNotNil(invalidFields)) {
-    invalidFields.map(field => showToast('error', `${field.fieldName}: ${field.message}`));
-    return false;
-  } else if (H.isNotNil(message)) {
-    if (H.isNotNilAndNotEmpty(errors)) {
-      errors.map(error => showToast('error', error));
-    } else {
-      showToast('error', message);
-    }
-    return false;
-  } else if (H.isNotNil(error_description)) {
-    showToast('error', error_description);
-    return false;
-  }
-  return true;
 };

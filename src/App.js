@@ -2,6 +2,8 @@ import React, { StrictMode } from 'react';
 import { withRouter } from 'react-router-dom';
 import ErrorBoundary from 'react-error-boundary';
 import { ToastsContainer, ToastsStore } from 'react-toasts';
+// css
+import 'react-loading-bar/dist/index.css';
 // contexts
 import { LocaleProvider } from './contexts/locale';
 // global-state

@@ -1,18 +1,16 @@
+import React from 'react';
 import { Formik } from 'formik';
-import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
+import useAxios from 'axios-hooks';
 // components
-import { RouteLink, FormFields } from '../../../components';
+import { RouteLink, FormFields, LoadingWrapper } from '../../../components';
 // constants
 import * as C from '../../../constants';
-// global-state
-import { setCurrentUser } from '../../../global-state/dispatchers';
 // helpers
 import * as H from '../../../helpers';
-// hooks
-import { useRequest } from '../../../hooks';
 // images
 import { ReactComponent as LogoIcon } from '../../../images/logo.svg';
+// prop-types
+import * as PT from '../../../prop-types';
 // theme
 import Theme from '../../../theme';
 // ui
@@ -58,11 +56,12 @@ const signUpFormSettings = {
 };
 
 const SignUpForm = props => {
-  const { handleSubmit } = props;
+  const { loading, handleSubmit } = props;
+
   return (
     <form onSubmit={handleSubmit}>
       <FormFields {...props} settings={signUpFormSettings} />
-      <Button type='submit' {...Theme.btns.authPages}>
+      <Button type='submit' disabled={loading} {...Theme.btns.authPages}>
         {H.getLocale('actions.register')}
       </Button>
     </form>
@@ -72,16 +71,24 @@ const SignUpForm = props => {
 // TODO: with correct redirection terms and policy
 export const SignUpPage = props => {
   const { history } = props;
-  const request = useRequest(C.AUTH_OPTIONS);
-  async function sendSignupData(body) {
-    const data = await request.post(C.ENDP_SIGNUP, body);
-    // TODO: check 200 with validate errors or without user response
-    if (H.hasNotResponseErrors(data)) {
-      setCurrentUser(data);
-      H.showToast('success', 'messages.successRegister');
-      history.push(C.ROUTE_HOME_PAGE);
-    }
+  const [{ data, loading, error, response }, executeRequest] = useAxios(
+    {
+      method: 'POST',
+      url: H.makeRequestUrl(C.ENDP_SIGNUP),
+    },
+    { manual: true },
+  );
+  function sendSignupData(data) {
+    executeRequest({ data });
   }
+  if (error) {
+    H.showResponseError(error);
+  }
+  if (H.isResponseSuccess(response)) {
+    H.showToast('success', 'messages.successRegister');
+    history.push(C.ROUTE_SIGNIN_PAGE);
+  }
+
   return (
     <AuthPagesWrapper>
       <Flex height='100%' alignItems='center' flexDirection='column' justifyContent='center'>
@@ -89,8 +96,12 @@ export const SignUpPage = props => {
           <LogoIcon />
         </Box>
         <Formik
-          onSubmit={(values, { setSubmitting }) => sendSignupData(values)}
-          render={props => <SignUpForm {...props} />}
+          onSubmit={values => sendSignupData(values)}
+          render={props => (
+            <LoadingWrapper loading={loading}>
+              <SignUpForm loading={loading} {...props} />
+            </LoadingWrapper>
+          )}
         />
         <Box mt='50px'>
           <RouteLink linkTo='/' text={H.getLocale('termsAndConditions')} />
@@ -108,10 +119,6 @@ export const SignUpPage = props => {
 
 export default SignUpPage;
 
-SignUpPage.propTypes = {
-  match: PropTypes.object,
-  history: PropTypes.object,
-  location: PropTypes.object,
-};
+SignUpPage.propTypes = PT.withRouterPropTypes;
 
 SignUpPage.displayName = 'SignUpPage';

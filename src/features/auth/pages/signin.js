@@ -1,19 +1,18 @@
+import React from 'react';
 import { Formik } from 'formik';
-import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
-import { withRouter } from 'react-router';
+import useAxios from 'axios-hooks';
 // components
-import { RouteLink, FormFields } from '../../../components';
+import { RouteLink, FormFields, LoadingWrapper } from '../../../components';
 // constants
 import * as C from '../../../constants';
 // global-state
 import { setCurrentUser } from '../../../global-state/dispatchers';
 // helpers
 import * as H from '../../../helpers';
-// hooks
-import { useRequest } from '../../../hooks';
 // images
 import { ReactComponent as LogoIcon } from '../../../images/logo.svg';
+// prop-types
+import * as PT from '../../../prop-types';
 // theme
 import Theme from '../../../theme';
 // ui
@@ -32,7 +31,7 @@ const signInFormSettings = {
         type: 'text',
         required: true,
         name: C.USER_FIELDS.FIELD_USERNAME,
-        placeholder: 'labels.login',
+        placeholder: 'labels.loginOrEmail',
       },
     },
     {
@@ -42,14 +41,15 @@ const signInFormSettings = {
         type: 'password',
         required: true,
         name: C.USER_FIELDS.FIELD_PASSWORD,
-        placeholder: 'labels.email',
+        placeholder: 'labels.password',
       },
     },
   ],
 };
 
 const SignInForm = props => {
-  const { handleSubmit } = props;
+  const { loading, handleSubmit } = props;
+
   return (
     <form onSubmit={handleSubmit}>
       <FormFields {...props} settings={signInFormSettings} />
@@ -60,7 +60,7 @@ const SignInForm = props => {
           text={H.getLocale('actions.forgotPassword')}
         />
       </Box>
-      <Button type='submit' {...Theme.btns.authPages}>
+      <Button type='submit' disabled={loading} {...Theme.btns.authPages}>
         {H.getLocale('actions.login')}
       </Button>
     </form>
@@ -69,15 +69,32 @@ const SignInForm = props => {
 
 export const SignInPage = props => {
   const { history } = props;
-  const request = useRequest(C.AUTH_OPTIONS);
-  async function sendLoginData(body) {
-    const data = await request.post(C.ENDP_SIGNIN, body);
-    if (H.hasNotResponseErrors(data)) {
-      setCurrentUser(data);
-      H.showToast('success', 'messages.successLogin');
-      history.push(C.ROUTE_HOME_PAGE);
-    }
+  const [{ data, loading, error, response }, executeRequest] = useAxios(
+    {
+      method: 'POST',
+      url: H.makeRequestUrl(C.ENDP_SIGNIN),
+      headers: H.makeRequestHeaders(C.AUTH_OPTIONS.headers),
+    },
+    { manual: true },
+  );
+  function sendLoginData(values) {
+    const { username, password } = values;
+    const data = H.qsStringify({
+      grant_type: 'password',
+      username,
+      password,
+    });
+    executeRequest({ data });
   }
+  if (error) {
+    H.showResponseError(error);
+  }
+  if (H.isResponseSuccess(response)) {
+    setCurrentUser(data);
+    H.showToast('success', 'messages.successLogin');
+    history.push(C.ROUTE_HOME_PAGE);
+  }
+
   return (
     <AuthPagesWrapper>
       <Flex height='100%' alignItems='center' flexDirection='column' justifyContent='center'>
@@ -85,15 +102,12 @@ export const SignInPage = props => {
           <LogoIcon />
         </Box>
         <Formik
-          onSubmit={(values, { setSubmitting }) => {
-            const { username, password } = values;
-            const body = new FormData(values);
-            body.append('username', username);
-            body.append('password', password);
-            body.append('grant_type', 'password');
-            sendLoginData(body);
-          }}
-          render={props => <SignInForm {...props} />}
+          onSubmit={values => sendLoginData(values)}
+          render={props => (
+            <LoadingWrapper loading={loading}>
+              <SignInForm loading={loading} {...props} />
+            </LoadingWrapper>
+          )}
         />
         <Box mt='50px'>
           <RouteLink
@@ -107,12 +121,8 @@ export const SignInPage = props => {
   );
 };
 
-export default withRouter(SignInPage);
+export default SignInPage;
 
-SignInPage.propTypes = {
-  match: PropTypes.object,
-  history: PropTypes.object,
-  location: PropTypes.object,
-};
+SignInPage.propTypes = PT.withRouterPropTypes;
 
 SignInPage.displayName = 'SignInPage';

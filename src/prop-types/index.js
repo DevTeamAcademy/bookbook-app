@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
+export const withRouterPropTypes = {
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+};
+
 export const formicPropTypes = {
   dirty: PropTypes.bool.isRequired,
   isValid: PropTypes.bool.isRequired,

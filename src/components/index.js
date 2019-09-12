@@ -4,6 +4,7 @@ export { FormFields } from './form-fields';
 export { AvatarComponent } from './avatar';
 export { Multiswitch } from './multiswitch';
 export { TextEllipsed } from './text-ellipsed';
+export { LoadingWrapper } from './loading-wrapper';
 export { SearchComponent } from './search-component';
 export { AddItemsList, AddItemComponent } from './add-item';
 // //////////////////////////////////////////////////////////////////////////////

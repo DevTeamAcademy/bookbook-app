@@ -1,10 +1,15 @@
 import R from 'ramda';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { withRouter } from 'react-router';
 // components
 import TextEllipsed from '../text-ellipsed';
+// constants
+import * as C from '../../constants';
 // helpers
 import * as H from '../../helpers';
+// prop-types
+import * as PT from '../../prop-types';
 // icons
 import * as I from '../../icons';
 // settings
@@ -24,19 +29,19 @@ const itemList = props => [
     width: 21,
     icon: I.Book,
     text: getActionString('add', 'book'),
-    action: () => console.log(getActionString('add', 'book')),
+    action: () => props.history.push(C.ROUTE_CREATE_BOOK_PAGE),
   },
   {
     width: 26,
     icon: I.Library,
     text: getActionString('add', 'library'),
-    action: () => console.log(getActionString('add', 'library')),
+    action: () => props.history.push(C.ROUTE_CREATE_LIBRARY_PAGE),
   },
   {
     width: 24,
     icon: I.Quote,
     text: getActionString('add', 'quote'),
-    action: () => console.log(getActionString('add', 'quote')),
+    action: () => props.history.push(C.ROUTE_CREATE_QUOTE_PAGE),
   },
 ];
 
@@ -104,9 +109,10 @@ export const AddItemsList = props => {
   );
 };
 
-export default AddItemsList;
+export default withRouter(AddItemsList);
 
 AddItemsList.propTypes = {
+  ...PT.withRouterPropTypes,
   toggleActionList: PropTypes.func.isRequired,
   isActionListOpened: PropTypes.bool.isRequired,
 };
