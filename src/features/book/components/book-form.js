@@ -43,7 +43,7 @@ const formSettings = {
       },
       input: {
         options: scopeOptions,
-        name: C.QUOTE_FIELDS.FIELD_SCOPE,
+        name: C.BOOK_FIELDS.FIELD_SCOPE,
       },
       label: {
         locale: 'labels.scope',
@@ -51,27 +51,15 @@ const formSettings = {
       },
     },
     {
-      type: 'textarea',
+      type: 'input',
       input: {
         ...Theme.form.input.main,
-        height: 150,
-        required: true,
-        name: C.QUOTE_FIELDS.FIELD_QUOTE,
+        type: 'text',
+        required: false,
+        name: C.BOOK_FIELDS.FIELD_NAME,
       },
       label: {
-        locale: 'labels.quote',
-        styles: Theme.form.label.main,
-      },
-    },
-    {
-      type: 'searchSelect',
-      reactSelectStyles: Theme.form.reactSelect.main,
-      input: {
-        options: [],
-        name: C.QUOTE_FIELDS.FIELD_CATEGORY,
-      },
-      label: {
-        locale: 'labels.category',
+        locale: 'labels.name',
         styles: Theme.form.label.main,
       },
     },
@@ -82,10 +70,22 @@ const formSettings = {
         options: [],
         isMulti: true,
         isClearable: true,
-        name: C.QUOTE_FIELDS.FIELD_AUTHOR,
+        name: C.BOOK_FIELDS.FIELD_AUTHOR,
       },
       label: {
         locale: 'labels.author',
+        styles: Theme.form.label.main,
+      },
+    },
+    {
+      type: 'searchSelect',
+      reactSelectStyles: Theme.form.reactSelect.main,
+      input: {
+        options: [],
+        name: C.BOOK_FIELDS.FIELD_LIBRARY,
+      },
+      label: {
+        locale: 'labels.library',
         styles: Theme.form.label.main,
       },
     },
@@ -94,33 +94,49 @@ const formSettings = {
       reactSelectStyles: Theme.form.reactSelect.main,
       input: {
         options: [],
-        name: C.QUOTE_FIELDS.FIELD_BOOK,
+        isMulti: true,
+        isClearable: true,
+        name: C.BOOK_FIELDS.FIELD_SHELF,
       },
       label: {
-        locale: 'labels.book',
+        locale: 'labels.shelf',
         styles: Theme.form.label.main,
       },
     },
     {
-      type: 'input',
+      type: 'creatableSearchSelect',
+      reactSelectStyles: Theme.form.reactSelect.main,
       input: {
-        ...Theme.form.input.main,
-        type: 'text',
-        required: false,
-        name: C.QUOTE_FIELDS.FIELD_PAGE,
+        options: [],
+        isMulti: true,
+        isClearable: true,
+        name: C.BOOK_FIELDS.FIELD_CATEGORY,
       },
       label: {
-        locale: 'labels.page',
+        locale: 'labels.category',
         styles: Theme.form.label.main,
       },
     },
     {
-      type: 'input',
+      type: 'textarea',
       input: {
         ...Theme.form.input.main,
         height: 150,
-        required: false,
-        name: C.QUOTE_FIELDS.FIELD_DESCRIPTION,
+        required: true,
+        name: C.BOOK_FIELDS.FIELD_BIBLIOGRAPHY,
+      },
+      label: {
+        locale: 'labels.bibliography',
+        styles: Theme.form.label.main,
+      },
+    },
+    {
+      type: 'textarea',
+      input: {
+        ...Theme.form.input.main,
+        height: 150,
+        required: true,
+        name: C.BOOK_FIELDS.FIELD_DESCRIPTION,
       },
       label: {
         locale: 'labels.description',
@@ -133,7 +149,7 @@ const formSettings = {
         ...Theme.form.input.main,
         type: 'text',
         required: false,
-        name: C.QUOTE_FIELDS.FIELD_LINK,
+        name: C.BOOK_FIELDS.FIELD_LINK,
       },
       label: {
         locale: 'labels.link',
@@ -143,7 +159,7 @@ const formSettings = {
   ],
 };
 
-const QuoteForm = props => {
+const BookForm = props => {
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
@@ -155,9 +171,9 @@ const QuoteForm = props => {
   );
 };
 
-export default QuoteForm;
+export default BookForm;
 
 // TODO: add all other prop types
-QuoteForm.propTypes = { ...PT.formicPropTypes };
+BookForm.propTypes = { ...PT.formicPropTypes };
 
-QuoteForm.displayName = 'QuoteForm';
+BookForm.displayName = 'BookForm';

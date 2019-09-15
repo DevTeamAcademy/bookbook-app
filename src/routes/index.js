@@ -28,6 +28,9 @@ const LanguagePage = lazy(() => import(/* webpackChunkName: 'LanguagePage' */ '.
 const CreateQuotePage = lazy(() =>
   import(/* webpackChunkName: 'CreateQuotePage' */ '../features/quote/pages/create-quote'),
 );
+const CreateBookPage = lazy(() =>
+  import(/* webpackChunkName: 'CreateBookPage' */ '../features/book/pages/create-book'),
+);
 const PasswordResetPage = lazy(() =>
   import(/* webpackChunkName: 'PasswordResetPage' */ '../features/auth/pages/password-reset'),
 );
@@ -80,6 +83,7 @@ export default () => {
             <Route path={C.ROUTE_LIBRARY_PAGE} exact component={LibraryPage} />
             <Route path={C.ROUTE_LANGUAGE_PAGE} exact component={LanguagePage} />
             <Route path={C.ROUTE_SETTINGS_PAGE} exact component={SettingsPage} />
+            <Route path={C.ROUTE_CREATE_BOOK_PAGE} exact component={CreateBookPage} />
             <Route path={C.ROUTE_CREATE_QUOTE_PAGE} exact component={CreateQuotePage} />
             <Route path={C.ROUTE_NOTIFICATIONS_PAGE} exact component={NotificationsPage} />
             <RedirectTo redirect={C.ROUTE_HOME_PAGE} />
