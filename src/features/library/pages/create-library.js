@@ -12,10 +12,10 @@ import { useRequest } from '../../../hooks';
 // ui
 import { Flex, PageWrapper } from '../../../ui';
 // feature quote
-import QuoteForm from '../components/quote-form';
+import LibraryForm from '../components/library-form';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const CreateQuotePage = props => {
+export const CreateLibraryPage = props => {
   async function sendData(body) {
     // TODO: with request
     console.log(body);
@@ -23,14 +23,17 @@ export const CreateQuotePage = props => {
   return (
     <PageWrapper p={20}>
       <Flex alignItems='center' flexDirection='column' justifyContent='center'>
-        <Formik onSubmit={(values, { setSubmitting }) => sendData(values)} render={props => <QuoteForm {...props} />} />
+        <Formik
+          onSubmit={(values, { setSubmitting }) => sendData(values)}
+          render={props => <LibraryForm {...props} />}
+        />
       </Flex>
     </PageWrapper>
   );
 };
 
-export default CreateQuotePage;
+export default CreateLibraryPage;
 
-CreateQuotePage.propTypes = PT.withRouterPropTypes;
+CreateLibraryPage.propTypes = PT.withRouterPropTypes;
 
-CreateQuotePage.displayName = 'CreateQuotePage';
+CreateLibraryPage.displayName = 'CreateBookPage';
