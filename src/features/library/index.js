@@ -12,4 +12,4 @@ export default LibraryPage;
 
 LibraryPage.propTypes = {};
 
-LibraryPage.displayName = 'LibraryPage';
+LibraryPage.displayName = 'BookPage';

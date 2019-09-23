@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import * as C from '../../../constants';
 // helpers
 import * as H from '../../../helpers';
+// prop-types
+import * as PT from '../../../prop-types';
 // hooks
 import { useRequest } from '../../../hooks';
 // ui
@@ -29,10 +31,6 @@ export const CreateBookPage = props => {
 
 export default CreateBookPage;
 
-CreateBookPage.propTypes = {
-  match: PropTypes.object,
-  history: PropTypes.object,
-  location: PropTypes.object,
-};
+CreateBookPage.propTypes = PT.withRouterPropTypes;
 
 CreateBookPage.displayName = 'CreateBookPage';

@@ -17,7 +17,7 @@ const HelpPage = lazy(() => import(/* webpackChunkName: 'HelpPage' */ '../pages/
 const SharePage = lazy(() => import(/* webpackChunkName: 'SharePage' */ '../pages/share'));
 const AboutPage = lazy(() => import(/* webpackChunkName: 'AboutPage' */ '../pages/about'));
 const QuotesPage = lazy(() => import(/* webpackChunkName: 'QuotesPage' */ '../features/quote'));
-const LibraryPage = lazy(() => import(/* webpackChunkName: 'LibraryPage' */ '../pages/library'));
+const LibraryPage = lazy(() => import(/* webpackChunkName: 'LibraryPage' */ '../features/library'));
 const ProfilePage = lazy(() => import(/* webpackChunkName: 'ProfilePage' */ '../features/profile'));
 const SettingsPage = lazy(() => import(/* webpackChunkName: 'SettingsPage' */ '../features/settings'));
 const SearchPage = lazy(() => import(/* webpackChunkName: 'SearchPage' */ '../features/search/pages'));
@@ -30,6 +30,9 @@ const CreateQuotePage = lazy(() =>
 );
 const CreateBookPage = lazy(() =>
   import(/* webpackChunkName: 'CreateBookPage' */ '../features/book/pages/create-book'),
+);
+const CreateLibraryPage = lazy(() =>
+  import(/* webpackChunkName: 'CreateLibraryPage' */ '../features/library/pages/create-library'),
 );
 const PasswordResetPage = lazy(() =>
   import(/* webpackChunkName: 'PasswordResetPage' */ '../features/auth/pages/password-reset'),
@@ -86,6 +89,7 @@ export default () => {
             <Route path={C.ROUTE_CREATE_BOOK_PAGE} exact component={CreateBookPage} />
             <Route path={C.ROUTE_CREATE_QUOTE_PAGE} exact component={CreateQuotePage} />
             <Route path={C.ROUTE_NOTIFICATIONS_PAGE} exact component={NotificationsPage} />
+            <Route path={C.ROUTE_CREATE_LIBRARY_PAGE} exact component={CreateLibraryPage} />
             <RedirectTo redirect={C.ROUTE_HOME_PAGE} />
           </Switch>
         </Layout>
