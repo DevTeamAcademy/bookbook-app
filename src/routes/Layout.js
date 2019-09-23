@@ -29,12 +29,6 @@ export const Layout = ({ children, location }) => {
   const [isActionListOpened] = useGlobalState('isActionListOpened');
   return (
     <>
-      <SidebarMenu
-        locale={locale}
-        location={location}
-        sidebarOpened={isSidebarOpened}
-        handleToggleSidebar={toggleSidebarOpened}
-      />
       <HeaderNav
         size={size}
         locale={locale}
@@ -43,6 +37,12 @@ export const Layout = ({ children, location }) => {
         handleToggleSidebar={toggleSidebarOpened}
       />
       <Suspense fallback={<LoadingFallback />}>{children}</Suspense>
+      <SidebarMenu
+        locale={locale}
+        location={location}
+        sidebarOpened={isSidebarOpened}
+        handleToggleSidebar={toggleSidebarOpened}
+      />
       <AddItemsList toggleActionList={toggleActionList} isActionListOpened={isActionListOpened} />
     </>
   );

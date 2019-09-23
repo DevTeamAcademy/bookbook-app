@@ -73,10 +73,12 @@ const RadioOption = props => (
     cursor='pointer'
     textAlign='center'
     position='relative'
+    p={props.settings.itemPadding}
     height={props.settings.height}
     width={props.radioOption.width}
     fontSize={props.settings.fontSize}
     lineHeight={props.settings.height}
+    minWidth={props.settings.minWidth}
     fontWeight={props.settings.fontWeight}
   >
     <Radio
@@ -142,6 +144,8 @@ const makeWrapperSettings = settings => ({
   border: R.or(settings.border, '1px solid'),
   bg: R.or(settings.bg, Theme.multiswitch.bg),
   fontWeight: R.or(settings.fontWeight, 'bold'),
+  minWidth: R.or(settings.minWidth, 'max-content'),
+  itemPadding: R.or(settings.itemPadding, '0 3px'),
   borderRadius: R.or(settings.borderRadius, '7px'),
   color: R.or(settings.color, Theme.multiswitch.color),
   checkedBg: R.or(settings.checkedBg, Theme.multiswitch.checkedBg),
