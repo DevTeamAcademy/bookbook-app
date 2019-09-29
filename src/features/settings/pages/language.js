@@ -2,17 +2,17 @@ import R from 'ramda';
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 // constants
-import * as C from '../../constants';
+import * as C from '../../../constants';
 // contexts
-import { LocaleContext } from '../../contexts/locale';
+import { LocaleContext } from '../../../contexts/locale';
 // helpers
-import * as H from '../../helpers';
+import * as H from '../../../helpers';
 // icons
-import * as I from '../../icons';
+import * as I from '../../../icons';
 //theme
-import Theme from '../../theme';
+import Theme from '../../../theme';
 // ui
-import { Box, Flex, Text, PageWrapper } from '../../ui';
+import { Box, Flex, Text, PageWrapper } from '../../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const langs = [

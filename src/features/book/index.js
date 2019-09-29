@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { Flex } from '../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const SearchPage = props => {
-  return <Flex>search page here</Flex>;
+export const BookPage = props => {
+  return <Flex>books page here</Flex>;
 };
 
-export default SearchPage;
+export default BookPage;
 
-SearchPage.propTypes = {};
+BookPage.propTypes = {};
 
-SearchPage.displayName = 'SearchPage';
+BookPage.displayName = 'BookPage';

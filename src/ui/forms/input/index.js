@@ -1,4 +1,4 @@
-import { or, and } from 'ramda';
+import R from 'ramda';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
@@ -15,21 +15,11 @@ import {
 } from 'styled-system';
 // theme
 import Theme from '../../../theme';
+// ui
+import { renderBgColor, renderBorderColor } from '../../helpers';
 // //////////////////////////////////////////////////////////////////////////////
 
-export const renderBorderColor = (props: Object) => {
-  if (and(props.error, props.touched)) {
-    return Theme.form.input.errorBorderColor;
-  }
-  return Theme.form.input.borderColor;
-};
-
-export const renderBgColor = (props: Object) => {
-  if (props.disabled) {
-    return Theme.form.input.disabledBgColor;
-  }
-  return Theme.form.input.bgColor;
-};
+// TODO: with render border
 
 export const Input = styled.input`
   ${color}
@@ -43,9 +33,9 @@ export const Input = styled.input`
   ${borderColor}
   ${borderRadius}
   outline: none;
-  cursor: ${({ cursor }) => or(cursor, 'text')};
+  cursor: ${({ cursor }) => R.or(cursor, 'text')};
   &:focus {
-    box-shadow: ${({ focusBoxShadow }) => or(focusBoxShadow, Theme.form.input.focusBoxShadow)};
+    box-shadow: ${({ focusBoxShadow }) => R.or(focusBoxShadow, Theme.form.input.focusBoxShadow)};
   }
   &::placeholder {
     color: ${({ placeholderColor }) => placeholderColor};

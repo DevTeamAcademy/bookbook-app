@@ -1,22 +1,20 @@
+import React from 'react';
 import { Formik } from 'formik';
-import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
+import useAxios from 'axios-hooks';
 // components
-import { RouteLink, FormFields } from '../../components';
+import { RouteLink, FormFields, LoadingWrapper } from '../../../components';
 // constants
-import * as C from '../../constants';
-// global-state
-import { setCurrentUser } from '../../global-state/dispatchers';
+import * as C from '../../../constants';
 // helpers
-import * as H from '../../helpers';
-// hooks
-import { useRequest } from '../../hooks';
+import * as H from '../../../helpers';
 // images
-import { ReactComponent as LogoIcon } from '../../images/logo.svg';
+import { ReactComponent as LogoIcon } from '../../../images/logo.svg';
+// prop-types
+import * as PT from '../../../prop-types';
 // theme
-import Theme from '../../theme';
+import Theme from '../../../theme';
 // ui
-import { Box, Flex, Text, Button, AuthPagesWrapper } from '../../ui';
+import { Box, Flex, Text, Button, AuthPagesWrapper } from '../../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const signUpFormSettings = {
@@ -25,29 +23,32 @@ const signUpFormSettings = {
   },
   fields: [
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'text',
         required: true,
-        name: C.USER.LOGIN,
+        name: C.USER_FIELDS.FIELD_LOGIN,
         placeholder: 'labels.login',
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'email',
         required: true,
-        name: C.USER.EMAIL,
+        name: C.USER_FIELDS.FIELD_EMAIL,
         placeholder: 'labels.email',
       },
     },
     {
+      type: 'input',
       input: {
         ...Theme.form.input.authPages,
         type: 'password',
         required: true,
-        name: C.USER.PASSWORD,
+        name: C.USER_FIELDS.FIELD_PASSWORD,
         placeholder: 'labels.password',
       },
     },
@@ -55,11 +56,12 @@ const signUpFormSettings = {
 };
 
 const SignUpForm = props => {
-  const { handleSubmit } = props;
+  const { loading, handleSubmit } = props;
+
   return (
     <form onSubmit={handleSubmit}>
       <FormFields {...props} settings={signUpFormSettings} />
-      <Button type='submit' {...Theme.btns.authPages}>
+      <Button type='submit' disabled={loading} {...Theme.btns.authPages}>
         {H.getLocale('actions.register')}
       </Button>
     </form>
@@ -69,16 +71,24 @@ const SignUpForm = props => {
 // TODO: with correct redirection terms and policy
 export const SignUpPage = props => {
   const { history } = props;
-  const request = useRequest(C.AUTH_OPTIONS);
-  async function sendSignupData(body) {
-    const data = await request.post(C.ENDP_SIGNUP, body);
-    // TODO: check 200 with validate errors or without user response
-    if (H.hasNotResponseErrors(data)) {
-      setCurrentUser(data);
-      H.showToast('success', 'messages.successRegister');
-      history.push(C.ROUTE_HOME_PAGE);
-    }
+  const [{ data, loading, error, response }, executeRequest] = useAxios(
+    {
+      method: 'POST',
+      url: H.makeRequestUrl(C.ENDP_SIGNUP),
+    },
+    { manual: true },
+  );
+  function sendSignupData(data) {
+    executeRequest({ data });
   }
+  if (error) {
+    H.showResponseError(error);
+  }
+  if (H.isResponseSuccess(response)) {
+    H.showToast('success', 'messages.successRegister');
+    history.push(C.ROUTE_SIGNIN_PAGE);
+  }
+
   return (
     <AuthPagesWrapper>
       <Flex height='100%' alignItems='center' flexDirection='column' justifyContent='center'>
@@ -86,8 +96,12 @@ export const SignUpPage = props => {
           <LogoIcon />
         </Box>
         <Formik
-          onSubmit={(values, { setSubmitting }) => sendSignupData(values)}
-          render={props => <SignUpForm {...props} />}
+          onSubmit={values => sendSignupData(values)}
+          render={props => (
+            <LoadingWrapper loading={loading}>
+              <SignUpForm loading={loading} {...props} />
+            </LoadingWrapper>
+          )}
         />
         <Box mt='50px'>
           <RouteLink linkTo='/' text={H.getLocale('termsAndConditions')} />
@@ -105,10 +119,6 @@ export const SignUpPage = props => {
 
 export default SignUpPage;
 
-SignUpPage.propTypes = {
-  match: PropTypes.object,
-  history: PropTypes.object,
-  location: PropTypes.object,
-};
+SignUpPage.propTypes = PT.withRouterPropTypes;
 
 SignUpPage.displayName = 'SignUpPage';

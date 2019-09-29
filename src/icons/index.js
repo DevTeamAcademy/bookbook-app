@@ -303,3 +303,42 @@ export const Add = ({ color, width, height }) => (
 );
 Add.propTypes = iconPropTypes;
 Add.defaultProps = defaultIconProps;
+
+export const AddBooker = ({ color, width, height }) => (
+  <svg width={width} height={height} viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'>
+    <g fill='none' fillRule='evenodd' transform='translate(1 1)'>
+      <path
+        fill={color}
+        fillRule='nonzero'
+        d='M13 15c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z'
+      />
+      <g stroke={color} strokeWidth='.6'>
+        <path d='M21 12h4M23 10v4' />
+      </g>
+      <circle cx='15' cy='15' r='15' stroke={color} />
+    </g>
+  </svg>
+);
+AddBooker.propTypes = iconPropTypes;
+AddBooker.defaultProps = defaultIconProps;
+
+export const AddedBooker = ({ color, width, height }) => (
+  <svg width={width} height={height} viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'>
+    <g fill='none' fillRule='evenodd'>
+      <g transform='translate(1 1)'>
+        <path
+          fill={color}
+          fillRule='nonzero'
+          d='M13 15c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z'
+        />
+        <circle cx='15' cy='15' r='15' stroke={color} />
+      </g>
+      <path
+        fill={color}
+        d='M22.058 14.2a.22.22 0 0 1-.058-.14c0-.04.02-.1.058-.14l.269-.28a.181.181 0 0 1 .27 0l.018.02 1.058 1.18a.09.09 0 0 0 .135 0l2.577-2.78h.019a.181.181 0 0 1 .27 0l.268.28c.077.08.077.2 0 .28l-3.077 3.32a.172.172 0 0 1-.134.06.172.172 0 0 1-.135-.06l-1.5-1.68-.038-.06z'
+      />
+    </g>
+  </svg>
+);
+AddedBooker.propTypes = iconPropTypes;
+AddedBooker.defaultProps = defaultIconProps;

@@ -1,7 +1,11 @@
+import { hasClientExports } from 'apollo-utilities';
+
 // NOTE: add all default styles props here (colors, shadows, borders, spaces, sizes etc.)
 
 const colors = {
+  red: 'red', // TODO: check main red color
   grey: '#888181',
+  light: '#f9f9f9',
   white: '#ffffff',
   black: '#000000',
   darkBlue: '#1f2532',
@@ -10,34 +14,84 @@ const colors = {
   lightGrey: '#615d60',
   paleOlive: '#e6dda6',
   lightBlue: '#6fa6d6',
+  middleBlue: '#333b4a',
   middleGrey: '#9D8C70',
   paleYellow: '#fff8f0',
   inactiveGrey: '#9d9c9d', // TODO: rename properly;
+  realMiddleGrey: '#666366',
 };
 
 const borders = {
-  itemBorderBottom: '1px solid rgba(94, 92, 94, .65)',
+  itemBorderBottom: '1px solid rgba(94, 92, 94, .65)', // TODO: rename properly;
+};
+
+const shadows = {
+  formInputDefault: '0 0 5px 0 rgba(206, 40, 40, 0.5)',
 };
 
 export default {
   colors,
   borders,
+  shadows,
   form: {
     label: {
-      color: 'black',
-      requiredStarColor: 'red',
+      main: {
+        p: '5px 0',
+        fontSize: 14,
+        color: colors.white,
+        requiredStarColor: 'red', // TODO: with design
+      },
+    },
+    // NOTE: from Styles API on react-select (https://react-select.com/styles)
+    reactSelect: {
+      main: {
+        control: {
+          width: '280px',
+          marginBottom: '20px',
+          borderColor: colors.middleBlue,
+          backgroundColor: colors.darkBlue,
+          border: `1px solid ${colors.middleBlue}`,
+          '&:hover': {
+            borderColor: colors.middleBlue,
+          },
+        },
+        input: {
+          color: colors.white,
+        },
+        singleValue: {
+          color: colors.white,
+        },
+      },
     },
     input: {
+      main: {
+        px: '10px',
+        mb: '20px',
+        width: '280px',
+        height: '40px',
+        borderRadius: '4px',
+        color: colors.white,
+        bg: colors.darkBlue,
+        border: `1px solid ${colors.middleBlue}`,
+      },
       authPages: {
-        p: '15px',
+        px: '10px',
         mb: '20px',
         width: '280px',
         height: '40px',
         borderRadius: '2px',
         bg: colors.paleYellow,
       },
-      focusBoxShadow: '0 0 5px 0 rgba(206, 40, 40, 0.5)',
+      focusBoxShadow: shadows.formInputDefault,
     },
+  },
+  switch: {
+    onBgColor: 'transparent',
+    offBgColor: 'transparent',
+    onColor: colors.paleOlive,
+    offColor: colors.realMiddleGrey,
+    onBorderColor: colors.paleOlive,
+    offBorderColor: colors.realMiddleGrey,
   },
   multiswitch: {
     bg: colors.darkBlue,
@@ -48,6 +102,15 @@ export default {
     borderColor: colors.paleOlive,
   },
   btns: {
+    main: {
+      width: '280px',
+      height: '44px',
+      cursor: 'pointer',
+      borderRadius: '22px',
+      bg: colors.darkBlue,
+      color: colors.lightBlue,
+      border: `1px solid ${colors.lightBlue}`,
+    },
     authPages: {
       width: '280px',
       height: '44px',
@@ -65,5 +128,20 @@ export default {
     fontSize: '12px',
     cursor: 'pointer',
     color: colors.mainBlue,
+  },
+  addItem: {
+    iconBackground: colors.light,
+    commonTextColor: colors.white,
+    commonTextBackground: colors.middleBlue,
+  },
+  avatar: {
+    initialsText: colors.mainBlue,
+    initialsBackground: colors.light,
+  },
+  booker: {
+    nickNameText: colors.light,
+    addedBookerIcon: colors.white,
+    addBookerIcon: colors.lightBlue,
+    descriptionText: colors.inactiveGrey,
   },
 };

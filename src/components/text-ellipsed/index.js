@@ -17,6 +17,7 @@ import {
   background,
   fontWeight,
   borderLeft,
+  lineHeight,
   borderColor,
   borderRight,
   borderBottom,
@@ -42,6 +43,7 @@ export const Text = styled.div`
   ${fontWeight}
   ${borderLeft}
   ${background}
+  ${lineHeight}
   ${borderColor}
   ${borderRight}
   ${borderBottom}
@@ -84,6 +86,7 @@ TextEllipsed.propTypes = {
   ...fontWeight.propTypes,
   ...background.propTypes,
   ...borderLeft.propTypes,
+  ...lineHeight.propTypes,
   ...borderColor.propTypes,
   ...borderRight.propTypes,
   ...borderBottom.propTypes,
