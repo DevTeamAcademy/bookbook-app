@@ -24,8 +24,10 @@ const SettingsPage = lazy(() => import(/* webpackChunkName: 'SettingsPage' */ '.
 const SearchPage = lazy(() => import(/* webpackChunkName: 'SearchPage' */ '../features/search/pages'));
 const SignInPage = lazy(() => import(/* webpackChunkName: 'SignInPage' */ '../features/auth/pages/signin'));
 const SignUpPage = lazy(() => import(/* webpackChunkName: 'SignUpPage' */ '../features/auth/pages/signup'));
-const NotificationsPage = lazy(() => import(/* webpackChunkName: 'NotificationsPage' */ '../pages/notifications'));
 const LanguagePage = lazy(() => import(/* webpackChunkName: 'LanguagePage' */ '../features/settings/pages/language'));
+const NotificationsPage = lazy(() =>
+  import(/* webpackChunkName: 'NotificationsPage' */ '../features/notifications/pages'),
+);
 const CreateQuotePage = lazy(() =>
   import(/* webpackChunkName: 'CreateQuotePage' */ '../features/quote/pages/create-quote'),
 );

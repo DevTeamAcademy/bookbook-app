@@ -7,6 +7,8 @@ const colors = {
   light: '#f9f9f9',
   white: '#ffffff',
   black: '#000000',
+  bunting: '#283042',
+  licorice: '#353b46',
   darkBlue: '#1f2532',
   darkGrey: '#363135',
   mainBlue: '#2c7bda',
@@ -17,6 +19,26 @@ const colors = {
   middleGrey: '#9D8C70',
   paleYellow: '#fff8f0',
   inactiveGrey: '#9d9c9d', // TODO: rename properly;
+};
+
+const mainButton = {
+  width: '280px',
+  height: '44px',
+  cursor: 'pointer',
+  bg: colors.darkBlue,
+  borderRadius: '22px',
+  color: colors.lightBlue,
+  border: `1px solid ${colors.lightBlue}`,
+};
+
+const notificationButton = {
+  ...mainButton,
+  width: '45%',
+  bg: 'transparent',
+  maxWidth: '140px',
+  borderRadius: '18px',
+  fontSize: [12, 14, 14],
+  height: ['30px', '35px', '35px'],
 };
 
 const borders = {
@@ -92,21 +114,26 @@ export default {
     borderColor: colors.paleOlive,
   },
   btns: {
-    main: {
-      width: '280px',
-      height: '44px',
-      cursor: 'pointer',
-      borderRadius: '22px',
-      bg: colors.darkBlue,
-      color: colors.lightBlue,
-      border: `1px solid ${colors.lightBlue}`,
-    },
+    main: mainButton,
     authPages: {
       width: '280px',
       height: '44px',
       cursor: 'pointer',
       borderRadius: '22px',
       bg: colors.paleOlive,
+    },
+    notifications: {
+      accept: notificationButton,
+      decline: {
+        ...notificationButton,
+        color: colors.white,
+        border: `1px solid ${colors.white}`,
+      },
+      disabled: {
+        ...notificationButton,
+        color: colors.lightGrey,
+        border: `1px solid ${colors.grey}`,
+      },
     },
   },
   icons: {
@@ -133,5 +160,13 @@ export default {
     addedBookerIcon: colors.white,
     addBookerIcon: colors.lightBlue,
     descriptionText: colors.inactiveGrey,
+  },
+  notification: {
+    date: colors.grey,
+    text: colors.light,
+    message: colors.darkGrey,
+    booker: colors.paleOlive,
+    actionButton: colors.licorice,
+    itemBackground: colors.bunting,
   },
 };

@@ -8,6 +8,7 @@ import {
   zIndex,
   opacity,
   fontSize,
+  maxWidth,
   boxShadow,
   borderColor,
   borderRadius,
@@ -22,6 +23,7 @@ export const Button = styled.button`
   ${border}
   ${zIndex}
   ${opacity}
+  ${maxWidth}
   ${fontSize}
   ${boxShadow}
   ${borderColor}
