@@ -34,6 +34,7 @@ export const AvatarWithNotificationTypeComponent = props => (
       firstName={R.prop('firstName', props)}
       initialsText={Theme.avatar.initialsText}
       initialsBackground={Theme.avatar.initialsBackground}
+      // TODO: with go to booker profile action
       bookerAvatarAction={() => console.log('handleClick')}
     />
     <PositionedBox top='10px' right='13px' position='relative'>
@@ -99,7 +100,7 @@ export const NotificationFooterActionsComponent = props => (
 
 export const NotificationInfo = props => (
   <Box mr='20px' width='100%'>
-    <TextEllipsed color='#e6dda6'>
+    <TextEllipsed color={Theme.notification.booker}>
       {R.prop('firstName', props)} {R.prop('lastName', props)}
     </TextEllipsed>
     <Flex justifyContent='space-between'>
