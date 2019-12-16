@@ -1,14 +1,19 @@
 // TODO: settings list here (with 2 options for now - languages and push notifications)
 import * as R from 'ramda';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import React, { useContext, useState } from 'react';
 // components
 import Switch from '../../components/form-fields/components/switch';
 // contexts
 import { LocaleContext } from '../../contexts/locale';
+// constants
+import * as C from '../../constants';
 // helpers
 import * as H from '../../helpers';
-//theme
+// icons
+import * as I from '../../icons';
+// theme
 import Theme from '../../theme';
 // ui
 import { Box, Flex, Text, PageWrapper } from '../../ui';
@@ -16,22 +21,12 @@ import { Box, Flex, Text, PageWrapper } from '../../ui';
 
 const settingsSections = [
   {
+    route: C.ROUTE_HOME_PAGE_SETTINGS_PAGE,
     title: 'settings.homeList',
-    fieldSettings: [
-      {
-        name: 'quotes',
-        label: 'quotes',
-      },
-    ],
   },
   {
+    route: C.ROUTE_NOTIFICATIONS_SETTINGS_PAGE,
     title: 'settings.notifications',
-    fieldSettings: [
-      {
-        name: 'notifications',
-        label: 'settings.notifications',
-      },
-    ],
   },
 ];
 
@@ -48,17 +43,22 @@ const SettingsSection = props => {
       backgroundColor={Theme.colors.darkBlue}
       borderBottom={Theme.borders.itemBorderBottom}
     >
-      <Flex
-        p={15}
-        height={45}
-        fontWeight='bold'
-        alignItems='center'
-        color={Theme.colors.white}
-        justifyContent='space-between'
-        backgroundColor={Theme.colors.middleBlue}
-      >
-        {H.getLocale(props.item.title)}
-      </Flex>
+      <Link to={props.item.route}>
+        <Flex
+          p={15}
+          height={45}
+          fontWeight='bold'
+          alignItems='center'
+          color={Theme.colors.white}
+          justifyContent='space-between'
+          backgroundColor={Theme.colors.middleBlue}
+        >
+          {H.getLocale(props.item.title)}
+          <I.IconWrapper pl={10} opacity='1'>
+            <I.Arrow width={14} height={11} color={Theme.colors.white} />
+          </I.IconWrapper>
+        </Flex>
+      </Link>
       {R.pathOr([], ['fieldSettings'], props.item).map((item, index) => (
         <Flex
           p={15}

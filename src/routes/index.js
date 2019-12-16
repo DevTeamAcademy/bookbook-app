@@ -25,6 +25,12 @@ const SignInPage = lazy(() => import(/* webpackChunkName: 'SignInPage' */ '../fe
 const SignUpPage = lazy(() => import(/* webpackChunkName: 'SignUpPage' */ '../features/auth/pages/signup'));
 const NotificationsPage = lazy(() => import(/* webpackChunkName: 'NotificationsPage' */ '../pages/notifications'));
 const LanguagePage = lazy(() => import(/* webpackChunkName: 'LanguagePage' */ '../features/settings/pages/language'));
+const HomeListSettingsPage = lazy(() =>
+  import(/* webpackChunkName: 'HomeListSettingsPage' */ '../features/settings/pages/home-list'),
+);
+const NotificationsSettingsPage = lazy(() =>
+  import(/* webpackChunkName: 'NotificationsSettingsPage' */ '../features/settings/pages/notifications'),
+);
 const CreateQuotePage = lazy(() =>
   import(/* webpackChunkName: 'CreateQuotePage' */ '../features/quote/pages/create-quote'),
 );
@@ -86,6 +92,8 @@ export default () => {
             <Route path={C.ROUTE_CREATE_BOOK_PAGE} exact component={CreateBookPage} />
             <Route path={C.ROUTE_CREATE_QUOTE_PAGE} exact component={CreateQuotePage} />
             <Route path={C.ROUTE_NOTIFICATIONS_PAGE} exact component={NotificationsPage} />
+            <Route path={C.ROUTE_HOME_PAGE_SETTINGS_PAGE} exact component={HomeListSettingsPage} />
+            <Route path={C.ROUTE_NOTIFICATIONS_SETTINGS_PAGE} exact component={NotificationsSettingsPage} />
             <RedirectTo redirect={C.ROUTE_HOME_PAGE} />
           </Switch>
         </Layout>

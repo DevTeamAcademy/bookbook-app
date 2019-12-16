@@ -16,3 +16,5 @@ export const ROUTE_CREATE_LIBRARY_PAGE = '/library/new';
 export const ROUTE_NOTIFICATIONS_PAGE = '/notifications';
 export const ROUTE_PASSWORD_RESET_PAGE = '/password/reset';
 export const ROUTE_PASSWORD_FORGOT_PAGE = '/password/forgot';
+export const ROUTE_HOME_PAGE_SETTINGS_PAGE = '/settings/home-page';
+export const ROUTE_NOTIFICATIONS_SETTINGS_PAGE = '/settings/notifications';

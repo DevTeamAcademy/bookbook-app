@@ -97,6 +97,10 @@ export const UA = {
   settings: {
     homeList: 'Домашній Список',
     notifications: 'Сповіщення',
+    booksActivity: 'Дії над моїми книгами',
+    quotesActivity: 'Активності в моїх цитатах',
+    responseActivity: 'Активності в моїх відгуках',
+    bookersActivity: 'Активності читання моїх букерів',
   },
   hints: {
     passwordRecovery: 'Введіть свою адресу електронної пошти, і ми надішлемо вам посилання для його скидання',
@@ -203,6 +207,10 @@ const EN = {
   settings: {
     homeList: 'Home List',
     notifications: 'Notifications',
+    booksActivity: 'Дії над моїми книгами',
+    quotesActivity: 'Активності в моїх цитатах',
+    responseActivity: 'Активності в моїх відгуках',
+    bookersActivity: 'Активності читання моїх букерів',
   },
   hints: {
     passwordRecovery: 'Enter your email and we will send you a link for password recovery',
@@ -309,6 +317,10 @@ const RU = {
   settings: {
     homeList: 'Домашний Список',
     notifications: 'Оповещения',
+    booksActivity: 'Дії над моїми книгами',
+    quotesActivity: 'Активності в моїх цитатах',
+    responseActivity: 'Активності в моїх відгуках',
+    bookersActivity: 'Активності читання моїх букерів',
   },
   hints: {
     passwordRecovery: 'Enter your email and we will send you a link for password recovery',
@@ -415,6 +427,10 @@ const PL = {
   settings: {
     homeList: 'Home List',
     notifications: 'Notifications',
+    booksActivity: 'Дії над моїми книгами',
+    quotesActivity: 'Активності в моїх цитатах',
+    responseActivity: 'Активності в моїх відгуках',
+    bookersActivity: 'Активності читання моїх букерів',
   },
   hints: {
     passwordRecovery: 'Enter your email and we will send you a link for password recovery',

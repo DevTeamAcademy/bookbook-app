@@ -272,6 +272,18 @@ export const RusFlag = ({ width, height }) => (
 RusFlag.propTypes = flagPropTypes;
 RusFlag.defaultProps = defaultFlagProps;
 
+export const Arrow = ({ color, width, height }) => (
+  <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 14 23'>
+    <path
+      fill='#FFF'
+      fillRule='evenodd'
+      d='M13.628 10.715L2.194.825C1.692.392.879.392.376.825c-.501.433-.501 1.136 0 1.57l10.528 9.104L.378 20.605c-.502.433-.502 1.136 0 1.57.501.433 1.315.433 1.817 0l11.435-9.89a1.016 1.016 0 0 0-.002-1.57z'
+    />
+  </svg>
+);
+Arrow.propTypes = iconPropTypes;
+Arrow.defaultProps = defaultIconProps;
+
 export const Tick = ({ color, width, height }) => (
   <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 14 11'>
     <path
