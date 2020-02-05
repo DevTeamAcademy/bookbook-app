@@ -342,3 +342,40 @@ export const AddedBooker = ({ color, width, height }) => (
 );
 AddedBooker.propTypes = iconPropTypes;
 AddedBooker.defaultProps = defaultIconProps;
+
+export const NotificationTypeAdd = ({ color, width, height }) => (
+  <svg width={width} height={height} viewBox='0 0 15 15' xmlns='http://www.w3.org/2000/svg'>
+    <g fill='none' fillRule='evenodd'>
+      <circle cx='7.5' cy='7.5' r='7.5' fill={color} />
+      <path
+        fill='#363135'
+        fillRule='nonzero'
+        d='M7 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 1c-1.35 0-4 .65-4 2v1h8v-1c0-1.35-2.65-2-4-2z'
+      />
+      <g stroke='#363135' strokeWidth='.3'>
+        <path d='M11 6.5h2M12 5.5v2' />
+      </g>
+    </g>
+  </svg>
+);
+NotificationTypeAdd.propTypes = iconPropTypes;
+NotificationTypeAdd.defaultProps = defaultIconProps;
+
+export const NotificationTypeComment = ({ color, width, height }) => (
+  <svg width={width} height={height} viewBox='0 0 15 15' xmlns='http://www.w3.org/2000/svg'>
+    <g fill='none' fillRule='evenodd'>
+      <circle cx='7.5' cy='7.5' r='7.5' fill={color} />
+      <g transform='translate(3 4)'>
+        <path
+          fill='#E6DDA6'
+          d='M9 .939v4.027a.932.932 0 0 1-.924.939H4.125L2.25 8V5.905H.924A.932.932 0 0 1 0 4.965V.94C0 .42.414 0 .924 0h7.152C8.586 0 9 .42 9 .939z'
+        />
+        <circle r='1' cx='2.5' cy='2.5' fill={color} />
+        <circle r='1' cx='4.5' cy='2.5' fill={color} />
+        <circle r='1' cx='6.5' cy='2.5' fill={color} />
+      </g>
+    </g>
+  </svg>
+);
+NotificationTypeComment.propTypes = iconPropTypes;
+NotificationTypeComment.defaultProps = defaultIconProps;

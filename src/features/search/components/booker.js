@@ -28,7 +28,7 @@ export const BookerInfo = props => (
     />
     <Box width='calc(100% - 63px)'>
       <TextEllipsed fontSize='14px' color={Theme.booker.nickNameText} onClick={props.handleGoToBookerProfile}>
-        {props.nickName}
+        {props.lastName} {props.firstName}
       </TextEllipsed>
       <Box mt='7px'>
         {H.isNotNilAndNotEmpty(props.descriptions) &&
@@ -38,7 +38,6 @@ export const BookerInfo = props => (
                 key={index}
                 width='100%'
                 fontSize='11px'
-                lineHeight='20px'
                 overflow='hidden'
                 title={description}
                 withEllipsis={true}

@@ -11,7 +11,7 @@ export const muiltiSwitchSettings = {
   fontSize: '14px',
   fontWeight: '400',
   borderRadius: '100px',
-  multiswitchMargin: '20px 0 15px 0',
+  multiswitchMargin: '20px 0',
 };
 
 export const searchSwitchFields = [
