@@ -1,6 +1,6 @@
-import React from 'react';
 import { Formik } from 'formik';
-import useAxios from 'axios-hooks';
+import React, { useState } from 'react';
+import { useFirebase } from 'react-redux-firebase';
 // components
 import { RouteLink, FormFields, LoadingWrapper } from '../../../components';
 // constants
@@ -28,8 +28,8 @@ const signUpFormSettings = {
         ...Theme.form.input.authPages,
         type: 'text',
         required: true,
-        name: C.USER_FIELDS.FIELD_LOGIN,
-        placeholder: 'labels.login',
+        placeholder: 'labels.username',
+        name: C.USER_FIELDS.FIELD_USERNAME,
       },
     },
     {
@@ -38,8 +38,8 @@ const signUpFormSettings = {
         ...Theme.form.input.authPages,
         type: 'email',
         required: true,
-        name: C.USER_FIELDS.FIELD_EMAIL,
         placeholder: 'labels.email',
+        name: C.USER_FIELDS.FIELD_EMAIL,
       },
     },
     {
@@ -48,8 +48,8 @@ const signUpFormSettings = {
         ...Theme.form.input.authPages,
         type: 'password',
         required: true,
-        name: C.USER_FIELDS.FIELD_PASSWORD,
         placeholder: 'labels.password',
+        name: C.USER_FIELDS.FIELD_PASSWORD,
       },
     },
   ],
@@ -71,22 +71,26 @@ const SignUpForm = props => {
 // TODO: with correct redirection terms and policy
 export const SignUpPage = props => {
   const { history } = props;
-  const [{ data, loading, error, response }, executeRequest] = useAxios(
-    {
-      method: 'POST',
-      url: H.makeRequestUrl(C.ENDP_SIGNUP),
-    },
-    { manual: true },
-  );
-  function sendSignupData(data) {
-    executeRequest({ data });
-  }
-  if (error) {
-    H.showResponseError(error);
-  }
-  if (H.isResponseSuccess(response)) {
-    H.showToast('success', 'messages.successRegister');
-    history.push(C.ROUTE_SIGNIN_PAGE);
+
+  const [isLoading, setLoading] = useState(false);
+
+  const firebase = useFirebase();
+
+  async function sendSignupData(data) {
+    setLoading(true);
+    const { email, password, username } = data;
+    await firebase
+      .createUser({ email, password }, { username, email })
+      .then(res => {
+        if (res.username) {
+          H.showToast('success', 'messages.successRegister');
+          history.push(C.ROUTE_SIGNIN_PAGE);
+        }
+      })
+      .catch(err => {
+        H.showToast('error', err.message, true);
+      });
+    setLoading(false);
   }
 
   return (
@@ -98,8 +102,8 @@ export const SignUpPage = props => {
         <Formik
           onSubmit={values => sendSignupData(values)}
           render={props => (
-            <LoadingWrapper loading={loading}>
-              <SignUpForm loading={loading} {...props} />
+            <LoadingWrapper loading={isLoading}>
+              <SignUpForm loading={isLoading} {...props} />
             </LoadingWrapper>
           )}
         />

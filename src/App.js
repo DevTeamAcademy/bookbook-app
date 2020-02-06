@@ -20,6 +20,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database'; // check this for index.js:1437 Error: Real Time Database or Firestore must be included to enable user profile
 // import 'firebase/firestore' // <- needed if using firestore
 // import 'firebase/functions' // <- needed if using httpsCallable
 import { createStore, combineReducers, compose } from 'redux';
