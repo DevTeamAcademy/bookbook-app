@@ -13,7 +13,7 @@ import { useRequest } from '../../../hooks';
 import { Flex, PageWrapper } from '../../../ui';
 // feature quote
 import LibraryForm from '../components/library-form';
-// /////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 export const CreateLibraryPage = props => {
   async function sendData(body) {

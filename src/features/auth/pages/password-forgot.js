@@ -13,7 +13,7 @@ import { ReactComponent as LogoIcon } from '../../../images/logo.svg';
 import Theme from '../../../theme';
 // ui
 import { Box, Flex, Text, Button, AuthPagesWrapper } from '../../../ui';
-// /////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 const SendEmailFormSettings = {
   wrapperStyles: {

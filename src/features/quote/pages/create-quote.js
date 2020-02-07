@@ -13,16 +13,16 @@ import { useRequest } from '../../../hooks';
 import { Flex, PageWrapper } from '../../../ui';
 // feature quote
 import QuoteForm from '../components/quote-form';
-// /////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 export const CreateQuotePage = props => {
+  const { history } = props;
+
   const firebase = useFirebase();
 
   async function sendData(body) {
-    debugger;
-    // TODO: with request
     const res = await firebase.push('quotes', body);
-    debugger;
+    history.push(C.ROUTE_QUOTES_PAGE);
   }
   return (
     <PageWrapper p={20}>

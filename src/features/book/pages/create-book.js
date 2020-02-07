@@ -13,7 +13,7 @@ import { useRequest } from '../../../hooks';
 import { Flex, PageWrapper } from '../../../ui';
 // feature quote
 import BookForm from '../components/book-form';
-// /////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 export const CreateBookPage = props => {
   async function sendData(body) {

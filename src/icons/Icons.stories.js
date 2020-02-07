@@ -9,7 +9,7 @@ import { Text, Flex } from '../ui';
 // icons
 import { Menu, List, Quote, Notify, Search, Library } from './';
 import { IconWrapper } from './ui';
-// ////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////
 
 // NOTE: set to use 'addWithJSX' instead of 'add'
 setAddon(JSXAddon);

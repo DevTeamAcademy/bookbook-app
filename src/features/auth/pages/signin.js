@@ -17,7 +17,7 @@ import * as PT from '../../../prop-types';
 import Theme from '../../../theme';
 // ui
 import { Box, Flex, Button, AuthPagesWrapper } from '../../../ui';
-// /////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 const signInFormSettings = {
   wrapperStyles: {

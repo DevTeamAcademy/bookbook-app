@@ -4,7 +4,7 @@ import {
   GLOBAL_SET_CURRENT_USER,
   GLOBAL_TOGGLE_ACTION_LIST,
 } from '../global-state/action-types';
-// /////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 const toggleSidebarOpened = () => dispatch({ type: GLOBAL_TOGGLE_SIDEBAR });
 const toggleActionList = () => dispatch({ type: GLOBAL_TOGGLE_ACTION_LIST });
