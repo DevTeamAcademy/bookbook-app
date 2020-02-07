@@ -1,10 +1,19 @@
+import firebase from 'firebase/app';
+import { Provider } from 'react-redux';
 import React, { StrictMode } from 'react';
 import { withRouter } from 'react-router-dom';
 import ErrorBoundary from 'react-error-boundary';
 import { ToastsContainer, ToastsStore } from 'react-toasts';
+// import { createFirestoreInstance } from 'redux-firestore'
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+import 'firebase/auth';
+import 'firebase/database'; // check this for index.js:1437 Error: Real Time Database or Firestore must be included to enable user profile
+// import 'firebase/firestore' // <- needed if using firestore
+// import 'firebase/functions' // <- needed if using httpsCallable
 // css
 import 'react-loading-bar/dist/index.css';
 // root
+import createStore from './store';
 import rootReducer from './reducer';
 // contexts
 import { LocaleProvider } from './contexts/locale';
@@ -15,21 +24,6 @@ import Routes from './routes';
 // ui
 import GlobalStyles from './ui/global-styles';
 //  /////////////////////////////////////////////////////////////////////////////////////////////////
-
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-// import 'firebase/firestore' // <- needed if using firestore
-// import 'firebase/functions' // <- needed if using httpsCallable
-import { createStore, combineReducers, compose } from 'redux';
-import { ReactReduxFirebaseProvider, firebaseReducer } from 'react-redux-firebase';
-// import { createFirestoreInstance, firestoreReducer } from 'redux-firestore'
-
-// import ApolloClient from 'apollo-boost';
-// import { ApolloProvider } from 'react-apollo-hooks';
-
-// const client = new ApolloClient();
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA_JNGWr-TlYsxQxGSILFuhfyyYfYqwmiA',
@@ -53,12 +47,12 @@ const rrfConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // Initialize other services on firebase instance
+firebase.database(); // <- needed if using firestore
 // firebase.firestore() // <- needed if using firestore
 // firebase.functions() // <- needed if using httpsCallable
 
-// Create store with reducers and initial state
-const initialState = {};
-const store = createStore(rootReducer, initialState);
+// Create store with reducers, middlewares and initial state
+const store = createStore();
 
 const rrfProps = {
   firebase,

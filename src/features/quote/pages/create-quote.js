@@ -1,6 +1,6 @@
-import React from 'react';
 import { Formik } from 'formik';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useFirebase } from 'react-redux-firebase';
 // constants
 import * as C from '../../../constants';
 // helpers
@@ -13,12 +13,16 @@ import { useRequest } from '../../../hooks';
 import { Flex, PageWrapper } from '../../../ui';
 // feature quote
 import QuoteForm from '../components/quote-form';
-// /////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 export const CreateQuotePage = props => {
+  const { history } = props;
+
+  const firebase = useFirebase();
+
   async function sendData(body) {
-    // TODO: with request
-    console.log(body);
+    const res = await firebase.push('quotes', body);
+    history.push(C.ROUTE_QUOTES_PAGE);
   }
   return (
     <PageWrapper p={20}>

@@ -1,6 +1,6 @@
-import React from 'react';
 import { Formik } from 'formik';
-import useAxios from 'axios-hooks';
+import React, { useState } from 'react';
+import { useFirebase } from 'react-redux-firebase';
 // components
 import { RouteLink, FormFields, LoadingWrapper } from '../../../components';
 // constants
@@ -17,7 +17,7 @@ import * as PT from '../../../prop-types';
 import Theme from '../../../theme';
 // ui
 import { Box, Flex, Button, AuthPagesWrapper } from '../../../ui';
-// /////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 const signInFormSettings = {
   wrapperStyles: {
@@ -30,8 +30,8 @@ const signInFormSettings = {
         ...Theme.form.input.authPages,
         type: 'text',
         required: true,
-        name: C.USER_FIELDS.FIELD_USERNAME,
-        placeholder: 'labels.loginOrEmail',
+        name: C.USER_FIELDS.FIELD_EMAIL,
+        placeholder: 'labels.email',
       },
     },
     {
@@ -69,30 +69,26 @@ const SignInForm = props => {
 
 export const SignInPage = props => {
   const { history } = props;
-  const [{ data, loading, error, response }, executeRequest] = useAxios(
-    {
-      method: 'POST',
-      url: H.makeRequestUrl(C.ENDP_SIGNIN),
-      headers: H.makeRequestHeaders(C.AUTH_OPTIONS.headers),
-    },
-    { manual: true },
-  );
-  function sendLoginData(values) {
-    const { username, password } = values;
-    const data = H.qsStringify({
-      grant_type: 'password',
-      username,
-      password,
-    });
-    executeRequest({ data });
-  }
-  if (error) {
-    H.showResponseError(error);
-  }
-  if (H.isResponseSuccess(response)) {
-    setCurrentUser(data);
-    H.showToast('success', 'messages.successLogin');
-    history.push(C.ROUTE_HOME_PAGE);
+
+  const [isLoading, setLoading] = useState(false);
+
+  const firebase = useFirebase();
+
+  async function sendLoginData(data) {
+    setLoading(true);
+    const { email, password } = data;
+    await firebase
+      .login({ email, password })
+      .then(res => {
+        if (res.user) {
+          H.showToast('success', 'messages.successLogin');
+          history.push(C.ROUTE_HOME_PAGE);
+        }
+      })
+      .catch(err => {
+        H.showToast('error', err.message, true);
+      });
+    setLoading(false);
   }
 
   return (
@@ -104,8 +100,8 @@ export const SignInPage = props => {
         <Formik
           onSubmit={values => sendLoginData(values)}
           render={props => (
-            <LoadingWrapper loading={loading}>
-              <SignInForm loading={loading} {...props} />
+            <LoadingWrapper loading={isLoading}>
+              <SignInForm loading={isLoading} {...props} />
             </LoadingWrapper>
           )}
         />
