@@ -76,6 +76,23 @@ export const SignUpPage = props => {
 
   const firebase = useFirebase();
 
+  async function loginUser(data) {
+    setLoading(true);
+    const { email, password } = data;
+    await firebase
+      .login({ email, password })
+      .then(res => {
+        if (res.user) {
+          H.showToast('success', 'messages.successLogin');
+          history.push(C.ROUTE_HOME_PAGE);
+        }
+      })
+      .catch(err => {
+        H.showToast('error', err.message, true);
+      });
+    setLoading(false);
+  }
+
   async function sendSignupData(data) {
     setLoading(true);
     const { email, password, username } = data;
@@ -84,7 +101,8 @@ export const SignUpPage = props => {
       .then(res => {
         if (res.username) {
           H.showToast('success', 'messages.successRegister');
-          history.push(C.ROUTE_SIGNIN_PAGE);
+          loginUser(data);
+          // history.push(C.ROUTE_SIGNIN_PAGE);
         }
       })
       .catch(err => {

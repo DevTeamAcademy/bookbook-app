@@ -1,5 +1,3 @@
-import { hasClientExports } from 'apollo-utilities';
-
 // NOTE: add all default styles props here (colors, shadows, borders, spaces, sizes etc.)
 
 const colors = {

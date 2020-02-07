@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router as BrowserRouter } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import { Router as BrowserRouter } from 'react-router-dom';
 // root
 import App from './App';
 import * as serviceWorker from './serviceWorker';
