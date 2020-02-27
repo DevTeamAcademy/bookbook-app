@@ -2,7 +2,7 @@ import React from 'react';
 import { pathOr } from 'ramda';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { useFirebaseConnect } from 'react-redux-firebase';
+import { isEmpty, isLoaded, useFirebaseConnect } from 'react-redux-firebase';
 // ui
 import { Box, Flex } from '../../ui';
 // //////////////////////////////////////////////////
@@ -12,10 +12,18 @@ export const QuotesPage = props => {
 
   const quotes = useSelector(state => pathOr([], ['firebase', 'ordered', 'quotes'], state));
 
+  if (!isLoaded(quotes)) {
+    return <div>Loading...</div>;
+  }
+
+  if (isEmpty(quotes)) {
+    return <div>Quotes List Is Empty</div>;
+  }
+
   return (
     <Flex flexDirection='column'>
       {quotes.map(item => (
-        <Box>{item.value.quote}</Box>
+        <Box key={item.key}>{item.value.quote}</Box>
       ))}
     </Flex>
   );

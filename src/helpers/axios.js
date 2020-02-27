@@ -21,24 +21,24 @@ export const makeRequestUrl = endpoint => {
   );
 };
 
-export const makeRequestHeaders = customHeaders => {
-  let token;
-  let sessionHeaders = {};
-  try {
-    token = H.getToken();
-  } catch (error) {
-    token = null;
-  }
-  if (token) {
-    sessionHeaders = {
-      Authorization: `Bearer ${token}`,
-    };
-  }
-  return {
-    ...sessionHeaders,
-    ...customHeaders,
-  };
-};
+// export const makeRequestHeaders = customHeaders => {
+//   let token;
+//   let sessionHeaders = {};
+//   try {
+//     token = H.getToken();
+//   } catch (error) {
+//     token = null;
+//   }
+//   if (token) {
+//     sessionHeaders = {
+//       Authorization: `Bearer ${token}`,
+//     };
+//   }
+//   return {
+//     ...sessionHeaders,
+//     ...customHeaders,
+//   };
+// };
 
 export const createRequestConfig = (method, endpoint, options = {}, isUrlencoded) => {
   const config = {
@@ -46,7 +46,7 @@ export const createRequestConfig = (method, endpoint, options = {}, isUrlencoded
     data: R.or(options.data, {}),
     params: R.or(options.params, {}),
     url: makeRequestUrl(endpoint),
-    headers: makeRequestHeaders(R.or(options.headers, {})),
+    // headers: makeRequestHeaders(R.or(options.headers, {})),
   };
   if (options.responseType) {
     config.responseType = options.responseType;

@@ -1,16 +1,10 @@
-import R from 'ramda';
-import useAxios from 'axios-hooks';
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 // constants
 import * as C from '../constants';
-// global-state
-import { setCurrentUser } from '../global-state/dispatchers';
-// helpers
-import * as H from '../helpers';
 // routes
 import Layout from './Layout';
-////////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 const HomePage = lazy(() => import(/* webpackChunkName: 'HomePage' */ '../pages/home'));
 const HelpPage = lazy(() => import(/* webpackChunkName: 'HelpPage' */ '../pages/help'));
@@ -45,30 +39,6 @@ const PasswordForgotPage = lazy(() =>
 
 // TODO: check better place to getting initial API data
 export default () => {
-  const token = H.getToken();
-  const [{ data, error, response }, executeRequest] = useAxios(
-    {
-      method: 'POST',
-      url: H.makeRequestUrl(C.ENDP_SESSION),
-      headers: H.makeRequestHeaders(C.AUTH_OPTIONS.headers),
-    },
-    { manual: true },
-  );
-  function sendSessionData() {
-    const data = H.qsStringify({ token });
-    executeRequest({ data });
-  }
-  if (error) {
-    H.showResponseError(error);
-  }
-  if (H.isResponseSuccess(response)) {
-    setCurrentUser(R.assoc('access_token', token, data));
-  }
-  useEffect(() => {
-    if (H.isNilOrEmpty(token)) return;
-    sendSessionData();
-  }, []);
-
   return (
     <Suspense fallback={null}>
       <Switch>

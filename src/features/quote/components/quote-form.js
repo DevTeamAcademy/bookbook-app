@@ -55,7 +55,6 @@ const formSettings = {
       input: {
         ...Theme.form.input.main,
         height: 150,
-        required: true,
         name: C.QUOTE_FIELDS.FIELD_QUOTE,
       },
       label: {
@@ -64,10 +63,12 @@ const formSettings = {
       },
     },
     {
-      type: 'searchSelect',
+      type: 'creatableSearchSelect',
       reactSelectStyles: Theme.form.reactSelect.main,
       input: {
         options: [],
+        isMulti: true,
+        isClearable: true,
         name: C.QUOTE_FIELDS.FIELD_CATEGORY,
       },
       label: {
@@ -94,6 +95,7 @@ const formSettings = {
       reactSelectStyles: Theme.form.reactSelect.main,
       input: {
         options: [],
+        isClearable: true,
         name: C.QUOTE_FIELDS.FIELD_BOOK,
       },
       label: {

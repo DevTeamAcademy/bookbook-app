@@ -11,7 +11,7 @@ import { useGlobalState } from '../global-state';
 import { toggleActionList, toggleSidebarOpened } from '../global-state/dispatchers';
 // hooks
 import { useWindowSize } from '../hooks';
-////////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 // TODO: with full ui
 const LoadingFallback = ({ error }) => {

@@ -3,18 +3,17 @@ import { Provider } from 'react-redux';
 import React, { StrictMode } from 'react';
 import { withRouter } from 'react-router-dom';
 import ErrorBoundary from 'react-error-boundary';
+import { createFirestoreInstance } from 'redux-firestore';
 import { ToastsContainer, ToastsStore } from 'react-toasts';
-// import { createFirestoreInstance } from 'redux-firestore'
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import 'firebase/auth';
 import 'firebase/database'; // check this for index.js:1437 Error: Real Time Database or Firestore must be included to enable user profile
-// import 'firebase/firestore' // <- needed if using firestore
+import 'firebase/firestore'; // <- needed if using firestore
 // import 'firebase/functions' // <- needed if using httpsCallable
 // css
 import 'react-loading-bar/dist/index.css';
 // root
 import createStore from './store';
-import rootReducer from './reducer';
 // contexts
 import { LocaleProvider } from './contexts/locale';
 // global-state
@@ -23,7 +22,7 @@ import { GlobalStateProvider } from './global-state';
 import Routes from './routes';
 // ui
 import GlobalStyles from './ui/global-styles';
-//  /////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA_JNGWr-TlYsxQxGSILFuhfyyYfYqwmiA',
@@ -48,7 +47,7 @@ firebase.initializeApp(firebaseConfig);
 
 // Initialize other services on firebase instance
 firebase.database(); // <- needed if using firestore
-// firebase.firestore() // <- needed if using firestore
+firebase.firestore(); // <- needed if using firestore
 // firebase.functions() // <- needed if using httpsCallable
 
 // Create store with reducers, middlewares and initial state
@@ -58,7 +57,7 @@ const rrfProps = {
   firebase,
   config: rrfConfig,
   dispatch: store.dispatch,
-  // createFirestoreInstance // <- needed if using firestore
+  createFirestoreInstance, // <- needed if using firestore
 };
 
 const ErrorFallback = ({ error }) => {
