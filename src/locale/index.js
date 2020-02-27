@@ -3,6 +3,9 @@ import * as C from '../constants';
 // //////////////////////////////////////////////////
 
 export const UA = {
+  quotes: 'Цитати',
+  termsAndConditions: 'Умови використання',
+  privacyPolicy: 'Політика приватності',
   copyright: '2019 © Всі права захищено',
   privacyPolicy: 'Політика приватності',
   termsAndConditions: 'Умови використання',
@@ -92,6 +95,14 @@ export const UA = {
   fields: {
     search: 'Пошук...',
   },
+  settings: {
+    homeList: 'Домашній Список',
+    notifications: 'Сповіщення',
+    booksActivity: 'Дії над моїми книгами',
+    quotesActivity: 'Активності в моїх цитатах',
+    responseActivity: 'Активності в моїх відгуках',
+    bookersActivity: 'Активності читання моїх букерів',
+  },
   hints: {
     passwordRecovery: 'Введіть свою адресу електронної пошти, і ми надішлемо вам посилання для його скидання',
   },
@@ -104,6 +115,8 @@ export const UA = {
 };
 
 const EN = {
+  quotes: 'Quotes',
+  termsAndConditions: 'Terms and conditions',
   privacyPolicy: 'Privacy policy',
   copyright: '2019 © All rights reserved',
   termsAndConditions: 'Terms and conditions',
@@ -193,6 +206,14 @@ const EN = {
   fields: {
     search: 'Search...',
   },
+  settings: {
+    homeList: 'Home List',
+    notifications: 'Notifications',
+    booksActivity: 'Дії над моїми книгами',
+    quotesActivity: 'Активності в моїх цитатах',
+    responseActivity: 'Активності в моїх відгуках',
+    bookersActivity: 'Активності читання моїх букерів',
+  },
   hints: {
     passwordRecovery: 'Enter your email and we will send you a link for password recovery',
   },
@@ -205,6 +226,8 @@ const EN = {
 };
 
 const RU = {
+  quotes: 'Quotes',
+  termsAndConditions: 'Terms and conditions',
   privacyPolicy: 'Privacy policy',
   copyright: '2019 © All rights reserved',
   termsAndConditions: 'Terms and conditions',
@@ -294,6 +317,14 @@ const RU = {
   fields: {
     search: 'Search...',
   },
+  settings: {
+    homeList: 'Домашний Список',
+    notifications: 'Оповещения',
+    booksActivity: 'Дії над моїми книгами',
+    quotesActivity: 'Активності в моїх цитатах',
+    responseActivity: 'Активності в моїх відгуках',
+    bookersActivity: 'Активності читання моїх букерів',
+  },
   hints: {
     passwordRecovery: 'Enter your email and we will send you a link for password recovery',
   },
@@ -306,6 +337,8 @@ const RU = {
 };
 
 const PL = {
+  quotes: 'Quotes',
+  termsAndConditions: 'Terms and conditions',
   privacyPolicy: 'Privacy policy',
   copyright: '2019 © All rights reserved',
   termsAndConditions: 'Terms and conditions',
@@ -394,6 +427,14 @@ const PL = {
   },
   fields: {
     search: 'Search...',
+  },
+  settings: {
+    homeList: 'Home List',
+    notifications: 'Notifications',
+    booksActivity: 'Дії над моїми книгами',
+    quotesActivity: 'Активності в моїх цитатах',
+    responseActivity: 'Активності в моїх відгуках',
+    bookersActivity: 'Активності читання моїх букерів',
   },
   hints: {
     passwordRecovery: 'Enter your email and we will send you a link for password recovery',

@@ -18,6 +18,7 @@ const colors = {
   middleGrey: '#9D8C70',
   paleYellow: '#fff8f0',
   inactiveGrey: '#9d9c9d', // TODO: rename properly;
+  realMiddleGrey: '#666366',
 };
 
 const mainButton = {
@@ -103,6 +104,14 @@ export default {
       },
       focusBoxShadow: shadows.formInputDefault,
     },
+  },
+  switch: {
+    onBgColor: 'transparent',
+    offBgColor: 'transparent',
+    onColor: colors.paleOlive,
+    offColor: colors.realMiddleGrey,
+    onBorderColor: colors.paleOlive,
+    offBorderColor: colors.realMiddleGrey,
   },
   multiswitch: {
     bg: colors.darkBlue,

@@ -1,32 +1,40 @@
 // TODO: settings list here (with 2 options for now - languages and push notifications)
 import * as R from 'ramda';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import React, { useContext, useState } from 'react';
 // components
-import Switch from '../../components/form-fields/components/switch';
+import Switch from '../../../components/form-fields/components/switch';
 // contexts
-import { LocaleContext } from '../../contexts/locale';
-// constants
-import * as C from '../../constants';
+import { LocaleContext } from '../../../contexts/locale';
 // helpers
-import * as H from '../../helpers';
-// icons
-import * as I from '../../icons';
-// theme
-import Theme from '../../theme';
+import * as H from '../../../helpers';
+//theme
+import Theme from '../../../theme';
 // ui
-import { Box, Flex, Text, PageWrapper } from '../../ui';
+import { Box, Flex, Text, PageWrapper } from '../../../ui';
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 const settingsSections = [
   {
-    route: C.ROUTE_HOME_PAGE_SETTINGS_PAGE,
     title: 'settings.homeList',
-  },
-  {
-    route: C.ROUTE_NOTIFICATIONS_SETTINGS_PAGE,
-    title: 'settings.notifications',
+    fieldSettings: [
+      {
+        name: 'quotes',
+        label: 'quotes',
+      },
+      {
+        name: 'quotes',
+        label: 'quotes',
+      },
+      {
+        name: 'quotes',
+        label: 'quotes',
+      },
+      {
+        name: 'quotes',
+        label: 'quotes',
+      },
+    ],
   },
 ];
 
@@ -43,22 +51,17 @@ const SettingsSection = props => {
       backgroundColor={Theme.colors.darkBlue}
       borderBottom={Theme.borders.itemBorderBottom}
     >
-      <Link to={props.item.route}>
-        <Flex
-          p={15}
-          height={45}
-          fontWeight='bold'
-          alignItems='center'
-          color={Theme.colors.white}
-          justifyContent='space-between'
-          backgroundColor={Theme.colors.middleBlue}
-        >
-          {H.getLocale(props.item.title)}
-          <I.IconWrapper pl={10} opacity='1'>
-            <I.Arrow width={14} height={11} color={Theme.colors.white} />
-          </I.IconWrapper>
-        </Flex>
-      </Link>
+      <Flex
+        p={15}
+        height={45}
+        fontWeight='bold'
+        alignItems='center'
+        color={Theme.colors.white}
+        justifyContent='space-between'
+        backgroundColor={Theme.colors.middleBlue}
+      >
+        {H.getLocale(props.item.title)}
+      </Flex>
       {R.pathOr([], ['fieldSettings'], props.item).map((item, index) => (
         <Flex
           p={15}
@@ -81,7 +84,7 @@ const SettingsSection = props => {
   );
 };
 
-export const SettingsPage = props => {
+export const HomeListSettingsPage = props => {
   const [values, setValues] = useState({ notifications: false, quotes: false });
   const { locale } = useContext(LocaleContext);
   return (
@@ -95,8 +98,8 @@ export const SettingsPage = props => {
   );
 };
 
-export default SettingsPage;
+export default HomeListSettingsPage;
 
-SettingsPage.propTypes = {};
+HomeListSettingsPage.propTypes = {};
 
-SettingsPage.displayName = 'SettingsPage';
+HomeListSettingsPage.displayName = 'HomeListSettingsPage';

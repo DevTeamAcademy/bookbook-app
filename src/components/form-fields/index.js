@@ -9,6 +9,7 @@ import * as H from '../../helpers';
 // ui
 import { Box, Flex, Input, Label, Textarea } from '../../ui';
 // form-fields
+import Switch from './components/switch';
 import SearchSelect from './components/search-select';
 import CreatableSearchSelect from './components/creatable-search-select';
 // //////////////////////////////////////////////////
@@ -25,6 +26,7 @@ const MultiswitchComponent = ({ name, value, setFieldValue, options }) => (
 
 const typeComponentMap = {
   input: Input,
+  switch: Switch,
   textarea: Textarea,
   searchSelect: SearchSelect,
   multiswitch: MultiswitchComponent,

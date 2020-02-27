@@ -19,6 +19,7 @@ import {
   borderTop,
   background,
   alignItems,
+  fontWeight,
   borderLeft,
   borderColor,
   borderRight,
@@ -48,6 +49,7 @@ export const Flex = styled.div`
   ${minHeight}
   ${boxShadow}
   ${borderTop}
+  ${fontWeight}
   ${background}
   ${borderLeft}
   ${background}
