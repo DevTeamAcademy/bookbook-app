@@ -24,10 +24,14 @@ const MultiswitchComponent = ({ name, value, setFieldValue, options }) => (
   />
 );
 
+const SwitchComponent = ({ name, value, values, setFieldValue }) => (
+  <Switch name={name} value={R.or(value, false)} checked={R.or(value, false)} setFieldValue={setFieldValue} />
+);
+
 const typeComponentMap = {
   input: Input,
-  switch: Switch,
   textarea: Textarea,
+  switch: SwitchComponent,
   searchSelect: SearchSelect,
   multiswitch: MultiswitchComponent,
   creatableSearchSelect: CreatableSearchSelect,
@@ -42,7 +46,7 @@ export const FieldComponent = (props: Object) => {
 export const FormFields = props => (
   <Flex {...H.spreadUiProps(props.settings.wrapperStyles)}>
     {props.settings.fields.map((item: Object, index: number) => (
-      <Box key={index} {...H.spreadUiProps(item.wrapperStyles)}>
+      <Flex key={index} flexDirection='column' {...H.spreadUiProps(item.wrapperStyles)}>
         {item.label && (
           <Flex>
             <Label {...H.spreadUiProps(item.label.styles)} htmlFor={item.input.name}>
@@ -50,7 +54,6 @@ export const FormFields = props => (
             </Label>
           </Flex>
         )}
-        <div />
         <FieldComponent
           {...item.input}
           type={item.type}
@@ -62,7 +65,7 @@ export const FormFields = props => (
           value={R.path(['values', item.input.name], props)}
           placeholder={H.getLocale(R.path(['input', 'placeholder'], item))}
         />
-      </Box>
+      </Flex>
     ))}
   </Flex>
 );

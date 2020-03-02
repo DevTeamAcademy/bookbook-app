@@ -1,5 +1,5 @@
 // TODO: settings list here (with 2 options for now - languages and push notifications)
-import * as R from 'ramda';
+import R from 'ramda';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import React, { useContext, useState } from 'react';
@@ -17,7 +17,7 @@ import * as I from '../../icons';
 import Theme from '../../theme';
 // ui
 import { Box, Flex, Text, PageWrapper } from '../../ui';
-// /////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 const settingsSections = [
   {

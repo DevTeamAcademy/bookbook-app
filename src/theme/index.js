@@ -67,7 +67,6 @@ export default {
       main: {
         control: {
           width: '280px',
-          marginBottom: '20px',
           borderColor: colors.middleBlue,
           backgroundColor: colors.darkBlue,
           border: `1px solid ${colors.middleBlue}`,

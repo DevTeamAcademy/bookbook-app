@@ -11,145 +11,15 @@ import * as PT from '../../../prop-types';
 import Theme from '../../../theme';
 // ui
 import { Button } from '../../../ui';
+// quote
+import { quoteFormSettings } from '../settings';
 // //////////////////////////////////////////////////
-
-export const scopeOptions = [
-  {
-    width: 93,
-    value: 'private',
-    name: H.getLocale('labels.private'),
-  },
-  {
-    width: 93,
-    value: 'semiPublic',
-    name: H.getLocale('labels.semiPublic'),
-  },
-  {
-    width: 93,
-    value: 'public',
-    name: H.getLocale('labels.public'),
-  },
-];
-
-const formSettings = {
-  wrapperStyles: {
-    flexDirection: 'column',
-  },
-  fields: [
-    {
-      type: 'multiswitch',
-      wrapperStyles: {
-        mb: 15,
-      },
-      input: {
-        options: scopeOptions,
-        name: C.QUOTE_FIELDS.FIELD_SCOPE,
-      },
-      label: {
-        locale: 'labels.scope',
-        styles: Theme.form.label.main,
-      },
-    },
-    {
-      type: 'textarea',
-      input: {
-        ...Theme.form.input.main,
-        height: 150,
-        name: C.QUOTE_FIELDS.FIELD_QUOTE,
-      },
-      label: {
-        locale: 'labels.quote',
-        styles: Theme.form.label.main,
-      },
-    },
-    {
-      type: 'creatableSearchSelect',
-      reactSelectStyles: Theme.form.reactSelect.main,
-      input: {
-        options: [],
-        isMulti: true,
-        isClearable: true,
-        name: C.QUOTE_FIELDS.FIELD_CATEGORY,
-      },
-      label: {
-        locale: 'labels.category',
-        styles: Theme.form.label.main,
-      },
-    },
-    {
-      type: 'creatableSearchSelect',
-      reactSelectStyles: Theme.form.reactSelect.main,
-      input: {
-        options: [],
-        isMulti: true,
-        isClearable: true,
-        name: C.QUOTE_FIELDS.FIELD_AUTHOR,
-      },
-      label: {
-        locale: 'labels.author',
-        styles: Theme.form.label.main,
-      },
-    },
-    {
-      type: 'creatableSearchSelect',
-      reactSelectStyles: Theme.form.reactSelect.main,
-      input: {
-        options: [],
-        isClearable: true,
-        name: C.QUOTE_FIELDS.FIELD_BOOK,
-      },
-      label: {
-        locale: 'labels.book',
-        styles: Theme.form.label.main,
-      },
-    },
-    {
-      type: 'input',
-      input: {
-        ...Theme.form.input.main,
-        type: 'text',
-        required: false,
-        name: C.QUOTE_FIELDS.FIELD_PAGE,
-      },
-      label: {
-        locale: 'labels.page',
-        styles: Theme.form.label.main,
-      },
-    },
-    {
-      type: 'input',
-      input: {
-        ...Theme.form.input.main,
-        height: 150,
-        required: false,
-        name: C.QUOTE_FIELDS.FIELD_DESCRIPTION,
-      },
-      label: {
-        locale: 'labels.description',
-        styles: Theme.form.label.main,
-      },
-    },
-    {
-      type: 'input',
-      input: {
-        ...Theme.form.input.main,
-        type: 'text',
-        required: false,
-        name: C.QUOTE_FIELDS.FIELD_LINK,
-      },
-      label: {
-        locale: 'labels.link',
-        styles: Theme.form.label.main,
-      },
-    },
-  ],
-};
 
 const QuoteForm = props => {
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <FormFields {...props} settings={formSettings} />
+      <FormFields {...props} settings={quoteFormSettings} />
       <Button type='submit' {...Theme.btns.main}>
         {H.getLocale('actions.save')}
       </Button>

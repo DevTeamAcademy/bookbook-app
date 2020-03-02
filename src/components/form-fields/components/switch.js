@@ -1,4 +1,4 @@
-import * as R from 'ramda';
+import R from 'ramda';
 import React from 'react';
 import ReactSwitch from 'react-switch';
 // helpers
@@ -6,11 +6,11 @@ import * as H from '../../../helpers';
 // theme
 import Theme from '../../../theme';
 import { Flex } from '../../../ui';
-///////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 const makeSettings = (settings = {}) => ({
-  height: R.or(settings.height, 18),
   width: R.or(settings.width, 40),
+  height: R.or(settings.height, 18),
   border: R.or(settings.border, '2px solid'),
   checkedIcon: R.or(settings.checkedIcon, false),
   wrapHeight: R.add(R.or(settings.height, 18), 4),
@@ -24,9 +24,10 @@ const makeSettings = (settings = {}) => ({
   offBorderColor: R.or(R.or(settings.offBorderColor, settings.offColor), Theme.switch.offBorderColor),
 });
 
-const Switch = ({ value, setFieldValue, name, checked, ...rest }) => {
+const Switch = ({ name, value, checked, setFieldValue, ...rest }) => {
   const settings = makeSettings(rest.settings);
   const handleChange = (value: any) => setFieldValue(name, value);
+
   return (
     <Flex
       width='max-content'

@@ -98,7 +98,9 @@ import QuoteForm from '../components/quote-form';
 
 async function sendCategories(data, uid, quoteKey, fire) {
   // TODO: use some like compose-p to await all categories and update quote with one call
-  const category = R.path([C.QUOTE_FIELDS.FIELD_CATEGORY, 0], data);
+  const oldCategory = R.pathEq(false, [C.QUOTE_FIELDS.FIELD_CATEGORY, 0, C.FIELD_IS_NEW], data);
+  if (oldCategory) return;
+  const category = R.omit([C.FIELD_IS_NEW], R.path([C.QUOTE_FIELDS.FIELD_CATEGORY, 0], data));
   const res = await fire.push(`categories/${uid}`, category);
   const categoryKey = res.key;
   fire.update(`quotes/${quoteKey}`, { categories: [categoryKey] });
@@ -120,6 +122,7 @@ export const CreateQuotePage = props => {
     sendCategories(data, uid, quoteKey, firebase);
     history.push(C.ROUTE_QUOTES_PAGE);
   }
+
   return (
     <PageWrapper p={20}>
       <Flex alignItems='center' flexDirection='column' justifyContent='center'>
