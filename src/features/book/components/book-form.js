@@ -13,73 +13,66 @@ import Theme from '../../../theme';
 import { Button } from '../../../ui';
 // //////////////////////////////////////////////////
 
-export const scopeOptions = [
-  {
-    width: 93,
-    value: 'private',
-    name: H.getLocale('labels.private'),
-  },
-  {
-    width: 93,
-    value: 'semiPublic',
-    name: H.getLocale('labels.semiPublic'),
-  },
-  {
-    width: 93,
-    value: 'public',
-    name: H.getLocale('labels.public'),
-  },
-];
-
 const formSettings = {
   wrapperStyles: {
     flexDirection: 'column',
   },
   fields: [
     {
-      type: 'multiswitch',
-      wrapperStyles: {
-        mb: 15,
-      },
+      type: 'switch',
       input: {
-        options: scopeOptions,
-        name: C.BOOK_FIELDS.FIELD_SCOPE,
+        name: C.BOOK_FIELDS.FIELD_PUBLIC,
       },
       label: {
-        locale: 'labels.scope',
+        locale: 'labels.public',
         styles: Theme.form.label.main,
+      },
+      wrapperStyles: {
+        mb: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
       },
     },
     {
       type: 'input',
+      wrapperStyles: {
+        mb: 20,
+      },
+      label: {
+        locale: 'labels.name',
+        styles: Theme.form.label.main,
+      },
       input: {
         ...Theme.form.input.main,
         type: 'text',
         required: false,
         name: C.BOOK_FIELDS.FIELD_NAME,
       },
-      label: {
-        locale: 'labels.name',
-        styles: Theme.form.label.main,
-      },
     },
     {
       type: 'creatableSearchSelect',
       reactSelectStyles: Theme.form.reactSelect.main,
+      wrapperStyles: {
+        mb: 20,
+      },
+      label: {
+        locale: 'labels.author',
+        styles: Theme.form.label.main,
+      },
       input: {
         options: [],
         isMulti: true,
         isClearable: true,
         name: C.BOOK_FIELDS.FIELD_AUTHOR,
       },
-      label: {
-        locale: 'labels.author',
-        styles: Theme.form.label.main,
-      },
     },
     {
       type: 'searchSelect',
       reactSelectStyles: Theme.form.reactSelect.main,
+      wrapperStyles: {
+        mb: 20,
+      },
       input: {
         options: [],
         name: C.BOOK_FIELDS.FIELD_LIBRARY,
@@ -92,29 +85,35 @@ const formSettings = {
     {
       type: 'creatableSearchSelect',
       reactSelectStyles: Theme.form.reactSelect.main,
+      wrapperStyles: {
+        mb: 20,
+      },
+      label: {
+        locale: 'labels.shelf',
+        styles: Theme.form.label.main,
+      },
       input: {
         options: [],
         isMulti: true,
         isClearable: true,
         name: C.BOOK_FIELDS.FIELD_SHELF,
       },
-      label: {
-        locale: 'labels.shelf',
-        styles: Theme.form.label.main,
-      },
     },
     {
       type: 'creatableSearchSelect',
       reactSelectStyles: Theme.form.reactSelect.main,
+      wrapperStyles: {
+        mb: 20,
+      },
+      label: {
+        locale: 'labels.category',
+        styles: Theme.form.label.main,
+      },
       input: {
         options: [],
         isMulti: true,
         isClearable: true,
         name: C.BOOK_FIELDS.FIELD_CATEGORY,
-      },
-      label: {
-        locale: 'labels.category',
-        styles: Theme.form.label.main,
       },
     },
     {

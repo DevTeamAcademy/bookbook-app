@@ -67,7 +67,6 @@ export default {
       main: {
         control: {
           width: '280px',
-          marginBottom: '20px',
           borderColor: colors.middleBlue,
           backgroundColor: colors.darkBlue,
           border: `1px solid ${colors.middleBlue}`,
@@ -86,7 +85,6 @@ export default {
     input: {
       main: {
         px: '10px',
-        mb: '20px',
         width: '280px',
         height: '40px',
         borderRadius: '4px',
