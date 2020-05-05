@@ -1,5 +1,6 @@
 import R from 'ramda';
 // //////////////////////////////////////////////////
+
 export const isArray = R.is(Array);
 export const isString = R.is(String);
 export const isNumber = R.is(Number);

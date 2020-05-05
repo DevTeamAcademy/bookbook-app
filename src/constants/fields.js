@@ -11,6 +11,7 @@ export const FIELD_SCOPE = 'scope';
 export const FIELD_PUBLIC = 'public';
 export const FIELD_BOOKER = 'booker';
 export const FIELD_AUTHOR = 'author';
+export const FIELD_AUTHORS = 'authors';
 export const FIELD_LIBRARY = 'library';
 export const FIELD_IS_NEW = '__isNew__';
 export const FIELD_CATEGORY = 'category';
@@ -44,7 +45,7 @@ export const QUOTE_FIELDS = {
   FIELD_PAGE,
   FIELD_QUOTE,
   FIELD_PUBLIC,
-  FIELD_AUTHOR,
+  FIELD_AUTHORS,
   FIELD_CATEGORY,
   FIELD_DESCRIPTION,
 };

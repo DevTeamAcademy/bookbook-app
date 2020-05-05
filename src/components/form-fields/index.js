@@ -2,10 +2,13 @@ import R from 'ramda';
 import React from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
+import { ErrorMessage } from 'formik';
 // components
 import { Multiswitch } from '../../components';
 // helpers
 import * as H from '../../helpers';
+// theme
+import Theme from '../../theme';
 // ui
 import { Box, Flex, Input, Label, Textarea } from '../../ui';
 // form-fields
@@ -65,6 +68,13 @@ export const FormFields = props => (
           value={R.path(['values', item.input.name], props)}
           placeholder={H.getLocale(R.path(['input', 'placeholder'], item))}
         />
+        <ErrorMessage name={item.input.name}>
+          {msg => (
+            <Box fontSize={14} color={Theme.colors.red}>
+              {msg}
+            </Box>
+          )}
+        </ErrorMessage>
       </Flex>
     ))}
   </Flex>

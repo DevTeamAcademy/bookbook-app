@@ -65,6 +65,7 @@ export const UA = {
     shelf: 'Поличка',
     page: 'Сторінка',
     link: 'Посилання',
+    authors: 'Автори',
     firstName: "Ім'я",
     password: 'Пароль',
     scope: 'Видимість',
@@ -111,6 +112,19 @@ export const UA = {
     [C.SEARCH_SWITCH_FIELDS.FIELD_QUOTE]: 'Цитати',
     [C.SEARCH_SWITCH_FIELDS.FIELD_BOOKER]: 'Букери',
     [C.SEARCH_SWITCH_FIELDS.FIELD_AUTHOR]: 'Автори',
+  },
+  validations: {
+    shouldBeNumeric: 'Має бути числом',
+    shouldBeUrl: 'Має бути посиланням',
+    fieldIsRequired: "Поле є обов'язковим",
+    shouldBePositive: 'Має бути позитивним',
+    fieldIsNotValid: 'Поле не є правильним',
+    shouldBeInteger: 'Має бути цілим числом',
+    shouldBeEmail: 'Має бути електронною поштою',
+  },
+  titles: {
+    minimum: 'Мінімум',
+    maximum: 'Максимум',
   },
 };
 
@@ -178,6 +192,7 @@ const EN = {
     scope: 'Scope',
     author: 'Author',
     public: 'Public',
+    authors: 'Автори',
     library: 'Library',
     private: 'Private',
     category: 'Category',
@@ -222,6 +237,13 @@ const EN = {
     [C.SEARCH_SWITCH_FIELDS.FIELD_QUOTE]: 'Quotes',
     [C.SEARCH_SWITCH_FIELDS.FIELD_BOOKER]: 'Bookers',
     [C.SEARCH_SWITCH_FIELDS.FIELD_AUTHOR]: 'Authors',
+  },
+  validations: {
+    fieldIsRequired: 'Field is required',
+  },
+  titles: {
+    maximum: 'Maximum',
+    minimum: 'Minimum',
   },
 };
 
@@ -289,6 +311,7 @@ const RU = {
     scope: 'Scope',
     author: 'Author',
     public: 'Public',
+    authors: 'Автори',
     library: 'Library',
     private: 'Private',
     category: 'Category',
@@ -333,6 +356,13 @@ const RU = {
     [C.SEARCH_SWITCH_FIELDS.FIELD_QUOTE]: 'Quotes',
     [C.SEARCH_SWITCH_FIELDS.FIELD_BOOKER]: 'Bookers',
     [C.SEARCH_SWITCH_FIELDS.FIELD_AUTHOR]: 'Authors',
+  },
+  validations: {
+    fieldIsRequired: 'Field is required',
+  },
+  titles: {
+    maximum: 'Maximum',
+    minimum: 'Minimum',
   },
 };
 
@@ -399,6 +429,7 @@ const PL = {
     email: 'Email',
     scope: 'Scope',
     author: 'Author',
+    authors: 'Автори',
     public: 'Public',
     library: 'Library',
     private: 'Private',
@@ -444,6 +475,13 @@ const PL = {
     [C.SEARCH_SWITCH_FIELDS.FIELD_QUOTE]: 'Quotes',
     [C.SEARCH_SWITCH_FIELDS.FIELD_BOOKER]: 'Bookers',
     [C.SEARCH_SWITCH_FIELDS.FIELD_AUTHOR]: 'Authors',
+  },
+  validations: {
+    fieldIsRequired: 'Field is required',
+  },
+  titles: {
+    maximum: 'Maximum',
+    minimum: 'Minimum',
   },
 };
 
